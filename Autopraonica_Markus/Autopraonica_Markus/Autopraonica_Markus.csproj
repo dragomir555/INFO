@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Baza.cs" />
+    <Compile Include="Drago.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
