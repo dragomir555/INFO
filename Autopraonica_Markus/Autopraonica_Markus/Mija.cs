@@ -8,6 +8,7 @@ namespace Autopraonica_Markus
 {
     class Mija
     {
-
+        string pero;
+        string mare;
     }
 }
