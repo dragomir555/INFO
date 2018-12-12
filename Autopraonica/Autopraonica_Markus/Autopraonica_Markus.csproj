@@ -55,6 +55,30 @@
     <Compile Include="forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\userControls\uclCijenovnik.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\userControls\uclCijenovnik.Designer.cs">
+      <DependentUpon>uclCijenovnik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\userControls\uclIzdavanjeRacuna.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\userControls\uclIzdavanjeRacuna.Designer.cs">
+      <DependentUpon>uclIzdavanjeRacuna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\userControls\uclKlijenti.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\userControls\uclKlijenti.Designer.cs">
+      <DependentUpon>uclKlijenti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\userControls\uclStatistika.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\userControls\uclStatistika.Designer.cs">
+      <DependentUpon>uclStatistika.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\userControls\uclTroskovnik.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -66,6 +90,12 @@
     </Compile>
     <Compile Include="forms\userControls\uclUsluge.Designer.cs">
       <DependentUpon>uclUsluge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\userControls\uclZaposleni.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\userControls\uclZaposleni.Designer.cs">
+      <DependentUpon>uclZaposleni.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

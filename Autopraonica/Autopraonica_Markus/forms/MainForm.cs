@@ -23,11 +23,6 @@ namespace Autopraonica_Markus
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnTroskovnik_Click(object sender, EventArgs e)
         {
             if (!pnlContent.Controls.Contains(uclTroskovnik.Instance))
@@ -42,11 +37,6 @@ namespace Autopraonica_Markus
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnUsluge_Click(object sender, EventArgs e)
         {
             if (!pnlContent.Controls.Contains(uclUsluge.Instance))
@@ -59,6 +49,11 @@ namespace Autopraonica_Markus
             {
                 uclUsluge.Instance.BringToFront();
             }
+        }
+
+        private void btnIzdRac_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
