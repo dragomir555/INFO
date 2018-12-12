@@ -55,5 +55,25 @@ namespace Autopraonica_Markus
         {
 
         }
+
+        private void btnCjenovnik_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnKlijenti_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnZaposleni_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnStatistika_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
