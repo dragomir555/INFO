@@ -13,9 +13,12 @@ namespace Autopraonica_Markus
 {
     public partial class MainForm : Form
     {
+        private Button PressedButton;
+
         public MainForm()
         {
             InitializeComponent();
+            PressedButton = btnUsluge;
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -35,6 +38,9 @@ namespace Autopraonica_Markus
             {
                 uclTroskovnik.Instance.BringToFront();
             }
+            PressedButton.BackColor = Color.FromArgb(107, 65, 150);
+            btnTroskovnik.BackColor = Color.FromArgb(93, 46, 140);
+            PressedButton = btnTroskovnik;
         }
 
         private void btnUsluge_Click(object sender, EventArgs e)
@@ -49,6 +55,9 @@ namespace Autopraonica_Markus
             {
                 uclUsluge.Instance.BringToFront();
             }
+            PressedButton.BackColor = Color.FromArgb(107, 65, 150);
+            btnUsluge.BackColor = Color.FromArgb(93, 46, 140);
+            PressedButton = btnUsluge;
         }
 
         private void btnIzdRac_Click(object sender, EventArgs e)
@@ -63,6 +72,9 @@ namespace Autopraonica_Markus
             {
                 uclIzdavanjeRacuna.Instance.BringToFront();
             }
+            PressedButton.BackColor = Color.FromArgb(107, 65, 150);
+            btnIzdRac.BackColor = Color.FromArgb(93, 46, 140);
+            PressedButton = btnIzdRac;
         }
 
         private void btnCjenovnik_Click(object sender, EventArgs e)
@@ -77,6 +89,9 @@ namespace Autopraonica_Markus
             {
                 uclCijenovnik.Instance.BringToFront();
             }
+            PressedButton.BackColor = Color.FromArgb(107, 65, 150);
+            btnCjenovnik.BackColor = Color.FromArgb(93, 46, 140);
+            PressedButton = btnCjenovnik;
         }
 
         private void btnKlijenti_Click(object sender, EventArgs e)
@@ -91,6 +106,9 @@ namespace Autopraonica_Markus
             {
                 uclKlijenti.Instance.BringToFront();
             }
+            PressedButton.BackColor = Color.FromArgb(107, 65, 150);
+            btnKlijenti.BackColor = Color.FromArgb(93, 46, 140);
+            PressedButton = btnKlijenti;
         }
 
         private void btnZaposleni_Click(object sender, EventArgs e)
@@ -105,6 +123,9 @@ namespace Autopraonica_Markus
             {
                 uclZaposleni.Instance.BringToFront();
             }
+            PressedButton.BackColor = Color.FromArgb(107, 65, 150);
+            btnZaposleni.BackColor = Color.FromArgb(93, 46, 140);
+            PressedButton = btnZaposleni;
         }
 
         private void btnStatistika_Click(object sender, EventArgs e)
@@ -119,6 +140,9 @@ namespace Autopraonica_Markus
             {
                 uclStatistika.Instance.BringToFront();
             }
+            PressedButton.BackColor = Color.FromArgb(107, 65, 150);
+            btnStatistika.BackColor = Color.FromArgb(93, 46, 140);
+            PressedButton = btnStatistika;
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)

@@ -36,23 +36,27 @@
             this.btnCjenovnik = new System.Windows.Forms.Button();
             this.btnUsluge = new System.Windows.Forms.Button();
             this.btnTroskovnik = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlStatus = new System.Windows.Forms.Panel();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.tlpContent = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpMenu = new System.Windows.Forms.TableLayoutPanel();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.panel3.SuspendLayout();
-            this.tlpContent.SuspendLayout();
+            this.lblHelper = new System.Windows.Forms.Label();
+            this.btnAddHelper = new System.Windows.Forms.Button();
+            this.btnRemoveHelper = new System.Windows.Forms.Button();
+            this.pnlStatus.SuspendLayout();
+            this.tlpMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnIzdRac
             // 
             this.btnIzdRac.FlatAppearance.BorderSize = 0;
+            this.btnIzdRac.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnIzdRac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIzdRac.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIzdRac.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnIzdRac.ForeColor = System.Drawing.Color.White;
             this.btnIzdRac.Location = new System.Drawing.Point(0, 363);
             this.btnIzdRac.Name = "btnIzdRac";
             this.btnIzdRac.Size = new System.Drawing.Size(200, 40);
@@ -64,9 +68,10 @@
             // btnStatistika
             // 
             this.btnStatistika.FlatAppearance.BorderSize = 0;
+            this.btnStatistika.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnStatistika.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistika.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnStatistika.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnStatistika.ForeColor = System.Drawing.Color.White;
             this.btnStatistika.Location = new System.Drawing.Point(0, 409);
             this.btnStatistika.Name = "btnStatistika";
             this.btnStatistika.Size = new System.Drawing.Size(200, 40);
@@ -78,9 +83,10 @@
             // btnZaposleni
             // 
             this.btnZaposleni.FlatAppearance.BorderSize = 0;
+            this.btnZaposleni.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnZaposleni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZaposleni.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZaposleni.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnZaposleni.ForeColor = System.Drawing.Color.White;
             this.btnZaposleni.Location = new System.Drawing.Point(0, 320);
             this.btnZaposleni.Name = "btnZaposleni";
             this.btnZaposleni.Size = new System.Drawing.Size(200, 40);
@@ -92,9 +98,10 @@
             // btnKlijenti
             // 
             this.btnKlijenti.FlatAppearance.BorderSize = 0;
+            this.btnKlijenti.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnKlijenti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKlijenti.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnKlijenti.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnKlijenti.ForeColor = System.Drawing.Color.White;
             this.btnKlijenti.Location = new System.Drawing.Point(0, 272);
             this.btnKlijenti.Name = "btnKlijenti";
             this.btnKlijenti.Size = new System.Drawing.Size(200, 40);
@@ -106,9 +113,10 @@
             // btnCjenovnik
             // 
             this.btnCjenovnik.FlatAppearance.BorderSize = 0;
+            this.btnCjenovnik.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnCjenovnik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCjenovnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnCjenovnik.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnCjenovnik.ForeColor = System.Drawing.Color.White;
             this.btnCjenovnik.Location = new System.Drawing.Point(0, 226);
             this.btnCjenovnik.Name = "btnCjenovnik";
             this.btnCjenovnik.Size = new System.Drawing.Size(200, 40);
@@ -121,23 +129,25 @@
             // 
             this.btnUsluge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnUsluge.FlatAppearance.BorderSize = 0;
+            this.btnUsluge.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnUsluge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsluge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUsluge.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnUsluge.ForeColor = System.Drawing.Color.White;
             this.btnUsluge.Location = new System.Drawing.Point(0, 141);
             this.btnUsluge.Name = "btnUsluge";
             this.btnUsluge.Size = new System.Drawing.Size(200, 40);
             this.btnUsluge.TabIndex = 0;
             this.btnUsluge.Text = "Usluge";
-            this.btnUsluge.UseVisualStyleBackColor = false;
+            this.btnUsluge.UseVisualStyleBackColor = true;
             this.btnUsluge.Click += new System.EventHandler(this.btnUsluge_Click);
             // 
             // btnTroskovnik
             // 
             this.btnTroskovnik.FlatAppearance.BorderSize = 0;
+            this.btnTroskovnik.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnTroskovnik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTroskovnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnTroskovnik.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnTroskovnik.ForeColor = System.Drawing.Color.White;
             this.btnTroskovnik.Location = new System.Drawing.Point(0, 186);
             this.btnTroskovnik.Name = "btnTroskovnik";
             this.btnTroskovnik.Size = new System.Drawing.Size(200, 40);
@@ -146,20 +156,23 @@
             this.btnTroskovnik.UseVisualStyleBackColor = true;
             this.btnTroskovnik.Click += new System.EventHandler(this.btnTroskovnik_Click);
             // 
-            // panel3
+            // pnlStatus
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnlStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.panel3.Controls.Add(this.btnLogout);
-            this.panel3.Controls.Add(this.lblUser);
-            this.panel3.Controls.Add(this.lblDate);
-            this.panel3.Controls.Add(this.lblTime);
-            this.panel3.Location = new System.Drawing.Point(200, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(600, 70);
-            this.panel3.TabIndex = 1;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            this.pnlStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.pnlStatus.Controls.Add(this.btnRemoveHelper);
+            this.pnlStatus.Controls.Add(this.btnAddHelper);
+            this.pnlStatus.Controls.Add(this.lblHelper);
+            this.pnlStatus.Controls.Add(this.btnLogout);
+            this.pnlStatus.Controls.Add(this.lblUser);
+            this.pnlStatus.Controls.Add(this.lblDate);
+            this.pnlStatus.Controls.Add(this.lblTime);
+            this.pnlStatus.Location = new System.Drawing.Point(200, 0);
+            this.pnlStatus.Name = "pnlStatus";
+            this.pnlStatus.Size = new System.Drawing.Size(600, 70);
+            this.pnlStatus.TabIndex = 1;
+            this.pnlStatus.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // pnlContent
             // 
@@ -167,41 +180,41 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContent.BackColor = System.Drawing.Color.White;
-            this.pnlContent.ForeColor = System.Drawing.SystemColors.Window;
+            this.pnlContent.ForeColor = System.Drawing.Color.Black;
             this.pnlContent.Location = new System.Drawing.Point(200, 70);
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(601, 380);
             this.pnlContent.TabIndex = 2;
             // 
-            // tlpContent
+            // tlpMenu
             // 
-            this.tlpContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tlpMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.tlpContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
-            this.tlpContent.ColumnCount = 1;
-            this.tlpContent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpContent.Controls.Add(this.btnStatistika, 0, 8);
-            this.tlpContent.Controls.Add(this.btnUsluge, 0, 2);
-            this.tlpContent.Controls.Add(this.btnIzdRac, 0, 7);
-            this.tlpContent.Controls.Add(this.btnZaposleni, 0, 6);
-            this.tlpContent.Controls.Add(this.btnKlijenti, 0, 5);
-            this.tlpContent.Controls.Add(this.btnCjenovnik, 0, 4);
-            this.tlpContent.Controls.Add(this.btnTroskovnik, 0, 3);
-            this.tlpContent.Location = new System.Drawing.Point(0, 0);
-            this.tlpContent.Name = "tlpContent";
-            this.tlpContent.RowCount = 9;
-            this.tlpContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tlpContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpContent.Size = new System.Drawing.Size(200, 456);
-            this.tlpContent.TabIndex = 4;
-            this.tlpContent.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpContent_Paint);
+            this.tlpMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.tlpMenu.ColumnCount = 1;
+            this.tlpMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMenu.Controls.Add(this.btnStatistika, 0, 8);
+            this.tlpMenu.Controls.Add(this.btnUsluge, 0, 2);
+            this.tlpMenu.Controls.Add(this.btnIzdRac, 0, 7);
+            this.tlpMenu.Controls.Add(this.btnZaposleni, 0, 6);
+            this.tlpMenu.Controls.Add(this.btnKlijenti, 0, 5);
+            this.tlpMenu.Controls.Add(this.btnCjenovnik, 0, 4);
+            this.tlpMenu.Controls.Add(this.btnTroskovnik, 0, 3);
+            this.tlpMenu.Location = new System.Drawing.Point(0, 0);
+            this.tlpMenu.Name = "tlpMenu";
+            this.tlpMenu.RowCount = 9;
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tlpMenu.Size = new System.Drawing.Size(200, 456);
+            this.tlpMenu.TabIndex = 4;
+            this.tlpMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpContent_Paint);
             // 
             // lblTime
             // 
@@ -247,26 +260,55 @@
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
             // 
+            // lblHelper
+            // 
+            this.lblHelper.AutoSize = true;
+            this.lblHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHelper.ForeColor = System.Drawing.Color.White;
+            this.lblHelper.Location = new System.Drawing.Point(184, 10);
+            this.lblHelper.Name = "lblHelper";
+            this.lblHelper.Size = new System.Drawing.Size(82, 24);
+            this.lblHelper.TabIndex = 4;
+            this.lblHelper.Text = "Ispomoc";
+            // 
+            // btnAddHelper
+            // 
+            this.btnAddHelper.Location = new System.Drawing.Point(198, 41);
+            this.btnAddHelper.Name = "btnAddHelper";
+            this.btnAddHelper.Size = new System.Drawing.Size(23, 23);
+            this.btnAddHelper.TabIndex = 5;
+            this.btnAddHelper.Text = "+";
+            this.btnAddHelper.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoveHelper
+            // 
+            this.btnRemoveHelper.Location = new System.Drawing.Point(227, 41);
+            this.btnRemoveHelper.Name = "btnRemoveHelper";
+            this.btnRemoveHelper.Size = new System.Drawing.Size(23, 23);
+            this.btnRemoveHelper.TabIndex = 6;
+            this.btnRemoveHelper.Text = "X";
+            this.btnRemoveHelper.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tlpContent);
+            this.Controls.Add(this.tlpMenu);
             this.Controls.Add(this.pnlContent);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pnlStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Markus";
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.tlpContent.ResumeLayout(false);
+            this.pnlStatus.ResumeLayout(false);
+            this.pnlStatus.PerformLayout();
+            this.tlpMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlStatus;
         private System.Windows.Forms.Panel pnlContent;
         private System.Windows.Forms.Button btnTroskovnik;
         private System.Windows.Forms.Button btnUsluge;
@@ -275,11 +317,14 @@
         private System.Windows.Forms.Button btnZaposleni;
         private System.Windows.Forms.Button btnKlijenti;
         public System.Windows.Forms.Button btnCjenovnik;
-        private System.Windows.Forms.TableLayoutPanel tlpContent;
+        private System.Windows.Forms.TableLayoutPanel tlpMenu;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Label lblHelper;
+        private System.Windows.Forms.Button btnRemoveHelper;
+        private System.Windows.Forms.Button btnAddHelper;
     }
 }
 
