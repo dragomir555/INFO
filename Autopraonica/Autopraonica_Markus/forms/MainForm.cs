@@ -120,5 +120,15 @@ namespace Autopraonica_Markus
                 uclStatistika.Instance.BringToFront();
             }
         }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tlpContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
