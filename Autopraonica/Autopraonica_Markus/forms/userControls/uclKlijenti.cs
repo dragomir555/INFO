@@ -29,5 +29,16 @@ namespace Autopraonica_Markus.forms.userControls
         {
             InitializeComponent();
         }
+
+
+        private void uclKlijenti_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FillTable()
+        {
+            
+        }
     }
 }
