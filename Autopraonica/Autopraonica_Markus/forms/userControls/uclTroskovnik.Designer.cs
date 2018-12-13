@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.Name = "uclTroskovnik";
-            this.Size = new System.Drawing.Size(961, 446);
+            this.Size = new System.Drawing.Size(601, 382);
             this.ResumeLayout(false);
 
         }

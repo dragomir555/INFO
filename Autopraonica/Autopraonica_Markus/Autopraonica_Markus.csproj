@@ -108,11 +108,26 @@
     <EmbeddedResource Include="forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\userControls\uclCijenovnik.resx">
+      <DependentUpon>uclCijenovnik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\userControls\uclIzdavanjeRacuna.resx">
+      <DependentUpon>uclIzdavanjeRacuna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\userControls\uclKlijenti.resx">
+      <DependentUpon>uclKlijenti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\userControls\uclStatistika.resx">
+      <DependentUpon>uclStatistika.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\userControls\uclTroskovnik.resx">
       <DependentUpon>uclTroskovnik.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\userControls\uclUsluge.resx">
       <DependentUpon>uclUsluge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\userControls\uclZaposleni.resx">
+      <DependentUpon>uclZaposleni.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

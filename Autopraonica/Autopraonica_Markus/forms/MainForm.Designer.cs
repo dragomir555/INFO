@@ -54,7 +54,7 @@
             this.pnlMenu.Controls.Add(this.btnCjenovnik);
             this.pnlMenu.Controls.Add(this.btnUsluge);
             this.pnlMenu.Controls.Add(this.btnTroskovnik);
-            this.pnlMenu.Location = new System.Drawing.Point(0, -4);
+            this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(200, 456);
             this.pnlMenu.TabIndex = 0;
@@ -65,7 +65,7 @@
             this.btnIzdRac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIzdRac.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnIzdRac.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnIzdRac.Location = new System.Drawing.Point(10, 336);
+            this.btnIzdRac.Location = new System.Drawing.Point(10, 340);
             this.btnIzdRac.Name = "btnIzdRac";
             this.btnIzdRac.Size = new System.Drawing.Size(180, 40);
             this.btnIzdRac.TabIndex = 0;
@@ -79,7 +79,7 @@
             this.btnStatistika.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistika.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnStatistika.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnStatistika.Location = new System.Drawing.Point(10, 385);
+            this.btnStatistika.Location = new System.Drawing.Point(10, 390);
             this.btnStatistika.Name = "btnStatistika";
             this.btnStatistika.Size = new System.Drawing.Size(180, 40);
             this.btnStatistika.TabIndex = 3;
@@ -93,7 +93,7 @@
             this.btnZaposleni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZaposleni.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnZaposleni.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnZaposleni.Location = new System.Drawing.Point(10, 295);
+            this.btnZaposleni.Location = new System.Drawing.Point(10, 290);
             this.btnZaposleni.Name = "btnZaposleni";
             this.btnZaposleni.Size = new System.Drawing.Size(180, 40);
             this.btnZaposleni.TabIndex = 2;
@@ -107,7 +107,7 @@
             this.btnKlijenti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKlijenti.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnKlijenti.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnKlijenti.Location = new System.Drawing.Point(10, 248);
+            this.btnKlijenti.Location = new System.Drawing.Point(10, 240);
             this.btnKlijenti.Name = "btnKlijenti";
             this.btnKlijenti.Size = new System.Drawing.Size(180, 40);
             this.btnKlijenti.TabIndex = 0;
@@ -121,7 +121,7 @@
             this.btnCjenovnik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCjenovnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCjenovnik.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnCjenovnik.Location = new System.Drawing.Point(10, 200);
+            this.btnCjenovnik.Location = new System.Drawing.Point(10, 190);
             this.btnCjenovnik.Name = "btnCjenovnik";
             this.btnCjenovnik.Size = new System.Drawing.Size(180, 40);
             this.btnCjenovnik.TabIndex = 0;
@@ -136,7 +136,7 @@
             this.btnUsluge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsluge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnUsluge.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnUsluge.Location = new System.Drawing.Point(10, 94);
+            this.btnUsluge.Location = new System.Drawing.Point(10, 90);
             this.btnUsluge.Name = "btnUsluge";
             this.btnUsluge.Size = new System.Drawing.Size(180, 40);
             this.btnUsluge.TabIndex = 0;
@@ -150,7 +150,7 @@
             this.btnTroskovnik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTroskovnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnTroskovnik.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnTroskovnik.Location = new System.Drawing.Point(10, 151);
+            this.btnTroskovnik.Location = new System.Drawing.Point(10, 140);
             this.btnTroskovnik.Name = "btnTroskovnik";
             this.btnTroskovnik.Size = new System.Drawing.Size(180, 40);
             this.btnTroskovnik.TabIndex = 1;
@@ -165,7 +165,7 @@
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel3.Location = new System.Drawing.Point(200, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(601, 70);
+            this.panel3.Size = new System.Drawing.Size(600, 70);
             this.panel3.TabIndex = 1;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -178,7 +178,7 @@
             this.pnlContent.ForeColor = System.Drawing.SystemColors.Window;
             this.pnlContent.Location = new System.Drawing.Point(200, 70);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(601, 382);
+            this.pnlContent.Size = new System.Drawing.Size(601, 380);
             this.pnlContent.TabIndex = 2;
             // 
             // MainForm

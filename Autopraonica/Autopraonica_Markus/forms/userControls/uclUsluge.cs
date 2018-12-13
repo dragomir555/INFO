@@ -12,7 +12,6 @@ namespace Autopraonica_Markus.forms.userControls
 {
     public partial class uclUsluge : UserControl
     {
-
         private static uclUsluge instance;
 
         public static uclUsluge Instance

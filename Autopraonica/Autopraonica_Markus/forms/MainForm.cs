@@ -53,27 +53,72 @@ namespace Autopraonica_Markus
 
         private void btnIzdRac_Click(object sender, EventArgs e)
         {
-
+            if (!pnlContent.Controls.Contains(uclIzdavanjeRacuna.Instance))
+            {
+                pnlContent.Controls.Add(uclIzdavanjeRacuna.Instance);
+                uclIzdavanjeRacuna.Instance.Dock = DockStyle.Fill;
+                uclIzdavanjeRacuna.Instance.BringToFront();
+            }
+            else
+            {
+                uclIzdavanjeRacuna.Instance.BringToFront();
+            }
         }
 
         private void btnCjenovnik_Click(object sender, EventArgs e)
         {
-
+            if (!pnlContent.Controls.Contains(uclCijenovnik.Instance))
+            {
+                pnlContent.Controls.Add(uclCijenovnik.Instance);
+                uclCijenovnik.Instance.Dock = DockStyle.Fill;
+                uclCijenovnik.Instance.BringToFront();
+            }
+            else
+            {
+                uclCijenovnik.Instance.BringToFront();
+            }
         }
 
         private void btnKlijenti_Click(object sender, EventArgs e)
         {
-
+            if (!pnlContent.Controls.Contains(uclKlijenti.Instance))
+            {
+                pnlContent.Controls.Add(uclKlijenti.Instance);
+                uclKlijenti.Instance.Dock = DockStyle.Fill;
+                uclKlijenti.Instance.BringToFront();
+            }
+            else
+            {
+                uclKlijenti.Instance.BringToFront();
+            }
         }
 
         private void btnZaposleni_Click(object sender, EventArgs e)
         {
-
+            if (!pnlContent.Controls.Contains(uclZaposleni.Instance))
+            {
+                pnlContent.Controls.Add(uclZaposleni.Instance);
+                uclZaposleni.Instance.Dock = DockStyle.Fill;
+                uclZaposleni.Instance.BringToFront();
+            }
+            else
+            {
+                uclZaposleni.Instance.BringToFront();
+            }
         }
 
         private void btnStatistika_Click(object sender, EventArgs e)
         {
-
+            if (!pnlContent.Controls.Contains(uclStatistika.Instance))
+            {
+                pnlContent.Controls.Add(uclStatistika.Instance);
+                uclStatistika.Instance.Dock = DockStyle.Fill;
+                uclStatistika.Instance.BringToFront();
+            }
+            else
+            {
+                uclStatistika.Instance.BringToFront();
+            }
         }
     }
 }

@@ -12,6 +12,19 @@ namespace Autopraonica_Markus.forms.userControls
 {
     public partial class uclStatistika : UserControl
     {
+        private static uclStatistika instance;
+
+        public static uclStatistika Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new uclStatistika();
+                }
+                return instance;
+            }
+        }
         public uclStatistika()
         {
             InitializeComponent();

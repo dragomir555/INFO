@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.Name = "uclUsluge";
-            this.Size = new System.Drawing.Size(895, 419);
+            this.Size = new System.Drawing.Size(601, 382);
             this.ResumeLayout(false);
 
         }
