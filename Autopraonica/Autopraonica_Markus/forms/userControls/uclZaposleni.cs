@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Autopraonica_Markus.forms.employeeForms;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -28,6 +29,12 @@ namespace Autopraonica_Markus.forms.userControls
         public uclZaposleni()
         {
             InitializeComponent();
+        }
+
+        private void btnNewEmployee_Click(object sender, EventArgs e)
+        {
+            NewEmployeeForm nef = new NewEmployeeForm();
+            nef.ShowDialog();
         }
     }
 }

@@ -35,6 +35,7 @@
             this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUgovorOd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUgovorDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNewEmployee = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,12 +90,23 @@
             this.colUgovorDo.HeaderText = "UgvorDo";
             this.colUgovorDo.Name = "colUgovorDo";
             // 
+            // btnNewEmployee
+            // 
+            this.btnNewEmployee.Location = new System.Drawing.Point(246, 65);
+            this.btnNewEmployee.Name = "btnNewEmployee";
+            this.btnNewEmployee.Size = new System.Drawing.Size(194, 23);
+            this.btnNewEmployee.TabIndex = 5;
+            this.btnNewEmployee.Text = "Novi zaposleni";
+            this.btnNewEmployee.UseVisualStyleBackColor = true;
+            this.btnNewEmployee.Click += new System.EventHandler(this.btnNewEmployee_Click);
+            // 
             // uclZaposleni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnNewEmployee);
             this.Controls.Add(this.dgvKlijenti);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uclZaposleni";
             this.Size = new System.Drawing.Size(847, 470);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).EndInit();
@@ -111,5 +123,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUgovorOd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUgovorDo;
+        private System.Windows.Forms.Button btnNewEmployee;
     }
 }
