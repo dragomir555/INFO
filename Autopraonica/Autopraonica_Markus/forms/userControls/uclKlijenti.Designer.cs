@@ -43,18 +43,20 @@
             // 
             // btnIzmjeniKlijenta
             // 
-            this.btnIzmjeniKlijenta.Location = new System.Drawing.Point(146, 20);
+            this.btnIzmjeniKlijenta.Location = new System.Drawing.Point(195, 25);
+            this.btnIzmjeniKlijenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIzmjeniKlijenta.Name = "btnIzmjeniKlijenta";
-            this.btnIzmjeniKlijenta.Size = new System.Drawing.Size(107, 23);
+            this.btnIzmjeniKlijenta.Size = new System.Drawing.Size(143, 28);
             this.btnIzmjeniKlijenta.TabIndex = 1;
             this.btnIzmjeniKlijenta.Text = "Izmjeni klijenta";
             this.btnIzmjeniKlijenta.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(19, 75);
+            this.textBox1.Location = new System.Drawing.Point(25, 92);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(213, 20);
+            this.textBox1.Size = new System.Drawing.Size(283, 22);
             this.textBox1.TabIndex = 2;
             // 
             // dgvKlijenti
@@ -70,9 +72,10 @@
             this.colAddress,
             this.colUgovorOd,
             this.colUgovorDo});
-            this.dgvKlijenti.Location = new System.Drawing.Point(19, 129);
+            this.dgvKlijenti.Location = new System.Drawing.Point(25, 159);
+            this.dgvKlijenti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvKlijenti.Name = "dgvKlijenti";
-            this.dgvKlijenti.Size = new System.Drawing.Size(649, 240);
+            this.dgvKlijenti.Size = new System.Drawing.Size(865, 295);
             this.dgvKlijenti.TabIndex = 3;
             // 
             // colNaziv
@@ -109,9 +112,10 @@
             // 
             // btnNoviKlijent
             // 
-            this.btnNoviKlijent.Location = new System.Drawing.Point(19, 20);
+            this.btnNoviKlijent.Location = new System.Drawing.Point(25, 25);
+            this.btnNoviKlijent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNoviKlijent.Name = "btnNoviKlijent";
-            this.btnNoviKlijent.Size = new System.Drawing.Size(121, 23);
+            this.btnNoviKlijent.Size = new System.Drawing.Size(161, 28);
             this.btnNoviKlijent.TabIndex = 4;
             this.btnNoviKlijent.Text = "Novi klijent";
             this.btnNoviKlijent.UseVisualStyleBackColor = true;
@@ -119,14 +123,15 @@
             // 
             // uclKlijenti
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnNoviKlijent);
             this.Controls.Add(this.dgvKlijenti);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnIzmjeniKlijenta);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "uclKlijenti";
-            this.Size = new System.Drawing.Size(683, 382);
+            this.Size = new System.Drawing.Size(911, 470);
             this.Load += new System.EventHandler(this.uclKlijenti_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).EndInit();
             this.ResumeLayout(false);
