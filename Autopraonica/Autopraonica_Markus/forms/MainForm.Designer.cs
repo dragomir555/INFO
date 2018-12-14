@@ -37,15 +37,15 @@
             this.btnUsluge = new System.Windows.Forms.Button();
             this.btnTroskovnik = new System.Windows.Forms.Button();
             this.pnlStatus = new System.Windows.Forms.Panel();
+            this.btnRemoveHelper = new System.Windows.Forms.Button();
+            this.btnAddHelper = new System.Windows.Forms.Button();
+            this.lblHelper = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.tlpMenu = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.lblHelper = new System.Windows.Forms.Label();
-            this.btnAddHelper = new System.Windows.Forms.Button();
-            this.btnRemoveHelper = new System.Windows.Forms.Button();
             this.pnlStatus.SuspendLayout();
             this.tlpMenu.SuspendLayout();
             this.SuspendLayout();
@@ -57,9 +57,9 @@
             this.btnIzdRac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIzdRac.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnIzdRac.ForeColor = System.Drawing.Color.White;
-            this.btnIzdRac.Location = new System.Drawing.Point(0, 363);
+            this.btnIzdRac.Location = new System.Drawing.Point(3, 364);
             this.btnIzdRac.Name = "btnIzdRac";
-            this.btnIzdRac.Size = new System.Drawing.Size(200, 40);
+            this.btnIzdRac.Size = new System.Drawing.Size(194, 39);
             this.btnIzdRac.TabIndex = 0;
             this.btnIzdRac.Text = "Izdavanje računa";
             this.btnIzdRac.UseVisualStyleBackColor = true;
@@ -72,9 +72,9 @@
             this.btnStatistika.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistika.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnStatistika.ForeColor = System.Drawing.Color.White;
-            this.btnStatistika.Location = new System.Drawing.Point(0, 409);
+            this.btnStatistika.Location = new System.Drawing.Point(3, 409);
             this.btnStatistika.Name = "btnStatistika";
-            this.btnStatistika.Size = new System.Drawing.Size(200, 40);
+            this.btnStatistika.Size = new System.Drawing.Size(194, 40);
             this.btnStatistika.TabIndex = 3;
             this.btnStatistika.Text = "Statistika";
             this.btnStatistika.UseVisualStyleBackColor = true;
@@ -87,9 +87,9 @@
             this.btnZaposleni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZaposleni.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnZaposleni.ForeColor = System.Drawing.Color.White;
-            this.btnZaposleni.Location = new System.Drawing.Point(0, 320);
+            this.btnZaposleni.Location = new System.Drawing.Point(3, 319);
             this.btnZaposleni.Name = "btnZaposleni";
-            this.btnZaposleni.Size = new System.Drawing.Size(200, 40);
+            this.btnZaposleni.Size = new System.Drawing.Size(194, 39);
             this.btnZaposleni.TabIndex = 2;
             this.btnZaposleni.Text = "Zaposleni";
             this.btnZaposleni.UseVisualStyleBackColor = true;
@@ -102,9 +102,9 @@
             this.btnKlijenti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKlijenti.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnKlijenti.ForeColor = System.Drawing.Color.White;
-            this.btnKlijenti.Location = new System.Drawing.Point(0, 272);
+            this.btnKlijenti.Location = new System.Drawing.Point(3, 274);
             this.btnKlijenti.Name = "btnKlijenti";
-            this.btnKlijenti.Size = new System.Drawing.Size(200, 40);
+            this.btnKlijenti.Size = new System.Drawing.Size(194, 39);
             this.btnKlijenti.TabIndex = 0;
             this.btnKlijenti.Text = "Klijenti";
             this.btnKlijenti.UseVisualStyleBackColor = true;
@@ -117,9 +117,9 @@
             this.btnCjenovnik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCjenovnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCjenovnik.ForeColor = System.Drawing.Color.White;
-            this.btnCjenovnik.Location = new System.Drawing.Point(0, 226);
+            this.btnCjenovnik.Location = new System.Drawing.Point(3, 229);
             this.btnCjenovnik.Name = "btnCjenovnik";
-            this.btnCjenovnik.Size = new System.Drawing.Size(200, 40);
+            this.btnCjenovnik.Size = new System.Drawing.Size(194, 39);
             this.btnCjenovnik.TabIndex = 0;
             this.btnCjenovnik.Text = "Cijenovnik";
             this.btnCjenovnik.UseVisualStyleBackColor = true;
@@ -133,9 +133,9 @@
             this.btnUsluge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsluge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnUsluge.ForeColor = System.Drawing.Color.White;
-            this.btnUsluge.Location = new System.Drawing.Point(0, 141);
+            this.btnUsluge.Location = new System.Drawing.Point(3, 139);
             this.btnUsluge.Name = "btnUsluge";
-            this.btnUsluge.Size = new System.Drawing.Size(200, 40);
+            this.btnUsluge.Size = new System.Drawing.Size(194, 39);
             this.btnUsluge.TabIndex = 0;
             this.btnUsluge.Text = "Usluge";
             this.btnUsluge.UseVisualStyleBackColor = true;
@@ -148,9 +148,9 @@
             this.btnTroskovnik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTroskovnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnTroskovnik.ForeColor = System.Drawing.Color.White;
-            this.btnTroskovnik.Location = new System.Drawing.Point(0, 186);
+            this.btnTroskovnik.Location = new System.Drawing.Point(3, 184);
             this.btnTroskovnik.Name = "btnTroskovnik";
-            this.btnTroskovnik.Size = new System.Drawing.Size(200, 40);
+            this.btnTroskovnik.Size = new System.Drawing.Size(194, 39);
             this.btnTroskovnik.TabIndex = 1;
             this.btnTroskovnik.Text = "Troškovnik";
             this.btnTroskovnik.UseVisualStyleBackColor = true;
@@ -173,6 +173,80 @@
             this.pnlStatus.Size = new System.Drawing.Size(600, 70);
             this.pnlStatus.TabIndex = 1;
             this.pnlStatus.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // btnRemoveHelper
+            // 
+            this.btnRemoveHelper.Location = new System.Drawing.Point(227, 41);
+            this.btnRemoveHelper.Name = "btnRemoveHelper";
+            this.btnRemoveHelper.Size = new System.Drawing.Size(23, 23);
+            this.btnRemoveHelper.TabIndex = 6;
+            this.btnRemoveHelper.Text = "X";
+            this.btnRemoveHelper.UseVisualStyleBackColor = true;
+            // 
+            // btnAddHelper
+            // 
+            this.btnAddHelper.Location = new System.Drawing.Point(198, 41);
+            this.btnAddHelper.Name = "btnAddHelper";
+            this.btnAddHelper.Size = new System.Drawing.Size(23, 23);
+            this.btnAddHelper.TabIndex = 5;
+            this.btnAddHelper.Text = "+";
+            this.btnAddHelper.UseVisualStyleBackColor = true;
+            // 
+            // lblHelper
+            // 
+            this.lblHelper.AutoSize = true;
+            this.lblHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHelper.ForeColor = System.Drawing.Color.White;
+            this.lblHelper.Location = new System.Drawing.Point(184, 10);
+            this.lblHelper.Name = "lblHelper";
+            this.lblHelper.Size = new System.Drawing.Size(82, 24);
+            this.lblHelper.TabIndex = 4;
+            this.lblHelper.Text = "Ispomoc";
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(24, 41);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(107, 23);
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            // 
+            // lblUser
+            // 
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUser.ForeColor = System.Drawing.Color.White;
+            this.lblUser.Location = new System.Drawing.Point(7, 10);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(142, 24);
+            this.lblUser.TabIndex = 2;
+            this.lblUser.Text = "Marko Markovic";
+            // 
+            // lblDate
+            // 
+            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblDate.ForeColor = System.Drawing.Color.White;
+            this.lblDate.Location = new System.Drawing.Point(485, 38);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(100, 24);
+            this.lblDate.TabIndex = 1;
+            this.lblDate.Text = "13.12.2018";
+            // 
+            // lblTime
+            // 
+            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblTime.ForeColor = System.Drawing.Color.White;
+            this.lblTime.Location = new System.Drawing.Point(495, 10);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(66, 25);
+            this.lblTime.TabIndex = 0;
+            this.lblTime.Text = "14:47";
+            this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
             // 
             // pnlContent
             // 
@@ -216,79 +290,6 @@
             this.tlpMenu.TabIndex = 4;
             this.tlpMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpContent_Paint);
             // 
-            // lblTime
-            // 
-            this.lblTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(533, 10);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(55, 24);
-            this.lblTime.TabIndex = 0;
-            this.lblTime.Text = "14:47";
-            // 
-            // lblDate
-            // 
-            this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(512, 38);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(89, 20);
-            this.lblDate.TabIndex = 1;
-            this.lblDate.Text = "13.12.2018";
-            // 
-            // lblUser
-            // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.White;
-            this.lblUser.Location = new System.Drawing.Point(7, 10);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(142, 24);
-            this.lblUser.TabIndex = 2;
-            this.lblUser.Text = "Marko Markovic";
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.Location = new System.Drawing.Point(24, 41);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(107, 23);
-            this.btnLogout.TabIndex = 3;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
-            // 
-            // lblHelper
-            // 
-            this.lblHelper.AutoSize = true;
-            this.lblHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHelper.ForeColor = System.Drawing.Color.White;
-            this.lblHelper.Location = new System.Drawing.Point(184, 10);
-            this.lblHelper.Name = "lblHelper";
-            this.lblHelper.Size = new System.Drawing.Size(82, 24);
-            this.lblHelper.TabIndex = 4;
-            this.lblHelper.Text = "Ispomoc";
-            // 
-            // btnAddHelper
-            // 
-            this.btnAddHelper.Location = new System.Drawing.Point(198, 41);
-            this.btnAddHelper.Name = "btnAddHelper";
-            this.btnAddHelper.Size = new System.Drawing.Size(23, 23);
-            this.btnAddHelper.TabIndex = 5;
-            this.btnAddHelper.Text = "+";
-            this.btnAddHelper.UseVisualStyleBackColor = true;
-            // 
-            // btnRemoveHelper
-            // 
-            this.btnRemoveHelper.Location = new System.Drawing.Point(227, 41);
-            this.btnRemoveHelper.Name = "btnRemoveHelper";
-            this.btnRemoveHelper.Size = new System.Drawing.Size(23, 23);
-            this.btnRemoveHelper.TabIndex = 6;
-            this.btnRemoveHelper.Text = "X";
-            this.btnRemoveHelper.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +301,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Markus";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.pnlStatus.ResumeLayout(false);
             this.pnlStatus.PerformLayout();
             this.tlpMenu.ResumeLayout(false);

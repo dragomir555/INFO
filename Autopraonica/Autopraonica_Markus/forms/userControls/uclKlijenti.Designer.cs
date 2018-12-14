@@ -115,6 +115,7 @@
             this.btnNoviKlijent.TabIndex = 4;
             this.btnNoviKlijent.Text = "Novi klijent";
             this.btnNoviKlijent.UseVisualStyleBackColor = true;
+            this.btnNoviKlijent.Click += new System.EventHandler(this.btnNoviKlijent_Click);
             // 
             // uclKlijenti
             // 

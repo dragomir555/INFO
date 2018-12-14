@@ -14,7 +14,7 @@ namespace Autopraonica_Markus
     public partial class MainForm : Form
     {
         private Button PressedButton;
-
+        private Timer timer = new Timer();
         public MainForm()
         {
             InitializeComponent();
@@ -151,6 +151,23 @@ namespace Autopraonica_Markus
         }
 
         private void tlpContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        void timer_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
+            lblDate.Text = DateTime.Now.ToString("MMM dd yyyy");
+        }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Interval = (1000) * (1);
+            timer.Enabled = true;
+            timer.Start();
+        }
+
+        private void lblTime_Click(object sender, EventArgs e)
         {
 
         }

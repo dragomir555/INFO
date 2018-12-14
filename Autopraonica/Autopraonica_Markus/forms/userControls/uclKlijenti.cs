@@ -34,11 +34,12 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void uclKlijenti_Load(object sender, EventArgs e)
         {
-            FillTable();
+         //   FillTable();
         }
 
         private void FillTable()
         {
+            dgvKlijenti.Rows.Clear();
             using(MarkusDb context=new MarkusDb())
             {
                 var klijenti = (from c in context.clients select c).ToList();
@@ -52,6 +53,11 @@ namespace Autopraonica_Markus.forms.userControls
                     
                 }
             }
+        }
+
+        private void btnNoviKlijent_Click(object sender, EventArgs e)
+        {
+            FillTable();
         }
     }
 }
