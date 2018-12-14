@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.forms.userControls;
+using Autopraonica_Markus.forms;
 
 namespace Autopraonica_Markus
 {
@@ -170,6 +171,17 @@ namespace Autopraonica_Markus
         private void lblTime_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pnlContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
     }
 }
