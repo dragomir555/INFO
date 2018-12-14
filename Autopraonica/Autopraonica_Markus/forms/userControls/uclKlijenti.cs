@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Autopraonica_Markus.Model.Entities;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -33,12 +34,24 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void uclKlijenti_Load(object sender, EventArgs e)
         {
-
+            FillTable();
         }
 
         private void FillTable()
         {
-            
+            using(MarkusDb context=new MarkusDb())
+            {
+                var klijenti = (from c in context.clients select c).ToList();
+                foreach(var c in klijenti)
+                {
+                    DataGridViewRow r = new DataGridViewRow() {Tag=c};
+                    r.CreateCells(dgvKlijenti);
+                    var to = c.DateTo;
+                    r.SetValues(c.Name, c.UID, c.City_Id, c.Address,c.DateFrom, c.DateTo);
+                    dgvKlijenti.Rows.Add(r);
+                    
+                }
+            }
         }
     }
 }
