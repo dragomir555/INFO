@@ -28,75 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvKlijenti = new System.Windows.Forms.DataGridView();
+            this.colNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colJIB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGrad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUgovorOd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUgovorDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvKlijenti
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(94, 97);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(516, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvKlijenti.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvKlijenti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvKlijenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKlijenti.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colNaziv,
+            this.colJIB,
+            this.colGrad,
+            this.colAddress,
+            this.colUgovorOd,
+            this.colUgovorDo});
+            this.dgvKlijenti.Location = new System.Drawing.Point(28, 122);
+            this.dgvKlijenti.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvKlijenti.Name = "dgvKlijenti";
+            this.dgvKlijenti.Size = new System.Drawing.Size(802, 295);
+            this.dgvKlijenti.TabIndex = 4;
             // 
-            // Column1
+            // colNaziv
             // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
+            this.colNaziv.HeaderText = "Naziv klijenta";
+            this.colNaziv.Name = "colNaziv";
+            this.colNaziv.ReadOnly = true;
             // 
-            // Column2
+            // colJIB
             // 
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
+            this.colJIB.HeaderText = "JIB";
+            this.colJIB.Name = "colJIB";
+            this.colJIB.ReadOnly = true;
             // 
-            // Column3
+            // colGrad
             // 
-            this.Column3.HeaderText = "Column3";
-            this.Column3.Name = "Column3";
+            this.colGrad.HeaderText = "Grad";
+            this.colGrad.Name = "colGrad";
             // 
-            // Column4
+            // colAddress
             // 
-            this.Column4.HeaderText = "Column4";
-            this.Column4.Name = "Column4";
+            this.colAddress.HeaderText = "Adresa";
+            this.colAddress.Name = "colAddress";
             // 
-            // Column5
+            // colUgovorOd
             // 
-            this.Column5.HeaderText = "Column5";
-            this.Column5.Name = "Column5";
+            this.colUgovorOd.HeaderText = "UgovorOd";
+            this.colUgovorOd.Name = "colUgovorOd";
+            // 
+            // colUgovorDo
+            // 
+            this.colUgovorDo.HeaderText = "UgvorDo";
+            this.colUgovorDo.Name = "colUgovorDo";
             // 
             // uclZaposleni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvKlijenti);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "uclZaposleni";
-            this.Size = new System.Drawing.Size(801, 470);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Size = new System.Drawing.Size(847, 470);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridView dgvKlijenti;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNaziv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colJIB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGrad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUgovorOd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUgovorDo;
     }
 }
