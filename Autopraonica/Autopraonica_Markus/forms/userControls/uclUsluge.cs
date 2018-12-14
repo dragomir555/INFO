@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Autopraonica_Markus.Model.Entities;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -29,6 +30,17 @@ namespace Autopraonica_Markus.forms.userControls
         public uclUsluge()
         {
             InitializeComponent();
+            PopuniTabelu();
+        }
+
+        private void PopuniTabelu()
+        {
+            dgvLegalEntity.Rows.Clear();
+        }
+
+        private void dgvLegalEntity_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
