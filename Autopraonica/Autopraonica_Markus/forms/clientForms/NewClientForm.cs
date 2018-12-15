@@ -21,5 +21,10 @@ namespace Autopraonica_Markus.forms.clientForms
         {
             InitializeComponent();
         }
+
+        private void txtUID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
