@@ -47,8 +47,8 @@ namespace Autopraonica_Markus.forms.userControls
                 {
                     DataGridViewRow r = new DataGridViewRow() {Tag=c};
                     r.CreateCells(dgvKlijenti);
-                    var to = c.DateTo;
-                    r.SetValues(c.Name, c.UID, c.City_Id, c.Address,c.DateFrom, c.DateTo);
+                   // var to = c.DateTo;
+                    r.SetValues(c.Name, c.UID, c.City_Id, c.Address,"Treba","Treba");
                     dgvKlijenti.Rows.Add(r);
                     
                 }
