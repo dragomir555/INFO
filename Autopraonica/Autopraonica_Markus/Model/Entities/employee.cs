@@ -21,6 +21,7 @@ namespace Autopraonica_Markus.Model.Entities
             employments = new HashSet<employment>();
         }
 
+        
         public int Id { get; set; }
 
         [Required]
