@@ -48,23 +48,31 @@
             // 
             // btnIzmjeniKlijenta
             // 
+            this.btnIzmjeniKlijenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnIzmjeniKlijenta.FlatAppearance.BorderSize = 0;
+            this.btnIzmjeniKlijenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnIzmjeniKlijenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIzmjeniKlijenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnIzmjeniKlijenta.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnIzmjeniKlijenta.Location = new System.Drawing.Point(180, 20);
             this.btnIzmjeniKlijenta.Name = "btnIzmjeniKlijenta";
             this.btnIzmjeniKlijenta.Size = new System.Drawing.Size(140, 40);
             this.btnIzmjeniKlijenta.TabIndex = 1;
             this.btnIzmjeniKlijenta.Text = "Izmjeni klijenta";
-            this.btnIzmjeniKlijenta.UseVisualStyleBackColor = true;
+            this.btnIzmjeniKlijenta.UseVisualStyleBackColor = false;
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox1.Location = new System.Drawing.Point(402, 96);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(266, 26);
+            this.textBox1.Size = new System.Drawing.Size(238, 26);
             this.textBox1.TabIndex = 2;
             // 
             // dgvKlijenti
             // 
+            this.dgvKlijenti.AllowUserToResizeColumns = false;
+            this.dgvKlijenti.AllowUserToResizeRows = false;
             this.dgvKlijenti.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -77,9 +85,10 @@
             this.colAddress,
             this.colUgovorOd,
             this.colUgovorDo});
-            this.dgvKlijenti.Location = new System.Drawing.Point(19, 129);
+            this.dgvKlijenti.Location = new System.Drawing.Point(20, 129);
             this.dgvKlijenti.Name = "dgvKlijenti";
             this.dgvKlijenti.RowHeadersVisible = false;
+            this.dgvKlijenti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKlijenti.Size = new System.Drawing.Size(649, 240);
             this.dgvKlijenti.TabIndex = 3;
             // 
@@ -117,22 +126,34 @@
             // 
             // btnNoviKlijent
             // 
+            this.btnNoviKlijent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnNoviKlijent.FlatAppearance.BorderSize = 0;
+            this.btnNoviKlijent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnNoviKlijent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNoviKlijent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnNoviKlijent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNoviKlijent.Location = new System.Drawing.Point(20, 20);
             this.btnNoviKlijent.Name = "btnNoviKlijent";
             this.btnNoviKlijent.Size = new System.Drawing.Size(140, 40);
             this.btnNoviKlijent.TabIndex = 4;
             this.btnNoviKlijent.Text = "Novi klijent";
-            this.btnNoviKlijent.UseVisualStyleBackColor = true;
+            this.btnNoviKlijent.UseVisualStyleBackColor = false;
             this.btnNoviKlijent.Click += new System.EventHandler(this.btnNoviKlijent_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Location = new System.Drawing.Point(340, 20);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 40);
             this.button1.TabIndex = 5;
             this.button1.Text = "Novi ugovor";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // comboBox1
             // 
@@ -158,7 +179,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox1.Location = new System.Drawing.Point(19, 96);
+            this.checkBox1.Location = new System.Drawing.Point(20, 96);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(138, 24);
             this.checkBox1.TabIndex = 8;
@@ -168,17 +189,24 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button2.Location = new System.Drawing.Point(500, 20);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 40);
             this.button2.TabIndex = 9;
             this.button2.Text = "Ponisti ugovor";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // uclKlijenti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
