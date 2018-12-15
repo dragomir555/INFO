@@ -61,7 +61,7 @@ namespace Autopraonica_Markus.forms.employeeForms
 
         private void NewEmployeeForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            dgvZaposleni;
+            
         }
     }
 }
