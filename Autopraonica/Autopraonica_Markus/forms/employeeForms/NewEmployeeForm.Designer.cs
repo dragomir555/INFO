@@ -172,6 +172,7 @@
             this.Controls.Add(this.tbEMail);
             this.Name = "NewEmployeeForm";
             this.Text = "Dodavanje zaposlenog";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewEmployeeForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
