@@ -12,16 +12,15 @@ namespace Autopraonica_Markus.Model.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public employee()
         {
+            employments = new HashSet<employment>();
             helpingemployeerecords = new HashSet<helpingemployeerecord>();
             helpingemployeerecords1 = new HashSet<helpingemployeerecord>();
             employeerecords = new HashSet<employeerecord>();
             purchases = new HashSet<purchase>();
             naturalentityservices = new HashSet<naturalentityservice>();
             naturalentityservices1 = new HashSet<naturalentityservice>();
-            employments = new HashSet<employment>();
         }
 
-        
         public int Id { get; set; }
 
         [Required]
@@ -51,6 +50,9 @@ namespace Autopraonica_Markus.Model.Entities
         public string Address { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<employment> employments { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<helpingemployeerecord> helpingemployeerecords { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -69,8 +71,5 @@ namespace Autopraonica_Markus.Model.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<naturalentityservice> naturalentityservices1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<employment> employments { get; set; }
     }
 }

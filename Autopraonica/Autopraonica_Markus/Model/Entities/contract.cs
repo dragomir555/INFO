@@ -9,17 +9,17 @@ namespace Autopraonica_Markus.Model.Entities
     [Table("markus.contract")]
     public partial class contract
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Client_Id { get; set; }
+        public int Id { get; set; }
 
-        [Key]
-        [Column(Order = 1, TypeName = "date")]
+        [Column(TypeName = "date")]
         public DateTime DateFrom { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? DateTo { get; set; }
+
+        public sbyte Current { get; set; }
+
+        public int Client_Id { get; set; }
 
         public virtual client client { get; set; }
     }

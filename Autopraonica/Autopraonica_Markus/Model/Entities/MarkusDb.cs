@@ -8,7 +8,7 @@ namespace Autopraonica_Markus.Model.Entities
     public partial class MarkusDb : DbContext
     {
         public MarkusDb()
-            : base("name=MarkusDb")
+            : base("name=MarkusDb1")
         {
         }
 
@@ -70,6 +70,12 @@ namespace Autopraonica_Markus.Model.Entities
                 .IsUnicode(false);
 
             modelBuilder.Entity<client>()
+                .HasMany(e => e.contracts)
+                .WithRequired(e => e.client)
+                .HasForeignKey(e => e.Client_Id)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<client>()
                 .HasMany(e => e.legalentityservices)
                 .WithRequired(e => e.client)
                 .HasForeignKey(e => e.Client_Id)
@@ -77,12 +83,6 @@ namespace Autopraonica_Markus.Model.Entities
 
             modelBuilder.Entity<client>()
                 .HasMany(e => e.receipts)
-                .WithRequired(e => e.client)
-                .HasForeignKey(e => e.Client_Id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<client>()
-                .HasMany(e => e.contracts)
                 .WithRequired(e => e.client)
                 .HasForeignKey(e => e.Client_Id)
                 .WillCascadeOnDelete(false);
@@ -110,6 +110,12 @@ namespace Autopraonica_Markus.Model.Entities
             modelBuilder.Entity<employee>()
                 .Property(e => e.Address)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<employee>()
+                .HasMany(e => e.employments)
+                .WithRequired(e => e.employee)
+                .HasForeignKey(e => e.Employee_Id)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<employee>()
                 .HasMany(e => e.helpingemployeerecords)
@@ -149,12 +155,6 @@ namespace Autopraonica_Markus.Model.Entities
                 .HasMany(e => e.naturalentityservices1)
                 .WithOptional(e => e.employee1)
                 .HasForeignKey(e => e.HelpingEmployee_Id);
-
-            modelBuilder.Entity<employee>()
-                .HasMany(e => e.employments)
-                .WithRequired(e => e.employee)
-                .HasForeignKey(e => e.Employee_Id)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<employment>()
                 .Property(e => e.UserName)

@@ -9,13 +9,9 @@ namespace Autopraonica_Markus.Model.Entities
     [Table("markus.employment")]
     public partial class employment
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Employee_Id { get; set; }
+        public int Id { get; set; }
 
-        [Key]
-        [Column(Order = 1, TypeName = "date")]
+        [Column(TypeName = "date")]
         public DateTime DateFrom { get; set; }
 
         [Column(TypeName = "date")]
@@ -34,6 +30,8 @@ namespace Autopraonica_Markus.Model.Entities
         public string Salt { get; set; }
 
         public sbyte FirstLogin { get; set; }
+
+        public int Employee_Id { get; set; }
 
         public virtual employee employee { get; set; }
     }
