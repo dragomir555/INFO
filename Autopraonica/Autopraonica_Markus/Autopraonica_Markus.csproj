@@ -75,6 +75,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="forms\clientForms\NewClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\clientForms\NewClientForm.Designer.cs">
+      <DependentUpon>NewClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\employeeForms\NewEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,9 +228,7 @@
     <Content Include="icon.ico" />
     <Content Include="resources\icon.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="forms\clientForms\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

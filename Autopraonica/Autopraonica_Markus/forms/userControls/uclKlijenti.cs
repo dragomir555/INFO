@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.Model.Entities;
+using Autopraonica_Markus.forms.clientForms;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -34,7 +35,7 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void uclKlijenti_Load(object sender, EventArgs e)
         {
-         //   FillTable();
+            FillTable();
         }
 
         private void FillTable()
@@ -57,7 +58,24 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void btnNoviKlijent_Click(object sender, EventArgs e)
         {
-            FillTable();
+            NewClientForm newClientForm = new NewClientForm();
+            if (DialogResult.OK == newClientForm.ShowDialog())
+            {
+                try
+                {
+                    using(MarkusDb context=new MarkusDb())
+                    {
+
+                    }
+
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("greska prilikom dodavanja klijenta+\n\n"+ex, "Novo mesto");
+                }
+
+
+
+            }
         }
 
         
