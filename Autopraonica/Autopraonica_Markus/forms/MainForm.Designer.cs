@@ -121,7 +121,7 @@
             this.btnCjenovnik.Name = "btnCjenovnik";
             this.btnCjenovnik.Size = new System.Drawing.Size(194, 39);
             this.btnCjenovnik.TabIndex = 0;
-            this.btnCjenovnik.Text = "Cijenovnik";
+            this.btnCjenovnik.Text = "Cjenovnik";
             this.btnCjenovnik.UseVisualStyleBackColor = true;
             this.btnCjenovnik.Click += new System.EventHandler(this.btnCjenovnik_Click);
             // 
