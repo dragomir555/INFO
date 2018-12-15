@@ -88,6 +88,7 @@
             this.cmbCityList.Name = "cmbCityList";
             this.cmbCityList.Size = new System.Drawing.Size(206, 21);
             this.cmbCityList.TabIndex = 5;
+            this.cmbCityList.SelectedIndexChanged += new System.EventHandler(this.cmbCityList_SelectedIndexChanged);
             // 
             // lblName
             // 

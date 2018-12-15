@@ -31,12 +31,12 @@ namespace Autopraonica_Markus.forms.userControls
         public uclKlijenti()
         {
             InitializeComponent();
+            FillTable();
         }
 
 
         private void uclKlijenti_Load(object sender, EventArgs e)
         {
-            FillTable();
         }
 
         private void FillTable()
@@ -93,6 +93,19 @@ namespace Autopraonica_Markus.forms.userControls
             }
         }
 
-        
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

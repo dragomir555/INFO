@@ -46,20 +46,24 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.tlpMenu = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlStatus.SuspendLayout();
             this.tlpMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnIzdRac
             // 
+            this.btnIzdRac.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.btnIzdRac.FlatAppearance.BorderSize = 0;
             this.btnIzdRac.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnIzdRac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIzdRac.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnIzdRac.ForeColor = System.Drawing.Color.White;
-            this.btnIzdRac.Location = new System.Drawing.Point(3, 364);
+            this.btnIzdRac.Location = new System.Drawing.Point(3, 372);
             this.btnIzdRac.Name = "btnIzdRac";
-            this.btnIzdRac.Size = new System.Drawing.Size(194, 39);
+            this.btnIzdRac.Size = new System.Drawing.Size(194, 40);
             this.btnIzdRac.TabIndex = 0;
             this.btnIzdRac.Text = "Izdavanje računa";
             this.btnIzdRac.UseVisualStyleBackColor = true;
@@ -67,14 +71,16 @@
             // 
             // btnStatistika
             // 
+            this.btnStatistika.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.btnStatistika.FlatAppearance.BorderSize = 0;
             this.btnStatistika.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnStatistika.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistika.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnStatistika.ForeColor = System.Drawing.Color.White;
-            this.btnStatistika.Location = new System.Drawing.Point(3, 409);
+            this.btnStatistika.Location = new System.Drawing.Point(3, 418);
             this.btnStatistika.Name = "btnStatistika";
-            this.btnStatistika.Size = new System.Drawing.Size(194, 40);
+            this.btnStatistika.Size = new System.Drawing.Size(194, 46);
             this.btnStatistika.TabIndex = 3;
             this.btnStatistika.Text = "Statistika";
             this.btnStatistika.UseVisualStyleBackColor = true;
@@ -82,14 +88,16 @@
             // 
             // btnZaposleni
             // 
+            this.btnZaposleni.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.btnZaposleni.FlatAppearance.BorderSize = 0;
             this.btnZaposleni.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnZaposleni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZaposleni.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnZaposleni.ForeColor = System.Drawing.Color.White;
-            this.btnZaposleni.Location = new System.Drawing.Point(3, 319);
+            this.btnZaposleni.Location = new System.Drawing.Point(3, 326);
             this.btnZaposleni.Name = "btnZaposleni";
-            this.btnZaposleni.Size = new System.Drawing.Size(194, 39);
+            this.btnZaposleni.Size = new System.Drawing.Size(194, 40);
             this.btnZaposleni.TabIndex = 2;
             this.btnZaposleni.Text = "Zaposleni";
             this.btnZaposleni.UseVisualStyleBackColor = true;
@@ -97,14 +105,16 @@
             // 
             // btnKlijenti
             // 
+            this.btnKlijenti.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.btnKlijenti.FlatAppearance.BorderSize = 0;
             this.btnKlijenti.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnKlijenti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKlijenti.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnKlijenti.ForeColor = System.Drawing.Color.White;
-            this.btnKlijenti.Location = new System.Drawing.Point(3, 274);
+            this.btnKlijenti.Location = new System.Drawing.Point(3, 280);
             this.btnKlijenti.Name = "btnKlijenti";
-            this.btnKlijenti.Size = new System.Drawing.Size(194, 39);
+            this.btnKlijenti.Size = new System.Drawing.Size(194, 40);
             this.btnKlijenti.TabIndex = 0;
             this.btnKlijenti.Text = "Klijenti";
             this.btnKlijenti.UseVisualStyleBackColor = true;
@@ -112,14 +122,16 @@
             // 
             // btnCjenovnik
             // 
+            this.btnCjenovnik.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCjenovnik.FlatAppearance.BorderSize = 0;
             this.btnCjenovnik.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnCjenovnik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCjenovnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCjenovnik.ForeColor = System.Drawing.Color.White;
-            this.btnCjenovnik.Location = new System.Drawing.Point(3, 229);
+            this.btnCjenovnik.Location = new System.Drawing.Point(3, 234);
             this.btnCjenovnik.Name = "btnCjenovnik";
-            this.btnCjenovnik.Size = new System.Drawing.Size(194, 39);
+            this.btnCjenovnik.Size = new System.Drawing.Size(194, 40);
             this.btnCjenovnik.TabIndex = 0;
             this.btnCjenovnik.Text = "Cjenovnik";
             this.btnCjenovnik.UseVisualStyleBackColor = true;
@@ -127,15 +139,17 @@
             // 
             // btnUsluge
             // 
+            this.btnUsluge.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.btnUsluge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnUsluge.FlatAppearance.BorderSize = 0;
             this.btnUsluge.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnUsluge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsluge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnUsluge.ForeColor = System.Drawing.Color.White;
-            this.btnUsluge.Location = new System.Drawing.Point(3, 139);
+            this.btnUsluge.Location = new System.Drawing.Point(3, 142);
             this.btnUsluge.Name = "btnUsluge";
-            this.btnUsluge.Size = new System.Drawing.Size(194, 39);
+            this.btnUsluge.Size = new System.Drawing.Size(194, 40);
             this.btnUsluge.TabIndex = 0;
             this.btnUsluge.Text = "Usluge";
             this.btnUsluge.UseVisualStyleBackColor = true;
@@ -143,14 +157,16 @@
             // 
             // btnTroskovnik
             // 
+            this.btnTroskovnik.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.btnTroskovnik.FlatAppearance.BorderSize = 0;
             this.btnTroskovnik.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnTroskovnik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTroskovnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnTroskovnik.ForeColor = System.Drawing.Color.White;
-            this.btnTroskovnik.Location = new System.Drawing.Point(3, 184);
+            this.btnTroskovnik.Location = new System.Drawing.Point(3, 188);
             this.btnTroskovnik.Name = "btnTroskovnik";
-            this.btnTroskovnik.Size = new System.Drawing.Size(194, 39);
+            this.btnTroskovnik.Size = new System.Drawing.Size(194, 40);
             this.btnTroskovnik.TabIndex = 1;
             this.btnTroskovnik.Text = "Troškovnik";
             this.btnTroskovnik.UseVisualStyleBackColor = true;
@@ -170,7 +186,7 @@
             this.pnlStatus.Controls.Add(this.lblTime);
             this.pnlStatus.Location = new System.Drawing.Point(200, 0);
             this.pnlStatus.Name = "pnlStatus";
-            this.pnlStatus.Size = new System.Drawing.Size(600, 70);
+            this.pnlStatus.Size = new System.Drawing.Size(684, 70);
             this.pnlStatus.TabIndex = 1;
             this.pnlStatus.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -230,7 +246,7 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(485, 38);
+            this.lblDate.Location = new System.Drawing.Point(569, 38);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(100, 24);
             this.lblDate.TabIndex = 1;
@@ -242,7 +258,7 @@
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(495, 10);
+            this.lblTime.Location = new System.Drawing.Point(579, 10);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(66, 25);
             this.lblTime.TabIndex = 0;
@@ -258,7 +274,7 @@
             this.pnlContent.ForeColor = System.Drawing.Color.Black;
             this.pnlContent.Location = new System.Drawing.Point(200, 70);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(601, 380);
+            this.pnlContent.Size = new System.Drawing.Size(685, 391);
             this.pnlContent.TabIndex = 2;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
@@ -276,10 +292,12 @@
             this.tlpMenu.Controls.Add(this.btnKlijenti, 0, 5);
             this.tlpMenu.Controls.Add(this.btnCjenovnik, 0, 4);
             this.tlpMenu.Controls.Add(this.btnTroskovnik, 0, 3);
+            this.tlpMenu.Controls.Add(this.pictureBox1, 0, 0);
             this.tlpMenu.Location = new System.Drawing.Point(0, 0);
             this.tlpMenu.Name = "tlpMenu";
-            this.tlpMenu.RowCount = 9;
-            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tlpMenu.RowCount = 10;
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -287,16 +305,29 @@
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpMenu.Size = new System.Drawing.Size(200, 456);
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
+            this.tlpMenu.Size = new System.Drawing.Size(200, 467);
             this.tlpMenu.TabIndex = 4;
             this.tlpMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpContent_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(194, 87);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(884, 461);
             this.Controls.Add(this.tlpMenu);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlStatus);
@@ -307,6 +338,7 @@
             this.pnlStatus.ResumeLayout(false);
             this.pnlStatus.PerformLayout();
             this.tlpMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,6 +361,7 @@
         private System.Windows.Forms.Label lblHelper;
         private System.Windows.Forms.Button btnRemoveHelper;
         private System.Windows.Forms.Button btnAddHelper;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

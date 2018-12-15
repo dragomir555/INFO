@@ -60,5 +60,10 @@ namespace Autopraonica_Markus.forms.clientForms
             }
             
         }
+
+        private void cmbCityList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
