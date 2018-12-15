@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.Model.Entities;
 using Autopraonica_Markus.forms.clientForms;
+using System.Diagnostics;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -65,7 +66,17 @@ namespace Autopraonica_Markus.forms.userControls
                 {
                     using(MarkusDb context=new MarkusDb())
                     {
-
+                        var cl = new client()
+                        {
+                            Name = newClientForm.NameClient,
+                            Address = newClientForm.Address,
+                            City_Id = newClientForm.IdCity,
+                            UID = newClientForm.UID
+                        };
+                        context.clients.Add(cl);
+                        context.SaveChanges();
+                        // odabranoMesto = c;
+                        FillTable();
                     }
 
                 }catch(Exception ex)
@@ -75,6 +86,10 @@ namespace Autopraonica_Markus.forms.userControls
 
 
 
+            }
+            else
+            {
+             //   Debug.WriteLine("Negativan Dialog");
             }
         }
 
