@@ -30,22 +30,22 @@
         {
             this.tbEMail = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
-            this.tbPID = new System.Windows.Forms.TextBox();
             this.tbPhoneNumber = new System.Windows.Forms.TextBox();
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
-            this.lblPID = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // tbEMail
             // 
-            this.tbEMail.Location = new System.Drawing.Point(272, 170);
+            this.tbEMail.Location = new System.Drawing.Point(272, 216);
             this.tbEMail.Name = "tbEMail";
             this.tbEMail.Size = new System.Drawing.Size(100, 22);
             this.tbEMail.TabIndex = 0;
@@ -60,32 +60,25 @@
             this.tbFirstName.TabIndex = 1;
             this.tbFirstName.Tag = "";
             // 
-            // tbPID
-            // 
-            this.tbPID.Location = new System.Drawing.Point(272, 128);
-            this.tbPID.Name = "tbPID";
-            this.tbPID.Size = new System.Drawing.Size(100, 22);
-            this.tbPID.TabIndex = 2;
-            // 
             // tbPhoneNumber
             // 
-            this.tbPhoneNumber.Location = new System.Drawing.Point(272, 211);
+            this.tbPhoneNumber.Location = new System.Drawing.Point(272, 170);
             this.tbPhoneNumber.Name = "tbPhoneNumber";
             this.tbPhoneNumber.Size = new System.Drawing.Size(100, 22);
             this.tbPhoneNumber.TabIndex = 3;
             // 
             // tbAddress
             // 
-            this.tbAddress.Location = new System.Drawing.Point(272, 260);
+            this.tbAddress.Location = new System.Drawing.Point(272, 131);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(100, 22);
             this.tbAddress.TabIndex = 4;
             // 
             // btnAddEmployee
             // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(272, 312);
+            this.btnAddEmployee.Location = new System.Drawing.Point(272, 288);
             this.btnAddEmployee.Name = "btnAddEmployee";
-            this.btnAddEmployee.Size = new System.Drawing.Size(100, 23);
+            this.btnAddEmployee.Size = new System.Drawing.Size(107, 31);
             this.btnAddEmployee.TabIndex = 5;
             this.btnAddEmployee.Text = "Dodaj";
             this.btnAddEmployee.UseVisualStyleBackColor = true;
@@ -116,19 +109,10 @@
             this.lblLastName.TabIndex = 8;
             this.lblLastName.Text = "Prezime";
             // 
-            // lblPID
-            // 
-            this.lblPID.AutoSize = true;
-            this.lblPID.Location = new System.Drawing.Point(171, 133);
-            this.lblPID.Name = "lblPID";
-            this.lblPID.Size = new System.Drawing.Size(27, 17);
-            this.lblPID.TabIndex = 9;
-            this.lblPID.Text = "JIB";
-            // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(171, 175);
+            this.lblEmail.Location = new System.Drawing.Point(171, 216);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(47, 17);
             this.lblEmail.TabIndex = 10;
@@ -137,7 +121,7 @@
             // lblPhoneNumber
             // 
             this.lblPhoneNumber.AutoSize = true;
-            this.lblPhoneNumber.Location = new System.Drawing.Point(171, 214);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(171, 170);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
             this.lblPhoneNumber.Size = new System.Drawing.Size(88, 17);
             this.lblPhoneNumber.TabIndex = 11;
@@ -146,33 +130,48 @@
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(171, 260);
+            this.lblAddress.Location = new System.Drawing.Point(177, 134);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(53, 17);
             this.lblAddress.TabIndex = 12;
             this.lblAddress.Text = "Adresa";
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(174, 256);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(69, 17);
+            this.lblPassword.TabIndex = 13;
+            this.lblPassword.Text = "Password";
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Location = new System.Drawing.Point(272, 250);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(100, 22);
+            this.tbPassword.TabIndex = 14;
             // 
             // NewEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tbPassword);
+            this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblPhoneNumber);
             this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblPID);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.btnAddEmployee);
             this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.tbPhoneNumber);
-            this.Controls.Add(this.tbPID);
             this.Controls.Add(this.tbFirstName);
             this.Controls.Add(this.tbEMail);
             this.Name = "NewEmployeeForm";
             this.Text = "Dodavanje zaposlenog";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewEmployeeForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,16 +181,16 @@
 
         private System.Windows.Forms.TextBox tbEMail;
         private System.Windows.Forms.TextBox tbFirstName;
-        private System.Windows.Forms.TextBox tbPID;
         private System.Windows.Forms.TextBox tbPhoneNumber;
         private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.Button btnAddEmployee;
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.Label lblPID;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPhoneNumber;
         private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.TextBox tbPassword;
     }
 }

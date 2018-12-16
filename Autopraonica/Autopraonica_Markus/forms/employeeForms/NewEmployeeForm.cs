@@ -16,52 +16,68 @@ namespace Autopraonica_Markus.forms.employeeForms
 {
     public partial class NewEmployeeForm : Form
     {
+        public String FirstName { get; set; }
+        public String LastName { get; set; }
+        public String PID { get; set; }
+        public String E_mail { get; set; }
+        public String Address { get; set; }
+        public String PhoneNumber { get; set; }
+        public String Password { get; set; }
+
         public NewEmployeeForm()
         {
             InitializeComponent();
         }
 
-        private void btnAddEmployee_Click(object sender, EventArgs e)
+        public Boolean checkFields()
         {
-            try { 
-            using (MarkusDb ctx = new MarkusDb())
-            {
-                    
-                var emp = new employee();
-                emp.FirstName = tbFirstName.Text;
-                emp.LastName = tbLastName.Text;
-                emp.PID = tbPID.Text;
-                emp.E_mail = tbEMail.Text;
-                emp.Address = tbAddress.Text;
-                emp.PhoneNumber = tbPhoneNumber.Text;
-
-                ctx.employees.Add(emp);
-                ctx.SaveChanges();
-                this.Close();
-            }
-            }
-            catch (DbEntityValidationException ex)
-            {
-                var errorMessages = ex.EntityValidationErrors
-                   .SelectMany(x => x.ValidationErrors)
-                   .Select(x => x.ErrorMessage);
-
-                // Join the list to a single string.
-                var fullErrorMessage = string.Join("; ", errorMessages);
-
-                // Combine the original exception message with the new one.
-                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
-
-                // Throw a new DbEntityValidationException with the improved exception message.
-                throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
-
-
-            }
+            if (string.IsNullOrWhiteSpace(tbAddress.Text) && string.IsNullOrWhiteSpace(tbFirstName.Text) &&
+                string.IsNullOrWhiteSpace(tbLastName.Text) &&
+                string.IsNullOrWhiteSpace(tbEMail.Text) && string.IsNullOrWhiteSpace(tbPhoneNumber.Text)
+                && string.IsNullOrWhiteSpace(tbPassword.Text))
+                return false;
+            return true;
         }
 
-        private void NewEmployeeForm_FormClosing(object sender, FormClosingEventArgs e)
+        public void fillTextBoxes() {
+            tbFirstName.Text = FirstName;
+            tbLastName.Text = LastName;
+            tbAddress.Text = Address;
+            tbPhoneNumber.Text = PhoneNumber;
+        }
+
+        public void hideUnnecessaryItems() {
+            tbPassword.Hide();
+            tbEMail.Hide();
+            lblPassword.Hide();
+            lblEmail.Hide();
+        }
+
+        public void changeButtonName()
         {
-            
+            btnAddEmployee.Text = "Izmjeni zaposlenog";
+        }
+
+        private void btnAddEmployee_Click(object sender, EventArgs e)
+        {
+        
+            using (MarkusDb ctx = new MarkusDb())
+            {
+                if(!checkFields())
+                {
+                    MessageBox.Show("Niste popunili sva polja", "Greska");
+                }
+                else
+                {
+                    FirstName = tbFirstName.Text;
+                    LastName = tbLastName.Text;
+                    E_mail = tbEMail.Text;
+                    Address = tbAddress.Text;
+                    PhoneNumber = tbPhoneNumber.Text;
+                    Password = tbPassword.Text;
+                    this.DialogResult = DialogResult.OK;
+                }
+            }
         }
     }
 }
