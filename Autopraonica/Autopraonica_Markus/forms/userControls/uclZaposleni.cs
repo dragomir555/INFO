@@ -58,5 +58,9 @@ namespace Autopraonica_Markus.forms.userControls
             }
         }
 
+        private void dgvZaposleni_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+
+        }
     }
 }

@@ -53,6 +53,7 @@
             this.dgvZaposleni.Name = "dgvZaposleni";
             this.dgvZaposleni.Size = new System.Drawing.Size(802, 295);
             this.dgvZaposleni.TabIndex = 4;
+            this.dgvZaposleni.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvZaposleni_RowsRemoved);
             // 
             // btnNewEmployee
             // 
@@ -68,13 +69,11 @@
             // 
             this.colNaziv.HeaderText = "Naziv klijenta";
             this.colNaziv.Name = "colNaziv";
-            this.colNaziv.ReadOnly = true;
             // 
             // colJIB
             // 
             this.colJIB.HeaderText = "JIB";
             this.colJIB.Name = "colJIB";
-            this.colJIB.ReadOnly = true;
             // 
             // colGrad
             // 
