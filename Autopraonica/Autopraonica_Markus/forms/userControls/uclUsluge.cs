@@ -30,17 +30,66 @@ namespace Autopraonica_Markus.forms.userControls
         public uclUsluge()
         {
             InitializeComponent();
-            PopuniTabelu();
+            FillTableNaturalEntityServices();
+            FillTableLegalEntityServices();
         }
 
-        private void PopuniTabelu()
+        private void FillTableLegalEntityServices()
         {
             dgvLegalEntity.Rows.Clear();
+            using(MarkusDb context = new MarkusDb())
+            {
+                var services = (from c in context.legalentityservices select c).ToList();
+                foreach(var s in services)
+                {
+                    DataGridViewRow row = new DataGridViewRow()
+                    {
+                        Tag = s
+                    };
+                    row.CreateCells(dgvLegalEntity);
+                    row.SetValues(s.client.Name, s.naturalentityservice.ServiceTime,
+                        s.naturalentityservice.pricelistitem.servicetype.Name,
+                        s.naturalentityservice.pricelistitem.pricelistitemname.Name, s.naturalentityservice.Price);
+                    dgvLegalEntity.Rows.Add(row);
+                }
+            }
+            dgvLegalEntity.BringToFront();
+        }
+
+        private void FillTableNaturalEntityServices()
+        {
+            dgvNaturalEntity.Rows.Clear();
+            using(MarkusDb context = new MarkusDb())
+            {
+                var services = (from c in context.naturalentityservices select c).ToList();
+                foreach(var s in services)
+                {
+                    DataGridViewRow row = new DataGridViewRow()
+                    {
+                        Tag = s
+                    };
+                    row.CreateCells(dgvNaturalEntity);
+                    row.SetValues(s.ServiceTime, s.pricelistitem.servicetype.Name,
+                        s.pricelistitem.pricelistitemname.Name, s.Price);
+                    dgvNaturalEntity.Rows.Add(row);
+                }
+            }
+            dgvNaturalEntity.BringToFront();
         }
 
         private void dgvLegalEntity_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void rbPravnaLica_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvLegalEntity.BringToFront();
+        }
+
+        private void rbFizickaLica_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvNaturalEntity.BringToFront();
         }
     }
 }
