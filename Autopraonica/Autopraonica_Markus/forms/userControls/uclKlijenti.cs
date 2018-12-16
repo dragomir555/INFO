@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.Model.Entities;
 using Autopraonica_Markus.forms.clientForms;
+using System.Diagnostics;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -30,12 +31,12 @@ namespace Autopraonica_Markus.forms.userControls
         public uclKlijenti()
         {
             InitializeComponent();
+            FillTable();
         }
 
 
         private void uclKlijenti_Load(object sender, EventArgs e)
         {
-            FillTable();
         }
 
         private void FillTable()
@@ -65,7 +66,17 @@ namespace Autopraonica_Markus.forms.userControls
                 {
                     using(MarkusDb context=new MarkusDb())
                     {
-
+                        var cl = new client()
+                        {
+                            Name = newClientForm.NameClient,
+                            Address = newClientForm.Address,
+                            City_Id = newClientForm.IdCity,
+                            UID = newClientForm.UID
+                        };
+                        context.clients.Add(cl);
+                        context.SaveChanges();
+                        // odabranoMesto = c;
+                        FillTable();
                     }
 
                 }catch(Exception ex)
@@ -76,8 +87,25 @@ namespace Autopraonica_Markus.forms.userControls
 
 
             }
+            else
+            {
+             //   Debug.WriteLine("Negativan Dialog");
+            }
         }
 
-        
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

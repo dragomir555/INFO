@@ -38,30 +38,43 @@
             this.colUgovorOd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUgovorDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNoviKlijent = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).BeginInit();
             this.SuspendLayout();
             // 
             // btnIzmjeniKlijenta
             // 
-            this.btnIzmjeniKlijenta.Location = new System.Drawing.Point(195, 25);
-            this.btnIzmjeniKlijenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnIzmjeniKlijenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnIzmjeniKlijenta.FlatAppearance.BorderSize = 0;
+            this.btnIzmjeniKlijenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnIzmjeniKlijenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIzmjeniKlijenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnIzmjeniKlijenta.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnIzmjeniKlijenta.Location = new System.Drawing.Point(180, 20);
             this.btnIzmjeniKlijenta.Name = "btnIzmjeniKlijenta";
-            this.btnIzmjeniKlijenta.Size = new System.Drawing.Size(143, 28);
+            this.btnIzmjeniKlijenta.Size = new System.Drawing.Size(140, 40);
             this.btnIzmjeniKlijenta.TabIndex = 1;
             this.btnIzmjeniKlijenta.Text = "Izmjeni klijenta";
-            this.btnIzmjeniKlijenta.UseVisualStyleBackColor = true;
+            this.btnIzmjeniKlijenta.UseVisualStyleBackColor = false;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(25, 92);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox1.Location = new System.Drawing.Point(402, 96);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(283, 22);
+            this.textBox1.Size = new System.Drawing.Size(238, 26);
             this.textBox1.TabIndex = 2;
             // 
             // dgvKlijenti
             // 
-            this.dgvKlijenti.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvKlijenti.AllowUserToResizeColumns = false;
+            this.dgvKlijenti.AllowUserToResizeRows = false;
+            this.dgvKlijenti.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvKlijenti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvKlijenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -72,10 +85,11 @@
             this.colAddress,
             this.colUgovorOd,
             this.colUgovorDo});
-            this.dgvKlijenti.Location = new System.Drawing.Point(25, 159);
-            this.dgvKlijenti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvKlijenti.Location = new System.Drawing.Point(20, 129);
             this.dgvKlijenti.Name = "dgvKlijenti";
-            this.dgvKlijenti.Size = new System.Drawing.Size(865, 295);
+            this.dgvKlijenti.RowHeadersVisible = false;
+            this.dgvKlijenti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvKlijenti.Size = new System.Drawing.Size(649, 240);
             this.dgvKlijenti.TabIndex = 3;
             // 
             // colNaziv
@@ -107,31 +121,103 @@
             // 
             // colUgovorDo
             // 
-            this.colUgovorDo.HeaderText = "UgvorDo";
+            this.colUgovorDo.HeaderText = "UgovorDo";
             this.colUgovorDo.Name = "colUgovorDo";
             // 
             // btnNoviKlijent
             // 
-            this.btnNoviKlijent.Location = new System.Drawing.Point(25, 25);
-            this.btnNoviKlijent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNoviKlijent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnNoviKlijent.FlatAppearance.BorderSize = 0;
+            this.btnNoviKlijent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnNoviKlijent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNoviKlijent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnNoviKlijent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNoviKlijent.Location = new System.Drawing.Point(20, 20);
             this.btnNoviKlijent.Name = "btnNoviKlijent";
-            this.btnNoviKlijent.Size = new System.Drawing.Size(161, 28);
+            this.btnNoviKlijent.Size = new System.Drawing.Size(140, 40);
             this.btnNoviKlijent.TabIndex = 4;
             this.btnNoviKlijent.Text = "Novi klijent";
-            this.btnNoviKlijent.UseVisualStyleBackColor = true;
+            this.btnNoviKlijent.UseVisualStyleBackColor = false;
             this.btnNoviKlijent.Click += new System.EventHandler(this.btnNoviKlijent_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(340, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 40);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Novi ugovor";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(275, 94);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 28);
+            this.comboBox1.TabIndex = 6;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(177, 96);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Pretraga po";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox1.Location = new System.Drawing.Point(20, 96);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(138, 24);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Ugovor zavrsen";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.Location = new System.Drawing.Point(500, 20);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(140, 40);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Ponisti ugovor";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // uclKlijenti
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnNoviKlijent);
             this.Controls.Add(this.dgvKlijenti);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnIzmjeniKlijenta);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "uclKlijenti";
-            this.Size = new System.Drawing.Size(911, 470);
+            this.Size = new System.Drawing.Size(683, 382);
             this.Load += new System.EventHandler(this.uclKlijenti_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).EndInit();
             this.ResumeLayout(false);
@@ -143,12 +229,17 @@
         private System.Windows.Forms.Button btnIzmjeniKlijenta;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dgvKlijenti;
+        private System.Windows.Forms.Button btnNoviKlijent;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNaziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn colJIB;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGrad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUgovorOd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUgovorDo;
-        private System.Windows.Forms.Button btnNoviKlijent;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button2;
     }
 }
