@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
-            this.btnNewEmployee = new System.Windows.Forms.Button();
-            this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNewEmployee = new System.Windows.Forms.Button();
+            this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.btnDeleteEmployee = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
@@ -53,28 +53,9 @@
             this.dgvEmployees.Location = new System.Drawing.Point(28, 122);
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.RowHeadersVisible = false;
             this.dgvEmployees.Size = new System.Drawing.Size(802, 295);
             this.dgvEmployees.TabIndex = 4;
-            // 
-            // btnNewEmployee
-            // 
-            this.btnNewEmployee.Location = new System.Drawing.Point(52, 44);
-            this.btnNewEmployee.Name = "btnNewEmployee";
-            this.btnNewEmployee.Size = new System.Drawing.Size(172, 42);
-            this.btnNewEmployee.TabIndex = 5;
-            this.btnNewEmployee.Text = "Novi zaposleni";
-            this.btnNewEmployee.UseVisualStyleBackColor = true;
-            this.btnNewEmployee.Click += new System.EventHandler(this.btnNewEmployee_Click);
-            // 
-            // btnUpdateEmployee
-            // 
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(265, 44);
-            this.btnUpdateEmployee.Name = "btnUpdateEmployee";
-            this.btnUpdateEmployee.Size = new System.Drawing.Size(151, 41);
-            this.btnUpdateEmployee.TabIndex = 6;
-            this.btnUpdateEmployee.Text = "Izmjena zaposlenog";
-            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
-            this.btnUpdateEmployee.Click += new System.EventHandler(this.btnUpdateEmployee_Click);
             // 
             // colFirstName
             // 
@@ -95,6 +76,26 @@
             // 
             this.colAddress.HeaderText = "Adresa";
             this.colAddress.Name = "colAddress";
+            // 
+            // btnNewEmployee
+            // 
+            this.btnNewEmployee.Location = new System.Drawing.Point(52, 44);
+            this.btnNewEmployee.Name = "btnNewEmployee";
+            this.btnNewEmployee.Size = new System.Drawing.Size(172, 42);
+            this.btnNewEmployee.TabIndex = 5;
+            this.btnNewEmployee.Text = "Novi zaposleni";
+            this.btnNewEmployee.UseVisualStyleBackColor = true;
+            this.btnNewEmployee.Click += new System.EventHandler(this.btnNewEmployee_Click);
+            // 
+            // btnUpdateEmployee
+            // 
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(265, 44);
+            this.btnUpdateEmployee.Name = "btnUpdateEmployee";
+            this.btnUpdateEmployee.Size = new System.Drawing.Size(151, 41);
+            this.btnUpdateEmployee.TabIndex = 6;
+            this.btnUpdateEmployee.Text = "Izmjena zaposlenog";
+            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
+            this.btnUpdateEmployee.Click += new System.EventHandler(this.btnUpdateEmployee_Click);
             // 
             // btnDeleteEmployee
             // 

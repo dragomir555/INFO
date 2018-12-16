@@ -23,18 +23,45 @@ namespace Autopraonica_Markus.forms.employeeForms
         public String Address { get; set; }
         public String PhoneNumber { get; set; }
         public String Password { get; set; }
+        private int counter = 0;
 
         public NewEmployeeForm()
         {
             InitializeComponent();
         }
 
+        public void markIllegalField(TextBox tb) {
+            tb.BackColor = Color.IndianRed;
+            counter = 1;
+        }
+
         public Boolean checkFields()
         {
-            if (string.IsNullOrWhiteSpace(tbAddress.Text) && string.IsNullOrWhiteSpace(tbFirstName.Text) &&
-                string.IsNullOrWhiteSpace(tbLastName.Text) &&
-                string.IsNullOrWhiteSpace(tbEMail.Text) && string.IsNullOrWhiteSpace(tbPhoneNumber.Text)
-                && string.IsNullOrWhiteSpace(tbPassword.Text))
+            if (string.IsNullOrWhiteSpace(tbAddress.Text))
+            {
+                markIllegalField(tbAddress);
+            }
+            if (string.IsNullOrWhiteSpace(tbFirstName.Text))
+            {
+                markIllegalField(tbFirstName);
+            }
+            if (string.IsNullOrWhiteSpace(tbLastName.Text))
+            {
+                markIllegalField(tbLastName);
+            }
+            if (string.IsNullOrWhiteSpace(tbEMail.Text))
+            {
+                markIllegalField(tbEMail);
+            }
+            if (string.IsNullOrWhiteSpace(tbPhoneNumber.Text))
+            {
+                markIllegalField(tbPhoneNumber);
+            }
+            if (string.IsNullOrWhiteSpace(tbPassword.Text))
+            {
+                markIllegalField(tbPassword);
+            }
+            if (counter == 1)
                 return false;
             return true;
         }
@@ -65,7 +92,7 @@ namespace Autopraonica_Markus.forms.employeeForms
             {
                 if(!checkFields())
                 {
-                    MessageBox.Show("Niste popunili sva polja", "Greska");
+                    MessageBox.Show("Niste popunili sva polja ispravno", "Greska");
                 }
                 else
                 {
