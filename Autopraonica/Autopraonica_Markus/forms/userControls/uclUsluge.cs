@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.Model.Entities;
+using Autopraonica_Markus.forms.serviceForms;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -90,6 +91,12 @@ namespace Autopraonica_Markus.forms.userControls
         private void rbFizickaLica_CheckedChanged(object sender, EventArgs e)
         {
             dgvNaturalEntity.BringToFront();
+        }
+
+        private void btnNewNaturalEntityService_Click(object sender, EventArgs e)
+        {
+            NewNaturalEntityServiceForm nnesf = new NewNaturalEntityServiceForm();
+            nnesf.ShowDialog();
         }
     }
 }

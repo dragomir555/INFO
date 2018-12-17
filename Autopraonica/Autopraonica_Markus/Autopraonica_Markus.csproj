@@ -105,6 +105,12 @@
     <Compile Include="forms\loginForms\PasswordChangeForm.Designer.cs">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\serviceForms\NewNaturalEntityServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\serviceForms\NewNaturalEntityServiceForm.Designer.cs">
+      <DependentUpon>NewNaturalEntityServiceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\userControls\uclCijenovnik.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\loginForms\PasswordChangeForm.resx">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\serviceForms\NewNaturalEntityServiceForm.resx">
+      <DependentUpon>NewNaturalEntityServiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\userControls\uclCijenovnik.resx">
       <DependentUpon>uclCijenovnik.cs</DependentUpon>

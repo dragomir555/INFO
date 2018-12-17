@@ -11,10 +11,20 @@ namespace Autopraonica_Markus.services
     {
         private static Random random = new Random();
 
-        public static string GetSalt()
+        private static string GetString()
         {
             const string characters = "abcdefghijklmnopqrstuvwxyz0123456789";
             return new string(Enumerable.Repeat(characters, 8).Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        public static string GenerateSalt()
+        {
+            return GetString();
+        }
+
+        public static string GeneratePassword()
+        {
+            return GetString();
         }
 
         private static byte[] GetHash(string password)
