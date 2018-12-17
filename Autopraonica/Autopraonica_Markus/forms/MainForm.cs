@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.forms.userControls;
 using Autopraonica_Markus.forms;
+using Autopraonica_Markus.Model.Entities;
 
 namespace Autopraonica_Markus
 {
@@ -16,6 +17,8 @@ namespace Autopraonica_Markus
     {
         private Button PressedButton;
         private Timer timer = new Timer();
+        private employee employee;
+
         public MainForm()
         {
             InitializeComponent();
@@ -180,8 +183,14 @@ namespace Autopraonica_Markus
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            LoginForm loginForm = new LoginForm();
+            LoginForm loginForm = new LoginForm(this);
             loginForm.Show();
+        }
+
+        public void setEmployee(employee employee)
+        {
+            this.employee = employee;
+            // Treba dodati popunjavanje labele sa imenom zaposlenog
         }
     }
 }
