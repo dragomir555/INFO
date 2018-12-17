@@ -55,7 +55,7 @@ namespace Autopraonica_Markus.forms
                     {
                         if (((employment)employment).FirstLogin == 1)
                         {
-                            PasswordChangeForm pcf = new PasswordChangeForm(((employment)employment).employee);
+                            PasswordChangeForm pcf = new PasswordChangeForm(((employment)employment).employee, mainForm);
                             pcf.Show();
                             this.Close();
                         }
@@ -85,7 +85,7 @@ namespace Autopraonica_Markus.forms
                                     string mail = ((employment)employment).employee.E_mail;
                                     // Treba dodati slanje maila
                                     MessageBox.Show("Na vaš e-mail je poslata poruka sa vašom novom lozinkom.", "Obavještenje");
-                                    PasswordChangeForm pcf = new PasswordChangeForm(((employment)employment).employee);
+                                    PasswordChangeForm pcf = new PasswordChangeForm(((employment)employment).employee, mainForm);
                                     pcf.Show();
                                     this.Close();
                                 }

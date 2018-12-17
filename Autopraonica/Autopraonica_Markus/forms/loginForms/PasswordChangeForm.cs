@@ -15,11 +15,13 @@ namespace Autopraonica_Markus.forms
     public partial class PasswordChangeForm : Form
     {
         private employee employee;
+        private MainForm mainForm;
 
-        public PasswordChangeForm(employee employee)
+        public PasswordChangeForm(employee employee, MainForm mainForm)
         {
             InitializeComponent();
             this.employee = employee;
+            this.mainForm = mainForm;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
