@@ -87,10 +87,10 @@
     <Compile Include="forms\employeeForms\NewEmployeeForm.Designer.cs">
       <DependentUpon>NewEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\LoginForm.cs">
+    <Compile Include="forms\loginForms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\LoginForm.Designer.cs">
+    <Compile Include="forms\loginForms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\MainForm.cs">
@@ -99,10 +99,10 @@
     <Compile Include="forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\PasswordChangeForm.cs">
+    <Compile Include="forms\loginForms\PasswordChangeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\PasswordChangeForm.Designer.cs">
+    <Compile Include="forms\loginForms\PasswordChangeForm.Designer.cs">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\userControls\uclCijenovnik.cs">
@@ -168,19 +168,20 @@
     <Compile Include="Model\Entities\servicetype.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="services\PasswordService.cs" />
     <EmbeddedResource Include="forms\clientForms\NewClientForm.resx">
       <DependentUpon>NewClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\employeeForms\NewEmployeeForm.resx">
       <DependentUpon>NewEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\LoginForm.resx">
+    <EmbeddedResource Include="forms\loginForms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\PasswordChangeForm.resx">
+    <EmbeddedResource Include="forms\loginForms\PasswordChangeForm.resx">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\userControls\uclCijenovnik.resx">

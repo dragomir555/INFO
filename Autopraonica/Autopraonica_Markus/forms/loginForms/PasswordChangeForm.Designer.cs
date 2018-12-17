@@ -100,13 +100,15 @@
             // 
             // btnConfirm
             // 
+            this.btnConfirm.BackColor = System.Drawing.Color.White;
+            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.Location = new System.Drawing.Point(195, 240);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(110, 35);
             this.btnConfirm.TabIndex = 4;
             this.btnConfirm.Text = "Potvrdi";
-            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.UseVisualStyleBackColor = false;
             // 
             // PasswordChangeForm
             // 
