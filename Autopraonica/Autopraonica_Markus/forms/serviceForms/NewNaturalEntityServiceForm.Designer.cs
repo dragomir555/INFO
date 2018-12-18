@@ -42,11 +42,11 @@
             // lblServiceType
             // 
             this.lblServiceType.AutoSize = true;
-            this.lblServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServiceType.ForeColor = System.Drawing.Color.White;
-            this.lblServiceType.Location = new System.Drawing.Point(114, 63);
+            this.lblServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServiceType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.lblServiceType.Location = new System.Drawing.Point(30, 30);
             this.lblServiceType.Name = "lblServiceType";
-            this.lblServiceType.Size = new System.Drawing.Size(131, 20);
+            this.lblServiceType.Size = new System.Drawing.Size(129, 16);
             this.lblServiceType.TabIndex = 0;
             this.lblServiceType.Text = "Kategorija usluge";
             // 
@@ -54,39 +54,39 @@
             // 
             this.cmbServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbServiceType.FormattingEnabled = true;
-            this.cmbServiceType.Location = new System.Drawing.Point(255, 60);
+            this.cmbServiceType.Location = new System.Drawing.Point(229, 18);
             this.cmbServiceType.Name = "cmbServiceType";
-            this.cmbServiceType.Size = new System.Drawing.Size(152, 28);
+            this.cmbServiceType.Size = new System.Drawing.Size(270, 28);
             this.cmbServiceType.TabIndex = 1;
             // 
             // cmbPricelistItem
             // 
             this.cmbPricelistItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPricelistItem.FormattingEnabled = true;
-            this.cmbPricelistItem.Location = new System.Drawing.Point(255, 120);
+            this.cmbPricelistItem.Location = new System.Drawing.Point(229, 68);
             this.cmbPricelistItem.Name = "cmbPricelistItem";
-            this.cmbPricelistItem.Size = new System.Drawing.Size(152, 28);
+            this.cmbPricelistItem.Size = new System.Drawing.Size(270, 28);
             this.cmbPricelistItem.TabIndex = 2;
             // 
             // lblPricelistItem
             // 
             this.lblPricelistItem.AutoSize = true;
-            this.lblPricelistItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPricelistItem.ForeColor = System.Drawing.Color.White;
-            this.lblPricelistItem.Location = new System.Drawing.Point(186, 123);
+            this.lblPricelistItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPricelistItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.lblPricelistItem.Location = new System.Drawing.Point(30, 80);
             this.lblPricelistItem.Name = "lblPricelistItem";
-            this.lblPricelistItem.Size = new System.Drawing.Size(59, 20);
+            this.lblPricelistItem.Size = new System.Drawing.Size(57, 16);
             this.lblPricelistItem.TabIndex = 3;
             this.lblPricelistItem.Text = "Usluga";
             // 
             // lblCarBrand
             // 
             this.lblCarBrand.AutoSize = true;
-            this.lblCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarBrand.ForeColor = System.Drawing.Color.White;
-            this.lblCarBrand.Location = new System.Drawing.Point(110, 183);
+            this.lblCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarBrand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.lblCarBrand.Location = new System.Drawing.Point(30, 130);
             this.lblCarBrand.Name = "lblCarBrand";
-            this.lblCarBrand.Size = new System.Drawing.Size(135, 20);
+            this.lblCarBrand.Size = new System.Drawing.Size(132, 16);
             this.lblCarBrand.TabIndex = 4;
             this.lblCarBrand.Text = "Marka automobila";
             // 
@@ -94,28 +94,28 @@
             // 
             this.cmbCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCarBrand.FormattingEnabled = true;
-            this.cmbCarBrand.Location = new System.Drawing.Point(255, 180);
+            this.cmbCarBrand.Location = new System.Drawing.Point(229, 118);
             this.cmbCarBrand.Name = "cmbCarBrand";
-            this.cmbCarBrand.Size = new System.Drawing.Size(152, 28);
+            this.cmbCarBrand.Size = new System.Drawing.Size(270, 28);
             this.cmbCarBrand.TabIndex = 5;
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.ForeColor = System.Drawing.Color.White;
-            this.lblPrice.Location = new System.Drawing.Point(192, 243);
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.lblPrice.Location = new System.Drawing.Point(30, 180);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(53, 20);
+            this.lblPrice.Size = new System.Drawing.Size(52, 16);
             this.lblPrice.TabIndex = 6;
             this.lblPrice.Text = "Cijena";
             // 
             // tbPrice
             // 
             this.tbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPrice.Location = new System.Drawing.Point(255, 240);
+            this.tbPrice.Location = new System.Drawing.Point(229, 170);
             this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(152, 26);
+            this.tbPrice.Size = new System.Drawing.Size(270, 26);
             this.tbPrice.TabIndex = 7;
             // 
             // btnAddCarBrand
@@ -123,7 +123,7 @@
             this.btnAddCarBrand.BackColor = System.Drawing.Color.White;
             this.btnAddCarBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCarBrand.Location = new System.Drawing.Point(415, 180);
+            this.btnAddCarBrand.Location = new System.Drawing.Point(414, 211);
             this.btnAddCarBrand.Name = "btnAddCarBrand";
             this.btnAddCarBrand.Size = new System.Drawing.Size(28, 28);
             this.btnAddCarBrand.TabIndex = 8;
@@ -134,8 +134,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
-            this.ClientSize = new System.Drawing.Size(484, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(534, 450);
             this.Controls.Add(this.btnAddCarBrand);
             this.Controls.Add(this.tbPrice);
             this.Controls.Add(this.lblPrice);
