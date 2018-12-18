@@ -44,6 +44,10 @@
             this.hdDateSer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdPriceSer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnGenBill = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label3
@@ -133,10 +137,14 @@
             this.hdSerNumSer,
             this.hdTypeSer,
             this.hdDateSer,
-            this.hdPriceSer});
+            this.hdPriceSer,
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.lvUpSer.Location = new System.Drawing.Point(59, 197);
+            this.lvUpSer.Location = new System.Drawing.Point(29, 197);
             this.lvUpSer.Name = "lvUpSer";
             this.lvUpSer.Size = new System.Drawing.Size(557, 210);
             this.lvUpSer.TabIndex = 13;
@@ -146,7 +154,7 @@
             // hdSerNumSer
             // 
             this.hdSerNumSer.Text = "Redni broj usluge";
-            this.hdSerNumSer.Width = 137;
+            this.hdSerNumSer.Width = 120;
             // 
             // hdTypeSer
             // 
@@ -214,5 +222,9 @@
         private System.Windows.Forms.ColumnHeader hdDateSer;
         private System.Windows.Forms.ColumnHeader hdPriceSer;
         private System.Windows.Forms.Button btnGenBill;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
