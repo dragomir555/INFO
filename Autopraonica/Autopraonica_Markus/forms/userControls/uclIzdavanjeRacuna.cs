@@ -57,6 +57,7 @@ namespace Autopraonica_Markus.forms.userControls
             lvUpSer.Items.Clear();
             string dateFrom = dtpDateFrom.Value.ToShortDateString();
             string dateTo = dtpDateTo.Value.ToShortDateString();
+
             fillListOfUnpaidServices();
             Boolean areValidFields = true;
 
@@ -84,22 +85,25 @@ namespace Autopraonica_Markus.forms.userControls
                     join plin in context.pricelistitemnames on plit.PricelistItemName_Id equals plin.Id
                     join serTp in context.servicetypes on plit.ServiceType_Id equals serTp.Id
                     where cl.Name == cmbClients.Text
-                  //  where  String.Compare((nes.ServiceTime.ToShortDateString()), dateFrom) >= 0 /* puca */
-                    //where String.Compare(dateTo,s =nes.ServiceTime.ToShortDateString()) >= 0  /* puca */
-                    select new { serTp.Name, les.FirstName, priceName = plin.Name ,les.LastName, nes.ServiceTime , les.LicencePlate, nes.Price}).ToList();
+                    select new { serTp.Name, les.FirstName, priceName = plin.Name ,les.LastName, nes.ServiceTime , les.LicencePlate, nes.Price,
+                    }).ToList();
                     int i = 1;
                     foreach (var v in listOfClientsUnpaidServices)
                     {
+                        string serviceDate = v.ServiceTime.ToShortDateString();
+                        if ((serviceDate.CompareTo(dateFrom) == -1 && dateTo.CompareTo(serviceDate) == -1))
+                        { 
                         ListViewItem item = new ListViewItem(i++.ToString());
                         item.SubItems.Add(v.Name);
                         item.SubItems.Add(v.priceName);
                         item.SubItems.Add(v.FirstName);
                         item.SubItems.Add(v.LastName);
-                        item.SubItems.Add(v.ServiceTime.ToShortDateString());
+                        item.SubItems.Add(serviceDate);
                         item.SubItems.Add(v.LicencePlate);
                         item.SubItems.Add(v.Price.ToString());
                         suma += v.Price;
                         lvUpSer.Items.Add(item);
+                        }
                     }
                 }
                 lblPrice.Text = suma.ToString();
