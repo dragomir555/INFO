@@ -52,6 +52,13 @@ namespace Autopraonica_Markus.forms
                 tbNewPasswordConfirm.Clear();
                 tbNewPassword.Focus();
             }
+            else if (newPassword.Length < 8)
+            {
+                MessageBox.Show("Unesena lozinka mora imati minimum 8 karaktera.", "Upozorenje");
+                tbNewPassword.Clear();
+                tbNewPasswordConfirm.Clear();
+                tbNewPassword.Focus();
+            }
             else
             {
                 employment employment = null;
@@ -64,11 +71,23 @@ namespace Autopraonica_Markus.forms
                     }
                 }
                 string salt = employment.Salt;
-                string passwordHash = employment.HashPassword;
-                string newPasswordHash = PasswordService.GetPasswordHash(salt, currentPassword);
-                if (newPasswordHash.Equals(passwordHash))
+                string currentPasswordHash1 = employment.HashPassword;
+                string currentPasswordHash2 = PasswordService.GetPasswordHash(salt, currentPassword);
+                if (currentPasswordHash2.Equals(currentPasswordHash1))
                 {
-
+                    string newSalt = PasswordService.GenerateSalt();
+                    string newPasswordHash = PasswordService.GetPasswordHash(newSalt, newPassword);
+                    using(MarkusDb context = new MarkusDb())
+                    {
+                        context.employments.Attach(employment);
+                        employment.Salt = newSalt;
+                        employment.HashPassword = newPasswordHash;
+                        employment.FirstLogin = 0;
+                        context.SaveChanges();
+                    }
+                    mainForm.setEmployee(employee);
+                    mainForm.Visible = true;
+                    this.Close();
                 }
                 else
                 {

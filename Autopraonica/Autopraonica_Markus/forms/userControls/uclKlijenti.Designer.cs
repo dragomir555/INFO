@@ -41,7 +41,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbContractOver = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).BeginInit();
             this.SuspendLayout();
@@ -175,17 +175,17 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Pretraga po";
             // 
-            // checkBox1
+            // cbContractOver
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox1.Location = new System.Drawing.Point(20, 96);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(138, 24);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "Ugovor zavrsen";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.cbContractOver.AutoSize = true;
+            this.cbContractOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbContractOver.Location = new System.Drawing.Point(20, 96);
+            this.cbContractOver.Name = "cbContractOver";
+            this.cbContractOver.Size = new System.Drawing.Size(138, 24);
+            this.cbContractOver.TabIndex = 8;
+            this.cbContractOver.Text = "Ugovor zavrsen";
+            this.cbContractOver.UseVisualStyleBackColor = true;
+            this.cbContractOver.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // button2
             // 
@@ -210,7 +210,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cbContractOver);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnNoviKlijent);
@@ -239,7 +239,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbContractOver;
         private System.Windows.Forms.Button button2;
     }
 }

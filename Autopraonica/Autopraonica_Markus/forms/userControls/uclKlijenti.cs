@@ -44,15 +44,23 @@ namespace Autopraonica_Markus.forms.userControls
             dgvKlijenti.Rows.Clear();
             using(MarkusDb context=new MarkusDb())
             {
-                var klijenti = (from c in context.clients select c).ToList();
+                var klijenti = (from cl in context.clients join cop in context.contracts on cl.Id equals cop.Client_Id select
+                           new {Client=cl,Contract=cop}).ToList();
+
+                int conOver = 1;
+                if (cbContractOver.Checked == true)
+                {
+                    conOver = 0;
+                }
                 foreach(var c in klijenti)
                 {
-                    DataGridViewRow r = new DataGridViewRow() {Tag=c};
-                    r.CreateCells(dgvKlijenti);
-                   // var to = c.DateTo;
-                    r.SetValues(c.Name, c.UID, c.City_Id, c.Address,"Treba","Treba");
-                    dgvKlijenti.Rows.Add(r);
-                    
+                    if (c.Contract.Current==conOver) {
+                        DataGridViewRow r = new DataGridViewRow() { Tag = c };
+                        r.CreateCells(dgvKlijenti);
+                        r.SetValues(c.Client.Name, c.Client.UID, c.Client.city.Name, c.Client.Address, c.Contract.DateFrom.ToString("dd.MM.yyyy"),
+                            c.Contract.DateTo.HasValue ? c.Contract.DateTo.Value.ToString("dd.MM.yyyy") : "-");
+                        dgvKlijenti.Rows.Add(r);
+                    }
                 }
             }
         }
@@ -73,9 +81,20 @@ namespace Autopraonica_Markus.forms.userControls
                             City_Id = newClientForm.IdCity,
                             UID = newClientForm.UID
                         };
+                        var co = new contract()
+                        {
+                            Current = 1,
+                            DateFrom = DateTime.Now                                                      
+                        };
+                        if (newClientForm.ContractTo != null)
+                        {                          
+                            co.DateTo=newClientForm.ContractTo;
+                        }
                         context.clients.Add(cl);
                         context.SaveChanges();
-                        // odabranoMesto = c;
+                        co.Client_Id = cl.Id;
+                        context.contracts.Add(co);
+                        context.SaveChanges();
                         FillTable();
                     }
 
@@ -105,7 +124,7 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            FillTable();
         }
     }
 }

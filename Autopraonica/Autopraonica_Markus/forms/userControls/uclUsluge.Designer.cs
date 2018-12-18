@@ -125,6 +125,7 @@
             this.btnNewNaturalEntityService.TabIndex = 4;
             this.btnNewNaturalEntityService.Text = "Dodavanje usluge za fizička lica";
             this.btnNewNaturalEntityService.UseVisualStyleBackColor = false;
+            this.btnNewNaturalEntityService.Click += new System.EventHandler(this.btnNewNaturalEntityService_Click);
             // 
             // dgvNaturalEntity
             // 
