@@ -248,6 +248,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="resources\add2.png" />
     <Content Include="resources\car-wash.png" />
     <Content Include="resources\icon.ico" />
   </ItemGroup>

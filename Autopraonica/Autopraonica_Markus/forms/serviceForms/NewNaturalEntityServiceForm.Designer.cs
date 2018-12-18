@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewNaturalEntityServiceForm));
             this.lblServiceType = new System.Windows.Forms.Label();
             this.cmbServiceType = new System.Windows.Forms.ComboBox();
             this.cmbPricelistItem = new System.Windows.Forms.ComboBox();
@@ -37,6 +38,10 @@
             this.lblPrice = new System.Windows.Forms.Label();
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.btnAddCarBrand = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.lblCarpetSize = new System.Windows.Forms.Label();
+            this.tbCarpetSize = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblServiceType
@@ -58,6 +63,7 @@
             this.cmbServiceType.Name = "cmbServiceType";
             this.cmbServiceType.Size = new System.Drawing.Size(270, 28);
             this.cmbServiceType.TabIndex = 1;
+            this.cmbServiceType.SelectedIndexChanged += new System.EventHandler(this.cmbServiceType_SelectedIndexChanged);
             // 
             // cmbPricelistItem
             // 
@@ -67,6 +73,7 @@
             this.cmbPricelistItem.Name = "cmbPricelistItem";
             this.cmbPricelistItem.Size = new System.Drawing.Size(270, 28);
             this.cmbPricelistItem.TabIndex = 2;
+            this.cmbPricelistItem.SelectedIndexChanged += new System.EventHandler(this.cmbPricelistItem_SelectedIndexChanged);
             // 
             // lblPricelistItem
             // 
@@ -96,7 +103,7 @@
             this.cmbCarBrand.FormattingEnabled = true;
             this.cmbCarBrand.Location = new System.Drawing.Point(229, 118);
             this.cmbCarBrand.Name = "cmbCarBrand";
-            this.cmbCarBrand.Size = new System.Drawing.Size(270, 28);
+            this.cmbCarBrand.Size = new System.Drawing.Size(236, 28);
             this.cmbCarBrand.TabIndex = 5;
             // 
             // lblPrice
@@ -120,22 +127,80 @@
             // 
             // btnAddCarBrand
             // 
-            this.btnAddCarBrand.BackColor = System.Drawing.Color.White;
+            this.btnAddCarBrand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnAddCarBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCarBrand.Location = new System.Drawing.Point(414, 211);
+            this.btnAddCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCarBrand.ForeColor = System.Drawing.Color.White;
+            this.btnAddCarBrand.Location = new System.Drawing.Point(471, 118);
             this.btnAddCarBrand.Name = "btnAddCarBrand";
             this.btnAddCarBrand.Size = new System.Drawing.Size(28, 28);
             this.btnAddCarBrand.TabIndex = 8;
             this.btnAddCarBrand.Text = "+";
+            this.btnAddCarBrand.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAddCarBrand.UseVisualStyleBackColor = false;
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.ForeColor = System.Drawing.Color.White;
+            this.btnConfirm.Location = new System.Drawing.Point(200, 230);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(140, 35);
+            this.btnConfirm.TabIndex = 9;
+            this.btnConfirm.Text = "Potvrdi";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(359, 230);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(140, 35);
+            this.btnCancel.TabIndex = 10;
+            this.btnCancel.Text = "Otkaži";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // lblCarpetSize
+            // 
+            this.lblCarpetSize.AutoSize = true;
+            this.lblCarpetSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarpetSize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.lblCarpetSize.Location = new System.Drawing.Point(30, 180);
+            this.lblCarpetSize.Name = "lblCarpetSize";
+            this.lblCarpetSize.Size = new System.Drawing.Size(83, 16);
+            this.lblCarpetSize.TabIndex = 11;
+            this.lblCarpetSize.Text = "Kvadratura";
+            this.lblCarpetSize.Visible = false;
+            // 
+            // tbCarpetSize
+            // 
+            this.tbCarpetSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCarpetSize.Location = new System.Drawing.Point(229, 170);
+            this.tbCarpetSize.Name = "tbCarpetSize";
+            this.tbCarpetSize.Size = new System.Drawing.Size(270, 26);
+            this.tbCarpetSize.TabIndex = 12;
+            this.tbCarpetSize.Visible = false;
             // 
             // NewNaturalEntityServiceForm
             // 
+            this.AcceptButton = this.btnConfirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(534, 450);
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(534, 283);
+            this.Controls.Add(this.tbCarpetSize);
+            this.Controls.Add(this.lblCarpetSize);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnAddCarBrand);
             this.Controls.Add(this.tbPrice);
             this.Controls.Add(this.lblPrice);
@@ -145,8 +210,12 @@
             this.Controls.Add(this.cmbPricelistItem);
             this.Controls.Add(this.cmbServiceType);
             this.Controls.Add(this.lblServiceType);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "NewNaturalEntityServiceForm";
-            this.Text = "NewNaturalEntityServiceForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Markus";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +232,9 @@
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.TextBox tbPrice;
         private System.Windows.Forms.Button btnAddCarBrand;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblCarpetSize;
+        private System.Windows.Forms.TextBox tbCarpetSize;
     }
 }
