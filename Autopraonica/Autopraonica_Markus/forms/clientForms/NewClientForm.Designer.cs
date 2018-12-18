@@ -185,6 +185,7 @@
             this.btnAddCity.TabIndex = 11;
             this.btnAddCity.Text = "Add";
             this.btnAddCity.UseVisualStyleBackColor = true;
+            this.btnAddCity.Click += new System.EventHandler(this.btnAddCity_Click);
             // 
             // NewClientForm
             // 

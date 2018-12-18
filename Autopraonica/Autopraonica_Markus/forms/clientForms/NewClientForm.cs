@@ -90,5 +90,29 @@ namespace Autopraonica_Markus.forms.clientForms
                 dtpUgovorDo.Hide();
             }
         }
+
+        private void btnAddCity_Click(object sender, EventArgs e)
+        {
+            NewCityForm newCity = new NewCityForm();
+            if (DialogResult.OK == newCity.ShowDialog()) {
+            using(MarkusDb context=new MarkusDb())
+                {
+                    try
+                    {
+                        var c = new city()
+                        {
+                            Name = newCity.Name,
+                            PostCode = newCity.PostCode
+                        };
+
+                    }
+                    catch (Exception ex) {
+                        MessageBox.Show("Greska prilikom dodavanja grada"+ex, "Error");
+                    }
+
+
+                }                
+            }
+        }
     }
 }

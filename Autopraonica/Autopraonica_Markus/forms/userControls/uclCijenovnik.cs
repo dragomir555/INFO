@@ -29,5 +29,10 @@ namespace Autopraonica_Markus.forms.userControls
         {
             InitializeComponent();
         }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

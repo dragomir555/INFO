@@ -46,15 +46,21 @@ namespace Autopraonica_Markus.forms.userControls
             {
                 var klijenti = (from cl in context.clients join cop in context.contracts on cl.Id equals cop.Client_Id select
                            new {Client=cl,Contract=cop}).ToList();
-              
+
+                int conOver = 1;
+                if (cbContractOver.Checked == true)
+                {
+                    conOver = 0;
+                }
                 foreach(var c in klijenti)
                 {
-                    DataGridViewRow r = new DataGridViewRow() {Tag=c};
-                    r.CreateCells(dgvKlijenti);
-                    r.SetValues(c.Client.Name, c.Client.UID, c.Client.city.Name, c.Client.Address,c.Contract.DateFrom.ToString("dd.MM.yyyy"),
-                        c.Contract.DateTo.HasValue ? c.Contract.DateTo.Value.ToString("dd.MM.yyyy") : "-");
-                    dgvKlijenti.Rows.Add(r);
-                    
+                    if (c.Contract.Current==conOver) {
+                        DataGridViewRow r = new DataGridViewRow() { Tag = c };
+                        r.CreateCells(dgvKlijenti);
+                        r.SetValues(c.Client.Name, c.Client.UID, c.Client.city.Name, c.Client.Address, c.Contract.DateFrom.ToString("dd.MM.yyyy"),
+                            c.Contract.DateTo.HasValue ? c.Contract.DateTo.Value.ToString("dd.MM.yyyy") : "-");
+                        dgvKlijenti.Rows.Add(r);
+                    }
                 }
             }
         }
@@ -118,7 +124,7 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            FillTable();
         }
     }
 }
