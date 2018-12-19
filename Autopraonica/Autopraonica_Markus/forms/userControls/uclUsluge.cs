@@ -15,6 +15,7 @@ namespace Autopraonica_Markus.forms.userControls
     public partial class uclUsluge : UserControl
     {
         private static uclUsluge instance;
+        private MainForm mainForm;
 
         public static uclUsluge Instance
         {
@@ -33,6 +34,11 @@ namespace Autopraonica_Markus.forms.userControls
             InitializeComponent();
             FillTableNaturalEntityServices();
             FillTableLegalEntityServices();
+        }
+
+        public void SetMainForm(MainForm mainForm)
+        {
+            this.mainForm = mainForm;
         }
 
         private void FillTableLegalEntityServices()
@@ -96,7 +102,31 @@ namespace Autopraonica_Markus.forms.userControls
         private void btnNewNaturalEntityService_Click(object sender, EventArgs e)
         {
             NewNaturalEntityServiceForm nnesf = new NewNaturalEntityServiceForm();
-            nnesf.ShowDialog();
+            if(DialogResult.OK == nnesf.ShowDialog())
+            {
+                try
+                {
+                    using(MarkusDb context = new MarkusDb())
+                    {
+                        var naturalEntityService = new naturalentityservice()
+                        {
+                            Price = nnesf.Price,
+                            CarBrand_Id = nnesf.CarBrand_Id,
+                            PricelistItem_Id = nnesf.PricelistItem_Id,
+                            ServiceTime = DateTime.Now,
+                            // Employee_Id = mainForm.getEmployee().Id;
+                        };
+                        context.naturalentityservices.Add(naturalEntityService);
+                        context.SaveChanges();
+                        FillTableNaturalEntityServices();
+                        rbFizickaLica.Checked = true;
+                    }
+                }
+                catch(Exception ex)
+                {
+
+                }
+            }
         }
     }
 }

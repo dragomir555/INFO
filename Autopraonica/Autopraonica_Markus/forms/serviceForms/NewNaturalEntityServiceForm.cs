@@ -13,10 +13,15 @@ namespace Autopraonica_Markus.forms.serviceForms
 {
     public partial class NewNaturalEntityServiceForm : Form
     {
+        public int CarBrand_Id { get; set; }
+        public int PricelistItem_Id { get; set; }
+        public decimal Price { get; set; }
+
         public NewNaturalEntityServiceForm()
         {
             InitializeComponent();
             FillComboBoxes();
+            RefreshCarBrandComboBox();
         }
 
         private void FillComboBoxes()
@@ -52,7 +57,8 @@ namespace Autopraonica_Markus.forms.serviceForms
             using(MarkusDb context = new MarkusDb())
             {
                 var price = (from c in context.pricelistitems where c.ServiceType_Id == ((servicetype)serviceType).Id &&
-                              c.PricelistItemName_Id == ((pricelistitemname)pricelistItem).Id
+                              c.PricelistItemName_Id == ((pricelistitemname)pricelistItem).Id &&
+                              c.DateTo == null
                               select c).ToList();
                 tbPrice.Text = price[0].Price.ToString();
             }
@@ -70,6 +76,7 @@ namespace Autopraonica_Markus.forms.serviceForms
             {
                 lblCarpetSize.Visible = false;
                 tbCarpetSize.Visible = false;
+                tbCarpetSize.Clear();
                 lblPrice.Location = new Point(30, 180);
                 tbPrice.Location = new Point(229, 170);
                 btnConfirm.Location = new Point(200, 230);
@@ -81,6 +88,106 @@ namespace Autopraonica_Markus.forms.serviceForms
                     tbPrice.Enabled = true;
                 }
             }
+        }
+
+        public void RefreshCarBrandComboBox()
+        {
+            using(MarkusDb context = new MarkusDb())
+            {
+                var carBrands = (from c in context.carbrands select c).ToList();
+                cmbCarBrand.DataSource = carBrands;
+                cmbCarBrand.DisplayMember = "Name";
+                cmbCarBrand.ValueMember = "Id";
+            }
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            if(cmbServiceType.SelectedIndex == -1)
+            {
+                MessageBox.Show("Niste odabrali kategoriju usluge.", "Upozorenje");
+                cmbServiceType.Focus();
+            }
+            else if(cmbPricelistItem.SelectedIndex == -1)
+            {
+                MessageBox.Show("Niste odabrali uslugu.", "Upozorenje");
+                cmbPricelistItem.Focus();
+            }
+            else if(cmbCarBrand.SelectedIndex == -1)
+            {
+                MessageBox.Show("Niste odabrali marku automobila.", "Upozorenje");
+                cmbCarBrand.Focus();
+            }
+            else
+            {
+                if("Pranje tepiha".Equals(((servicetype)cmbServiceType.SelectedItem).Name))
+                {
+                    if(string.IsNullOrWhiteSpace(tbCarpetSize.Text))
+                    {
+                        MessageBox.Show("Niste unijeli kvadraturu opranog tepiha.", "Upozorenje");
+                        tbCarpetSize.Focus();
+                    }
+                }
+                else if (string.IsNullOrWhiteSpace(tbPrice.Text))
+                {
+                    MessageBox.Show("Niste unijeli cijenu usluge.", "Upozorenje");
+                    tbPrice.Focus();
+                }
+                else
+                {
+                    CarBrand_Id = ((carbrand)cmbCarBrand.SelectedItem).Id;
+                    using(MarkusDb context = new MarkusDb())
+                    {
+                        List<pricelistitem> pricelistItems = (from c in context.pricelistitems
+                                              where c.ServiceType_Id == ((servicetype)cmbServiceType.SelectedItem).Id
+                                              && c.PricelistItemName_Id == ((pricelistitemname)cmbPricelistItem.SelectedItem).Id
+                                              &&  c.DateTo == null
+                                              select c).ToList();
+                        if(pricelistItems.Count == 1)
+                        {
+                            PricelistItem_Id = pricelistItems[0].Id;
+                        }
+                    }
+                    if("Pranje tepiha".Equals(((servicetype)cmbServiceType.SelectedItem).Name))
+                    {
+                        decimal carpetSize = decimal.Parse(tbCarpetSize.Text);
+                        decimal price = decimal.Parse(tbPrice.Text);
+                        Price = price * carpetSize;
+                    }
+                    else
+                    {
+                        Price = decimal.Parse(tbPrice.Text);
+                    }
+                    this.DialogResult = DialogResult.OK;
+                }
+            }
+        }
+
+        private void AllowDecimal(object sender, KeyPressEventArgs e)
+        {
+            // allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // checks to make sure only 1 decimal is allowed
+            if (e.KeyChar == 46)
+            {
+                if ((sender as TextBox).Text.IndexOf(e.KeyChar) != -1)
+                    e.Handled = true;
+            }
+        }
+
+        private void tbCarpetSize_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowDecimal(sender, e);
+        }
+
+        private void tbPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowDecimal(sender, e);
         }
     }
 }

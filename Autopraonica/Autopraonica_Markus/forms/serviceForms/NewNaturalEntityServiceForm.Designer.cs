@@ -124,10 +124,12 @@
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(270, 26);
             this.tbPrice.TabIndex = 7;
+            this.tbPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrice_KeyPress);
             // 
             // btnAddCarBrand
             // 
             this.btnAddCarBrand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnAddCarBrand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnAddCarBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCarBrand.ForeColor = System.Drawing.Color.White;
@@ -152,6 +154,7 @@
             this.btnConfirm.TabIndex = 9;
             this.btnConfirm.Text = "Potvrdi";
             this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnCancel
             // 
@@ -188,6 +191,7 @@
             this.tbCarpetSize.Size = new System.Drawing.Size(270, 26);
             this.tbCarpetSize.TabIndex = 12;
             this.tbCarpetSize.Visible = false;
+            this.tbCarpetSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCarpetSize_KeyPress);
             // 
             // NewNaturalEntityServiceForm
             // 
