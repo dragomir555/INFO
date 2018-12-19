@@ -188,10 +188,11 @@ namespace Autopraonica_Markus
             loginForm.Show();
         }
 
-        public void setEmployee(employee employee)
+        public void SetEmployee(employee employee)
         {
             this.employee = employee;
             // Treba dodati popunjavanje labele sa imenom zaposlenog
+            uclUsluge.Instance.SetEmployee(employee);
         }
     }
 }

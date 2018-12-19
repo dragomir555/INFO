@@ -73,7 +73,7 @@ namespace Autopraonica_Markus.forms
                                     LogoutTime = null
                                 };
                                 employee.employeerecords.Add(emp);
-                                mainForm.setEmployee(employee);
+                                mainForm.SetEmployee(employee);
                                 mainForm.Visible = true;
                                 this.Close();
                             }

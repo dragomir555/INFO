@@ -15,7 +15,7 @@ namespace Autopraonica_Markus.forms.userControls
     public partial class uclUsluge : UserControl
     {
         private static uclUsluge instance;
-        private MainForm mainForm;
+        private employee employee;
 
         public static uclUsluge Instance
         {
@@ -32,13 +32,13 @@ namespace Autopraonica_Markus.forms.userControls
         public uclUsluge()
         {
             InitializeComponent();
-            FillTableNaturalEntityServices();
-            FillTableLegalEntityServices();
         }
 
-        public void SetMainForm(MainForm mainForm)
+        public void SetEmployee(employee employee)
         {
-            this.mainForm = mainForm;
+            this.employee = employee;
+            FillTableNaturalEntityServices();
+            FillTableLegalEntityServices();
         }
 
         private void FillTableLegalEntityServices()
@@ -46,7 +46,9 @@ namespace Autopraonica_Markus.forms.userControls
             dgvLegalEntity.Rows.Clear();
             using(MarkusDb context = new MarkusDb())
             {
-                var services = (from c in context.legalentityservices select c).ToList();
+                var services = (from c in context.legalentityservices
+                                where c.naturalentityservice.Employee_Id == employee.Id
+                                select c).ToList();
                 foreach(var s in services)
                 {
                     DataGridViewRow row = new DataGridViewRow()
@@ -68,7 +70,9 @@ namespace Autopraonica_Markus.forms.userControls
             dgvNaturalEntity.Rows.Clear();
             using(MarkusDb context = new MarkusDb())
             {
-                var services = (from c in context.naturalentityservices select c).ToList();
+                var services = (from c in context.naturalentityservices
+                                where c.Employee_Id == employee.Id
+                                select c).ToList();
                 foreach(var s in services)
                 {
                     DataGridViewRow row = new DataGridViewRow()
@@ -114,7 +118,7 @@ namespace Autopraonica_Markus.forms.userControls
                             CarBrand_Id = nnesf.CarBrand_Id,
                             PricelistItem_Id = nnesf.PricelistItem_Id,
                             ServiceTime = DateTime.Now,
-                            // Employee_Id = mainForm.getEmployee().Id;
+                            Employee_Id = employee.Id
                         };
                         context.naturalentityservices.Add(naturalEntityService);
                         context.SaveChanges();

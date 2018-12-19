@@ -85,7 +85,7 @@ namespace Autopraonica_Markus.forms
                         employment.FirstLogin = 0;
                         context.SaveChanges();
                     }
-                    mainForm.setEmployee(employee);
+                    mainForm.SetEmployee(employee);
                     mainForm.Visible = true;
                     this.Close();
                 }
