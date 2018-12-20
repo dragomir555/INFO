@@ -87,24 +87,114 @@ namespace Autopraonica_Markus.forms.employeeForms
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-        
-            using (MarkusDb ctx = new MarkusDb())
-            {
-                if(!checkFields())
+            if (!ValidateChildren(ValidationConstraints.Enabled))
+            {   
+             //   this.DialogResult = DialogResult.Cancel;
+         
+            }
+            else
+            { 
+              using (MarkusDb ctx = new MarkusDb())
                 {
-                    MessageBox.Show("Niste popunili sva polja ispravno", "Greska");
-                }
-                else
-                {
-                    FirstName = tbFirstName.Text;
-                    LastName = tbLastName.Text;
-                    E_mail = tbEMail.Text;
-                    Address = tbAddress.Text;
-                    PhoneNumber = tbPhoneNumber.Text;
-                    Password = tbPassword.Text;
-                    this.DialogResult = DialogResult.OK;
+                FirstName = tbFirstName.Text;
+                LastName = tbLastName.Text;
+                E_mail = tbEMail.Text;
+                Address = tbAddress.Text;
+                PhoneNumber = tbPhoneNumber.Text;
+                Password = tbPassword.Text;
+                this.DialogResult = DialogResult.OK;
                 }
             }
+        }
+
+        private void tbFirstName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbFirstName.Text))
+            {
+                e.Cancel = true;
+                tbFirstName.Focus();
+                errorProvider.SetError(tbFirstName, "Molimo da unesete ispravno ime !");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(tbFirstName, null);
+            }
+        }
+
+        private void tbLastName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbLastName.Text))
+            {
+                e.Cancel = true;
+                tbLastName.Focus();
+                errorProvider.SetError(tbLastName, "Molimo da unesete ispravno prezime !");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(tbLastName, null);
+            }
+        }
+
+        private void tbAddress_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbAddress.Text))
+            {
+                e.Cancel = true;
+                tbAddress.Focus();
+                errorProvider.SetError(tbAddress, "Molimo da unesete ispravno adresu !");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(tbAddress, null);
+            }
+        }
+
+        private void tbPhoneNumber_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbPhoneNumber.Text))
+            {
+                e.Cancel = true;
+                tbPhoneNumber.Focus();
+                errorProvider.SetError(tbPhoneNumber, "Molimo da unesete ispravno broj telefona !");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(tbPhoneNumber, null);
+            }
+        }
+
+        private void tbEMail_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbEMail.Text))
+            {
+                e.Cancel = true;
+                tbEMail.Focus();
+                errorProvider.SetError(tbEMail, "Molimo da unesete ispravno e-mail");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(tbEMail, null);
+            }
+
+        }
+
+        private void tbPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if(string.IsNullOrEmpty(tbPassword.Text))
+            {
+                e.Cancel = true; tbPassword.Focus();
+                errorProvider.SetError(tbPassword, "Molimo da unesete ispravno lozinku !");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(tbPassword, null);
+            } 
         }
     }
 }

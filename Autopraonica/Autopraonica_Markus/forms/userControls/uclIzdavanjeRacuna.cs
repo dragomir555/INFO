@@ -86,6 +86,7 @@ namespace Autopraonica_Markus.forms.userControls
                     if ((serviceDate.CompareTo(dateFrom) == -1 && dateTo.CompareTo(serviceDate) == -1) || true)
                     {
                         dt.Rows.Add(i++, v.Name, v.priceName, v.FirstName, v.LastName, serviceDate,v.LicencePlate, v.Price.ToString());
+                        
                         //dodati ukupnu cijenu
                     }
                 }
@@ -214,13 +215,12 @@ namespace Autopraonica_Markus.forms.userControls
             friend.Columns.Add("Cijena");
 
 
-
+           
             //Populate with unpaid services 
             string dateFrom = dtpDateFrom.Value.ToShortDateString();
             string dateTo = dtpDateTo.Value.ToShortDateString();
             populateRows(friend, dateFrom, dateTo);
             
-
             return friend;
         }
 
@@ -242,10 +242,14 @@ namespace Autopraonica_Markus.forms.userControls
             document.Add(prgHeading);
 
             //Author
+            Paragraph prgCompanyInfo = new Paragraph();
             Paragraph prgAuthor = new Paragraph();
+
+            Paragraph prgAuthor1 = new Paragraph();
             BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntAuthor = new Font(btnAuthor, 8, 2, iTextSharp.text.Color.GRAY);
-            prgAuthor.Alignment = Element.ALIGN_RIGHT;
+
+            prgCompanyInfo.Alignment = Element.ALIGN_RIGHT;
 
             using (MarkusDb ctx = new MarkusDb())
             {
@@ -255,10 +259,24 @@ namespace Autopraonica_Markus.forms.userControls
 
                 prgAuthor.Add(new Chunk("Kreirao : Menadzer", fntAuthor));
             }
+            prgAuthor1.Add(new Chunk("ssssiranja : " + DateTime.Now.ToShortDateString(), fntAuthor));
+            prgAuthor1.Alignment = Element.ALIGN_RIGHT;
 
             prgAuthor.Add(new Chunk("\nDatum kreiranja : " + DateTime.Now.ToShortDateString(), fntAuthor));
-            document.Add(prgAuthor);
+            prgAuthor.Add(new Chunk("\nDatum kreiranja : " + DateTime.Now.ToShortDateString(), fntAuthor));
+            prgAuthor.Add(new Chunk("\nDatum kreiranja : " + DateTime.Now.ToShortDateString(), fntAuthor));
+            prgAuthor.Add(new Chunk("\nDatum kreiranja : " + DateTime.Now.ToShortDateString(), fntAuthor));
 
+            prgCompanyInfo.Add(new Chunk("\nJIB : " + "000000000000", fntAuthor));
+            prgCompanyInfo.Add(new Chunk("\nAdresa : " + "Patre 5", fntAuthor));
+            prgCompanyInfo.Add(new Chunk("\nAdresa : " + "Patre 5", fntAuthor));
+            prgCompanyInfo.Add(new Chunk("\nAdresa : " + "Patre 5", fntAuthor));
+            
+
+            document.Add(prgAuthor);
+            document.Add(prgCompanyInfo);
+
+            document.Add(prgAuthor1);
             //Add a line seperation
             Paragraph p = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.Color.BLACK, Element.ALIGN_LEFT, 1)));
             document.Add(p);
@@ -278,6 +296,7 @@ namespace Autopraonica_Markus.forms.userControls
                 cell.AddElement(new Chunk(dtblTable.Columns[i].ColumnName.ToUpper(), fntColumnHeader));
                 table.AddCell(cell);
             }
+            
             //table Data
             for (int i = 0; i < dtblTable.Rows.Count; i++)
             {
