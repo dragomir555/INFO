@@ -14,6 +14,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.text;
 using System.IO;
 using Font = iTextSharp.text.Font;
+using System.Globalization;
 
 
 
@@ -183,8 +184,10 @@ namespace Autopraonica_Markus.forms.userControls
         {
             try
             {
-                DataTable dtbl = MakeDataTable();
-                ExportDataTableToPdf(dtbl, @"D:\test.pdf", "AUTOPRAONICA MARKUS");
+                DataTable dtbl = MakeDataTableForUnpaidServices();
+                ExportDataTableOfUnpaidServicesToPdf(dtbl, @"D:\UnapaidServices.pdf", "AUTOPRAONICA MARKUS");
+
+                //  ExportDataTableToPdf(dtbl, @"D:\test.pdf", "AUTOPRAONICA MARKUS");
                 //if (cbxopen.checked)
                 //{
                 //        system.diagnostics.process.start(@"e:\test.pdf");
@@ -224,7 +227,65 @@ namespace Autopraonica_Markus.forms.userControls
             return friend;
         }
 
-   
+        DataTable MakeDataTableForUnpaidServices()
+        {
+            //Create friend table object
+            DataTable friend = new DataTable();
+
+
+            //Define columns
+            friend.Columns.Add("Redni broj usluge");
+            friend.Columns.Add("Datum usluge");
+            friend.Columns.Add("Marka i tip vozila");
+            friend.Columns.Add("Registarski broj\r\nvozila");
+            friend.Columns.Add("Vrsta usluge"); 
+            friend.Columns.Add("Potpis vozača");
+            
+            //Populate with unpaid services 
+            string dateFrom = dtpDateFrom.Value.ToShortDateString();
+            string dateTo = dtpDateTo.Value.ToShortDateString();
+            populateRowsForUnpaidServices(friend, dateFrom, dateTo);
+
+            return friend;
+        }
+
+        private void populateRowsForUnpaidServices(DataTable dt, string dateFrom, string dateTo)
+        {
+            using (MarkusDb context = new MarkusDb())
+            {
+                var listOfClientsUnpaidServices =
+                (from les in context.legalentityservices
+                 join cl in context.clients on les.Client_Id equals cl.Id
+                 join nes in context.naturalentityservices on les.NaturalEntityService_Id equals nes.Id
+                 join cb in context.carbrands on nes.CarBrand_Id equals cb.Id
+                 join plit in context.pricelistitems on nes.PricelistItem_Id equals plit.Id
+                 join plin in context.pricelistitemnames on plit.PricelistItemName_Id equals plin.Id
+                 join serTp in context.servicetypes on plit.ServiceType_Id equals serTp.Id
+                 where cl.Name == cmbClients.Text
+                 select new
+                 {
+                     serTp.Name,
+                     les.FirstName,
+                     priceName = plin.Name,
+                     les.LastName,
+                     nes.ServiceTime,
+                     les.LicencePlate,
+                     nes.Price,
+                     carBrandName = cb.Name,
+                 }).ToList();
+                int i = 1;
+                foreach (var v in listOfClientsUnpaidServices)
+                {
+                    string serviceDate = v.ServiceTime.ToShortDateString();
+                    if ((serviceDate.CompareTo(dateFrom) == -1 && dateTo.CompareTo(serviceDate) == -1) || true)
+                    {
+                        dt.Rows.Add(i++, serviceDate, v.carBrandName, v.LicencePlate, v.Name, v.priceName);
+                    }
+                }
+            }
+        }
+
+
         void ExportDataTableToPdf(DataTable dtblTable, String strPdfPath, string strHeader)
         {
             System.IO.FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
@@ -311,7 +372,68 @@ namespace Autopraonica_Markus.forms.userControls
             writer.Close();
             fs.Close();
         }
+        
+        void ExportDataTableOfUnpaidServicesToPdf(DataTable dtblTable, String strPdfPath, string strHeader)
+        {
+            System.IO.FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
+            Document document = new Document();
+            document.SetPageSize(iTextSharp.text.PageSize.A4);
+            PdfWriter writer = PdfWriter.GetInstance(document, fs);
+            document.Open();
 
+            //Report Header
+            BaseFont bfntHead = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            Font fntHead = new Font(bfntHead, 15, 1, iTextSharp.text.Color.GRAY);
+            Paragraph prgHeading = new Paragraph();
+            prgHeading.Alignment = Element.ALIGN_CENTER;
+            prgHeading.Add(new Chunk(strHeader.ToUpper(), fntHead));
+            document.Add(prgHeading);
 
+            //Author
+            Paragraph prgContent = new Paragraph();
+            BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            Font fntAuthor = new Font(btnAuthor, 8, 2, iTextSharp.text.Color.GRAY);
+
+            var month = DateTimeFormatInfo.CurrentInfo.GetMonthName(DateTime.Now.Month - 1); 
+
+            Func<string> year = () => {
+                if (DateTime.Now.Month == 1)
+                    return (DateTime.Now.Year - 1).ToString();
+                return (DateTime.Now.Year).ToString();
+            };           
+            prgContent.Add(new Chunk("\nPREGLED USLUGA PRANJA PUTNIČKIH VOZILA ZA : " + month  , fntAuthor));
+            prgContent.Add(new Chunk("\n" + year() + ". GODINA  " + cmbClients.Text, fntAuthor));
+            prgContent.Add(new Chunk("\n                                                     "));
+            prgContent.Add(new Chunk("\n                                                     "));
+            document.Add(prgContent);
+ 
+            //Write the table
+            PdfPTable table = new PdfPTable(dtblTable.Columns.Count);
+            //Table header
+            BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            Font fntColumnHeader = new Font(btnColumnHeader, 6, 1, iTextSharp.text.Color.WHITE);
+            for (int i = 0; i < dtblTable.Columns.Count; i++)
+            {
+                PdfPCell cell = new PdfPCell();
+                cell.BackgroundColor = iTextSharp.text.Color.GRAY;
+                cell.AddElement(new Chunk(dtblTable.Columns[i].ColumnName.ToUpper(), fntColumnHeader));
+                table.AddCell(cell);
+            }
+
+            //table Data
+            for (int i = 0; i < dtblTable.Rows.Count; i++)
+            {
+                for (int j = 0; j < dtblTable.Columns.Count; j++)
+                {
+                    table.AddCell(dtblTable.Rows[i][j].ToString());
+
+                }
+            }
+            document.Add(table);
+            document.Close();
+            writer.Close();
+            fs.Close();
+        }
     }
 }
+
