@@ -185,9 +185,17 @@ namespace Autopraonica_Markus.forms.userControls
             try
             {
                 DataTable dtbl = MakeDataTableForUnpaidServices();
-                ExportDataTableOfUnpaidServicesToPdf(dtbl, @"D:\UnapaidServices.pdf", "AUTOPRAONICA MARKUS");
 
-                //  ExportDataTableToPdf(dtbl, @"D:\test.pdf", "AUTOPRAONICA MARKUS");
+                var month = DateTimeFormatInfo.CurrentInfo.GetMonthName(DateTime.Now.Month - 1);
+
+                Func<string> year = () => {
+                    if (DateTime.Now.Month == 1)
+                        return (DateTime.Now.Year - 1).ToString();
+                    return (DateTime.Now.Year).ToString();
+                };
+
+                ExportDataTableOfUnpaidServicesToPdf(dtbl, @"D:\NeplaćeneUsluge" + month + year() + ".pdf", "AUTOPRAONICA MARKUS");
+                ExportDataTableToPdf(dtbl, @"D:\RačunZa" + month + year() + ".pdf", "AUTOPRAONICA MARKUS");
                 //if (cbxopen.checked)
                 //{
                 //        system.diagnostics.process.start(@"e:\test.pdf");
