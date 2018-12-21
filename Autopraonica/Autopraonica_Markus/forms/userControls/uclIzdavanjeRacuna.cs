@@ -94,7 +94,7 @@ namespace Autopraonica_Markus.forms.userControls
             }
         }
 
-        private void searchUnpaidServices(string dateFrom, string dateTo, decimal suma) {
+        private void searchUnpaidServices(DateTimePicker dateFrom, DateTimePicker dateTo, decimal suma) {
 
             using (MarkusDb context = new MarkusDb())
             {
@@ -117,17 +117,20 @@ namespace Autopraonica_Markus.forms.userControls
                      nes.Price,
                  }).ToList();
                 int i = 1;
+
+
+
                 foreach (var v in listOfClientsUnpaidServices)
                 {
-                    string serviceDate = v.ServiceTime.ToShortDateString();
-                    if (true ||(serviceDate.CompareTo(dateFrom) == 1 && dateTo.CompareTo(serviceDate) == -1))   //promijeniti uslov
+                    var serviceDate = v.ServiceTime;
+                    if ((serviceDate > dateFrom.Value) && (serviceDate < dateTo.Value))
                     {
                         ListViewItem item = new ListViewItem(i++.ToString());
                         item.SubItems.Add(v.Name);
                         item.SubItems.Add(v.priceName);
                         item.SubItems.Add(v.FirstName);
                         item.SubItems.Add(v.LastName);
-                        item.SubItems.Add(serviceDate);
+                        item.SubItems.Add(serviceDate.ToShortDateString());
                         item.SubItems.Add(v.LicencePlate);
                         item.SubItems.Add(v.Price.ToString());
                         suma += v.Price;
@@ -143,14 +146,20 @@ namespace Autopraonica_Markus.forms.userControls
         {
             lvUpSer.Items.Clear();
             decimal suma = 0;
-            string dateFrom = dtpDateFrom.Value.ToShortDateString();
-            string dateTo = dtpDateTo.Value.ToShortDateString();
-
+            DateTimePicker dateFrom = new DateTimePicker();
+            dateFrom.Value = dtpDateFrom.Value;
+            DateTimePicker dateTo = new DateTimePicker();
+            dateTo.Value = dtpDateTo.Value;
+  
             fillListOfClients();
             searchUnpaidServices(dateFrom, dateTo, suma);
             Boolean areValidFields = true;
 
-            if (dateTo.CompareTo(dateFrom) == -1)
+            int year = dateFrom.Value.Year - dateTo.Value.Year;
+            int month = dateFrom.Value.Month - dateTo.Value.Month;
+            int day = dateFrom.Value.Day - dateTo.Value.Day;
+             
+            if (year > 0 || (year <= 0 && month > 0 ) || (year <= 0 && month <= 0 && day > 0))
             {
                 MessageBox.Show("Datum od mora biti prije datuma do.");
                 areValidFields = false;
