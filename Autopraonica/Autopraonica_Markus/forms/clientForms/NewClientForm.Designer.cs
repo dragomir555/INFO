@@ -192,7 +192,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(480, 317);
+            this.ClientSize = new System.Drawing.Size(480, 316);
             this.Controls.Add(this.btnAddCity);
             this.Controls.Add(this.cbUgovorNa);
             this.Controls.Add(this.dtpUgovorDo);
@@ -210,6 +210,7 @@
             this.MaximumSize = new System.Drawing.Size(496, 355);
             this.MinimumSize = new System.Drawing.Size(496, 355);
             this.Name = "NewClientForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novi klijent";
             this.ResumeLayout(false);
             this.PerformLayout();
