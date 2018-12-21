@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewClientForm));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
@@ -42,6 +43,8 @@
             this.dtpUgovorDo = new System.Windows.Forms.DateTimePicker();
             this.cbUgovorNa = new System.Windows.Forms.CheckBox();
             this.btnAddCity = new System.Windows.Forms.Button();
+            this.errorProviderClient = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderClient)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -82,7 +85,7 @@
             this.txtUID.Name = "txtUID";
             this.txtUID.Size = new System.Drawing.Size(271, 26);
             this.txtUID.TabIndex = 2;
-            this.txtUID.TextChanged += new System.EventHandler(this.txtUID_TextChanged);
+            this.txtUID.Validating += new System.ComponentModel.CancelEventHandler(this.txtUID_Validating);
             // 
             // txtName
             // 
@@ -91,6 +94,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(271, 26);
             this.txtName.TabIndex = 1;
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // txtAddress
             // 
@@ -99,7 +103,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(271, 26);
             this.txtAddress.TabIndex = 3;
-            this.txtAddress.TextChanged += new System.EventHandler(this.txtAddress_TextChanged);
+            this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddress_Validating);
             // 
             // cmbCityList
             // 
@@ -187,6 +191,10 @@
             this.btnAddCity.UseVisualStyleBackColor = true;
             this.btnAddCity.Click += new System.EventHandler(this.btnAddCity_Click);
             // 
+            // errorProviderClient
+            // 
+            this.errorProviderClient.ContainerControl = this;
+            // 
             // NewClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,6 +220,7 @@
             this.Name = "NewClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novi klijent";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderClient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,5 +241,6 @@
         private System.Windows.Forms.DateTimePicker dtpUgovorDo;
         private System.Windows.Forms.CheckBox cbUgovorNa;
         private System.Windows.Forms.Button btnAddCity;
+        private System.Windows.Forms.ErrorProvider errorProviderClient;
     }
 }

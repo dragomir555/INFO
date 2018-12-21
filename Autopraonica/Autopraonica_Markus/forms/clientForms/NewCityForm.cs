@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.Model.Entities;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace Autopraonica_Markus.forms.clientForms
 {
@@ -69,7 +70,7 @@ namespace Autopraonica_Markus.forms.clientForms
         private void tbPostCode_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbPostCode.Text))
-            {
+            {             
                 e.Cancel = true;
                 tbPostCode.Focus();
                 errorProvider1.SetError(tbPostCode, "Molimo vas da unesete ispravan Postcode!");
