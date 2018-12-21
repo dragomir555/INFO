@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.Model.Entities;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace Autopraonica_Markus.forms.clientForms
 {
@@ -36,11 +37,6 @@ namespace Autopraonica_Markus.forms.clientForms
                 cmbCityList.DisplayMember = "Name";
                 cmbCityList.ValueMember = "Id";
             }
-        }
-
-        private void txtUID_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -74,11 +70,6 @@ namespace Autopraonica_Markus.forms.clientForms
 
         }
 
-        private void txtAddress_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cbUgovorNa_CheckedChanged(object sender, EventArgs e)
         {
             if (cbUgovorNa.Checked == true)
@@ -101,12 +92,13 @@ namespace Autopraonica_Markus.forms.clientForms
                     {
                         var c = new city()
                         {
-                            Name = newCity.Name,
+                            Name = newCity.NameCity,
                             PostCode = newCity.PostCode
                         };
                         context.cities.Add(c);
                         context.SaveChanges();
                         FillComboCity();
+                        MessageBox.Show($"Uspješno dodano mjesto {c.Name} sa poštanskim brojem {c.PostCode}"  ,"Novo mjesto");
                     }
                     catch (Exception ex) {
                         MessageBox.Show("Greska prilikom dodavanja grada"+ex, "Error");
@@ -114,6 +106,61 @@ namespace Autopraonica_Markus.forms.clientForms
 
 
                 }                
+            }
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                e.Cancel = true;
+                txtName.Focus();
+                errorProviderClient.SetError(txtName, "Molimo vas da unesete ispravan naziv klijenta!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderClient.SetError(txtName, null);
+            }
+        }
+
+        private void txtUID_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUID.Text)) {
+                e.Cancel = true;
+                txtUID.Focus();
+                errorProviderClient.SetError(txtUID, "Molimo vas da unesete JIB!");
+            }
+            else
+            {
+                Regex pattern = new Regex("[0-9]{13}");
+                if (!pattern.IsMatch(txtUID.Text))
+                {
+                    e.Cancel = true;
+                    txtUID.Focus();
+                    errorProviderClient.SetError(txtUID, "Molimo vas da unesete ispravan JIB!");
+                }
+                else
+                {
+                    e.Cancel = false;
+                    errorProviderClient.SetError(txtUID, null);
+                }
+
+            }
+        }
+
+        private void txtAddress_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtAddress.Text))
+            {
+                e.Cancel = true;
+                txtAddress.Focus();
+                errorProviderClient.SetError(txtAddress, "Molimo vas da unesete adresu klijenta !");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderClient.SetError(txtAddress, null);
             }
         }
     }
