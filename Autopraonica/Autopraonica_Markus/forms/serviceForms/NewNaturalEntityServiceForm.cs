@@ -66,24 +66,28 @@ namespace Autopraonica_Markus.forms.serviceForms
             if("Pranje tepiha".Equals(((servicetype)serviceType).Name)) {
                 lblCarpetSize.Visible = true;
                 tbCarpetSize.Visible = true;
-                lblPrice.Location = new Point(30, 230);
-                tbPrice.Location = new Point(229, 220);
-                btnConfirm.Location = new Point(200, 280);
-                btnCancel.Location = new Point(359, 280);
-                this.Size = new Size(550, 371);
+                lblCarBrand.Visible = false;
+                cmbCarBrand.Visible = false;
+                btnAddCarBrand.Visible = false;
             }
             else
             {
                 lblCarpetSize.Visible = false;
                 tbCarpetSize.Visible = false;
                 tbCarpetSize.Clear();
-                lblPrice.Location = new Point(30, 180);
-                tbPrice.Location = new Point(229, 170);
-                btnConfirm.Location = new Point(200, 230);
-                btnCancel.Location = new Point(359, 230);
-                this.Size = new Size(550, 321);
+                lblCarBrand.Visible = true;
+                cmbCarBrand.Visible = true;
+                btnAddCarBrand.Visible = true;
                 if ("Ostalo".Equals(((servicetype)serviceType).Name))
                 {
+                    lblCarBrand.Visible = false;
+                    cmbCarBrand.Visible = false;
+                    btnAddCarBrand.Visible = false;
+                    lblPrice.Location = new Point(30, 130);
+                    tbPrice.Location = new Point(229, 120);
+                    btnConfirm.Location = new Point(200, 180);
+                    btnCancel.Location = new Point(359, 180);
+                    this.Size = new Size(550, 271);
                     tbPrice.Clear();
                     tbPrice.Enabled = true;
                 }
@@ -103,7 +107,7 @@ namespace Autopraonica_Markus.forms.serviceForms
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if(cmbServiceType.SelectedIndex == -1)
+            /*if(cmbServiceType.SelectedIndex == -1)
             {
                 MessageBox.Show("Niste odabrali kategoriju usluge.", "Upozorenje");
                 cmbServiceType.Focus();
@@ -160,6 +164,33 @@ namespace Autopraonica_Markus.forms.serviceForms
                     }
                     this.DialogResult = DialogResult.OK;
                 }
+            }*/
+            if(ValidateChildren(ValidationConstraints.Enabled))
+            {
+                CarBrand_Id = ((carbrand)cmbCarBrand.SelectedItem).Id;
+                using (MarkusDb context = new MarkusDb())
+                {
+                    List<pricelistitem> pricelistItems = (from c in context.pricelistitems
+                                                          where c.ServiceType_Id == ((servicetype)cmbServiceType.SelectedItem).Id
+                                                          && c.PricelistItemName_Id == ((pricelistitemname)cmbPricelistItem.SelectedItem).Id
+                                                          && c.DateTo == null
+                                                          select c).ToList();
+                    if (pricelistItems.Count == 1)
+                    {
+                        PricelistItem_Id = pricelistItems[0].Id;
+                    }
+                }
+                if ("Pranje tepiha".Equals(((servicetype)cmbServiceType.SelectedItem).Name))
+                {
+                    decimal carpetSize = decimal.Parse(tbCarpetSize.Text);
+                    decimal price = decimal.Parse(tbPrice.Text);
+                    Price = price * carpetSize;
+                }
+                else
+                {
+                    Price = decimal.Parse(tbPrice.Text);
+                }
+                this.DialogResult = DialogResult.OK;
             }
         }
 
@@ -188,6 +219,36 @@ namespace Autopraonica_Markus.forms.serviceForms
         private void tbPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             AllowDecimal(sender, e);
+        }
+
+        private void tbCarpetSize_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbCarpetSize.Text))
+            {
+                e.Cancel = true;
+                tbCarpetSize.Focus();
+                errCarpetSize.SetError(tbCarpetSize, "Niste unijeli kvadraturu opranog tepiha.");
+            }
+            else
+            {
+                e.Cancel = true;
+                errCarpetSize.SetError(tbCarpetSize, null);
+            }
+        }
+
+        private void tbPrice_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbPrice.Text))
+            {
+                e.Cancel = true;
+                tbPrice.Focus();
+                errPrice.SetError(tbPrice, "Niste unijeli cijenu usluge.");
+            }
+            else
+            {
+                e.Cancel = true;
+                errPrice.SetError(tbPrice, null);
+            }
         }
     }
 }

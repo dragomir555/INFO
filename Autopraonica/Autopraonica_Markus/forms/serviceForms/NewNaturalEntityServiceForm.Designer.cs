@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewNaturalEntityServiceForm));
             this.lblServiceType = new System.Windows.Forms.Label();
             this.cmbServiceType = new System.Windows.Forms.ComboBox();
@@ -42,6 +43,10 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblCarpetSize = new System.Windows.Forms.Label();
             this.tbCarpetSize = new System.Windows.Forms.TextBox();
+            this.errCarpetSize = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errCarpetSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // lblServiceType
@@ -125,6 +130,7 @@
             this.tbPrice.Size = new System.Drawing.Size(270, 26);
             this.tbPrice.TabIndex = 7;
             this.tbPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrice_KeyPress);
+            this.tbPrice.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrice_Validating);
             // 
             // btnAddCarBrand
             // 
@@ -176,7 +182,7 @@
             this.lblCarpetSize.AutoSize = true;
             this.lblCarpetSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCarpetSize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
-            this.lblCarpetSize.Location = new System.Drawing.Point(30, 180);
+            this.lblCarpetSize.Location = new System.Drawing.Point(30, 130);
             this.lblCarpetSize.Name = "lblCarpetSize";
             this.lblCarpetSize.Size = new System.Drawing.Size(83, 16);
             this.lblCarpetSize.TabIndex = 11;
@@ -186,12 +192,21 @@
             // tbCarpetSize
             // 
             this.tbCarpetSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCarpetSize.Location = new System.Drawing.Point(229, 170);
+            this.tbCarpetSize.Location = new System.Drawing.Point(229, 120);
             this.tbCarpetSize.Name = "tbCarpetSize";
             this.tbCarpetSize.Size = new System.Drawing.Size(270, 26);
             this.tbCarpetSize.TabIndex = 12;
             this.tbCarpetSize.Visible = false;
             this.tbCarpetSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCarpetSize_KeyPress);
+            this.tbCarpetSize.Validating += new System.ComponentModel.CancelEventHandler(this.tbCarpetSize_Validating);
+            // 
+            // errCarpetSize
+            // 
+            this.errCarpetSize.ContainerControl = this;
+            // 
+            // errPrice
+            // 
+            this.errPrice.ContainerControl = this;
             // 
             // NewNaturalEntityServiceForm
             // 
@@ -220,6 +235,8 @@
             this.Name = "NewNaturalEntityServiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Markus";
+            ((System.ComponentModel.ISupportInitialize)(this.errCarpetSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +257,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblCarpetSize;
         private System.Windows.Forms.TextBox tbCarpetSize;
+        private System.Windows.Forms.ErrorProvider errCarpetSize;
+        private System.Windows.Forms.ErrorProvider errPrice;
     }
 }

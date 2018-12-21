@@ -132,5 +132,11 @@ namespace Autopraonica_Markus.forms.userControls
                 }
             }
         }
+
+        private void btnNewLegalEntityService_Click(object sender, EventArgs e)
+        {
+            NewLegalEntityServiceForm nlesf = new NewLegalEntityServiceForm();
+            nlesf.ShowDialog();
+        }
     }
 }
