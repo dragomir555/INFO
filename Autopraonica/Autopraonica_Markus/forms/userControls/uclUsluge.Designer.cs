@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dgvLegalEntity = new System.Windows.Forms.DataGridView();
+            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rbPravnaLica = new System.Windows.Forms.RadioButton();
             this.rbFizickaLica = new System.Windows.Forms.RadioButton();
             this.btnNewLegalEntityService = new System.Windows.Forms.Button();
@@ -38,11 +43,6 @@
             this.KategorijaUsluge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usluga = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLegalEntity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNaturalEntity)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,36 @@
             this.dgvLegalEntity.Size = new System.Drawing.Size(649, 230);
             this.dgvLegalEntity.TabIndex = 0;
             this.dgvLegalEntity.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLegalEntity_CellContentClick);
+            // 
+            // Naziv
+            // 
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
+            this.Naziv.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Vrijeme";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Kategorija usluge";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Usluga";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Cijena";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // rbPravnaLica
             // 
@@ -111,6 +141,7 @@
             this.btnNewLegalEntityService.TabIndex = 3;
             this.btnNewLegalEntityService.Text = "Dodavanje usluge za pravna lica";
             this.btnNewLegalEntityService.UseVisualStyleBackColor = false;
+            this.btnNewLegalEntityService.Click += new System.EventHandler(this.btnNewLegalEntityService_Click);
             // 
             // btnNewNaturalEntityService
             // 
@@ -172,36 +203,6 @@
             this.Cijena.HeaderText = "Cijena";
             this.Cijena.Name = "Cijena";
             this.Cijena.ReadOnly = true;
-            // 
-            // Naziv
-            // 
-            this.Naziv.HeaderText = "Naziv";
-            this.Naziv.Name = "Naziv";
-            this.Naziv.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Vrijeme";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Kategorija usluge";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Usluga";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Cijena";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // uclUsluge
             // 

@@ -46,7 +46,7 @@
       <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp">
-      <HintPath>..\..\..\ExportToPdf\ExportToPdf\bin\Debug\itextsharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\ExportToPdf\ExportToPdf\bin\Debug\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.13\lib\net452\MySql.Data.dll</HintPath>
@@ -113,6 +113,12 @@
     </Compile>
     <Compile Include="forms\loginForms\PasswordChangeForm.Designer.cs">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\serviceForms\NewLegalEntityServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\serviceForms\NewLegalEntityServiceForm.Designer.cs">
+      <DependentUpon>NewLegalEntityServiceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\serviceForms\NewNaturalEntityServiceForm.cs">
       <SubType>Form</SubType>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\loginForms\PasswordChangeForm.resx">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\serviceForms\NewLegalEntityServiceForm.resx">
+      <DependentUpon>NewLegalEntityServiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\serviceForms\NewNaturalEntityServiceForm.resx">
       <DependentUpon>NewNaturalEntityServiceForm.cs</DependentUpon>
