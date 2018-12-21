@@ -94,11 +94,12 @@ namespace Autopraonica_Markus.forms.userControls
             }
         }
 
-        private void searchUnpaidServices(DateTimePicker dateFrom, DateTimePicker dateTo, decimal suma) {
+        private decimal searchUnpaidServices(DateTimePicker dateFrom, DateTimePicker dateTo) {
+            decimal suma = 0;
 
             using (MarkusDb context = new MarkusDb())
             {
-                var listOfClientsUnpaidServices =
+                 var listOfClientsUnpaidServices =
                 (from les in context.legalentityservices
                  join cl in context.clients on les.Client_Id equals cl.Id
                  join nes in context.naturalentityservices on les.NaturalEntityService_Id equals nes.Id
@@ -117,9 +118,7 @@ namespace Autopraonica_Markus.forms.userControls
                      nes.Price,
                  }).ToList();
                 int i = 1;
-
-
-
+ 
                 foreach (var v in listOfClientsUnpaidServices)
                 {
                     var serviceDate = v.ServiceTime;
@@ -140,19 +139,19 @@ namespace Autopraonica_Markus.forms.userControls
                 }
 
             }
+            return suma;
         }
 
         private void btnDspUnpSer_Click(object sender, EventArgs e)
         {
             lvUpSer.Items.Clear();
-            decimal suma = 0;
             DateTimePicker dateFrom = new DateTimePicker();
             dateFrom.Value = dtpDateFrom.Value;
             DateTimePicker dateTo = new DateTimePicker();
             dateTo.Value = dtpDateTo.Value;
   
             fillListOfClients();
-            searchUnpaidServices(dateFrom, dateTo, suma);
+            decimal suma = searchUnpaidServices(dateFrom, dateTo);
             Boolean areValidFields = true;
 
             int year = dateFrom.Value.Year - dateTo.Value.Year;
@@ -169,11 +168,11 @@ namespace Autopraonica_Markus.forms.userControls
                 MessageBox.Show("Odaberite klijenta kojem zelite da izlistate neplacene usluge.");
                 areValidFields = false;
             }
-            if(areValidFields || true)//promijeniti uslov 
+            if(areValidFields) 
             {               
                 lblPrice.Text = suma.ToString();
                 
-                if (lblPrice.Text == "0" && false) //promijeniti uslov
+                if (lblPrice.Text == "0") 
                     btnGenBill.Enabled = false;
                 else
                     btnGenBill.Enabled = true; 
