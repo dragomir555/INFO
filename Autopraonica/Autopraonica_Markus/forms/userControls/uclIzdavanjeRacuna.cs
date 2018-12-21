@@ -184,7 +184,8 @@ namespace Autopraonica_Markus.forms.userControls
         {
             try
             {
-                DataTable dtbl = MakeDataTableForUnpaidServices();
+                DataTable dtus = MakeDataTableForUnpaidServices();
+                DataTable dtbl = MakeDataTableForBill();
 
                 var month = DateTimeFormatInfo.CurrentInfo.GetMonthName(DateTime.Now.Month - 1);
 
@@ -194,8 +195,12 @@ namespace Autopraonica_Markus.forms.userControls
                     return (DateTime.Now.Year).ToString();
                 };
 
-                ExportDataTableOfUnpaidServicesToPdf(dtbl, @"D:\NeplaćeneUsluge" + month + year() + ".pdf", "AUTOPRAONICA MARKUS");
-                ExportDataTableToPdf(dtbl, @"D:\RačunZa" + month + year() + ".pdf", "AUTOPRAONICA MARKUS");
+                
+                
+
+                //make directory if not exists
+                ExportDataTableOfUnpaidServicesToPdf(dtus, @"D:efp\NeplaćeneUsluge" + month + year() + ".pdf", "AUTOPRAONICA MARKUS");
+                ExportDataTableForBillToPdf(dtbl, @"D:efp\RačunZa" + month + year() + ".pdf", "AUTOPRAONICA MARKUS");
                 //if (cbxopen.checked)
                 //{
                 //        system.diagnostics.process.start(@"e:\test.pdf");
@@ -209,14 +214,14 @@ namespace Autopraonica_Markus.forms.userControls
 
         }
 
-        DataTable MakeDataTable()
+        DataTable MakeDataTableForBill()
         {
             //Create friend table object
             DataTable friend = new DataTable();
           
             
             //Define columns
-            friend.Columns.Add("Redni broj usluge");
+            friend.Columns.Add("R.b.");
             friend.Columns.Add("Vrsta usluge");
             friend.Columns.Add("Podvrsta usluge");
             friend.Columns.Add("Ime");
@@ -242,12 +247,12 @@ namespace Autopraonica_Markus.forms.userControls
 
 
             //Define columns
-            friend.Columns.Add("Redni broj usluge");
+            friend.Columns.Add("R.b.");
             friend.Columns.Add("Datum usluge");
             friend.Columns.Add("Marka i tip vozila");
             friend.Columns.Add("Registarski broj\r\nvozila");
             friend.Columns.Add("Vrsta usluge"); 
-            friend.Columns.Add("Potpis vozača");
+            friend.Columns.Add("Potpis vozaca");
             
             //Populate with unpaid services 
             string dateFrom = dtpDateFrom.Value.ToShortDateString();
@@ -287,14 +292,14 @@ namespace Autopraonica_Markus.forms.userControls
                     string serviceDate = v.ServiceTime.ToShortDateString();
                     if ((serviceDate.CompareTo(dateFrom) == -1 && dateTo.CompareTo(serviceDate) == -1) || true)
                     {
-                        dt.Rows.Add(i++, serviceDate, v.carBrandName, v.LicencePlate, v.Name, v.priceName);
+                        dt.Rows.Add(i++, serviceDate, v.carBrandName, v.LicencePlate, v.Name);
                     }
                 }
             }
         }
 
 
-        void ExportDataTableToPdf(DataTable dtblTable, String strPdfPath, string strHeader)
+        void ExportDataTableForBillToPdf(DataTable dtblTable, String strPdfPath, string strHeader)
         {
             System.IO.FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
             Document document = new Document();
@@ -304,7 +309,7 @@ namespace Autopraonica_Markus.forms.userControls
 
             //Report Header
             BaseFont bfntHead = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            Font fntHead = new Font(bfntHead, 15, 1, iTextSharp.text.Color.GRAY);
+            Font fntHead = new Font(bfntHead, 10, 1, iTextSharp.text.Color.GRAY);
             Paragraph prgHeading = new Paragraph();
             prgHeading.Alignment = Element.ALIGN_CENTER;
             prgHeading.Add(new Chunk(strHeader.ToUpper(), fntHead));
@@ -316,7 +321,7 @@ namespace Autopraonica_Markus.forms.userControls
 
             Paragraph prgAuthor1 = new Paragraph();
             BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            Font fntAuthor = new Font(btnAuthor, 8, 2, iTextSharp.text.Color.GRAY);
+            Font fntAuthor = new Font(btnAuthor, 10, 2, iTextSharp.text.Color.GRAY);
 
             prgCompanyInfo.Alignment = Element.ALIGN_RIGHT;
 
@@ -355,6 +360,9 @@ namespace Autopraonica_Markus.forms.userControls
 
             //Write the table
             PdfPTable table = new PdfPTable(dtblTable.Columns.Count);
+
+            
+
             //Table header
             BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntColumnHeader = new Font(btnColumnHeader, 6, 1, iTextSharp.text.Color.WHITE);
@@ -365,7 +373,9 @@ namespace Autopraonica_Markus.forms.userControls
                 cell.AddElement(new Chunk(dtblTable.Columns[i].ColumnName.ToUpper(), fntColumnHeader));
                 table.AddCell(cell);
             }
-            
+
+            table.SetWidths(new int[] { 1, 3, 2, 3, 3, 3, 3, 2});
+
             //table Data
             for (int i = 0; i < dtblTable.Rows.Count; i++)
             {
@@ -417,12 +427,15 @@ namespace Autopraonica_Markus.forms.userControls
  
             //Write the table
             PdfPTable table = new PdfPTable(dtblTable.Columns.Count);
+            table.SetWidths(new int[] { 1, 3, 2, 3, 3, 3});
+
             //Table header
             BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntColumnHeader = new Font(btnColumnHeader, 6, 1, iTextSharp.text.Color.WHITE);
             for (int i = 0; i < dtblTable.Columns.Count; i++)
             {
                 PdfPCell cell = new PdfPCell();
+                
                 cell.BackgroundColor = iTextSharp.text.Color.GRAY;
                 cell.AddElement(new Chunk(dtblTable.Columns[i].ColumnName.ToUpper(), fntColumnHeader));
                 table.AddCell(cell);
@@ -437,6 +450,7 @@ namespace Autopraonica_Markus.forms.userControls
 
                 }
             }
+           
             document.Add(table);
             document.Close();
             writer.Close();
