@@ -114,6 +114,12 @@
     <Compile Include="forms\loginForms\PasswordChangeForm.Designer.cs">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\serviceForms\NewLegalEntityServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\serviceForms\NewLegalEntityServiceForm.Designer.cs">
+      <DependentUpon>NewLegalEntityServiceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\serviceForms\NewNaturalEntityServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\loginForms\PasswordChangeForm.resx">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\serviceForms\NewLegalEntityServiceForm.resx">
+      <DependentUpon>NewLegalEntityServiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\serviceForms\NewNaturalEntityServiceForm.resx">
       <DependentUpon>NewNaturalEntityServiceForm.cs</DependentUpon>
