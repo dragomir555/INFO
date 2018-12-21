@@ -286,22 +286,27 @@
             // 
             // errFirstName
             // 
+            this.errFirstName.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errFirstName.ContainerControl = this;
             // 
             // errLastName
             // 
+            this.errLastName.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errLastName.ContainerControl = this;
             // 
             // errLicencePlates
             // 
+            this.errLicencePlates.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errLicencePlates.ContainerControl = this;
             // 
             // errCarpetSize
             // 
+            this.errCarpetSize.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errCarpetSize.ContainerControl = this;
             // 
             // errPrice
             // 
+            this.errPrice.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errPrice.ContainerControl = this;
             // 
             // NewLegalEntityServiceForm

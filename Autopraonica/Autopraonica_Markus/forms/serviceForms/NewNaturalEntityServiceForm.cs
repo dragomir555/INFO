@@ -223,7 +223,8 @@ namespace Autopraonica_Markus.forms.serviceForms
 
         private void tbCarpetSize_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbCarpetSize.Text))
+            if ("Pranje tepiha".Equals(((servicetype)cmbServiceType.SelectedItem).Name) && 
+                string.IsNullOrWhiteSpace(tbCarpetSize.Text))
             {
                 e.Cancel = true;
                 tbCarpetSize.Focus();

@@ -202,10 +202,12 @@
             // 
             // errCarpetSize
             // 
+            this.errCarpetSize.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errCarpetSize.ContainerControl = this;
             // 
             // errPrice
             // 
+            this.errPrice.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errPrice.ContainerControl = this;
             // 
             // NewNaturalEntityServiceForm
