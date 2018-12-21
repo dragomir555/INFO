@@ -101,12 +101,13 @@ namespace Autopraonica_Markus.forms.clientForms
                     {
                         var c = new city()
                         {
-                            Name = newCity.Name,
+                            Name = newCity.NameCity,
                             PostCode = newCity.PostCode
                         };
                         context.cities.Add(c);
                         context.SaveChanges();
                         FillComboCity();
+                        MessageBox.Show($"Uspješno dodano mjesto {c.Name} sa poštanskim brojem {c.PostCode}"  ,"Novo mjesto");
                     }
                     catch (Exception ex) {
                         MessageBox.Show("Greska prilikom dodavanja grada"+ex, "Error");
