@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbEMail = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.tbPhoneNumber = new System.Windows.Forms.TextBox();
@@ -41,6 +42,8 @@
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // tbEMail
@@ -49,6 +52,7 @@
             this.tbEMail.Name = "tbEMail";
             this.tbEMail.Size = new System.Drawing.Size(100, 22);
             this.tbEMail.TabIndex = 0;
+            this.tbEMail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEMail_Validating);
             // 
             // tbFirstName
             // 
@@ -59,6 +63,7 @@
             this.tbFirstName.Size = new System.Drawing.Size(100, 22);
             this.tbFirstName.TabIndex = 1;
             this.tbFirstName.Tag = "";
+            this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.tbFirstName_Validating);
             // 
             // tbPhoneNumber
             // 
@@ -66,6 +71,7 @@
             this.tbPhoneNumber.Name = "tbPhoneNumber";
             this.tbPhoneNumber.Size = new System.Drawing.Size(100, 22);
             this.tbPhoneNumber.TabIndex = 3;
+            this.tbPhoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.tbPhoneNumber_Validating);
             // 
             // tbAddress
             // 
@@ -73,6 +79,7 @@
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(100, 22);
             this.tbAddress.TabIndex = 4;
+            this.tbAddress.Validating += new System.ComponentModel.CancelEventHandler(this.tbAddress_Validating);
             // 
             // btnAddEmployee
             // 
@@ -90,6 +97,7 @@
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(100, 22);
             this.tbLastName.TabIndex = 6;
+            this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.tbLastName_Validating);
             // 
             // lblFirstName
             // 
@@ -151,6 +159,12 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(100, 22);
             this.tbPassword.TabIndex = 14;
+            this.tbPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbPassword_Validating);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
             // 
             // NewEmployeeForm
             // 
@@ -172,6 +186,7 @@
             this.Controls.Add(this.tbEMail);
             this.Name = "NewEmployeeForm";
             this.Text = "Dodavanje zaposlenog";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,5 +207,6 @@
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
