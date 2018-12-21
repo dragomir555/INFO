@@ -104,7 +104,9 @@ namespace Autopraonica_Markus.forms.clientForms
                             Name = newCity.Name,
                             PostCode = newCity.PostCode
                         };
-
+                        context.cities.Add(c);
+                        context.SaveChanges();
+                        FillComboCity();
                     }
                     catch (Exception ex) {
                         MessageBox.Show("Greska prilikom dodavanja grada"+ex, "Error");

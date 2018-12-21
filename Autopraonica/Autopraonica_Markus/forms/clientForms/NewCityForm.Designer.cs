@@ -89,6 +89,7 @@
             this.btnConfirm.TabIndex = 4;
             this.btnConfirm.Text = "Potvrdi";
             this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnCancel
             // 
