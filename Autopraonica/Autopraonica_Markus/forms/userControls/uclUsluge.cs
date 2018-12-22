@@ -120,6 +120,7 @@ namespace Autopraonica_Markus.forms.userControls
                             ServiceTime = DateTime.Now,
                             Employee_Id = employee.Id
                         };
+                        MessageBox.Show(naturalEntityService.Price.ToString() + " " + naturalEntityService.CarBrand_Id.ToString());
                         context.naturalentityservices.Add(naturalEntityService);
                         context.SaveChanges();
                         FillTableNaturalEntityServices();
