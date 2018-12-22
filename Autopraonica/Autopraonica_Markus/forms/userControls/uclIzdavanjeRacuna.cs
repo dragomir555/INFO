@@ -158,7 +158,7 @@ namespace Autopraonica_Markus.forms.userControls
             int month = dateFrom.Value.Month - dateTo.Value.Month;
             int day = dateFrom.Value.Day - dateTo.Value.Day;
              
-            if (year > 0 || (year <= 0 && month > 0 ) || (year <= 0 && month <= 0 && day > 0))
+            if ((year > 0) || (year == 0 && month > 0 ) || (year == 0 && month == 0 && day > 0))
             {
                 MessageBox.Show("Datum od mora biti prije datuma do.");
                 areValidFields = false;
