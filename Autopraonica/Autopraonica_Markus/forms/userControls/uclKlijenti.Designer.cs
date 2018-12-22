@@ -60,6 +60,7 @@
             this.btnIzmjeniKlijenta.TabIndex = 1;
             this.btnIzmjeniKlijenta.Text = "Izmjeni klijenta";
             this.btnIzmjeniKlijenta.UseVisualStyleBackColor = false;
+            this.btnIzmjeniKlijenta.Click += new System.EventHandler(this.btnIzmjeniKlijenta_Click);
             // 
             // textBox1
             // 

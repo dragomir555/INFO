@@ -55,6 +55,7 @@ namespace Autopraonica_Markus.forms.userControls
                 foreach(var c in klijenti)
                 {
                     if (c.Contract.Current==conOver) {
+                      
                         DataGridViewRow r = new DataGridViewRow() { Tag = c.Contract };
                         r.CreateCells(dgvKlijenti);
                         r.SetValues(c.Client.Name, c.Client.UID, c.Client.city.Name, c.Client.Address, c.Contract.DateFrom.ToString("dd.MM.yyyy"),
@@ -129,23 +130,31 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void button2_Click(object sender, EventArgs e)
         {
-           DataGridViewRow row= dgvKlijenti.SelectedRows[0];
-            Debug.WriteLine(dgvKlijenti.SelectedRows.Count);
-            contract con=(contract)row.Tag;
-            using(MarkusDb context=new MarkusDb())
+            if (dgvKlijenti.SelectedRows.Count > 0)
             {
-                try
+                DataGridViewRow row = dgvKlijenti.SelectedRows[0];
+                contract con = (contract)row.Tag;
+                using (MarkusDb context = new MarkusDb())
                 {
-                    context.contracts.Attach(con);
-                    con.Current = 0;
-                    con.DateTo = DateTime.Now;
-                    context.SaveChanges();
-                    FillTable();
+                    try
+                    {
+                        context.contracts.Attach(con);
+                        con.Current = 0;
+                        con.DateTo = DateTime.Now;
+                        context.SaveChanges();
+                        FillTable();
+                    }
+                    catch (Exception ex) { Debug.WriteLine(ex); }
                 }
-                catch (Exception ex) { Debug.WriteLine(ex); }
             }
-         
+            else
+            {
+                MessageBox.Show("Izaberite klijenta iz tabele");
+            }
+        }
 
+        private void btnIzmjeniKlijenta_Click(object sender, EventArgs e)
+        {
 
         }
     }
