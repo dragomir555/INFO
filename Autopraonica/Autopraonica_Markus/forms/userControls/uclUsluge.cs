@@ -37,8 +37,9 @@ namespace Autopraonica_Markus.forms.userControls
         public void SetEmployee(employee employee)
         {
             this.employee = employee;
-            FillTableNaturalEntityServices();
             FillTableLegalEntityServices();
+            FillTableNaturalEntityServices();
+            dgvLegalEntity.BringToFront();
         }
 
         private void FillTableLegalEntityServices()
@@ -70,19 +71,30 @@ namespace Autopraonica_Markus.forms.userControls
             dgvNaturalEntity.Rows.Clear();
             using(MarkusDb context = new MarkusDb())
             {
+                var legalServices = (from c in context.legalentityservices
+                                     where c.naturalentityservice.Employee_Id == employee.Id
+                                     select c).ToList();
                 var services = (from c in context.naturalentityservices
                                 where c.Employee_Id == employee.Id
                                 select c).ToList();
+                List<naturalentityservice> naturalservices = new List<naturalentityservice>();
+                foreach(var s in legalServices)
+                {
+                    naturalservices.Add(s.naturalentityservice);
+                }
                 foreach(var s in services)
                 {
-                    DataGridViewRow row = new DataGridViewRow()
+                    if (!naturalservices.Contains(s))
                     {
-                        Tag = s
-                    };
-                    row.CreateCells(dgvNaturalEntity);
-                    row.SetValues(s.ServiceTime, s.pricelistitem.servicetype.Name,
-                        s.pricelistitem.pricelistitemname.Name, s.Price);
-                    dgvNaturalEntity.Rows.Add(row);
+                        DataGridViewRow row = new DataGridViewRow()
+                        {
+                            Tag = s
+                        };
+                        row.CreateCells(dgvNaturalEntity);
+                        row.SetValues(s.ServiceTime, s.pricelistitem.servicetype.Name,
+                            s.pricelistitem.pricelistitemname.Name, s.Price);
+                        dgvNaturalEntity.Rows.Add(row);
+                    }
                 }
             }
             dgvNaturalEntity.BringToFront();

@@ -82,6 +82,7 @@
             this.cmbServiceType.Name = "cmbServiceType";
             this.cmbServiceType.Size = new System.Drawing.Size(270, 28);
             this.cmbServiceType.TabIndex = 5;
+            this.cmbServiceType.SelectedIndexChanged += new System.EventHandler(this.cmbServiceType_SelectedIndexChanged);
             // 
             // lblPricelistItem
             // 
@@ -102,6 +103,7 @@
             this.cmbPricelistItem.Name = "cmbPricelistItem";
             this.cmbPricelistItem.Size = new System.Drawing.Size(270, 28);
             this.cmbPricelistItem.TabIndex = 6;
+            this.cmbPricelistItem.SelectedIndexChanged += new System.EventHandler(this.cmbPricelistItem_SelectedIndexChanged);
             // 
             // lblCarBrand
             // 
