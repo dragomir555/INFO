@@ -232,7 +232,7 @@ namespace Autopraonica_Markus.forms.userControls
             friend.Columns.Add("R.b.");
             friend.Columns.Add("Naziv usluge");
             friend.Columns.Add("Datum usluge");
-            friend.Columns.Add("Iznos");
+            friend.Columns.Add("Iznos ");
 
 
            
@@ -258,6 +258,7 @@ namespace Autopraonica_Markus.forms.userControls
             friend.Columns.Add("Vrsta usluge"); 
             friend.Columns.Add("Ime vozaca");
             friend.Columns.Add("Prezime vozaca");
+            friend.Columns.Add("Cijena sa PDV-om");
 
             //Populate with unpaid services 
             string dateFrom = dtpDateFrom.Value.ToShortDateString();
@@ -436,7 +437,7 @@ namespace Autopraonica_Markus.forms.userControls
  
             //Write the table
             PdfPTable table = new PdfPTable(dtblTable.Columns.Count);
-            table.SetWidths(new int[] { 1, 3, 2, 3, 3, 3,3 });
+            table.SetWidths(new int[] { 1, 3, 2, 3, 3, 3,3, 2});
 
             //Table header
             BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
