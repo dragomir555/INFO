@@ -114,6 +114,18 @@
     <Compile Include="forms\loginForms\PasswordChangeForm.Designer.cs">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\puchaseForms\NewItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\puchaseForms\NewItem.Designer.cs">
+      <DependentUpon>NewItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\puchaseForms\NewPurchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\puchaseForms\NewPurchase.Designer.cs">
+      <DependentUpon>NewPurchase.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\serviceForms\NewLegalEntityServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +219,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\loginForms\PasswordChangeForm.resx">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\puchaseForms\NewItem.resx">
+      <DependentUpon>NewItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\puchaseForms\NewPurchase.resx">
+      <DependentUpon>NewPurchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\serviceForms\NewLegalEntityServiceForm.resx">
       <DependentUpon>NewLegalEntityServiceForm.cs</DependentUpon>
