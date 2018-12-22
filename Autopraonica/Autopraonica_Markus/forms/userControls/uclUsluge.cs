@@ -128,7 +128,7 @@ namespace Autopraonica_Markus.forms.userControls
                 }
                 catch(Exception ex)
                 {
-
+                    MessageBox.Show(ex.Source);
                 }
             }
         }

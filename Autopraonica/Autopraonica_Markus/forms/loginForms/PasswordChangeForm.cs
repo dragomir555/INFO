@@ -14,13 +14,13 @@ namespace Autopraonica_Markus.forms
 {
     public partial class PasswordChangeForm : Form
     {
-        private employee employee;
+        private employment employment;
         private MainForm mainForm;
 
-        public PasswordChangeForm(employee employee, MainForm mainForm)
+        public PasswordChangeForm(employment employment, MainForm mainForm)
         {
             InitializeComponent();
-            this.employee = employee;
+            this.employment = employment;
             this.mainForm = mainForm;
         }
 
@@ -61,41 +61,32 @@ namespace Autopraonica_Markus.forms
             }
             else
             {
-                employment employment = null;
-                var emps = employee.employments;
-                foreach(var emp in emps)
+                using (MarkusDb context = new MarkusDb())
                 {
-                    if(emp.DateTo == null)
+                    string salt = employment.Salt;
+                    string currentPasswordHash1 = employment.HashPassword;
+                    string currentPasswordHash2 = PasswordService.GetPasswordHash(salt, currentPassword);
+                    if (currentPasswordHash2.Equals(currentPasswordHash1))
                     {
-                        employment = emp;
-                    }
-                }
-                string salt = employment.Salt;
-                string currentPasswordHash1 = employment.HashPassword;
-                string currentPasswordHash2 = PasswordService.GetPasswordHash(salt, currentPassword);
-                if (currentPasswordHash2.Equals(currentPasswordHash1))
-                {
-                    string newSalt = PasswordService.GenerateSalt();
-                    string newPasswordHash = PasswordService.GetPasswordHash(newSalt, newPassword);
-                    using(MarkusDb context = new MarkusDb())
-                    {
+                        string newSalt = PasswordService.GenerateSalt();
+                        string newPasswordHash = PasswordService.GetPasswordHash(newSalt, newPassword);
                         context.employments.Attach(employment);
                         employment.Salt = newSalt;
                         employment.HashPassword = newPasswordHash;
                         employment.FirstLogin = 0;
                         context.SaveChanges();
+                        mainForm.SetEmployee(employment.employee);
+                        mainForm.Visible = true;
+                        this.Close();
                     }
-                    mainForm.SetEmployee(employee);
-                    mainForm.Visible = true;
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Pogrešno ste unijeli trenutnu lozinku.", "Upozorenje");
-                    tbCurrentPassword.Clear();
-                    tbNewPassword.Clear();
-                    tbNewPasswordConfirm.Clear();
-                    tbCurrentPassword.Focus();
+                    else
+                    {
+                        MessageBox.Show("Pogrešno ste unijeli trenutnu lozinku.", "Upozorenje");
+                        tbCurrentPassword.Clear();
+                        tbNewPassword.Clear();
+                        tbNewPasswordConfirm.Clear();
+                        tbCurrentPassword.Focus();
+                    }
                 }
             }
         }
