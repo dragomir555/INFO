@@ -41,10 +41,11 @@ namespace Autopraonica_Markus.forms.clientForms
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            //String is empty
-            if (string.IsNullOrWhiteSpace(txtAddress.Text) && string.IsNullOrWhiteSpace(txtName.Text) && string.IsNullOrWhiteSpace(txtUID.Text))
+
+            if (!ValidateChildren(ValidationConstraints.Enabled))
             {
-                MessageBox.Show("Niste popunili sva polja", "Greska");
+
+                //Debug.WriteLine("Dragomir");
             }
             else
             {
@@ -61,6 +62,7 @@ namespace Autopraonica_Markus.forms.clientForms
                     ContractTo = null;
                 }
                 this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             
         }
@@ -162,6 +164,16 @@ namespace Autopraonica_Markus.forms.clientForms
                 e.Cancel = false;
                 errorProviderClient.SetError(txtAddress, null);
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void NewClientForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

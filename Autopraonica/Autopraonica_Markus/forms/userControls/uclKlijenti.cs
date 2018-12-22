@@ -55,7 +55,7 @@ namespace Autopraonica_Markus.forms.userControls
                 foreach(var c in klijenti)
                 {
                     if (c.Contract.Current==conOver) {
-                        DataGridViewRow r = new DataGridViewRow() { Tag = c };
+                        DataGridViewRow r = new DataGridViewRow() { Tag = c.Contract };
                         r.CreateCells(dgvKlijenti);
                         r.SetValues(c.Client.Name, c.Client.UID, c.Client.city.Name, c.Client.Address, c.Contract.DateFrom.ToString("dd.MM.yyyy"),
                             c.Contract.DateTo.HasValue ? c.Contract.DateTo.Value.ToString("dd.MM.yyyy") : "-");
@@ -125,6 +125,28 @@ namespace Autopraonica_Markus.forms.userControls
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             FillTable();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           DataGridViewRow row= dgvKlijenti.SelectedRows[0];
+            Debug.WriteLine(dgvKlijenti.SelectedRows.Count);
+            contract con=(contract)row.Tag;
+            using(MarkusDb context=new MarkusDb())
+            {
+                try
+                {
+                    context.contracts.Attach(con);
+                    con.Current = 0;
+                    con.DateTo = DateTime.Now;
+                    context.SaveChanges();
+                    FillTable();
+                }
+                catch (Exception ex) { Debug.WriteLine(ex); }
+            }
+         
+
+
         }
     }
 }
