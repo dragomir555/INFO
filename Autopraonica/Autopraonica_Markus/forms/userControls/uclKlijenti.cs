@@ -42,20 +42,23 @@ namespace Autopraonica_Markus.forms.userControls
         private void FillTable()
         {
             dgvKlijenti.Rows.Clear();
-            using(MarkusDb context=new MarkusDb())
+            using (MarkusDb context = new MarkusDb())
             {
-                var klijenti = (from cl in context.clients join cop in context.contracts on cl.Id equals cop.Client_Id select
-                           new {Client=cl,Contract=cop}).ToList();
+                var klijenti = (from cl in context.clients
+                                join cop in context.contracts on cl.Id equals cop.Client_Id
+                                select
+new { Client = cl, Contract = cop }).ToList();
 
                 int conOver = 1;
                 if (cbContractOver.Checked == true)
                 {
                     conOver = 0;
                 }
-                foreach(var c in klijenti)
+                foreach (var c in klijenti)
                 {
-                    if (c.Contract.Current==conOver) {
-                      
+                    if (c.Contract.Current == conOver)
+                    {
+
                         DataGridViewRow r = new DataGridViewRow() { Tag = c.Contract };
                         r.CreateCells(dgvKlijenti);
                         r.SetValues(c.Client.Name, c.Client.UID, c.Client.city.Name, c.Client.Address, c.Contract.DateFrom.ToString("dd.MM.yyyy"),
@@ -73,7 +76,7 @@ namespace Autopraonica_Markus.forms.userControls
             {
                 try
                 {
-                    using(MarkusDb context=new MarkusDb())
+                    using (MarkusDb context = new MarkusDb())
                     {
                         var cl = new client()
                         {
@@ -85,11 +88,11 @@ namespace Autopraonica_Markus.forms.userControls
                         var co = new contract()
                         {
                             Current = 1,
-                            DateFrom = DateTime.Now                                                      
+                            DateFrom = DateTime.Now
                         };
                         if (newClientForm.ContractTo != null)
-                        {                          
-                            co.DateTo=newClientForm.ContractTo;
+                        {
+                            co.DateTo = newClientForm.ContractTo;
                         }
                         context.clients.Add(cl);
                         context.SaveChanges();
@@ -99,9 +102,10 @@ namespace Autopraonica_Markus.forms.userControls
                         FillTable();
                     }
 
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
-                    MessageBox.Show("greska prilikom dodavanja klijenta+\n\n"+ex, "Novo mesto");
+                    MessageBox.Show("greska prilikom dodavanja klijenta+\n\n" + ex, "Novo mesto");
                 }
 
 
@@ -109,7 +113,7 @@ namespace Autopraonica_Markus.forms.userControls
             }
             else
             {
-             //   Debug.WriteLine("Negativan Dialog");
+                //   Debug.WriteLine("Negativan Dialog");
             }
         }
 
@@ -155,7 +159,22 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void btnIzmjeniKlijenta_Click(object sender, EventArgs e)
         {
-
+            NewClientForm clientForm = new NewClientForm();
+            if (dgvKlijenti.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgvKlijenti.SelectedRows[0];
+                contract con = (contract)row.Tag;
+                client cl = null;
+                int idClient = con.Client_Id;
+                using (MarkusDb context = new MarkusDb()) {
+                    cl = (from c in context.clients where c.Id == idClient select c).ToList().First();
+                    }
+             
+            }
+            else
+            {
+                MessageBox.Show("Izaberite klijenta iz tabele");
+            }
         }
     }
 }
