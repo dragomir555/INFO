@@ -207,7 +207,7 @@ namespace Autopraonica_Markus.forms.userControls
                 
 
                 //make directory if not exists
-                ExportDataTableOfUnpaidServicesToPdf(dtus, @"D:efp\NeplaćeneUsluge" + month + year() + ".pdf", "AUTOPRAONICA MARKUS");
+          //     ExportDataTableOfUnpaidServicesToPdf(dtus, @"D:efp\NeplaćeneUsluge" + month + year() + ".pdf", "AUTOPRAONICA MARKUS");
                 ExportDataTableForBillToPdf(dtbl, @"D:efp\RačunZa" + month + year() + ".pdf", "AUTOPRAONICA MARKUS");
                 //if (cbxopen.checked)
                 //{
@@ -274,6 +274,7 @@ namespace Autopraonica_Markus.forms.userControls
         {
             using (MarkusDb context = new MarkusDb())
             {
+                String clientName = cmbClients.Text;
                 var listOfClientsUnpaidServices =
                 (from les in context.legalentityservices
                  join cl in context.clients on les.Client_Id equals cl.Id
@@ -282,7 +283,7 @@ namespace Autopraonica_Markus.forms.userControls
                  join plit in context.pricelistitems on nes.PricelistItem_Id equals plit.Id
                  join plin in context.pricelistitemnames on plit.PricelistItemName_Id equals plin.Id
                  join serTp in context.servicetypes on plit.ServiceType_Id equals serTp.Id
-                 where cl.Name == cmbClients.Text
+                 where cl.Name == clientName
                  select new
                  {
                      serTp.Name,
@@ -326,39 +327,36 @@ namespace Autopraonica_Markus.forms.userControls
             //Author
             Paragraph prgCompanyInfo = new Paragraph();
             Paragraph prgAuthor = new Paragraph();
-
+            
             Paragraph prgAuthor1 = new Paragraph();
             BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntAuthor = new Font(btnAuthor, 10, 2, iTextSharp.text.Color.GRAY);
 
+            var boldFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+
             prgCompanyInfo.Alignment = Element.ALIGN_RIGHT;
+            prgAuthor.Add(new Chunk("\nUL.V.Putnika bb prop",boldFont));
+            prgAuthor.Add(new Chunk("\nKoz.Dubica prop", boldFont));
+            String clientName = cmbClients.Text;
+            using (MarkusDb ctx = new MarkusDb()) {
 
-            using (MarkusDb ctx = new MarkusDb())
-            {
-               var man = (from c in ctx.managers
-                               where c != null
-                               select c);
-
-                prgAuthor.Add(new Chunk("Kreirao : Menadzer", fntAuthor));
+                var cl = (from c in ctx.clients
+                            where c.Name ==clientName
+                            select c).FirstOrDefault();
+                prgCompanyInfo.Add(new Chunk("\n" + cl.Name, boldFont));
+                prgCompanyInfo.Add(new Chunk("\n ne znam kako", boldFont));
+                prgCompanyInfo.Add(new Chunk("\n" + cl.Address, boldFont));
+                prgCompanyInfo.Add(new Chunk("\n" + cl.city.PostCode, boldFont));
+                prgCompanyInfo.Add(new Chunk("\n" + cl.city.Name, boldFont));
             }
-            prgAuthor1.Add(new Chunk("ssssiranja : " + DateTime.Now.ToShortDateString(), fntAuthor));
-            prgAuthor1.Alignment = Element.ALIGN_RIGHT;
-
-            prgAuthor.Add(new Chunk("\nDatum kreiranja : " + DateTime.Now.ToShortDateString(), fntAuthor));
-            prgAuthor.Add(new Chunk("\nDatum kreiranja : " + DateTime.Now.ToShortDateString(), fntAuthor));
-            prgAuthor.Add(new Chunk("\nDatum kreiranja : " + DateTime.Now.ToShortDateString(), fntAuthor));
-            prgAuthor.Add(new Chunk("\nDatum kreiranja : " + DateTime.Now.ToShortDateString(), fntAuthor));
-
-            prgCompanyInfo.Add(new Chunk("\nJIB : " + "000000000000", fntAuthor));
-            prgCompanyInfo.Add(new Chunk("\nAdresa : " + "Patre 5", fntAuthor));
-            prgCompanyInfo.Add(new Chunk("\nAdresa : " + "Patre 5", fntAuthor));
-            prgCompanyInfo.Add(new Chunk("\nAdresa : " + "Patre 5", fntAuthor));
+            prgAuthor.Add(new Chunk("\nJIB  property123214", boldFont));
+            prgAuthor.Add(new Chunk("\nZ.r. property312311", boldFont)); 
             
-
-            document.Add(prgAuthor);
+   
             document.Add(prgCompanyInfo);
+            document.Add(prgAuthor);
+          
 
-            document.Add(prgAuthor1);
             //Add a line seperation
             Paragraph p = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, iTextSharp.text.Color.BLACK, Element.ALIGN_LEFT, 1)));
             document.Add(p);
