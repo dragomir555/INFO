@@ -29,137 +29,188 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tbEMail = new System.Windows.Forms.TextBox();
-            this.tbFirstName = new System.Windows.Forms.TextBox();
-            this.tbPhoneNumber = new System.Windows.Forms.TextBox();
-            this.tbAddress = new System.Windows.Forms.TextBox();
-            this.btnAddEmployee = new System.Windows.Forms.Button();
-            this.tbLastName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblPhoneNumber = new System.Windows.Forms.Label();
+            this.lblPhNumb = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
+            this.btnAddEmployee = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.tbFirstName = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbEMail = new System.Windows.Forms.TextBox();
+            this.tbPhoneNumber = new System.Windows.Forms.TextBox();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.tbLastName = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // tbEMail
-            // 
-            this.tbEMail.Location = new System.Drawing.Point(272, 216);
-            this.tbEMail.Name = "tbEMail";
-            this.tbEMail.Size = new System.Drawing.Size(100, 22);
-            this.tbEMail.TabIndex = 0;
-            this.tbEMail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEMail_Validating);
-            // 
-            // tbFirstName
-            // 
-            this.tbFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFirstName.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.tbFirstName.Location = new System.Drawing.Point(272, 44);
-            this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(100, 22);
-            this.tbFirstName.TabIndex = 1;
-            this.tbFirstName.Tag = "";
-            this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.tbFirstName_Validating);
-            // 
-            // tbPhoneNumber
-            // 
-            this.tbPhoneNumber.Location = new System.Drawing.Point(272, 170);
-            this.tbPhoneNumber.Name = "tbPhoneNumber";
-            this.tbPhoneNumber.Size = new System.Drawing.Size(100, 22);
-            this.tbPhoneNumber.TabIndex = 3;
-            this.tbPhoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.tbPhoneNumber_Validating);
-            // 
-            // tbAddress
-            // 
-            this.tbAddress.Location = new System.Drawing.Point(272, 131);
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(100, 22);
-            this.tbAddress.TabIndex = 4;
-            this.tbAddress.Validating += new System.ComponentModel.CancelEventHandler(this.tbAddress_Validating);
-            // 
-            // btnAddEmployee
-            // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(272, 288);
-            this.btnAddEmployee.Name = "btnAddEmployee";
-            this.btnAddEmployee.Size = new System.Drawing.Size(107, 31);
-            this.btnAddEmployee.TabIndex = 5;
-            this.btnAddEmployee.Text = "Dodaj";
-            this.btnAddEmployee.UseVisualStyleBackColor = true;
-            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
-            // 
-            // tbLastName
-            // 
-            this.tbLastName.Location = new System.Drawing.Point(272, 85);
-            this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(100, 22);
-            this.tbLastName.TabIndex = 6;
-            this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.tbLastName_Validating);
-            // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(171, 54);
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblFirstName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.lblFirstName.Location = new System.Drawing.Point(47, 44);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(30, 17);
-            this.lblFirstName.TabIndex = 7;
+            this.lblFirstName.Size = new System.Drawing.Size(39, 20);
+            this.lblFirstName.TabIndex = 15;
             this.lblFirstName.Text = "Ime";
             // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(171, 90);
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblLastName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.lblLastName.Location = new System.Drawing.Point(47, 87);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(59, 17);
-            this.lblLastName.TabIndex = 8;
+            this.lblLastName.Size = new System.Drawing.Size(78, 20);
+            this.lblLastName.TabIndex = 16;
             this.lblLastName.Text = "Prezime";
             // 
-            // lblEmail
+            // lblPhNumb
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(171, 216);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(47, 17);
-            this.lblEmail.TabIndex = 10;
-            this.lblEmail.Text = "E-mail";
-            // 
-            // lblPhoneNumber
-            // 
-            this.lblPhoneNumber.AutoSize = true;
-            this.lblPhoneNumber.Location = new System.Drawing.Point(171, 170);
-            this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(88, 17);
-            this.lblPhoneNumber.TabIndex = 11;
-            this.lblPhoneNumber.Text = "Broj telefona";
+            this.lblPhNumb.AutoSize = true;
+            this.lblPhNumb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPhNumb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.lblPhNumb.Location = new System.Drawing.Point(47, 172);
+            this.lblPhNumb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPhNumb.Name = "lblPhNumb";
+            this.lblPhNumb.Size = new System.Drawing.Size(117, 20);
+            this.lblPhNumb.TabIndex = 17;
+            this.lblPhNumb.Text = "Broj telefona";
             // 
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(177, 134);
+            this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.lblAddress.Location = new System.Drawing.Point(47, 130);
+            this.lblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(53, 17);
-            this.lblAddress.TabIndex = 12;
+            this.lblAddress.Size = new System.Drawing.Size(68, 20);
+            this.lblAddress.TabIndex = 18;
             this.lblAddress.Text = "Adresa";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.lblEmail.Location = new System.Drawing.Point(47, 218);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(63, 20);
+            this.lblEmail.TabIndex = 19;
+            this.lblEmail.Text = "E-mail";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(174, 256);
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.lblPassword.Location = new System.Drawing.Point(47, 258);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(69, 17);
-            this.lblPassword.TabIndex = 13;
-            this.lblPassword.Text = "Password";
+            this.lblPassword.Size = new System.Drawing.Size(74, 20);
+            this.lblPassword.TabIndex = 20;
+            this.lblPassword.Text = "Lozinka";
+            // 
+            // btnAddEmployee
+            // 
+            this.btnAddEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnAddEmployee.FlatAppearance.BorderSize = 0;
+            this.btnAddEmployee.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnAddEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAddEmployee.ForeColor = System.Drawing.Color.White;
+            this.btnAddEmployee.Location = new System.Drawing.Point(51, 319);
+            this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddEmployee.Name = "btnAddEmployee";
+            this.btnAddEmployee.Size = new System.Drawing.Size(187, 43);
+            this.btnAddEmployee.TabIndex = 21;
+            this.btnAddEmployee.Text = "Potvrdi";
+            this.btnAddEmployee.UseVisualStyleBackColor = false;
+            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click_1);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(421, 319);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(187, 43);
+            this.btnCancel.TabIndex = 22;
+            this.btnCancel.Text = "Otkazi";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // tbFirstName
+            // 
+            this.tbFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbFirstName.Location = new System.Drawing.Point(248, 34);
+            this.tbFirstName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbFirstName.Name = "tbFirstName";
+            this.tbFirstName.Size = new System.Drawing.Size(360, 30);
+            this.tbFirstName.TabIndex = 23;
+            this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.tbFirstName_Validating);
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(272, 250);
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbPassword.Location = new System.Drawing.Point(248, 258);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(100, 22);
-            this.tbPassword.TabIndex = 14;
+            this.tbPassword.Size = new System.Drawing.Size(360, 30);
+            this.tbPassword.TabIndex = 24;
             this.tbPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbPassword_Validating);
+            // 
+            // tbEMail
+            // 
+            this.tbEMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbEMail.Location = new System.Drawing.Point(248, 211);
+            this.tbEMail.Margin = new System.Windows.Forms.Padding(4);
+            this.tbEMail.Name = "tbEMail";
+            this.tbEMail.Size = new System.Drawing.Size(360, 30);
+            this.tbEMail.TabIndex = 25;
+            this.tbEMail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEMail_Validating);
+            // 
+            // tbPhoneNumber
+            // 
+            this.tbPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbPhoneNumber.Location = new System.Drawing.Point(248, 165);
+            this.tbPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPhoneNumber.Name = "tbPhoneNumber";
+            this.tbPhoneNumber.Size = new System.Drawing.Size(360, 30);
+            this.tbPhoneNumber.TabIndex = 26;
+            this.tbPhoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.tbPhoneNumber_Validating);
+            // 
+            // tbAddress
+            // 
+            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbAddress.Location = new System.Drawing.Point(248, 120);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(4);
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(360, 30);
+            this.tbAddress.TabIndex = 27;
+            this.tbAddress.Validating += new System.ComponentModel.CancelEventHandler(this.tbAddress_Validating);
+            // 
+            // tbLastName
+            // 
+            this.tbLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbLastName.Location = new System.Drawing.Point(248, 77);
+            this.tbLastName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Size = new System.Drawing.Size(360, 30);
+            this.tbLastName.TabIndex = 28;
+            this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.tbLastName_Validating);
             // 
             // errorProvider
             // 
@@ -170,20 +221,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tbPassword);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.lblAddress);
-            this.Controls.Add(this.lblPhoneNumber);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.lblFirstName);
+            this.ClientSize = new System.Drawing.Size(657, 379);
             this.Controls.Add(this.tbLastName);
-            this.Controls.Add(this.btnAddEmployee);
             this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.tbPhoneNumber);
-            this.Controls.Add(this.tbFirstName);
             this.Controls.Add(this.tbEMail);
+            this.Controls.Add(this.tbPassword);
+            this.Controls.Add(this.tbFirstName);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnAddEmployee);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.lblAddress);
+            this.Controls.Add(this.lblPhNumb);
+            this.Controls.Add(this.lblLastName);
+            this.Controls.Add(this.lblFirstName);
             this.Name = "NewEmployeeForm";
             this.Text = "Dodavanje zaposlenog";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -193,19 +245,19 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbEMail;
-        private System.Windows.Forms.TextBox tbFirstName;
-        private System.Windows.Forms.TextBox tbPhoneNumber;
-        private System.Windows.Forms.TextBox tbAddress;
-        private System.Windows.Forms.Button btnAddEmployee;
-        private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblPhoneNumber;
-        private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.Label lblPhNumb;
+        private System.Windows.Forms.Label lblLastName;
+        private System.Windows.Forms.Button btnAddEmployee;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox tbFirstName;
+        private System.Windows.Forms.TextBox tbLastName;
+        private System.Windows.Forms.TextBox tbAddress;
+        private System.Windows.Forms.TextBox tbPhoneNumber;
+        private System.Windows.Forms.TextBox tbEMail;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.ErrorProvider errorProvider;
     }
