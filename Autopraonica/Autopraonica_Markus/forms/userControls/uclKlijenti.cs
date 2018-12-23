@@ -148,6 +148,7 @@ new { Client = cl, Contract = cop }).ToList();
                         con.DateTo = DateTime.Now;
                         context.SaveChanges();
                         FillTable();
+                        MessageBox.Show("Ponisten ugovor sa ...", "Obavjest");
                     }
                     catch (Exception ex) { Debug.WriteLine(ex); }
                 }
@@ -204,7 +205,60 @@ new { Client = cl, Contract = cop }).ToList();
 
         private void button1_Click(object sender, EventArgs e)
         {
+            NewClientForm clientForm = new NewClientForm();
+            if (dgvKlijenti.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgvKlijenti.SelectedRows[0];
+                contract con = (contract)row.Tag;
+                if (con.DateTo < DateTime.Now)
+                {
+                    client cl = null;
+                    int idClient = con.Client_Id;
+                    using (MarkusDb context = new MarkusDb())
+                    {
+                        cl = (from c in context.clients where c.Id == idClient select c).ToList().First();
+                    }
+                    clientForm.IdCity = cl.City_Id;
+                    clientForm.NameClient = cl.Name;
+                    clientForm.UID = cl.UID;
+                    clientForm.Address = cl.Address;
+                    clientForm.Tag = 2;
 
+                    if (DialogResult.OK == clientForm.ShowDialog())
+                    {
+                        try
+                        {
+                            using (MarkusDb context = new MarkusDb())
+                            {
+                                var co = new contract()
+                                {
+                                    Current = 1,
+                                    DateFrom = DateTime.Now
+                                };
+                                if (clientForm.ContractTo != null)
+                                {
+                                    co.DateTo = clientForm.ContractTo;
+                                }
+                                co.Client_Id = cl.Id;
+                                context.contracts.Add(co);
+                                context.SaveChanges();
+                                FillTable();
+                            }
+                        }
+                        catch (Exception ex) { Debug.WriteLine(ex); }
+                    }
+                    else { Debug.WriteLine("Dragoljub ne otvori Dialog"); }
+
+                }
+                else
+                {
+                    MessageBox.Show("Postojeci klijent ima aktivan ugovor za novi ugovor ponistiti prethodni", "Greska");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Izaberite klijenta iz tabele");
+            }
         }
     }
 }

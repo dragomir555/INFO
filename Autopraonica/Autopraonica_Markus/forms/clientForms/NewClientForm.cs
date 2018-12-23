@@ -184,9 +184,17 @@ namespace Autopraonica_Markus.forms.clientForms
             if ((int)this.Tag == 1) {
             cbUgovorNa.Hide();
             dtpUgovorDo.Hide();
-        }
+            }
+            
             FillComboCity();
             cmbCityList.SelectedValue = IdCity;
+            if ((int)this.Tag == 2)
+            {
+                txtName.Enabled = false;
+                txtAddress.Enabled = false;
+                txtUID.Enabled = false;
+                cmbCityList.Enabled = false;
+            }
             
         }
     }
