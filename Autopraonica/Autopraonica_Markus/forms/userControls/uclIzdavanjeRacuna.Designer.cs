@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("");
             this.label3 = new System.Windows.Forms.Label();
             this.cmbClients = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,13 +41,13 @@
             this.lvUpSer = new System.Windows.Forms.ListView();
             this.hdSerNumSer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdTypeSer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.hdSubtypeSer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdSecName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdDtTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdLicPl = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnGenBill = new System.Windows.Forms.Button();
-            this.hdSubtypeSer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label3
@@ -105,7 +105,7 @@
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(328, 419);
+            this.lblPrice.Location = new System.Drawing.Point(278, 419);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(84, 38);
             this.lblPrice.TabIndex = 16;
@@ -115,7 +115,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(52, 419);
+            this.label4.Location = new System.Drawing.Point(12, 419);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(260, 38);
             this.label4.TabIndex = 15;
@@ -123,12 +123,16 @@
             // 
             // btnDspUnpSer
             // 
-            this.btnDspUnpSer.Location = new System.Drawing.Point(440, 416);
+            this.btnDspUnpSer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnDspUnpSer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDspUnpSer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnDspUnpSer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDspUnpSer.Location = new System.Drawing.Point(370, 408);
             this.btnDspUnpSer.Name = "btnDspUnpSer";
-            this.btnDspUnpSer.Size = new System.Drawing.Size(183, 41);
+            this.btnDspUnpSer.Size = new System.Drawing.Size(235, 49);
             this.btnDspUnpSer.TabIndex = 14;
             this.btnDspUnpSer.Text = "Prikaži neplaćenih usluga";
-            this.btnDspUnpSer.UseVisualStyleBackColor = true;
+            this.btnDspUnpSer.UseVisualStyleBackColor = false;
             this.btnDspUnpSer.Click += new System.EventHandler(this.btnDspUnpSer_Click);
             // 
             // lvUpSer
@@ -143,7 +147,7 @@
             this.hdLicPl,
             this.hdPrice});
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem8});
             this.lvUpSer.Location = new System.Drawing.Point(19, 191);
             this.lvUpSer.Name = "lvUpSer";
             this.lvUpSer.Size = new System.Drawing.Size(689, 210);
@@ -160,6 +164,11 @@
             // 
             this.hdTypeSer.Text = "Vrsta usluge";
             this.hdTypeSer.Width = 96;
+            // 
+            // hdSubtypeSer
+            // 
+            this.hdSubtypeSer.Text = "Podvrsta usluge";
+            this.hdSubtypeSer.Width = 109;
             // 
             // hdFirstName
             // 
@@ -188,19 +197,18 @@
             // 
             // btnGenBill
             // 
+            this.btnGenBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnGenBill.Enabled = false;
-            this.btnGenBill.Location = new System.Drawing.Point(629, 416);
+            this.btnGenBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnGenBill.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGenBill.Location = new System.Drawing.Point(611, 408);
             this.btnGenBill.Name = "btnGenBill";
-            this.btnGenBill.Size = new System.Drawing.Size(169, 40);
+            this.btnGenBill.Size = new System.Drawing.Size(187, 49);
             this.btnGenBill.TabIndex = 17;
             this.btnGenBill.Text = "Generiši račun";
-            this.btnGenBill.UseVisualStyleBackColor = true;
+            this.btnGenBill.UseVisualStyleBackColor = false;
             this.btnGenBill.Click += new System.EventHandler(this.btnGenBill_Click);
-            // 
-            // hdSubtypeSer
-            // 
-            this.hdSubtypeSer.Text = "Podvrsta usluge";
-            this.hdSubtypeSer.Width = 109;
             // 
             // uclIzdavanjeRacuna
             // 
