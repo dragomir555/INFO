@@ -59,10 +59,14 @@ namespace Autopraonica_Markus.forms.userControls
             }
         }
 
-        private void populateRows(DataTable dt, DateTimePicker dateFrom, DateTimePicker dateTo) {
+        private void populateRowsForBill(DataTable dt, DateTimePicker dateFrom, DateTimePicker dateTo) {
             using (MarkusDb context = new MarkusDb())
             {
-                var listOfClientsUnpaidServices =
+                var listNamesOfServiceTypes =
+                (from st in context.servicetypes
+                 select new { st.Name}).ToList();
+                
+                    var listOfClientsUnpaidServices =
                 (from les in context.legalentityservices
                  join cl in context.clients on les.Client_Id equals cl.Id
                  join nes in context.naturalentityservices on les.NaturalEntityService_Id equals nes.Id
@@ -81,18 +85,24 @@ namespace Autopraonica_Markus.forms.userControls
                      nes.Price,
                  }).ToList();
                 int i = 1;
-                foreach (var v in listOfClientsUnpaidServices)
+                decimal totalSumOfServiceType = 0;
+
+                foreach (var stN in listNamesOfServiceTypes)
                 {
-                    var serviceDate = v.ServiceTime;
-                    if ((serviceDate > dateFrom.Value) && (serviceDate < dateTo.Value))
+                    totalSumOfServiceType = 0;
+                    
+                    foreach (var v in listOfClientsUnpaidServices)
                     {
-                        dt.Rows.Add(i++, v.Name, v.Price.ToString());
-                        
-                        //dodati ukupnu cijenu
-                    }
+                    var serviceDate = v.ServiceTime;
+                    if ((serviceDate > dateFrom.Value) && (serviceDate < dateTo.Value) && stN.Name.Equals(v.Name))
+                    {
+                            totalSumOfServiceType += v.Price;
+                    }}
+                    dt.Rows.Add(i++, stN.Name, totalSumOfServiceType);
                 }
             }
-        }
+    }
+
 
         private decimal searchUnpaidServices(DateTimePicker dateFrom, DateTimePicker dateTo) {
             decimal suma = 0;
@@ -231,12 +241,11 @@ namespace Autopraonica_Markus.forms.userControls
             //Define columns
             friend.Columns.Add("R.b.");
             friend.Columns.Add("Naziv usluge");
-            friend.Columns.Add("Iznos ");
+            friend.Columns.Add("Iznos(KM)");
 
-
-           
+            
             //Populate with unpaid services 
-            populateRows(friend, dtpDateFrom, dtpDateTo);
+            populateRowsForBill(friend, dtpDateFrom, dtpDateTo);
             
             return friend;
         }
@@ -398,6 +407,12 @@ namespace Autopraonica_Markus.forms.userControls
                 }
             }
             document.Add(table);
+
+            Paragraph prgTotAm = new Paragraph();
+            prgTotAm.Alignment = Element.ALIGN_RIGHT;
+            prgTotAm.Add(new Chunk("\nUkupan iznos: " + lblPrice.Text + " KM"));
+            document.Add(prgTotAm);
+
             document.Close();
             writer.Close();
             fs.Close();
