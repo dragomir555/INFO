@@ -74,7 +74,7 @@ namespace Autopraonica_Markus.forms
                                 };
                                 employee.employeerecords.Add(emp);
                                 mainForm.SetEmployee(employee);
-                                mainForm.Visible = true;
+                                mainForm.ChangeAllowShowDisplay();
                                 this.Close();
                             }
                             else

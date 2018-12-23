@@ -19,10 +19,25 @@ namespace Autopraonica_Markus
         private Timer timer = new Timer();
         private employee employee;
 
+        private bool allowShowDisplay = false;
+
         public MainForm()
         {
             InitializeComponent();
+            if (!pnlContent.Controls.Contains(uclUsluge.Instance))
+            {
+                pnlContent.Controls.Add(uclUsluge.Instance);
+                uclUsluge.Instance.Dock = DockStyle.Fill;
+                uclUsluge.Instance.BringToFront();
+            }
+            else
+            {
+                uclUsluge.Instance.BringToFront();
+            }
+            btnUsluge.BackColor = Color.FromArgb(93, 46, 140);
             PressedButton = btnUsluge;
+            LoginForm loginForm = new LoginForm(this);
+            loginForm.Show();
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -191,8 +206,19 @@ namespace Autopraonica_Markus
         public void SetEmployee(employee employee)
         {
             this.employee = employee;
-            // Treba dodati popunjavanje labele sa imenom zaposlenog
+            lblUser.Text = employee.FirstName + " " + employee.LastName;
             uclUsluge.Instance.SetEmployee(employee);
+        }
+
+        protected override void SetVisibleCore(bool value)
+        {
+            base.SetVisibleCore(allowShowDisplay ? value : allowShowDisplay);
+        }
+
+        public void ChangeAllowShowDisplay()
+        {
+            this.allowShowDisplay = true;
+            this.Visible = !this.Visible;
         }
     }
 }
