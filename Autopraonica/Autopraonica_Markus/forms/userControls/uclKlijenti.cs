@@ -72,6 +72,7 @@ new { Client = cl, Contract = cop }).ToList();
         private void btnNoviKlijent_Click(object sender, EventArgs e)
         {
             NewClientForm newClientForm = new NewClientForm();
+            newClientForm.Tag = 0;
             if (DialogResult.OK == newClientForm.ShowDialog())
             {
                 try
@@ -169,12 +170,41 @@ new { Client = cl, Contract = cop }).ToList();
                 using (MarkusDb context = new MarkusDb()) {
                     cl = (from c in context.clients where c.Id == idClient select c).ToList().First();
                     }
-             
+                clientForm.IdCity = cl.City_Id;
+                clientForm.NameClient = cl.Name;
+                clientForm.UID = cl.UID;
+                clientForm.Address = cl.Address;
+                clientForm.Tag = 1;
+
+                if (DialogResult.OK == clientForm.ShowDialog())
+                {
+                    try
+                    {
+                        using (MarkusDb context = new MarkusDb())
+                        {
+                            context.clients.Attach(cl);
+                            cl.Name = clientForm.NameClient;
+                            cl.Address = clientForm.Address;
+                            cl.City_Id = clientForm.IdCity;
+                            cl.UID = clientForm.UID;
+                            context.SaveChanges();
+                            FillTable();
+                        }
+                    }
+                    catch (Exception ex) { Debug.WriteLine(ex); }
+                }
+                else { Debug.WriteLine("Dragoljub ne otvori Dialog"); }
+
             }
             else
             {
                 MessageBox.Show("Izaberite klijenta iz tabele");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

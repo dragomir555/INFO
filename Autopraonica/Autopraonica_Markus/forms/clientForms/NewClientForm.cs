@@ -62,7 +62,7 @@ namespace Autopraonica_Markus.forms.clientForms
                     ContractTo = null;
                 }
                 this.DialogResult = DialogResult.OK;
-                this.Close();
+               // this.Close();
             }
             
         }
@@ -173,7 +173,21 @@ namespace Autopraonica_Markus.forms.clientForms
 
         private void NewClientForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+           // this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void NewClientForm_Load(object sender, EventArgs e)
+        {
+            txtName.Text = NameClient;
+            txtAddress.Text = Address;
+            txtUID.Text = UID;
+            if ((int)this.Tag == 1) {
+            cbUgovorNa.Hide();
+            dtpUgovorDo.Hide();
+        }
+            FillComboCity();
+            cmbCityList.SelectedValue = IdCity;
+            
         }
     }
 }

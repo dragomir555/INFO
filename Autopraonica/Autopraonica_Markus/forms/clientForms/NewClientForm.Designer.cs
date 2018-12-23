@@ -222,6 +222,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novi klijent";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewClientForm_FormClosing);
+            this.Load += new System.EventHandler(this.NewClientForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderClient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
