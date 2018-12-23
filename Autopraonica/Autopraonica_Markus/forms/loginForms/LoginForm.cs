@@ -22,6 +22,8 @@ namespace Autopraonica_Markus.forms
             InitializeComponent();
             numberOfFailedLogin = 0;
             this.mainForm = mainForm;
+            tbPassword.Text = "admin123";
+            tbUsername.Text = "nikola.nikolic";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -100,6 +102,12 @@ namespace Autopraonica_Markus.forms
                     }
                 }
             }
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mainForm.ChangeAllowShowDisplay();
+            mainForm.Close();
         }
     }
 }
