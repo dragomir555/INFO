@@ -37,9 +37,8 @@ namespace Autopraonica_Markus.forms.userControls
         public void SetEmployee(employee employee)
         {
             this.employee = employee;
-            FillTableLegalEntityServices();
             FillTableNaturalEntityServices();
-            dgvLegalEntity.BringToFront();
+            FillTableLegalEntityServices();
         }
 
         private void FillTableLegalEntityServices()
@@ -132,7 +131,6 @@ namespace Autopraonica_Markus.forms.userControls
                             ServiceTime = DateTime.Now,
                             Employee_Id = employee.Id
                         };
-                        MessageBox.Show(naturalEntityService.Price.ToString() + " " + naturalEntityService.CarBrand_Id.ToString());
                         context.naturalentityservices.Add(naturalEntityService);
                         context.SaveChanges();
                         FillTableNaturalEntityServices();
@@ -149,7 +147,41 @@ namespace Autopraonica_Markus.forms.userControls
         private void btnNewLegalEntityService_Click(object sender, EventArgs e)
         {
             NewLegalEntityServiceForm nlesf = new NewLegalEntityServiceForm();
-            nlesf.ShowDialog();
+            if(DialogResult.OK == nlesf.ShowDialog())
+            {
+                try
+                {
+                    using (MarkusDb context = new MarkusDb())
+                    {
+                        var naturalEntityService = new naturalentityservice()
+                        {
+                            Price = nlesf.Price,
+                            CarBrand_Id = nlesf.CarBrand_Id,
+                            PricelistItem_Id = nlesf.PricelistItem_Id,
+                            ServiceTime = DateTime.Now,
+                            Employee_Id = employee.Id
+                        };
+                        context.naturalentityservices.Add(naturalEntityService);
+                        context.SaveChanges();
+                        var legalEntityService = new legalentityservice()
+                        {
+                            Client_Id = nlesf.Client_Id,
+                            NaturalEntityService_Id = naturalEntityService.Id,
+                            FirstName = nlesf.FirstName,
+                            LastName = nlesf.LastName,
+                            LicencePlate = nlesf.LicencePlate
+                        };
+                        context.legalentityservices.Add(legalEntityService);
+                        context.SaveChanges();
+                        FillTableLegalEntityServices();
+                        rbPravnaLica.Checked = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Source);
+                }
+            }
         }
     }
 }

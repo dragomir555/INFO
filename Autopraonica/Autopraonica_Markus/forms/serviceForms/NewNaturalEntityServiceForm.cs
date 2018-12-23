@@ -177,7 +177,6 @@ namespace Autopraonica_Markus.forms.serviceForms
             }*/
             if(ValidateChildren(ValidationConstraints.Enabled))
             {
-                MessageBox.Show("Validacija uspjesna");
                 CarBrand_Id = ((carbrand)cmbCarBrand.SelectedItem).Id;
                 using (MarkusDb context = new MarkusDb())
                 {
@@ -202,10 +201,6 @@ namespace Autopraonica_Markus.forms.serviceForms
                     Price = decimal.Parse(tbPrice.Text);
                 }
                 this.DialogResult = DialogResult.OK;
-            }
-            else
-            {
-                MessageBox.Show("Validacija neuspjesna");
             }
         }
 
@@ -244,7 +239,6 @@ namespace Autopraonica_Markus.forms.serviceForms
                 e.Cancel = true;
                 tbCarpetSize.Focus();
                 errCarpetSize.SetError(tbCarpetSize, "Niste unijeli kvadraturu opranog tepiha.");
-                MessageBox.Show("Carpet");
             }
             else
             {
@@ -260,7 +254,6 @@ namespace Autopraonica_Markus.forms.serviceForms
                 e.Cancel = true;
                 tbPrice.Focus();
                 errPrice.SetError(tbPrice, "Niste unijeli cijenu usluge.");
-                MessageBox.Show("Price");
             }
             else
             {

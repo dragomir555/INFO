@@ -50,12 +50,12 @@
             this.lblLicencePlates = new System.Windows.Forms.Label();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
-            this.tbLicencePlates = new System.Windows.Forms.TextBox();
             this.errFirstName = new System.Windows.Forms.ErrorProvider(this.components);
             this.errLastName = new System.Windows.Forms.ErrorProvider(this.components);
             this.errLicencePlates = new System.Windows.Forms.ErrorProvider(this.components);
             this.errCarpetSize = new System.Windows.Forms.ErrorProvider(this.components);
             this.errPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            this.mtbLicencePlate = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errFirstName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errLastName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errLicencePlates)).BeginInit();
@@ -170,6 +170,8 @@
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(270, 26);
             this.tbPrice.TabIndex = 8;
+            this.tbPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrice_KeyPress);
+            this.tbPrice.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrice_Validating);
             // 
             // btnConfirm
             // 
@@ -184,6 +186,7 @@
             this.btnConfirm.TabIndex = 0;
             this.btnConfirm.Text = "Potvrdi";
             this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnCancel
             // 
@@ -228,6 +231,8 @@
             this.tbCarpetSize.Size = new System.Drawing.Size(270, 26);
             this.tbCarpetSize.TabIndex = 0;
             this.tbCarpetSize.Visible = false;
+            this.tbCarpetSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCarpetSize_KeyPress);
+            this.tbCarpetSize.Validating += new System.ComponentModel.CancelEventHandler(this.tbCarpetSize_Validating);
             // 
             // lblFirstName
             // 
@@ -269,6 +274,7 @@
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(270, 26);
             this.tbFirstName.TabIndex = 2;
+            this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.tbFirstName_Validating);
             // 
             // tbLastName
             // 
@@ -277,14 +283,7 @@
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(270, 26);
             this.tbLastName.TabIndex = 3;
-            // 
-            // tbLicencePlates
-            // 
-            this.tbLicencePlates.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLicencePlates.Location = new System.Drawing.Point(229, 170);
-            this.tbLicencePlates.Name = "tbLicencePlates";
-            this.tbLicencePlates.Size = new System.Drawing.Size(270, 26);
-            this.tbLicencePlates.TabIndex = 4;
+            this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.tbLastName_Validating);
             // 
             // errFirstName
             // 
@@ -311,13 +310,23 @@
             this.errPrice.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errPrice.ContainerControl = this;
             // 
+            // mtbLicencePlate
+            // 
+            this.mtbLicencePlate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtbLicencePlate.Location = new System.Drawing.Point(229, 170);
+            this.mtbLicencePlate.Mask = "A00-L-000";
+            this.mtbLicencePlate.Name = "mtbLicencePlate";
+            this.mtbLicencePlate.Size = new System.Drawing.Size(270, 26);
+            this.mtbLicencePlate.TabIndex = 9;
+            this.mtbLicencePlate.Validating += new System.ComponentModel.CancelEventHandler(this.mtbLicencePlate_Validating);
+            // 
             // NewLegalEntityServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(534, 483);
-            this.Controls.Add(this.tbLicencePlates);
+            this.Controls.Add(this.mtbLicencePlate);
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.tbFirstName);
             this.Controls.Add(this.lblLicencePlates);
@@ -376,11 +385,11 @@
         private System.Windows.Forms.Label lblLicencePlates;
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.TextBox tbLastName;
-        private System.Windows.Forms.TextBox tbLicencePlates;
         private System.Windows.Forms.ErrorProvider errFirstName;
         private System.Windows.Forms.ErrorProvider errLastName;
         private System.Windows.Forms.ErrorProvider errLicencePlates;
         private System.Windows.Forms.ErrorProvider errCarpetSize;
         private System.Windows.Forms.ErrorProvider errPrice;
+        private System.Windows.Forms.MaskedTextBox mtbLicencePlate;
     }
 }
