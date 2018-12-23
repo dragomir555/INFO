@@ -59,7 +59,7 @@ namespace Autopraonica_Markus.forms.userControls
             }
         }
 
-        private void populateRows(DataTable dt, string dateFrom, string dateTo) {
+        private void populateRows(DataTable dt, DateTimePicker dateFrom, DateTimePicker dateTo) {
             using (MarkusDb context = new MarkusDb())
             {
                 var listOfClientsUnpaidServices =
@@ -83,10 +83,10 @@ namespace Autopraonica_Markus.forms.userControls
                 int i = 1;
                 foreach (var v in listOfClientsUnpaidServices)
                 {
-                    string serviceDate = v.ServiceTime.ToShortDateString();
-                    if ((serviceDate.CompareTo(dateFrom) == -1 && dateTo.CompareTo(serviceDate) == -1) || true)
+                    var serviceDate = v.ServiceTime;
+                    if ((serviceDate > dateFrom.Value) && (serviceDate < dateTo.Value))
                     {
-                        dt.Rows.Add(i++, v.Name, serviceDate, v.Price.ToString());
+                        dt.Rows.Add(i++, v.Name, v.Price.ToString());
                         
                         //dodati ukupnu cijenu
                     }
@@ -231,15 +231,12 @@ namespace Autopraonica_Markus.forms.userControls
             //Define columns
             friend.Columns.Add("R.b.");
             friend.Columns.Add("Naziv usluge");
-            friend.Columns.Add("Datum usluge");
             friend.Columns.Add("Iznos ");
 
 
            
             //Populate with unpaid services 
-            string dateFrom = dtpDateFrom.Value.ToShortDateString();
-            string dateTo = dtpDateTo.Value.ToShortDateString();
-            populateRows(friend, dateFrom, dateTo);
+            populateRows(friend, dtpDateFrom, dtpDateTo);
             
             return friend;
         }
@@ -261,14 +258,12 @@ namespace Autopraonica_Markus.forms.userControls
             friend.Columns.Add("Cijena sa PDV-om");
 
             //Populate with unpaid services 
-            string dateFrom = dtpDateFrom.Value.ToShortDateString();
-            string dateTo = dtpDateTo.Value.ToShortDateString();
-            populateRowsForUnpaidServices(friend, dateFrom, dateTo);
+            populateRowsForUnpaidServices(friend, dtpDateFrom, dtpDateTo);
 
             return friend;
         }
 
-        private void populateRowsForUnpaidServices(DataTable dt, string dateFrom, string dateTo)
+        private void populateRowsForUnpaidServices(DataTable dt, DateTimePicker dateFrom, DateTimePicker dateTo)
         {
             using (MarkusDb context = new MarkusDb())
             {
@@ -298,10 +293,10 @@ namespace Autopraonica_Markus.forms.userControls
                 int i = 1;
                 foreach (var v in listOfClientsUnpaidServices)
                 {
-                    string serviceDate = v.ServiceTime.ToShortDateString();
-                    if ((serviceDate.CompareTo(dateFrom) == -1 && dateTo.CompareTo(serviceDate) == -1) || true)
+                    var serviceDate = v.ServiceTime;
+                    if ((serviceDate > dateFrom.Value) && (serviceDate < dateTo.Value))
                     {
-                        dt.Rows.Add(i++, serviceDate, v.carBrandName, v.LicencePlate, v.Name, v.FirstName , v.LastName);
+                        dt.Rows.Add(i++, serviceDate.ToShortDateString() , v.carBrandName, v.LicencePlate, v.Name, v.FirstName , v.LastName, v.Price);
                     }
                 }
             }
@@ -327,13 +322,17 @@ namespace Autopraonica_Markus.forms.userControls
             //Author
             Paragraph prgCompanyInfo = new Paragraph();
             Paragraph prgAuthor = new Paragraph();
-            
             Paragraph prgAuthor1 = new Paragraph();
+            Paragraph prgBillNumb = new Paragraph();
+
             BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntAuthor = new Font(btnAuthor, 10, 2, iTextSharp.text.Color.GRAY);
+
             Paragraph prgAuthor2 = new Paragraph();
             
             var boldFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+
+            prgBillNumb.Alignment = Element.ALIGN_CENTER;
 
             prgCompanyInfo.Alignment = Element.ALIGN_RIGHT;
             prgAuthor.Add(new Chunk("\nUL.V.Putnika bb prop",boldFont));
@@ -352,13 +351,16 @@ namespace Autopraonica_Markus.forms.userControls
             }
             prgAuthor1.Alignment = Element.ALIGN_RIGHT;
             prgAuthor1.Add(new Chunk("\n"));
-            prgAuthor1.Add(new Chunk("\n Datum " + DateTime.Now.ToShortDateString()));
+            string strDate = DateTime.Now.ToString("dd/MM/yyyy");
+            prgAuthor1.Add(new Chunk("\n Datum " + strDate));
             prgAuthor.Add(new Chunk("\nJIB  property123214", boldFont));
-            prgAuthor.Add(new Chunk("\nZ.r. property312311", boldFont)); 
+            prgAuthor.Add(new Chunk("\nZ.r. property312311", boldFont));
             
+            prgBillNumb.Add(new Chunk("RACUN BR " + (DateTime.Now.Month-1) + "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)) , boldFont));
    
             document.Add(prgCompanyInfo);
             document.Add(prgAuthor);
+            document.Add(prgBillNumb);
             document.Add(prgAuthor1);
 
             //Add a line seperation
@@ -384,7 +386,7 @@ namespace Autopraonica_Markus.forms.userControls
                 table.AddCell(cell);
             }
 
-            table.SetWidths(new int[] { 1, 3, 3, 3});
+            table.SetWidths(new int[] { 1, 3, 3});
 
             //table Data
             for (int i = 0; i < dtblTable.Rows.Count; i++)
@@ -400,7 +402,25 @@ namespace Autopraonica_Markus.forms.userControls
             writer.Close();
             fs.Close();
         }
-        
+
+        String getNameOfMonth(int monthIndex) {
+              switch (monthIndex) {
+                case 1: return "Januar";
+                case 2: return "Februar";
+                case 3: return "Mart";
+                case 4: return "April";
+                case 5: return "Maj";
+                case 6: return "Jun";
+                case 7: return "Jul";
+                case 8: return "Avgust";
+                case 9: return "Septembar";
+                case 10:return "Oktobar";
+                case 11:return "Novembar";
+                case 12:return "Decembar";
+                default: return null;
+              }
+        }
+
         void ExportDataTableOfUnpaidServicesToPdf(DataTable dtblTable, String strPdfPath, string strHeader)
         {
             System.IO.FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
@@ -422,15 +442,19 @@ namespace Autopraonica_Markus.forms.userControls
             BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntAuthor = new Font(btnAuthor, 8, 2, iTextSharp.text.Color.GRAY);
 
-            var month = DateTimeFormatInfo.CurrentInfo.GetMonthName(DateTime.Now.Month - 1); 
+            var monthIndex = DateTime.Now.Month - 1;
+            var month = getNameOfMonth(monthIndex);
 
             Func<string> year = () => {
                 if (DateTime.Now.Month == 1)
                     return (DateTime.Now.Year - 1).ToString();
                 return (DateTime.Now.Year).ToString();
-            };           
-            prgContent.Add(new Chunk("\nPREGLED USLUGA PRANJA PUTNIČKIH VOZILA ZA : " + month  , fntAuthor));
-            prgContent.Add(new Chunk("\n" + year() + ". GODINA  " + cmbClients.Text, fntAuthor));
+            };
+            var boldFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
+
+            prgContent.Add(new Chunk("\nPREGLED USLUGA PRANJA PUTNICKIH VOZILA ZA : " + month  , boldFont));
+            prgContent.Add(new Chunk("\n" + year() + ". GODINA  " + cmbClients.Text, boldFont));
+            prgContent.Add(new Chunk("\nRACUN BR " + (DateTime.Now.Month - 1) + "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)), boldFont));
             prgContent.Add(new Chunk("\n                                                     "));
             prgContent.Add(new Chunk("\n                                                     "));
             document.Add(prgContent);
