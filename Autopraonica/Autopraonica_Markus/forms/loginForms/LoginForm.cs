@@ -103,11 +103,5 @@ namespace Autopraonica_Markus.forms
                 }
             }
         }
-
-        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            mainForm.ChangeAllowShowDisplay();
-            mainForm.Close();
-        }
     }
 }
