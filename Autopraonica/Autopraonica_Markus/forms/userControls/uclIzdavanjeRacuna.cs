@@ -98,6 +98,7 @@ namespace Autopraonica_Markus.forms.userControls
                     {
                             totalSumOfServiceType += v.Price;
                     }}
+                    if(totalSumOfServiceType !=0)
                     dt.Rows.Add(i++, stN.Name, totalSumOfServiceType);
                 }
             }
@@ -362,10 +363,11 @@ namespace Autopraonica_Markus.forms.userControls
             prgAuthor1.Add(new Chunk("\n"));
             string strDate = DateTime.Now.ToString("dd/MM/yyyy");
             prgAuthor1.Add(new Chunk("\n Datum " + strDate));
+            prgAuthor1.Add(new Chunk("\n Za period: " + dtpDateFrom.Value.ToShortDateString() + " - " + dtpDateTo.Value.ToShortDateString() +" GOD."));
             prgAuthor.Add(new Chunk("\nJIB  property123214", boldFont));
             prgAuthor.Add(new Chunk("\nZ.r. property312311", boldFont));
             
-            prgBillNumb.Add(new Chunk("RACUN BR " + (DateTime.Now.Month-1) + "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)) , boldFont));
+            prgBillNumb.Add(new Chunk("RACUN BR. " + (DateTime.Now.Month-1) + "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)) , boldFont));
    
             document.Add(prgCompanyInfo);
             document.Add(prgAuthor);
@@ -412,6 +414,11 @@ namespace Autopraonica_Markus.forms.userControls
             prgTotAm.Alignment = Element.ALIGN_RIGHT;
             prgTotAm.Add(new Chunk("\nUkupan iznos: " + lblPrice.Text + " KM"));
             document.Add(prgTotAm);
+
+            Paragraph prgSignature = new Paragraph();
+            prgSignature.Alignment = Element.ALIGN_LEFT;
+            prgSignature.Add(new Chunk("\nMP          " + "POTPIS"));
+            document.Add(prgSignature);
 
             document.Close();
             writer.Close();
@@ -469,7 +476,7 @@ namespace Autopraonica_Markus.forms.userControls
 
             prgContent.Add(new Chunk("\nPREGLED USLUGA PRANJA PUTNICKIH VOZILA ZA : " + month  , boldFont));
             prgContent.Add(new Chunk("\n" + year() + ". GODINA  " + cmbClients.Text, boldFont));
-            prgContent.Add(new Chunk("\nRACUN BR " + (DateTime.Now.Month - 1) + "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)), boldFont));
+            prgContent.Add(new Chunk("\nRACUN BR. " + (DateTime.Now.Month - 1) + "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)), boldFont));
             prgContent.Add(new Chunk("\n                                                     "));
             prgContent.Add(new Chunk("\n                                                     "));
             document.Add(prgContent);
