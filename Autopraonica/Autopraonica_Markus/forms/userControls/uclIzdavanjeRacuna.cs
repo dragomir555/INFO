@@ -59,10 +59,14 @@ namespace Autopraonica_Markus.forms.userControls
             }
         }
 
-        private void populateRows(DataTable dt, DateTimePicker dateFrom, DateTimePicker dateTo) {
+        private void populateRowsForBill(DataTable dt, DateTimePicker dateFrom, DateTimePicker dateTo) {
             using (MarkusDb context = new MarkusDb())
             {
-                var listOfClientsUnpaidServices =
+                var listNamesOfServiceTypes =
+                (from st in context.servicetypes
+                 select new { st.Name}).ToList();
+                
+                    var listOfClientsUnpaidServices =
                 (from les in context.legalentityservices
                  join cl in context.clients on les.Client_Id equals cl.Id
                  join nes in context.naturalentityservices on les.NaturalEntityService_Id equals nes.Id
@@ -81,18 +85,25 @@ namespace Autopraonica_Markus.forms.userControls
                      nes.Price,
                  }).ToList();
                 int i = 1;
-                foreach (var v in listOfClientsUnpaidServices)
+                decimal totalSumOfServiceType = 0;
+
+                foreach (var stN in listNamesOfServiceTypes)
                 {
-                    var serviceDate = v.ServiceTime;
-                    if ((serviceDate > dateFrom.Value) && (serviceDate < dateTo.Value))
+                    totalSumOfServiceType = 0;
+                    
+                    foreach (var v in listOfClientsUnpaidServices)
                     {
-                        dt.Rows.Add(i++, v.Name, v.Price.ToString());
-                        
-                        //dodati ukupnu cijenu
-                    }
+                    var serviceDate = v.ServiceTime;
+                    if ((serviceDate > dateFrom.Value) && (serviceDate < dateTo.Value) && stN.Name.Equals(v.Name))
+                    {
+                            totalSumOfServiceType += v.Price;
+                    }}
+                    if(totalSumOfServiceType !=0)
+                    dt.Rows.Add(i++, stN.Name, totalSumOfServiceType);
                 }
             }
-        }
+    }
+
 
         private decimal searchUnpaidServices(DateTimePicker dateFrom, DateTimePicker dateTo) {
             decimal suma = 0;
@@ -231,12 +242,11 @@ namespace Autopraonica_Markus.forms.userControls
             //Define columns
             friend.Columns.Add("R.b.");
             friend.Columns.Add("Naziv usluge");
-            friend.Columns.Add("Iznos ");
+            friend.Columns.Add("Iznos(KM)");
 
-
-           
+            
             //Populate with unpaid services 
-            populateRows(friend, dtpDateFrom, dtpDateTo);
+            populateRowsForBill(friend, dtpDateFrom, dtpDateTo);
             
             return friend;
         }
@@ -353,10 +363,11 @@ namespace Autopraonica_Markus.forms.userControls
             prgAuthor1.Add(new Chunk("\n"));
             string strDate = DateTime.Now.ToString("dd/MM/yyyy");
             prgAuthor1.Add(new Chunk("\n Datum " + strDate));
+            prgAuthor1.Add(new Chunk("\n Za period: " + dtpDateFrom.Value.ToShortDateString() + " - " + dtpDateTo.Value.ToShortDateString() +" GOD."));
             prgAuthor.Add(new Chunk("\nJIB  property123214", boldFont));
             prgAuthor.Add(new Chunk("\nZ.r. property312311", boldFont));
             
-            prgBillNumb.Add(new Chunk("RACUN BR " + (DateTime.Now.Month-1) + "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)) , boldFont));
+            prgBillNumb.Add(new Chunk("RACUN BR. " + (DateTime.Now.Month-1) + "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)) , boldFont));
    
             document.Add(prgCompanyInfo);
             document.Add(prgAuthor);
@@ -398,6 +409,17 @@ namespace Autopraonica_Markus.forms.userControls
                 }
             }
             document.Add(table);
+
+            Paragraph prgTotAm = new Paragraph();
+            prgTotAm.Alignment = Element.ALIGN_RIGHT;
+            prgTotAm.Add(new Chunk("\nUkupan iznos: " + lblPrice.Text + " KM"));
+            document.Add(prgTotAm);
+
+            Paragraph prgSignature = new Paragraph();
+            prgSignature.Alignment = Element.ALIGN_LEFT;
+            prgSignature.Add(new Chunk("\nMP          " + "POTPIS"));
+            document.Add(prgSignature);
+
             document.Close();
             writer.Close();
             fs.Close();
@@ -454,7 +476,7 @@ namespace Autopraonica_Markus.forms.userControls
 
             prgContent.Add(new Chunk("\nPREGLED USLUGA PRANJA PUTNICKIH VOZILA ZA : " + month  , boldFont));
             prgContent.Add(new Chunk("\n" + year() + ". GODINA  " + cmbClients.Text, boldFont));
-            prgContent.Add(new Chunk("\nRACUN BR " + (DateTime.Now.Month - 1) + "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)), boldFont));
+            prgContent.Add(new Chunk("\nRACUN BR. " + (DateTime.Now.Month - 1) + "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)), boldFont));
             prgContent.Add(new Chunk("\n                                                     "));
             prgContent.Add(new Chunk("\n                                                     "));
             document.Add(prgContent);
