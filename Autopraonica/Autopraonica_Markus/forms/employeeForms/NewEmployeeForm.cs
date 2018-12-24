@@ -70,7 +70,10 @@ namespace Autopraonica_Markus.forms.employeeForms
 
         private void tbFirstName_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbFirstName.Text))
+            var regex = @"^[^0-9]+$";
+            var match = Regex.Match(tbFirstName.Text, regex, RegexOptions.IgnoreCase);
+
+            if (string.IsNullOrWhiteSpace(tbFirstName.Text) || !match.Success)
             {
                 e.Cancel = true;
                 tbFirstName.Focus();
@@ -85,7 +88,10 @@ namespace Autopraonica_Markus.forms.employeeForms
 
         private void tbLastName_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbLastName.Text))
+            var regex = @"^[^0-9]+$";
+            var match = Regex.Match(tbLastName.Text, regex, RegexOptions.IgnoreCase);
+
+            if (string.IsNullOrWhiteSpace(tbLastName.Text) || !match.Success)
             {
                 e.Cancel = true;
                 tbLastName.Focus();
@@ -118,7 +124,7 @@ namespace Autopraonica_Markus.forms.employeeForms
 
         private void tbPhoneNumber_Validating(object sender, CancelEventArgs e)
         {
-            var regex = @"[0-9]+";
+            var regex = @"^[0-9]*$";
             var match = Regex.Match(tbPhoneNumber.Text, regex, RegexOptions.IgnoreCase);
 
             if (string.IsNullOrWhiteSpace(tbPhoneNumber.Text) || !match.Success)

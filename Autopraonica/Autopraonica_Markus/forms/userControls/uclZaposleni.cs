@@ -124,7 +124,8 @@ namespace Autopraonica_Markus.forms.userControls
                     LastName = emp.LastName,
                     PhoneNumber = emp.PhoneNumber,
                     Address = emp.Address,
-                    E_mail = emp.E_mail
+                    E_mail = emp.E_mail,
+                    PID = emp.PID
                 };
 
                 
@@ -151,8 +152,7 @@ namespace Autopraonica_Markus.forms.userControls
                             empl.LastName = employeeForm.LastName;
                             empl.Address = employeeForm.Address;
                             empl.PhoneNumber = employeeForm.PhoneNumber;
-                           // empl.PID = employeeForm.PID;
-                            //empl.E_mail
+                            empl.PID = employeeForm.PID;
                             context.SaveChanges();
                             FillTable();
 
