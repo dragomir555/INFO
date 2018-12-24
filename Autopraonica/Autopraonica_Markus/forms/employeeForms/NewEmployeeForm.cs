@@ -30,42 +30,6 @@ namespace Autopraonica_Markus.forms.employeeForms
             InitializeComponent();
         }
 
-        public void markIllegalField(TextBox tb) {
-            tb.BackColor = Color.IndianRed;
-            counter = 1;
-        }
-
-        public Boolean checkFields()
-        {
-            if (string.IsNullOrWhiteSpace(tbAddress.Text))
-            {
-                markIllegalField(tbAddress);
-            }
-            if (string.IsNullOrWhiteSpace(tbFirstName.Text))
-            {
-                markIllegalField(tbFirstName);
-            }
-            if (string.IsNullOrWhiteSpace(tbLastName.Text))
-            {
-                markIllegalField(tbLastName);
-            }
-            if (string.IsNullOrWhiteSpace(tbEMail.Text))
-            {
-                markIllegalField(tbEMail);
-            }
-            if (string.IsNullOrWhiteSpace(tbPhoneNumber.Text))
-            {
-                markIllegalField(tbPhoneNumber);
-            }
-            if (string.IsNullOrWhiteSpace(tbPassword.Text))
-            {
-                markIllegalField(tbPassword);
-            }
-            if (counter == 1)
-                return false;
-            return true;
-        }
-
         public void fillTextBoxes() {
             tbFirstName.Text = FirstName;
             tbLastName.Text = LastName;
@@ -84,32 +48,29 @@ namespace Autopraonica_Markus.forms.employeeForms
         {
             btnAddEmployee.Text = "Izmjeni zaposlenog";
         }
-
-        private void btnAddEmployee_Click(object sender, EventArgs e)
-        {
-            if (!ValidateChildren(ValidationConstraints.Enabled))
-            {   
-             //   this.DialogResult = DialogResult.Cancel;
+   
+ 
          
-            }
-            else
-            { 
-              using (MarkusDb ctx = new MarkusDb())
+        private void btnAddEmployee_Click_1(object sender, EventArgs e)
+        {
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                using (MarkusDb ctx = new MarkusDb())
                 {
-                FirstName = tbFirstName.Text;
-                LastName = tbLastName.Text;
-                E_mail = tbEMail.Text;
-                Address = tbAddress.Text;
-                PhoneNumber = tbPhoneNumber.Text;
-                Password = tbPassword.Text;
-                this.DialogResult = DialogResult.OK;
+                    FirstName = tbFirstName.Text;
+                    LastName = tbLastName.Text;
+                    E_mail = tbEMail.Text;
+                    Address = tbAddress.Text;
+                    PhoneNumber = tbPhoneNumber.Text;
+                    Password = tbPassword.Text;
+                    this.DialogResult = DialogResult.OK;
                 }
             }
         }
 
         private void tbFirstName_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(tbFirstName.Text))
+            if (string.IsNullOrWhiteSpace(tbFirstName.Text))
             {
                 e.Cancel = true;
                 tbFirstName.Focus();
@@ -124,7 +85,7 @@ namespace Autopraonica_Markus.forms.employeeForms
 
         private void tbLastName_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(tbLastName.Text))
+            if (string.IsNullOrWhiteSpace(tbLastName.Text))
             {
                 e.Cancel = true;
                 tbLastName.Focus();
@@ -135,11 +96,12 @@ namespace Autopraonica_Markus.forms.employeeForms
                 e.Cancel = false;
                 errorProvider.SetError(tbLastName, null);
             }
+
         }
 
         private void tbAddress_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(tbAddress.Text))
+            if (string.IsNullOrWhiteSpace(tbAddress.Text))
             {
                 e.Cancel = true;
                 tbAddress.Focus();
@@ -148,13 +110,15 @@ namespace Autopraonica_Markus.forms.employeeForms
             else
             {
                 e.Cancel = false;
-                errorProvider.SetError(tbAddress, null);
+                errorProvider.SetError(tbLastName, null);
             }
+
+
         }
 
         private void tbPhoneNumber_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(tbPhoneNumber.Text))
+            if (string.IsNullOrWhiteSpace(tbPhoneNumber.Text))
             {
                 e.Cancel = true;
                 tbPhoneNumber.Focus();
@@ -165,36 +129,39 @@ namespace Autopraonica_Markus.forms.employeeForms
                 e.Cancel = false;
                 errorProvider.SetError(tbPhoneNumber, null);
             }
+
+
         }
 
         private void tbEMail_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(tbEMail.Text))
+            if (string.IsNullOrWhiteSpace(tbEMail.Text))
             {
                 e.Cancel = true;
                 tbEMail.Focus();
-                errorProvider.SetError(tbEMail, "Molimo da unesete ispravno e-mail");
+                errorProvider.SetError(tbEMail, "Molimo da unesete ispravno e-mail !");
             }
             else
             {
                 e.Cancel = false;
                 errorProvider.SetError(tbEMail, null);
             }
-
         }
 
         private void tbPassword_Validating(object sender, CancelEventArgs e)
         {
-            if(string.IsNullOrEmpty(tbPassword.Text))
+            if (string.IsNullOrWhiteSpace(tbPassword.Text))
             {
-                e.Cancel = true; tbPassword.Focus();
+                e.Cancel = true;
+                tbPassword.Focus();
                 errorProvider.SetError(tbPassword, "Molimo da unesete ispravno lozinku !");
             }
             else
             {
                 e.Cancel = false;
                 errorProvider.SetError(tbPassword, null);
-            } 
+            }
+
         }
     }
 }

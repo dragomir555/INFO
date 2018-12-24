@@ -36,6 +36,8 @@
             this.btnNewEmployee = new System.Windows.Forms.Button();
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.btnDeleteEmployee = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblSrcEmp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,38 +81,68 @@
             // 
             // btnNewEmployee
             // 
-            this.btnNewEmployee.Location = new System.Drawing.Point(52, 44);
+            this.btnNewEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnNewEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewEmployee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNewEmployee.Location = new System.Drawing.Point(52, 26);
             this.btnNewEmployee.Name = "btnNewEmployee";
-            this.btnNewEmployee.Size = new System.Drawing.Size(172, 42);
+            this.btnNewEmployee.Size = new System.Drawing.Size(187, 49);
             this.btnNewEmployee.TabIndex = 5;
             this.btnNewEmployee.Text = "Novi zaposleni";
-            this.btnNewEmployee.UseVisualStyleBackColor = true;
+            this.btnNewEmployee.UseVisualStyleBackColor = false;
             this.btnNewEmployee.Click += new System.EventHandler(this.btnNewEmployee_Click);
             // 
             // btnUpdateEmployee
             // 
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(265, 44);
+            this.btnUpdateEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnUpdateEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateEmployee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(268, 26);
             this.btnUpdateEmployee.Name = "btnUpdateEmployee";
-            this.btnUpdateEmployee.Size = new System.Drawing.Size(151, 41);
+            this.btnUpdateEmployee.Size = new System.Drawing.Size(187, 49);
             this.btnUpdateEmployee.TabIndex = 6;
             this.btnUpdateEmployee.Text = "Izmjena zaposlenog";
-            this.btnUpdateEmployee.UseVisualStyleBackColor = true;
+            this.btnUpdateEmployee.UseVisualStyleBackColor = false;
             this.btnUpdateEmployee.Click += new System.EventHandler(this.btnUpdateEmployee_Click);
             // 
             // btnDeleteEmployee
             // 
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(462, 44);
+            this.btnDeleteEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnDeleteEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteEmployee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(487, 26);
             this.btnDeleteEmployee.Name = "btnDeleteEmployee";
-            this.btnDeleteEmployee.Size = new System.Drawing.Size(162, 41);
+            this.btnDeleteEmployee.Size = new System.Drawing.Size(187, 49);
             this.btnDeleteEmployee.TabIndex = 7;
             this.btnDeleteEmployee.Text = "Obrisi zaposlenog";
-            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
+            this.btnDeleteEmployee.UseVisualStyleBackColor = false;
             this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(171, 93);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(360, 22);
+            this.textBox1.TabIndex = 8;
+            // 
+            // lblSrcEmp
+            // 
+            this.lblSrcEmp.AutoSize = true;
+            this.lblSrcEmp.Location = new System.Drawing.Point(28, 93);
+            this.lblSrcEmp.Name = "lblSrcEmp";
+            this.lblSrcEmp.Size = new System.Drawing.Size(137, 17);
+            this.lblSrcEmp.TabIndex = 9;
+            this.lblSrcEmp.Text = "Podatak za pretragu";
             // 
             // uclZaposleni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblSrcEmp);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnDeleteEmployee);
             this.Controls.Add(this.btnUpdateEmployee);
             this.Controls.Add(this.btnNewEmployee);
@@ -120,6 +152,7 @@
             this.Size = new System.Drawing.Size(847, 470);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -133,5 +166,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPhoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
         private System.Windows.Forms.Button btnDeleteEmployee;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblSrcEmp;
     }
 }

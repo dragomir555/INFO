@@ -61,6 +61,7 @@
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Otkazi";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnConfirm
             // 
@@ -220,6 +221,8 @@
             this.Name = "NewClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novi klijent";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewClientForm_FormClosing);
+            this.Load += new System.EventHandler(this.NewClientForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderClient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

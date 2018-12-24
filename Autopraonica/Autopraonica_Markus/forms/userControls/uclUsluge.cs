@@ -70,19 +70,30 @@ namespace Autopraonica_Markus.forms.userControls
             dgvNaturalEntity.Rows.Clear();
             using(MarkusDb context = new MarkusDb())
             {
+                var legalServices = (from c in context.legalentityservices
+                                     where c.naturalentityservice.Employee_Id == employee.Id
+                                     select c).ToList();
                 var services = (from c in context.naturalentityservices
                                 where c.Employee_Id == employee.Id
                                 select c).ToList();
+                List<naturalentityservice> naturalservices = new List<naturalentityservice>();
+                foreach(var s in legalServices)
+                {
+                    naturalservices.Add(s.naturalentityservice);
+                }
                 foreach(var s in services)
                 {
-                    DataGridViewRow row = new DataGridViewRow()
+                    if (!naturalservices.Contains(s))
                     {
-                        Tag = s
-                    };
-                    row.CreateCells(dgvNaturalEntity);
-                    row.SetValues(s.ServiceTime, s.pricelistitem.servicetype.Name,
-                        s.pricelistitem.pricelistitemname.Name, s.Price);
-                    dgvNaturalEntity.Rows.Add(row);
+                        DataGridViewRow row = new DataGridViewRow()
+                        {
+                            Tag = s
+                        };
+                        row.CreateCells(dgvNaturalEntity);
+                        row.SetValues(s.ServiceTime, s.pricelistitem.servicetype.Name,
+                            s.pricelistitem.pricelistitemname.Name, s.Price);
+                        dgvNaturalEntity.Rows.Add(row);
+                    }
                 }
             }
             dgvNaturalEntity.BringToFront();
@@ -128,7 +139,7 @@ namespace Autopraonica_Markus.forms.userControls
                 }
                 catch(Exception ex)
                 {
-
+                    MessageBox.Show(ex.Source);
                 }
             }
         }
@@ -136,7 +147,41 @@ namespace Autopraonica_Markus.forms.userControls
         private void btnNewLegalEntityService_Click(object sender, EventArgs e)
         {
             NewLegalEntityServiceForm nlesf = new NewLegalEntityServiceForm();
-            nlesf.ShowDialog();
+            if(DialogResult.OK == nlesf.ShowDialog())
+            {
+                try
+                {
+                    using (MarkusDb context = new MarkusDb())
+                    {
+                        var naturalEntityService = new naturalentityservice()
+                        {
+                            Price = nlesf.Price,
+                            CarBrand_Id = nlesf.CarBrand_Id,
+                            PricelistItem_Id = nlesf.PricelistItem_Id,
+                            ServiceTime = DateTime.Now,
+                            Employee_Id = employee.Id
+                        };
+                        context.naturalentityservices.Add(naturalEntityService);
+                        context.SaveChanges();
+                        var legalEntityService = new legalentityservice()
+                        {
+                            Client_Id = nlesf.Client_Id,
+                            NaturalEntityService_Id = naturalEntityService.Id,
+                            FirstName = nlesf.FirstName,
+                            LastName = nlesf.LastName,
+                            LicencePlate = nlesf.LicencePlate
+                        };
+                        context.legalentityservices.Add(legalEntityService);
+                        context.SaveChanges();
+                        FillTableLegalEntityServices();
+                        rbPravnaLica.Checked = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Source);
+                }
+            }
         }
     }
 }

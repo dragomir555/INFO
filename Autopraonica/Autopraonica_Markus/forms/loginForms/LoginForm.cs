@@ -22,6 +22,8 @@ namespace Autopraonica_Markus.forms
             InitializeComponent();
             numberOfFailedLogin = 0;
             this.mainForm = mainForm;
+            tbPassword.Text = "admin123";
+            tbUsername.Text = "nikola.nikolic";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -43,7 +45,7 @@ namespace Autopraonica_Markus.forms
             {
                 using(MarkusDb context = new MarkusDb())
                 {
-                    var employment = from c in context.employments where username.Equals(c.UserName) select c;
+                    var employment = (from c in context.employments where username.Equals(c.UserName) select c).ToList();
                     if(employment == null)
                     {
                         MessageBox.Show("Ne postoji uneseno korisničko ime.", "Upozorenje");
@@ -53,19 +55,19 @@ namespace Autopraonica_Markus.forms
                     }
                     else
                     {
-                        if (((employment)employment).FirstLogin == 1)
+                        if (((employment)employment[0]).FirstLogin == 1)
                         {
-                            PasswordChangeForm pcf = new PasswordChangeForm(((employment)employment).employee, mainForm);
+                            PasswordChangeForm pcf = new PasswordChangeForm(employment[0], mainForm);
                             pcf.Show();
                             this.Close();
                         }
                         else
                         {
-                            string salt = ((employment)employment).Salt;
+                            string salt = ((employment)employment[0]).Salt;
                             string passwordHash = PasswordService.GetPasswordHash(salt, password);
-                            if (passwordHash.Equals(((employment)employment).HashPassword))
+                            if (passwordHash.Equals(((employment)employment[0]).HashPassword))
                             {
-                                employee employee = ((employment)employment).employee;
+                                employee employee = ((employment)employment[0]).employee;
                                 var emp = new employeerecord()
                                 {
                                     Employee_Id = employee.Id,
@@ -74,7 +76,7 @@ namespace Autopraonica_Markus.forms
                                 };
                                 employee.employeerecords.Add(emp);
                                 mainForm.SetEmployee(employee);
-                                mainForm.Visible = true;
+                                mainForm.ChangeAllowShowDisplay();
                                 this.Close();
                             }
                             else
@@ -82,10 +84,10 @@ namespace Autopraonica_Markus.forms
                                 numberOfFailedLogin++;
                                 if (numberOfFailedLogin == 3)
                                 {
-                                    string mail = ((employment)employment).employee.E_mail;
+                                    string mail = ((employment)employment[0]).employee.E_mail;
                                     // Treba dodati slanje maila
                                     MessageBox.Show("Na vaš e-mail je poslata poruka sa vašom novom lozinkom.", "Obavještenje");
-                                    PasswordChangeForm pcf = new PasswordChangeForm(((employment)employment).employee, mainForm);
+                                    PasswordChangeForm pcf = new PasswordChangeForm(employment[0], mainForm);
                                     pcf.Show();
                                     this.Close();
                                 }

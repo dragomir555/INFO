@@ -28,7 +28,7 @@ namespace Autopraonica_Markus.forms.clientForms
             if (!ValidateChildren(ValidationConstraints.Enabled))
             {
 
-                Debug.WriteLine("Dragomir");
+            //    Debug.WriteLine("Dragomir");
             }
             else
             {
@@ -97,7 +97,7 @@ namespace Autopraonica_Markus.forms.clientForms
         private void closeForm()
         {
             this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            //this.Close();
         }
     }
 }

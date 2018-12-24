@@ -69,6 +69,11 @@ namespace Autopraonica_Markus.forms.serviceForms
                 lblCarBrand.Visible = false;
                 cmbCarBrand.Visible = false;
                 btnAddCarBrand.Visible = false;
+                lblPrice.Location = new Point(30, 180);
+                tbPrice.Location = new Point(229, 170);
+                btnConfirm.Location = new Point(200, 230);
+                btnCancel.Location = new Point(359, 230);
+                this.Size = new Size(550, 321);
             }
             else
             {
@@ -78,6 +83,11 @@ namespace Autopraonica_Markus.forms.serviceForms
                 lblCarBrand.Visible = true;
                 cmbCarBrand.Visible = true;
                 btnAddCarBrand.Visible = true;
+                lblPrice.Location = new Point(30, 180);
+                tbPrice.Location = new Point(229, 170);
+                btnConfirm.Location = new Point(200, 230);
+                btnCancel.Location = new Point(359, 230);
+                this.Size = new Size(550, 321);
                 if ("Ostalo".Equals(((servicetype)serviceType).Name))
                 {
                     lblCarBrand.Visible = false;
@@ -232,7 +242,7 @@ namespace Autopraonica_Markus.forms.serviceForms
             }
             else
             {
-                e.Cancel = true;
+                //e.Cancel = true;
                 errCarpetSize.SetError(tbCarpetSize, null);
             }
         }
@@ -247,7 +257,7 @@ namespace Autopraonica_Markus.forms.serviceForms
             }
             else
             {
-                e.Cancel = true;
+                //e.Cancel = true;
                 errPrice.SetError(tbPrice, null);
             }
         }
