@@ -22,7 +22,6 @@ namespace Autopraonica_Markus.forms.employeeForms
         public String E_mail { get; set; }
         public String Address { get; set; }
         public String PhoneNumber { get; set; }
-        public String Password { get; set; }
         private int counter = 0;
 
         public NewEmployeeForm()
@@ -35,12 +34,11 @@ namespace Autopraonica_Markus.forms.employeeForms
             tbLastName.Text = LastName;
             tbAddress.Text = Address;
             tbPhoneNumber.Text = PhoneNumber;
+            tbEMail.Text = E_mail;
         }
 
         public void hideUnnecessaryItems() {
-            tbPassword.Hide();
             tbEMail.Hide();
-            lblPassword.Hide();
             lblEmail.Hide();
         }
 
@@ -53,16 +51,17 @@ namespace Autopraonica_Markus.forms.employeeForms
          
         private void btnAddEmployee_Click_1(object sender, EventArgs e)
         {
+           
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 using (MarkusDb ctx = new MarkusDb())
                 {
+                    
                     FirstName = tbFirstName.Text;
                     LastName = tbLastName.Text;
                     E_mail = tbEMail.Text;
                     Address = tbAddress.Text;
-                    PhoneNumber = tbPhoneNumber.Text;
-                    Password = tbPassword.Text;
+                    PhoneNumber = tbPhoneNumber.Text;        
                     this.DialogResult = DialogResult.OK;
                 }
             }
@@ -146,22 +145,6 @@ namespace Autopraonica_Markus.forms.employeeForms
                 e.Cancel = false;
                 errorProvider.SetError(tbEMail, null);
             }
-        }
-
-        private void tbPassword_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(tbPassword.Text))
-            {
-                e.Cancel = true;
-                tbPassword.Focus();
-                errorProvider.SetError(tbPassword, "Molimo da unesete ispravno lozinku !");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider.SetError(tbPassword, null);
-            }
-
         }
     }
 }

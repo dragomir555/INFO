@@ -34,16 +34,15 @@
             this.lblPhNumb = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.lblPassword = new System.Windows.Forms.Label();
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.tbFirstName = new System.Windows.Forms.TextBox();
-            this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbEMail = new System.Windows.Forms.TextBox();
             this.tbPhoneNumber = new System.Windows.Forms.TextBox();
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblPID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,18 +106,6 @@
             this.lblEmail.TabIndex = 19;
             this.lblEmail.Text = "E-mail";
             // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.lblPassword.Location = new System.Drawing.Point(47, 258);
-            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(74, 20);
-            this.lblPassword.TabIndex = 20;
-            this.lblPassword.Text = "Lozinka";
-            // 
             // btnAddEmployee
             // 
             this.btnAddEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
@@ -161,16 +148,6 @@
             this.tbFirstName.Size = new System.Drawing.Size(360, 30);
             this.tbFirstName.TabIndex = 23;
             this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.tbFirstName_Validating);
-            // 
-            // tbPassword
-            // 
-            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbPassword.Location = new System.Drawing.Point(248, 258);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(360, 30);
-            this.tbPassword.TabIndex = 24;
-            this.tbPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbPassword_Validating);
             // 
             // tbEMail
             // 
@@ -217,20 +194,31 @@
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
+            // lblPID
+            // 
+            this.lblPID.AutoSize = true;
+            this.lblPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblPID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.lblPID.Location = new System.Drawing.Point(52, 263);
+            this.lblPID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPID.Name = "lblPID";
+            this.lblPID.Size = new System.Drawing.Size(47, 20);
+            this.lblPID.TabIndex = 30;
+            this.lblPID.Text = "JMB";
+            // 
             // NewEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 379);
+            this.Controls.Add(this.lblPID);
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.tbPhoneNumber);
             this.Controls.Add(this.tbEMail);
-            this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbFirstName);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddEmployee);
-            this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.lblPhNumb);
@@ -246,7 +234,6 @@
 
         #endregion
         private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblPhNumb;
@@ -258,7 +245,7 @@
         private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.TextBox tbPhoneNumber;
         private System.Windows.Forms.TextBox tbEMail;
-        private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Label lblPID;
     }
 }
