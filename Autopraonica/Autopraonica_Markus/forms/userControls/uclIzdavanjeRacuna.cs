@@ -44,6 +44,15 @@ namespace Autopraonica_Markus.forms.userControls
             InitializeComponent();
             UpdateComboBox();
             setColumnSize();
+            dtpFormat();
+        }
+
+        private void dtpFormat()
+        {
+            dtpDateFrom.Format = DateTimePickerFormat.Custom;
+            dtpDateFrom.CustomFormat = "MM/yyyy";
+            
+            dtpDateFrom.Height = 30;
         }
 
         private void setColumnSize() {
@@ -68,7 +77,7 @@ namespace Autopraonica_Markus.forms.userControls
             }
         }
 
-        private void populateRowsForBill(DataTable dt, DateTimePicker dateFrom, DateTimePicker dateTo) {
+        private void populateRowsForBill(DataTable dt, DateTimePicker dateFrom) {
             using (MarkusDb context = new MarkusDb())
             {
                 var listNamesOfServiceTypes =
@@ -103,7 +112,8 @@ namespace Autopraonica_Markus.forms.userControls
                     foreach (var v in listOfClientsUnpaidServices)
                     {
                     var serviceDate = v.ServiceTime;
-                    if ((serviceDate > dateFrom.Value) && (serviceDate < dateTo.Value) && stN.Name.Equals(v.Name))
+                    
+                    if (dateCondition(serviceDate) && stN.Name.Equals(v.Name))
                     {
                             totalSumOfServiceType += v.Price;
                     }}
@@ -114,7 +124,12 @@ namespace Autopraonica_Markus.forms.userControls
     }
 
 
-        private decimal searchUnpaidServices(DateTimePicker dateFrom, DateTimePicker dateTo) {
+        private Boolean dateCondition(DateTime serviceDate) {
+            if((dtpDateFrom.Value.Month == serviceDate.Month) && (dtpDateFrom.Value.Year == serviceDate.Year))
+                    return true;
+            return false;
+        }
+        private decimal searchUnpaidServices(DateTimePicker dateFrom) {
             decimal suma = 0;
 
             using (MarkusDb context = new MarkusDb())
@@ -142,7 +157,7 @@ namespace Autopraonica_Markus.forms.userControls
                 foreach (var v in listOfClientsUnpaidServices)
                 {
                     var serviceDate = v.ServiceTime;
-                    if ((serviceDate > dateFrom.Value) && (serviceDate < dateTo.Value))
+                    if (dateCondition(serviceDate)) 
                     {
                         ListViewItem item = new ListViewItem(i++.ToString());
                         item.SubItems.Add(v.Name);
@@ -167,22 +182,12 @@ namespace Autopraonica_Markus.forms.userControls
             lvUpSer.Items.Clear();
             DateTimePicker dateFrom = new DateTimePicker();
             dateFrom.Value = dtpDateFrom.Value;
-            DateTimePicker dateTo = new DateTimePicker();
-            dateTo.Value = dtpDateTo.Value;
-  
+ 
             fillListOfClients();
-            decimal suma = searchUnpaidServices(dateFrom, dateTo);
+            decimal suma = searchUnpaidServices(dateFrom);
             Boolean areValidFields = true;
 
-            int year = dateFrom.Value.Year - dateTo.Value.Year;
-            int month = dateFrom.Value.Month - dateTo.Value.Month;
-            int day = dateFrom.Value.Day - dateTo.Value.Day;
-             
-            if ((year > 0) || (year == 0 && month > 0 ) || (year == 0 && month == 0 && day > 0))
-            {
-                MessageBox.Show("Datum od mora biti prije datuma do.");
-                areValidFields = false;
-            }
+           
             if (cmbClients.SelectedItem == null)
             {
                 MessageBox.Show("Odaberite klijenta kojem zelite da izlistate neplacene usluge.");
@@ -255,7 +260,7 @@ namespace Autopraonica_Markus.forms.userControls
 
             
             //Populate with unpaid services 
-            populateRowsForBill(friend, dtpDateFrom, dtpDateTo);
+            populateRowsForBill(friend, dtpDateFrom);
             
             return friend;
         }
@@ -277,12 +282,12 @@ namespace Autopraonica_Markus.forms.userControls
             friend.Columns.Add("Cijena sa PDV-om");
 
             //Populate with unpaid services 
-            populateRowsForUnpaidServices(friend, dtpDateFrom, dtpDateTo);
+            populateRowsForUnpaidServices(friend, dtpDateFrom);
 
             return friend;
         }
 
-        private void populateRowsForUnpaidServices(DataTable dt, DateTimePicker dateFrom, DateTimePicker dateTo)
+        private void populateRowsForUnpaidServices(DataTable dt, DateTimePicker dateFrom)
         {
             using (MarkusDb context = new MarkusDb())
             {
@@ -313,7 +318,7 @@ namespace Autopraonica_Markus.forms.userControls
                 foreach (var v in listOfClientsUnpaidServices)
                 {
                     var serviceDate = v.ServiceTime;
-                    if ((serviceDate > dateFrom.Value) && (serviceDate < dateTo.Value))
+                    if (dateCondition(serviceDate)) 
                     {
                         dt.Rows.Add(i++, serviceDate.ToShortDateString() , v.carBrandName, v.LicencePlate, v.Name, v.FirstName , v.LastName, v.Price);
                     }
@@ -371,11 +376,12 @@ namespace Autopraonica_Markus.forms.userControls
             prgAuthor1.Add(new Chunk("\n"));
             string strDate = DateTime.Now.ToString("dd/MM/yyyy");
             prgAuthor1.Add(new Chunk("\n Datum izdavanja: " + strDate));
-            prgAuthor1.Add(new Chunk("\n Za period: " + dtpDateFrom.Value.ToShortDateString() + " - " + dtpDateTo.Value.ToShortDateString() +" GOD."));
+            String date = dtpDateFrom.Value.Date.ToString("MM/dd/yyyy");
+            prgAuthor1.Add(new Chunk("\n Za period: 01." + date.ToString().Substring(0, 2) + ". - 31." + date.ToString().Substring(0, 2) + "." + date.ToString().Substring(6, 4)+ ". GOD."));
             prgAuthor.Add(new Chunk("\nJIB  property123214", boldFont));
             prgAuthor.Add(new Chunk("\nZ.r. property312311", boldFont));
             
-            prgBillNumb.Add(new Chunk("RACUN BR. " + (DateTime.Now.Month-1) + "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)) , boldFont));
+            prgBillNumb.Add(new Chunk("RACUN BR. " + date.ToString().Substring(0, 2) + "/" + date.ToString().Substring(8, 2) , boldFont));
 
             document.Add(prgAuthor);
             document.Add(prgCompanyInfo);
@@ -472,7 +478,7 @@ namespace Autopraonica_Markus.forms.userControls
             BaseFont btnAuthor = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             Font fntAuthor = new Font(btnAuthor, 8, 2, iTextSharp.text.Color.GRAY);
 
-            var monthIndex = DateTime.Now.Month - 1;
+            var monthIndex = dtpDateFrom.Value.Month;
             var month = getNameOfMonth(monthIndex);
 
             Func<string> year = () => {
@@ -480,11 +486,12 @@ namespace Autopraonica_Markus.forms.userControls
                     return (DateTime.Now.Year - 1).ToString();
                 return (DateTime.Now.Year).ToString();
             };
+            String date = dtpDateFrom.Value.Date.ToString("MM/dd/yyyy");
             var boldFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
 
             prgContent.Add(new Chunk("\nPREGLED USLUGA PRANJA PUTNICKIH VOZILA ZA : " + month  , boldFont));
             prgContent.Add(new Chunk("\n" + year() + ". GODINA  " + cmbClients.Text, boldFont));
-            prgContent.Add(new Chunk("\nRACUN BR. " + (DateTime.Now.Month - 1) + "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)), boldFont));
+            prgContent.Add(new Chunk("\nRACUN BR. " + date.ToString().Substring(0, 2) + "/" + date.ToString().Substring(8, 2), boldFont));
             prgContent.Add(new Chunk("\n                                                     "));
             prgContent.Add(new Chunk("\n                                                     "));
             document.Add(prgContent);

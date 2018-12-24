@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             this.label3 = new System.Windows.Forms.Label();
             this.cmbClients = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtpDateTo = new System.Windows.Forms.DateTimePicker();
             this.dtpDateFrom = new System.Windows.Forms.DateTimePicker();
             this.lblPrice = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,50 +51,36 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(16, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 17);
+            this.label3.Size = new System.Drawing.Size(137, 25);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Naziv klijenta";
+            this.label3.Text = "Naziv klijenta :";
             // 
             // cmbClients
             // 
             this.cmbClients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbClients.FormattingEnabled = true;
-            this.cmbClients.Location = new System.Drawing.Point(122, 56);
+            this.cmbClients.Location = new System.Drawing.Point(172, 60);
             this.cmbClients.Name = "cmbClients";
             this.cmbClients.Size = new System.Drawing.Size(247, 26);
             this.cmbClients.TabIndex = 11;
             this.cmbClients.Text = "    Odabir klijenta";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 147);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Datum do";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(16, 101);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 17);
+            this.label1.Size = new System.Drawing.Size(113, 25);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Datum od";
-            // 
-            // dtpDateTo
-            // 
-            this.dtpDateTo.Location = new System.Drawing.Point(122, 142);
-            this.dtpDateTo.Name = "dtpDateTo";
-            this.dtpDateTo.Size = new System.Drawing.Size(247, 22);
-            this.dtpDateTo.TabIndex = 8;
+            this.label1.Text = "Za mjesec :";
             // 
             // dtpDateFrom
             // 
-            this.dtpDateFrom.Location = new System.Drawing.Point(122, 96);
+            this.dtpDateFrom.Location = new System.Drawing.Point(172, 101);
             this.dtpDateFrom.Name = "dtpDateFrom";
             this.dtpDateFrom.Size = new System.Drawing.Size(247, 22);
             this.dtpDateFrom.TabIndex = 7;
@@ -148,7 +132,7 @@
             this.hdLicPl,
             this.hdPrice});
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem3});
             this.lvUpSer.Location = new System.Drawing.Point(3, 192);
             this.lvUpSer.Name = "lvUpSer";
             this.lvUpSer.Size = new System.Drawing.Size(798, 210);
@@ -222,9 +206,7 @@
             this.Controls.Add(this.lvUpSer);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbClients);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dtpDateTo);
             this.Controls.Add(this.dtpDateFrom);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uclIzdavanjeRacuna";
@@ -238,9 +220,7 @@
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbClients;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dtpDateTo;
         private System.Windows.Forms.DateTimePicker dtpDateFrom;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label label4;
