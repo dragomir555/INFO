@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Autopraonica_Markus.forms.pricelistForms;
 using Autopraonica_Markus.Model.Entities;
 using System.Text.RegularExpressions;
+using Autopraonica_Markus.forms.pricelistForms;
 
 namespace Autopraonica_Markus.forms.userControls
 {
