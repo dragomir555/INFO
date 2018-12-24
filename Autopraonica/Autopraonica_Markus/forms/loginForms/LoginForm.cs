@@ -45,7 +45,10 @@ namespace Autopraonica_Markus.forms
             {
                 using(MarkusDb context = new MarkusDb())
                 {
-                    var employment = (from c in context.employments where username.Equals(c.UserName) select c).ToList();
+                    var employment = (from c in context.employments
+                                      where username.Equals(c.UserName) &&
+                                      c.DateTo == null
+                                      select c).ToList();
                     if(employment.Count == 0)
                     {
                         //MessageBox.Show("Ne postoji uneseno korisničko ime.", "Upozorenje");
@@ -76,7 +79,17 @@ namespace Autopraonica_Markus.forms
                                     LogoutTime = null
                                 };
                                 employee.employeerecords.Add(emp);
+                                context.SaveChanges();
                                 mainForm.SetEmployee(employee);
+                                var managers = (from c in context.managers select c).ToList();
+                                mainForm.SetButtonsVisibility(false);
+                                foreach (manager m in managers)
+                                {
+                                    if (employee.Id == m.Employee_Id)
+                                    {
+                                        mainForm.SetButtonsVisibility(true);
+                                    }
+                                }
                                 mainForm.ChangeAllowShowDisplay();
                                 this.DialogResult = DialogResult.OK;
                                 this.Close();
