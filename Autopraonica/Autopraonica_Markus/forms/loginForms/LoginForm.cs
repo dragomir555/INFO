@@ -31,7 +31,7 @@ namespace Autopraonica_Markus.forms
             string username = tbUsername.Text;
             string password = tbPassword.Text;
 
-            if(string.IsNullOrWhiteSpace(username))
+            /*(string.IsNullOrWhiteSpace(username))
             {
                 MessageBox.Show("Niste unijeli korisničko ime.", "Upozorenje");
                 tbUsername.Focus();
@@ -40,18 +40,19 @@ namespace Autopraonica_Markus.forms
             {
                 MessageBox.Show("Niste unijeli lozinku.", "Upozorenje");
                 tbPassword.Focus();
-            }
-            else
+            }*/
+            if(ValidateChildren(ValidationConstraints.Enabled))
             {
                 using(MarkusDb context = new MarkusDb())
                 {
                     var employment = (from c in context.employments where username.Equals(c.UserName) select c).ToList();
-                    if(employment == null)
+                    if(employment.Count == 0)
                     {
-                        MessageBox.Show("Ne postoji uneseno korisničko ime.", "Upozorenje");
+                        //MessageBox.Show("Ne postoji uneseno korisničko ime.", "Upozorenje");
                         tbUsername.Clear();
                         tbPassword.Clear();
                         tbUsername.Focus();
+                        errorProvider.SetError(tbUsername, "Ne postoji uneseno korisničko ime.");
                     }
                     else
                     {
@@ -77,6 +78,7 @@ namespace Autopraonica_Markus.forms
                                 employee.employeerecords.Add(emp);
                                 mainForm.SetEmployee(employee);
                                 mainForm.ChangeAllowShowDisplay();
+                                this.DialogResult = DialogResult.OK;
                                 this.Close();
                             }
                             else
@@ -89,18 +91,59 @@ namespace Autopraonica_Markus.forms
                                     MessageBox.Show("Na vaš e-mail je poslata poruka sa vašom novom lozinkom.", "Obavještenje");
                                     PasswordChangeForm pcf = new PasswordChangeForm(employment[0], mainForm);
                                     pcf.Show();
+                                    this.DialogResult = DialogResult.OK;
                                     this.Close();
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Niste unijeli odgovarajuću lozinku.", "Upozorenje");
+                                    //MessageBox.Show("Niste unijeli odgovarajuću lozinku.", "Upozorenje");
                                     tbPassword.Clear();
                                     tbPassword.Focus();
+                                    errorProvider.SetError(tbPassword, "Niste unijeli odgovarajuću lozinku.");
                                 }
                             }
                         }
                     }
                 }
+            }
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(this.DialogResult == DialogResult.None)
+            {
+                mainForm.ChangeAllowShowDisplay();
+                mainForm.Close();
+            }
+        }
+
+        private void tbUsername_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbUsername.Text))
+            {
+                e.Cancel = true;
+                tbUsername.Focus();
+                errorProvider.SetError(tbUsername, "Niste unijeli korisničko ime.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(tbUsername, null);
+            }
+        }
+
+        private void tbPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbPassword.Text))
+            {
+                e.Cancel = true;
+                tbPassword.Focus();
+                errorProvider.SetError(tbPassword, "Niste unijeli lozinku.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(tbPassword, null);
             }
         }
     }
