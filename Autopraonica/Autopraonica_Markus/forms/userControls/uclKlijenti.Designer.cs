@@ -39,7 +39,7 @@
             this.colUgovorDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNoviKlijent = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbSearchType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbContractOver = new System.Windows.Forms.CheckBox();
             this.cancelContract = new System.Windows.Forms.Button();
@@ -69,6 +69,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(238, 26);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dgvKlijenti
             // 
@@ -157,15 +158,18 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // comboBox1
+            // cmbSearchType
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(275, 94);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbSearchType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbSearchType.FormattingEnabled = true;
+            this.cmbSearchType.Items.AddRange(new object[] {
+            "Naziv",
+            "JIB"});
+            this.cmbSearchType.Location = new System.Drawing.Point(275, 94);
+            this.cmbSearchType.Name = "cmbSearchType";
+            this.cmbSearchType.Size = new System.Drawing.Size(121, 28);
+            this.cmbSearchType.TabIndex = 6;
+            this.cmbSearchType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -212,7 +216,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.cancelContract);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbSearchType);
             this.Controls.Add(this.cbContractOver);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -240,7 +244,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colUgovorOd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUgovorDo;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbSearchType;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cbContractOver;
         private System.Windows.Forms.Button cancelContract;
