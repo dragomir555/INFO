@@ -43,8 +43,17 @@ namespace Autopraonica_Markus.forms.userControls
         {
             InitializeComponent();
             UpdateComboBox();
+            setColumnSize();
         }
 
+        private void setColumnSize() {
+            lvUpSer.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvUpSer.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            hdFirstName.Width = 70;
+            hdSecName.Width = 70;
+            hdPrice.Width = 55;
+            hdTypeSer.Width = 100;
+        }
         public void UpdateComboBox()
         {
             cmbClients.Items.Clear();
@@ -99,7 +108,7 @@ namespace Autopraonica_Markus.forms.userControls
                             totalSumOfServiceType += v.Price;
                     }}
                     if(totalSumOfServiceType !=0)
-                    dt.Rows.Add(i++, stN.Name, totalSumOfServiceType);
+                        dt.Rows.Add(i++, stN.Name, totalSumOfServiceType);
                 }
             }
     }
@@ -353,8 +362,7 @@ namespace Autopraonica_Markus.forms.userControls
                 var cl = (from c in ctx.clients
                             where c.Name ==clientName
                             select c).FirstOrDefault();
-                prgCompanyInfo.Add(new Chunk("\n" + cl.Name, boldFont));
-                prgCompanyInfo.Add(new Chunk("\n ne znam kako", boldFont));
+                prgCompanyInfo.Add(new Chunk("\n" + cl.Name, boldFont));  
                 prgCompanyInfo.Add(new Chunk("\n" + cl.Address, boldFont));
                 prgCompanyInfo.Add(new Chunk("\n" + cl.city.PostCode, boldFont));
                 prgCompanyInfo.Add(new Chunk("\n" + cl.city.Name, boldFont));
@@ -362,15 +370,15 @@ namespace Autopraonica_Markus.forms.userControls
             prgAuthor1.Alignment = Element.ALIGN_RIGHT;
             prgAuthor1.Add(new Chunk("\n"));
             string strDate = DateTime.Now.ToString("dd/MM/yyyy");
-            prgAuthor1.Add(new Chunk("\n Datum " + strDate));
+            prgAuthor1.Add(new Chunk("\n Datum izdavanja: " + strDate));
             prgAuthor1.Add(new Chunk("\n Za period: " + dtpDateFrom.Value.ToShortDateString() + " - " + dtpDateTo.Value.ToShortDateString() +" GOD."));
             prgAuthor.Add(new Chunk("\nJIB  property123214", boldFont));
             prgAuthor.Add(new Chunk("\nZ.r. property312311", boldFont));
             
             prgBillNumb.Add(new Chunk("RACUN BR. " + (DateTime.Now.Month-1) + "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)) , boldFont));
-   
-            document.Add(prgCompanyInfo);
+
             document.Add(prgAuthor);
+            document.Add(prgCompanyInfo);
             document.Add(prgBillNumb);
             document.Add(prgAuthor1);
 
@@ -417,8 +425,8 @@ namespace Autopraonica_Markus.forms.userControls
 
             Paragraph prgSignature = new Paragraph();
             prgSignature.Alignment = Element.ALIGN_LEFT;
-            prgSignature.Add(new Chunk("\nMP          " + "POTPIS"));
-            document.Add(prgSignature);
+            prgSignature.Add(new Chunk("\nMP                       " + "POTPIS"));
+            document.Add(prgSignature); 
 
             document.Close();
             writer.Close();
@@ -512,6 +520,7 @@ namespace Autopraonica_Markus.forms.userControls
             writer.Close();
             fs.Close();
         }
+ 
     }
 }
 

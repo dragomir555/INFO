@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.label3 = new System.Windows.Forms.Label();
             this.cmbClients = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -137,6 +137,7 @@
             // 
             // lvUpSer
             // 
+            this.lvUpSer.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.lvUpSer.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.hdSerNumSer,
             this.hdTypeSer,
@@ -147,10 +148,10 @@
             this.hdLicPl,
             this.hdPrice});
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
-            this.lvUpSer.Location = new System.Drawing.Point(19, 191);
+            listViewItem1});
+            this.lvUpSer.Location = new System.Drawing.Point(3, 192);
             this.lvUpSer.Name = "lvUpSer";
-            this.lvUpSer.Size = new System.Drawing.Size(689, 210);
+            this.lvUpSer.Size = new System.Drawing.Size(798, 210);
             this.lvUpSer.TabIndex = 13;
             this.lvUpSer.UseCompatibleStateImageBehavior = false;
             this.lvUpSer.View = System.Windows.Forms.View.Details;
@@ -173,27 +174,27 @@
             // hdFirstName
             // 
             this.hdFirstName.Text = "Ime";
-            this.hdFirstName.Width = 78;
+            this.hdFirstName.Width = 89;
             // 
             // hdSecName
             // 
             this.hdSecName.Text = "Prezime";
-            this.hdSecName.Width = 86;
+            this.hdSecName.Width = 99;
             // 
             // hdDtTime
             // 
             this.hdDtTime.Text = "Datum usluge";
-            this.hdDtTime.Width = 94;
+            this.hdDtTime.Width = 119;
             // 
             // hdLicPl
             // 
             this.hdLicPl.Text = "Registarske tablice";
-            this.hdLicPl.Width = 130;
+            this.hdLicPl.Width = 136;
             // 
             // hdPrice
             // 
             this.hdPrice.Text = "Cijena";
-            this.hdPrice.Width = 51;
+            this.hdPrice.Width = 57;
             // 
             // btnGenBill
             // 
