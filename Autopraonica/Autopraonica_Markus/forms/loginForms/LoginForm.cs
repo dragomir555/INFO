@@ -68,7 +68,7 @@ namespace Autopraonica_Markus.forms
                         else
                         {
                             string salt = ((employment)employment[0]).Salt;
-                            string passwordHash = PasswordService.GetPasswordHash(salt, password);
+                            string passwordHash = UserService.GetPasswordHash(salt, password);
                             if (passwordHash.Equals(((employment)employment[0]).HashPassword))
                             {
                                 employee employee = ((employment)employment[0]).employee;

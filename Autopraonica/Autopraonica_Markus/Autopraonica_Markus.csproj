@@ -231,7 +231,7 @@
     <Compile Include="Model\Entities\servicetype.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="services\PasswordService.cs" />
+    <Compile Include="services\UserService.cs" />
     <EmbeddedResource Include="forms\clientForms\NewCityForm.resx">
       <DependentUpon>NewCityForm.cs</DependentUpon>
     </EmbeddedResource>

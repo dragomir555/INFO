@@ -60,10 +60,10 @@ namespace Autopraonica_Markus.forms.userControls
                         {
                             DateFrom = DateTime.Now,
                             UserName = "DD",
-                            Salt = PasswordService.GenerateSalt(),
+                            Salt = UserService.GenerateSalt(),
                             FirstLogin = 0,
                         };
-                        emplmnt.HashPassword = PasswordService.GetPasswordHash(emplmnt.Salt, PasswordService.GeneratePassword());
+                        emplmnt.HashPassword = UserService.GetPasswordHash(emplmnt.Salt, UserService.GeneratePassword());
                         
                         context.employments.Add(emplmnt);
                         context.employees.Add(emp);

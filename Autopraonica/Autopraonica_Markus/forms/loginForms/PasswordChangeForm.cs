@@ -65,11 +65,11 @@ namespace Autopraonica_Markus.forms
                 {
                     string salt = employment.Salt;
                     string currentPasswordHash1 = employment.HashPassword;
-                    string currentPasswordHash2 = PasswordService.GetPasswordHash(salt, currentPassword);
+                    string currentPasswordHash2 = UserService.GetPasswordHash(salt, currentPassword);
                     if (currentPasswordHash2.Equals(currentPasswordHash1))
                     {
-                        string newSalt = PasswordService.GenerateSalt();
-                        string newPasswordHash = PasswordService.GetPasswordHash(newSalt, newPassword);
+                        string newSalt = UserService.GenerateSalt();
+                        string newPasswordHash = UserService.GetPasswordHash(newSalt, newPassword);
                         context.employments.Attach(employment);
                         employment.Salt = newSalt;
                         employment.HashPassword = newPasswordHash;
