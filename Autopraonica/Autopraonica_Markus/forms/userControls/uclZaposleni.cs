@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Autopraonica_Markus.forms.employeeForms;
 using Autopraonica_Markus.Model.Entities;
 using System.Data.Entity.Validation;
+using Autopraonica_Markus.services;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -59,11 +60,11 @@ namespace Autopraonica_Markus.forms.userControls
                         {
                             DateFrom = DateTime.Now,
                             UserName = "DD",
-                            HashPassword = "1",
+                            Salt = PasswordService.GenerateSalt(),
                             FirstLogin = 0,
-                            Salt = "2"
                         };
-
+                        emplmnt.HashPassword = PasswordService.GetPasswordHash(emplmnt.Salt, PasswordService.GeneratePassword());
+                        
                         context.employments.Add(emplmnt);
                         context.employees.Add(emp);
                         context.SaveChanges();

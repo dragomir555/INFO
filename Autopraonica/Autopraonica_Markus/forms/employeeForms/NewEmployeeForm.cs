@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.forms.userControls;
+using System.Text.RegularExpressions;
 
 namespace Autopraonica_Markus.forms.employeeForms
 {
@@ -35,6 +36,7 @@ namespace Autopraonica_Markus.forms.employeeForms
             tbAddress.Text = Address;
             tbPhoneNumber.Text = PhoneNumber;
             tbEMail.Text = E_mail;
+            tbPID.Text = PID;
         }
 
         public void hideUnnecessaryItems() {
@@ -47,8 +49,6 @@ namespace Autopraonica_Markus.forms.employeeForms
             btnAddEmployee.Text = "Izmjeni zaposlenog";
         }
    
- 
-         
         private void btnAddEmployee_Click_1(object sender, EventArgs e)
         {
            
@@ -61,7 +61,8 @@ namespace Autopraonica_Markus.forms.employeeForms
                     LastName = tbLastName.Text;
                     E_mail = tbEMail.Text;
                     Address = tbAddress.Text;
-                    PhoneNumber = tbPhoneNumber.Text;        
+                    PhoneNumber = tbPhoneNumber.Text;
+                    PID = tbPID.Text;
                     this.DialogResult = DialogResult.OK;
                 }
             }
@@ -109,7 +110,7 @@ namespace Autopraonica_Markus.forms.employeeForms
             else
             {
                 e.Cancel = false;
-                errorProvider.SetError(tbLastName, null);
+                errorProvider.SetError(tbAddress, null);
             }
 
 
@@ -117,7 +118,10 @@ namespace Autopraonica_Markus.forms.employeeForms
 
         private void tbPhoneNumber_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbPhoneNumber.Text))
+            var regex = @"[0-9]+";
+            var match = Regex.Match(tbPhoneNumber.Text, regex, RegexOptions.IgnoreCase);
+
+            if (string.IsNullOrWhiteSpace(tbPhoneNumber.Text) || !match.Success)
             {
                 e.Cancel = true;
                 tbPhoneNumber.Focus();
@@ -134,7 +138,10 @@ namespace Autopraonica_Markus.forms.employeeForms
 
         private void tbEMail_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbEMail.Text))
+            var regex = @"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+            var match = Regex.Match(tbEMail.Text, regex, RegexOptions.IgnoreCase);
+
+            if (string.IsNullOrWhiteSpace(tbEMail.Text) || !match.Success)
             {
                 e.Cancel = true;
                 tbEMail.Focus();
@@ -144,6 +151,24 @@ namespace Autopraonica_Markus.forms.employeeForms
             {
                 e.Cancel = false;
                 errorProvider.SetError(tbEMail, null);
+            }
+        }
+
+        private void tbPID_Validating(object sender, CancelEventArgs e)
+        {
+            var regex = @"[0-9]+";
+            var match = Regex.Match(tbPID.Text, regex, RegexOptions.IgnoreCase);
+
+            if (string.IsNullOrWhiteSpace(tbPID.Text) || (tbPID.Text.Length!=13) || (!match.Success))
+            {
+                e.Cancel = true;
+                tbPID.Focus();
+                errorProvider.SetError(tbPID, "Molimo da unesete ispravno JMB !");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(tbPID, null);
             }
         }
     }

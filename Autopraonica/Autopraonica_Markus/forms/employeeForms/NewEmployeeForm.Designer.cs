@@ -43,6 +43,7 @@
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblPID = new System.Windows.Forms.Label();
+            this.tbPID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +100,7 @@
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.lblEmail.Location = new System.Drawing.Point(47, 218);
+            this.lblEmail.Location = new System.Drawing.Point(47, 266);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(63, 20);
@@ -152,7 +153,7 @@
             // tbEMail
             // 
             this.tbEMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbEMail.Location = new System.Drawing.Point(248, 211);
+            this.tbEMail.Location = new System.Drawing.Point(248, 256);
             this.tbEMail.Margin = new System.Windows.Forms.Padding(4);
             this.tbEMail.Name = "tbEMail";
             this.tbEMail.Size = new System.Drawing.Size(360, 30);
@@ -199,18 +200,29 @@
             this.lblPID.AutoSize = true;
             this.lblPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblPID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.lblPID.Location = new System.Drawing.Point(52, 263);
+            this.lblPID.Location = new System.Drawing.Point(47, 218);
             this.lblPID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPID.Name = "lblPID";
             this.lblPID.Size = new System.Drawing.Size(47, 20);
             this.lblPID.TabIndex = 30;
             this.lblPID.Text = "JMB";
             // 
+            // tbPID
+            // 
+            this.tbPID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbPID.Location = new System.Drawing.Point(248, 208);
+            this.tbPID.Margin = new System.Windows.Forms.Padding(4);
+            this.tbPID.Name = "tbPID";
+            this.tbPID.Size = new System.Drawing.Size(360, 30);
+            this.tbPID.TabIndex = 31;
+            this.tbPID.Validating += new System.ComponentModel.CancelEventHandler(this.tbPID_Validating);
+            // 
             // NewEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 379);
+            this.Controls.Add(this.tbPID);
             this.Controls.Add(this.lblPID);
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.tbAddress);
@@ -247,5 +259,6 @@
         private System.Windows.Forms.TextBox tbEMail;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label lblPID;
+        private System.Windows.Forms.TextBox tbPID;
     }
 }
