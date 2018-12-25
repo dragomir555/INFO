@@ -268,7 +268,7 @@ namespace Autopraonica_Markus.forms.serviceForms
                 }
                 FirstName = tbFirstName.Text;
                 LastName = tbLastName.Text;
-                LicencePlate = mtbLicencePlate.Text;
+                LicencePlate = mtbLicencePlate.Text.ToUpper();
                 Client_Id = ((client)cmbClient.SelectedItem).Id;
                 this.DialogResult = DialogResult.OK;
             }
