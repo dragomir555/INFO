@@ -274,7 +274,10 @@ namespace Autopraonica_Markus
                 if (dialogResult == DialogResult.Yes)
                 {
                     SaveLogoutTime();
-                    SaveHelperLogoutTime();
+                    if (helpingEmployee != null)
+                    {
+                        SaveHelperLogoutTime();
+                    }
                 }
                 else
                 {
