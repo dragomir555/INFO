@@ -43,10 +43,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblCarpetSize = new System.Windows.Forms.Label();
             this.tbCarpetSize = new System.Windows.Forms.TextBox();
-            this.errCarpetSize = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errPrice = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.errCarpetSize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errPrice)).BeginInit();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblServiceType
@@ -200,15 +198,10 @@
             this.tbCarpetSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCarpetSize_KeyPress);
             this.tbCarpetSize.Validating += new System.ComponentModel.CancelEventHandler(this.tbCarpetSize_Validating);
             // 
-            // errCarpetSize
+            // errorProvider
             // 
-            this.errCarpetSize.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errCarpetSize.ContainerControl = this;
-            // 
-            // errPrice
-            // 
-            this.errPrice.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errPrice.ContainerControl = this;
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
             // 
             // NewNaturalEntityServiceForm
             // 
@@ -237,8 +230,7 @@
             this.Name = "NewNaturalEntityServiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Markus";
-            ((System.ComponentModel.ISupportInitialize)(this.errCarpetSize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,7 +251,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblCarpetSize;
         private System.Windows.Forms.TextBox tbCarpetSize;
-        private System.Windows.Forms.ErrorProvider errCarpetSize;
-        private System.Windows.Forms.ErrorProvider errPrice;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
