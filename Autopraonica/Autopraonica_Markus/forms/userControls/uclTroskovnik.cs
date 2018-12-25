@@ -38,14 +38,17 @@ namespace Autopraonica_Markus.forms.userControls
             dgvPurchase.Rows.Clear();
             using (MarkusDb context = new MarkusDb())
             {
-                var purchase = (from pi in context.purchaseitems select pi);
+                var purchase = (from p in context.purchases select p).ToList();
             
                 foreach(var p in purchase)
                 {
                     DataGridViewRow r = new DataGridViewRow() { Tag = p };
                     r.CreateCells(dgvPurchase);
-                    r.SetValues(p.purchase.PurchaseNumber,p.purchase.SupplierName,p.purchase.employee.FirstName+" "+
-                        p.purchase.employee.LastName,p.purchase.PurchaseTime.ToString("dd.MM.yyyy HH:mm"),p.Price);
+                    Decimal dec = 0;
+                    foreach(var x in p.purchaseitems){
+                        dec += x.Price;
+                    }
+                    r.SetValues(p.PurchaseNumber,p.SupplierName,p.employee.FirstName+" "+p.employee.LastName,p.PurchaseTime.ToString("dd.MM.yyyy HH:mm"),dec);
                     dgvPurchase.Rows.Add(r);
                 }
                
