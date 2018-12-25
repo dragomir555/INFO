@@ -43,6 +43,8 @@
             // 
             // dgvEmployees
             // 
+            this.dgvEmployees.AllowUserToResizeColumns = false;
+            this.dgvEmployees.AllowUserToResizeRows = false;
             this.dgvEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -56,6 +58,7 @@
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.RowHeadersVisible = false;
+            this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmployees.Size = new System.Drawing.Size(802, 295);
             this.dgvEmployees.TabIndex = 4;
             // 

@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.forms.userControls;
+using System.Text.RegularExpressions;
 
 namespace Autopraonica_Markus.forms.employeeForms
 {
@@ -22,7 +23,6 @@ namespace Autopraonica_Markus.forms.employeeForms
         public String E_mail { get; set; }
         public String Address { get; set; }
         public String PhoneNumber { get; set; }
-        public String Password { get; set; }
         private int counter = 0;
 
         public NewEmployeeForm()
@@ -35,12 +35,12 @@ namespace Autopraonica_Markus.forms.employeeForms
             tbLastName.Text = LastName;
             tbAddress.Text = Address;
             tbPhoneNumber.Text = PhoneNumber;
+            tbEMail.Text = E_mail;
+            tbPID.Text = PID;
         }
 
         public void hideUnnecessaryItems() {
-            tbPassword.Hide();
             tbEMail.Hide();
-            lblPassword.Hide();
             lblEmail.Hide();
         }
 
@@ -49,20 +49,20 @@ namespace Autopraonica_Markus.forms.employeeForms
             btnAddEmployee.Text = "Izmjeni zaposlenog";
         }
    
- 
-         
         private void btnAddEmployee_Click_1(object sender, EventArgs e)
         {
+           
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 using (MarkusDb ctx = new MarkusDb())
                 {
+                    
                     FirstName = tbFirstName.Text;
                     LastName = tbLastName.Text;
                     E_mail = tbEMail.Text;
                     Address = tbAddress.Text;
                     PhoneNumber = tbPhoneNumber.Text;
-                    Password = tbPassword.Text;
+                    PID = tbPID.Text;
                     this.DialogResult = DialogResult.OK;
                 }
             }
@@ -70,7 +70,10 @@ namespace Autopraonica_Markus.forms.employeeForms
 
         private void tbFirstName_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbFirstName.Text))
+            var regex = @"^[^0-9]+$";
+            var match = Regex.Match(tbFirstName.Text, regex, RegexOptions.IgnoreCase);
+
+            if (string.IsNullOrWhiteSpace(tbFirstName.Text) || !match.Success)
             {
                 e.Cancel = true;
                 tbFirstName.Focus();
@@ -85,7 +88,10 @@ namespace Autopraonica_Markus.forms.employeeForms
 
         private void tbLastName_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbLastName.Text))
+            var regex = @"^[^0-9]+$";
+            var match = Regex.Match(tbLastName.Text, regex, RegexOptions.IgnoreCase);
+
+            if (string.IsNullOrWhiteSpace(tbLastName.Text) || !match.Success)
             {
                 e.Cancel = true;
                 tbLastName.Focus();
@@ -110,7 +116,7 @@ namespace Autopraonica_Markus.forms.employeeForms
             else
             {
                 e.Cancel = false;
-                errorProvider.SetError(tbLastName, null);
+                errorProvider.SetError(tbAddress, null);
             }
 
 
@@ -118,7 +124,10 @@ namespace Autopraonica_Markus.forms.employeeForms
 
         private void tbPhoneNumber_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbPhoneNumber.Text))
+            var regex = @"^[0-9]*$";
+            var match = Regex.Match(tbPhoneNumber.Text, regex, RegexOptions.IgnoreCase);
+
+            if (string.IsNullOrWhiteSpace(tbPhoneNumber.Text) || !match.Success)
             {
                 e.Cancel = true;
                 tbPhoneNumber.Focus();
@@ -135,7 +144,10 @@ namespace Autopraonica_Markus.forms.employeeForms
 
         private void tbEMail_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbEMail.Text))
+            var regex = @"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+            var match = Regex.Match(tbEMail.Text, regex, RegexOptions.IgnoreCase);
+
+            if (string.IsNullOrWhiteSpace(tbEMail.Text) || !match.Success)
             {
                 e.Cancel = true;
                 tbEMail.Focus();
@@ -148,20 +160,22 @@ namespace Autopraonica_Markus.forms.employeeForms
             }
         }
 
-        private void tbPassword_Validating(object sender, CancelEventArgs e)
+        private void tbPID_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tbPassword.Text))
+            var regex = @"[0-9]+";
+            var match = Regex.Match(tbPID.Text, regex, RegexOptions.IgnoreCase);
+
+            if (string.IsNullOrWhiteSpace(tbPID.Text) || (tbPID.Text.Length!=13) || (!match.Success))
             {
                 e.Cancel = true;
-                tbPassword.Focus();
-                errorProvider.SetError(tbPassword, "Molimo da unesete ispravno lozinku !");
+                tbPID.Focus();
+                errorProvider.SetError(tbPID, "Molimo da unesete ispravno JMB !");
             }
             else
             {
                 e.Cancel = false;
-                errorProvider.SetError(tbPassword, null);
+                errorProvider.SetError(tbPID, null);
             }
-
         }
     }
 }

@@ -24,6 +24,7 @@ namespace Autopraonica_Markus
         public MainForm()
         {
             InitializeComponent();
+            employee = null;
             if (!pnlContent.Controls.Contains(uclUsluge.Instance))
             {
                 pnlContent.Controls.Add(uclUsluge.Instance);
@@ -199,8 +200,25 @@ namespace Autopraonica_Markus
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            SaveLogoutTime();
+            this.Hide();
             LoginForm loginForm = new LoginForm(this);
             loginForm.Show();
+        }
+
+        private void SaveLogoutTime()
+        {
+            using (MarkusDb context = new MarkusDb())
+            {
+                var ers = (from c in context.employeerecords
+                           where c.Employee_Id == employee.Id &&
+                           c.LogoutTime == null
+                           select c).ToList();
+                var employeerecord = (employeerecord)ers[0];
+                context.employeerecords.Attach(employeerecord);
+                employeerecord.LogoutTime = DateTime.Now;
+                context.SaveChanges();
+            }
         }
 
         public void SetEmployee(employee employee)
@@ -219,6 +237,24 @@ namespace Autopraonica_Markus
         {
             this.allowShowDisplay = true;
             this.Visible = !this.Visible;
+        }
+
+        public void SetButtonsVisibility(bool b)
+        {
+            btnCjenovnik.Visible = b;
+            btnIzdRac.Visible = b;
+            btnKlijenti.Visible = b;
+            btnStatistika.Visible = b;
+            btnZaposleni.Visible = b;
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Treba pitati korisnika da li zeli da zatvori aplikaciju bez odjave
+            if(employee != null)
+            {
+                SaveLogoutTime();
+            }
         }
     }
 }

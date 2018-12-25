@@ -32,6 +32,7 @@ namespace Autopraonica_Markus.forms.userControls
         {
             InitializeComponent();
             FillTable();
+            cmbSearchType.SelectedIndex=0;
         }
 
 
@@ -62,7 +63,7 @@ new { Client = cl, Contract = cop }).ToList();
                         DataGridViewRow r = new DataGridViewRow() { Tag = c.Contract };
                         r.CreateCells(dgvKlijenti);
                         r.SetValues(c.Client.Name, c.Client.UID, c.Client.city.Name, c.Client.Address, c.Contract.DateFrom.ToString("dd.MM.yyyy"),
-                            c.Contract.DateTo.HasValue ? c.Contract.DateTo.Value.ToString("dd.MM.yyyy") : "-");
+                        c.Contract.DateTo.HasValue ? c.Contract.DateTo.Value.ToString("dd.MM.yyyy") : "-");
                         dgvKlijenti.Rows.Add(r);
                     }
                 }
@@ -259,6 +260,71 @@ new { Client = cl, Contract = cop }).ToList();
             {
                 MessageBox.Show("Izaberite klijenta iz tabele");
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string text = (string)cmbSearchType.SelectedItem;
+            string searchText = textBox1.Text;
+            dgvKlijenti.Rows.Clear();
+            using (MarkusDb context=new MarkusDb())
+                {
+                if ("Naziv".Equals(text))
+                {
+                    var klijenti = (from cl in context.clients
+                                    join cop in context.contracts on cl.Id equals cop.Client_Id
+                                    where cl.Name.StartsWith(searchText)
+                                    select
+                     new { Client = cl, Contract = cop }).ToList();
+                    Debug.WriteLine(klijenti.Count());
+                    int conOver = 1;
+                    if (cbContractOver.Checked == true)
+                    {
+                        conOver = 0;
+                    }
+                    foreach (var c in klijenti)
+                    {
+                        if (c.Contract.Current == conOver)
+                        {
+
+                            DataGridViewRow r = new DataGridViewRow() { Tag = c.Contract };
+                            r.CreateCells(dgvKlijenti);
+                            r.SetValues(c.Client.Name, c.Client.UID, c.Client.city.Name, c.Client.Address, c.Contract.DateFrom.ToString("dd.MM.yyyy"),
+                            c.Contract.DateTo.HasValue ? c.Contract.DateTo.Value.ToString("dd.MM.yyyy") : "-");
+                            dgvKlijenti.Rows.Add(r);
+                        }
+                    }
+
+                }
+                else
+                {
+                    var klijenti = (from cl in context.clients
+                                    join cop in context.contracts on cl.Id equals cop.Client_Id
+                                    where cl.UID.StartsWith(searchText)
+                                    select
+                     new { Client = cl, Contract = cop }).ToList();
+                    int conOver = 1;
+                    if (cbContractOver.Checked == true)
+                    {
+                        conOver = 0;
+                    }
+                    foreach (var c in klijenti)
+                    {
+                        if (c.Contract.Current == conOver)
+                        {
+
+                            DataGridViewRow r = new DataGridViewRow() { Tag = c.Contract };
+                            r.CreateCells(dgvKlijenti);
+                            r.SetValues(c.Client.Name, c.Client.UID, c.Client.city.Name, c.Client.Address, c.Contract.DateFrom.ToString("dd.MM.yyyy"),
+                            c.Contract.DateTo.HasValue ? c.Contract.DateTo.Value.ToString("dd.MM.yyyy") : "-");
+                            dgvKlijenti.Rows.Add(r);
+                        }
+                    }
+                }
+
+
+                }
+        
         }
     }
 }

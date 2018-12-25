@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.forms.employeeForms;
 using Autopraonica_Markus.Model.Entities;
+using System.Data.Entity.Validation;
+using Autopraonica_Markus.services;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -51,16 +53,40 @@ namespace Autopraonica_Markus.forms.userControls
                             Address = newEmployeeForm.Address,
                             E_mail = newEmployeeForm.E_mail,
                             PhoneNumber = newEmployeeForm.PhoneNumber,
-                            PID = newEmployeeForm.Password
+                            PID = newEmployeeForm.PID
                         };
+
+                        var emplmnt = new employment()
+                        {
+                            DateFrom = DateTime.Now,
+                            UserName = "DD",
+                            Salt = UserService.GenerateSalt(),
+                            FirstLogin = 0,
+                        };
+                        emplmnt.HashPassword = UserService.GetPasswordHash(emplmnt.Salt, UserService.GeneratePassword());
+                        
+                        context.employments.Add(emplmnt);
                         context.employees.Add(emp);
                         context.SaveChanges();
                         FillTable();
                     }
                 }
-                catch (Exception ex)
+                catch (DbEntityValidationException ex)
                 {
-                    MessageBox.Show("greska prilikom dodavanja zaposlenog+\n\n" + ex, "Novi zaposleni");
+                    var errorMessages = ex.EntityValidationErrors
+                       .SelectMany(x => x.ValidationErrors)
+                       .Select(x => x.ErrorMessage);
+
+                    // Join the list to a single string.
+                    var fullErrorMessage = string.Join("; ", errorMessages);
+
+                    // Combine the original exception message with the new one.
+                    var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                    // Throw a new DbEntityValidationException with the improved exception message.
+                    throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+
+
                 }
             }
         }
@@ -70,9 +96,12 @@ namespace Autopraonica_Markus.forms.userControls
             dgvEmployees.Rows.Clear();
             using (MarkusDb context = new MarkusDb())
             {
-                var zaposleni = (from c in context.employees select c).ToList();
+                var zaposleni = (from c in context.employees
+                                 join ents in context.employments on c.Id equals ents.Employee_Id
+                                 where ents.DateTo == null
+                                 select c).ToList();
                 foreach (var c in zaposleni)
-                {
+                {              
                     DataGridViewRow r = new DataGridViewRow() { Tag = c };
                     r.CreateCells(dgvEmployees);
                     r.SetValues(c.FirstName, c.LastName, c.PhoneNumber, c.Address);
@@ -84,57 +113,87 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void btnUpdateEmployee_Click(object sender, EventArgs e)
         {
-            if (dgvEmployees.SelectedRows.Count == 1)
+
+            if (dgvEmployees.SelectedRows.Count > 0)
             {
-                employee emp = (employee)dgvEmployees.SelectedRows[0].Tag;
-                NewEmployeeForm newEmployeeForm = new NewEmployeeForm()
+                DataGridViewRow row = dgvEmployees.SelectedRows[0];
+                employee emp = (employee)row.Tag;
+                NewEmployeeForm employeeForm = new NewEmployeeForm()
                 {
                     FirstName = emp.FirstName,
                     LastName = emp.LastName,
                     PhoneNumber = emp.PhoneNumber,
-                    Address = emp.Address
+                    Address = emp.Address,
+                    E_mail = emp.E_mail,
+                    PID = emp.PID
                 };
 
-                newEmployeeForm.fillTextBoxes();
-                newEmployeeForm.hideUnnecessaryItems();
-                newEmployeeForm.changeButtonName();
-
-                if (DialogResult.OK == newEmployeeForm.ShowDialog())
+                
+                employee empl = null;
+                int idEmployee = emp.Id;
+                using (MarkusDb context = new MarkusDb())
                 {
-                    try
+                    empl = (from c in context.employees where c.Id == idEmployee select c).ToList().First();
+                }
+
+                employeeForm.fillTextBoxes();
+                employeeForm.hideUnnecessaryItems();
+                employeeForm.changeButtonName();
+                employeeForm.Tag = 1;
+
+                if (DialogResult.OK == employeeForm.ShowDialog())
+                {
+                  try
                     {
                         using (MarkusDb context = new MarkusDb())
                         {
-                            var changedEmp = new employee()
-                            {
-                                FirstName = newEmployeeForm.FirstName,
-                                LastName = newEmployeeForm.LastName,
-                                Address = newEmployeeForm.Address,
-                                PID = emp.PID,
-                                E_mail = emp.E_mail,
-                                PhoneNumber = newEmployeeForm.PhoneNumber
-                            };
-
-                            deleteSelectedEmployee();
-                            context.employees.Add(changedEmp);
+                            context.employees.Attach(empl);
+                            empl.FirstName = employeeForm.FirstName;
+                            empl.LastName = employeeForm.LastName;
+                            empl.Address = employeeForm.Address;
+                            empl.PhoneNumber = employeeForm.PhoneNumber;
+                            empl.PID = employeeForm.PID;
                             context.SaveChanges();
                             FillTable();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("greska prilikom izmjene zaposlenog+\n\n" + ex, "Izmjena zaposlenog");
-                    }
-                }
-            }
-        }
 
+                        }
+               
+                    }
+                    catch (DbEntityValidationException ex)
+                    {
+                        var errorMessages = ex.EntityValidationErrors
+                           .SelectMany(x => x.ValidationErrors)
+                           .Select(x => x.ErrorMessage);
+
+                        // Join the list to a single string.
+                        var fullErrorMessage = string.Join("; ", errorMessages);
+
+                        // Combine the original exception message with the new one.
+                        var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                        // Throw a new DbEntityValidationException with the improved exception message.
+                        throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+
+
+                    }
+
+
+                }
+            else
+            {
+                MessageBox.Show("Izaberite klijenta iz tabele");
+            }
+}
+  }
+              
+                               
+                           
         private void deleteSelectedEmployee(){
             using (MarkusDb context = new MarkusDb())
             {
                 employee emp = (employee)dgvEmployees.SelectedRows[0].Tag;
                 context.employees.Attach(emp);
-                context.employees.Remove(emp);
+                emp.employments.ElementAt(0).DateTo = DateTime.Now;
                 context.SaveChanges();
                 FillTable();
             }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PasswordChangeForm));
             this.lblCurrentPassword = new System.Windows.Forms.Label();
             this.lblNewPassword = new System.Windows.Forms.Label();
@@ -36,6 +37,8 @@
             this.lblNewPasswordConfirm = new System.Windows.Forms.Label();
             this.tbNewPasswordConfirm = new System.Windows.Forms.TextBox();
             this.btnConfirm = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCurrentPassword
@@ -68,6 +71,7 @@
             this.tbCurrentPassword.Size = new System.Drawing.Size(170, 29);
             this.tbCurrentPassword.TabIndex = 1;
             this.tbCurrentPassword.UseSystemPasswordChar = true;
+            this.tbCurrentPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbCurrentPassword_Validating);
             // 
             // tbNewPassword
             // 
@@ -77,6 +81,7 @@
             this.tbNewPassword.Size = new System.Drawing.Size(170, 29);
             this.tbNewPassword.TabIndex = 2;
             this.tbNewPassword.UseSystemPasswordChar = true;
+            this.tbNewPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbNewPassword_Validating);
             // 
             // lblNewPasswordConfirm
             // 
@@ -97,6 +102,7 @@
             this.tbNewPasswordConfirm.Size = new System.Drawing.Size(170, 29);
             this.tbNewPasswordConfirm.TabIndex = 3;
             this.tbNewPasswordConfirm.UseSystemPasswordChar = true;
+            this.tbNewPasswordConfirm.Validating += new System.ComponentModel.CancelEventHandler(this.tbNewPasswordConfirm_Validating);
             // 
             // btnConfirm
             // 
@@ -113,8 +119,14 @@
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            // 
             // PasswordChangeForm
             // 
+            this.AcceptButton = this.btnConfirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -131,6 +143,8 @@
             this.MaximizeBox = false;
             this.Name = "PasswordChangeForm";
             this.Text = "Markus";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PasswordChangeForm_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,5 +159,6 @@
         private System.Windows.Forms.Label lblNewPasswordConfirm;
         private System.Windows.Forms.TextBox tbNewPasswordConfirm;
         private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

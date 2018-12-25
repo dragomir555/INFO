@@ -30,7 +30,7 @@ namespace Autopraonica_Markus.forms
             string newPassword = tbNewPassword.Text;
             string newPasswordConfirm = tbNewPasswordConfirm.Text;
 
-            if (string.IsNullOrWhiteSpace(currentPassword))
+            /*if (string.IsNullOrWhiteSpace(currentPassword))
             {
                 MessageBox.Show("Niste unijeli trenutnu lozinku.", "Upozorenje");
                 tbCurrentPassword.Focus();
@@ -58,36 +58,120 @@ namespace Autopraonica_Markus.forms
                 tbNewPassword.Clear();
                 tbNewPasswordConfirm.Clear();
                 tbNewPassword.Focus();
-            }
-            else
+            }*/
+            if(ValidateChildren(ValidationConstraints.Enabled))
             {
                 using (MarkusDb context = new MarkusDb())
                 {
                     string salt = employment.Salt;
                     string currentPasswordHash1 = employment.HashPassword;
-                    string currentPasswordHash2 = PasswordService.GetPasswordHash(salt, currentPassword);
+                    string currentPasswordHash2 = UserService.GetPasswordHash(salt, currentPassword);
                     if (currentPasswordHash2.Equals(currentPasswordHash1))
                     {
-                        string newSalt = PasswordService.GenerateSalt();
-                        string newPasswordHash = PasswordService.GetPasswordHash(newSalt, newPassword);
+                        string newSalt = UserService.GenerateSalt();
+                        string newPasswordHash = UserService.GetPasswordHash(newSalt, newPassword);
                         context.employments.Attach(employment);
                         employment.Salt = newSalt;
                         employment.HashPassword = newPasswordHash;
                         employment.FirstLogin = 0;
                         context.SaveChanges();
                         mainForm.SetEmployee(employment.employee);
-                        mainForm.Visible = true;
+                        mainForm.ChangeAllowShowDisplay();
+                        this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Pogrešno ste unijeli trenutnu lozinku.", "Upozorenje");
                         tbCurrentPassword.Clear();
                         tbNewPassword.Clear();
                         tbNewPasswordConfirm.Clear();
                         tbCurrentPassword.Focus();
+                        errorProvider.SetError(tbCurrentPassword, "Pogrešno ste unijeli trenutnu lozinku.");
                     }
                 }
+            }
+        }
+
+        private void PasswordChangeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.DialogResult == DialogResult.None)
+            {
+                mainForm.ChangeAllowShowDisplay();
+                mainForm.Close();
+            }
+        }
+
+        private void tbCurrentPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbCurrentPassword.Text))
+            {
+                e.Cancel = true;
+                tbCurrentPassword.Focus();
+                errorProvider.SetError(tbCurrentPassword, "Niste unijeli trenutnu lozinku.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(tbCurrentPassword, null);
+            }
+        }
+
+        private void tbNewPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbNewPassword.Text))
+            {
+                e.Cancel = true;
+                tbNewPassword.Focus();
+                errorProvider.SetError(tbNewPassword, "Niste unijeli novu lozinku.");
+            }
+            else if (tbNewPassword.Text.Length < 8)
+            {
+                //MessageBox.Show("Unesena lozinka mora imati minimum 8 karaktera.", "Upozorenje");
+                e.Cancel = true;
+                //tbNewPassword.Clear();
+                //tbNewPasswordConfirm.Clear();
+                tbNewPassword.Focus();
+                errorProvider.SetError(tbNewPassword, "Unesena lozinka mora imati minimum 8 karaktera.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(tbNewPassword, null);
+            }
+        }
+
+        private void tbNewPasswordConfirm_Validating(object sender, CancelEventArgs e)
+        {
+            string newPassword = tbNewPassword.Text;
+            string newPasswordConfirm = tbNewPasswordConfirm.Text;
+
+            if (string.IsNullOrWhiteSpace(tbNewPasswordConfirm.Text))
+            {
+                e.Cancel = true;
+                tbNewPassword.Focus();
+                errorProvider.SetError(tbNewPasswordConfirm, "Niste potvrdili novu lozinku.");
+            }
+            else if (!newPassword.Equals(newPasswordConfirm))
+            {
+                e.Cancel = true;
+                //tbNewPassword.Clear();
+                //tbNewPasswordConfirm.Clear();
+                tbNewPassword.Focus();
+                errorProvider.SetError(tbNewPasswordConfirm, "Dva unosa nove lozinke se ne podudaraju.");
+            }
+            else if (newPasswordConfirm.Length < 8)
+            {
+                //MessageBox.Show("Unesena lozinka mora imati minimum 8 karaktera.", "Upozorenje");
+                e.Cancel = true;
+                //tbNewPassword.Clear();
+                //tbNewPasswordConfirm.Clear();
+                tbNewPassword.Focus();
+                errorProvider.SetError(tbNewPasswordConfirm, "Unesena lozinka mora imati minimum 8 karaktera.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(tbNewPasswordConfirm, null);
             }
         }
     }
