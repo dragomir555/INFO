@@ -140,7 +140,7 @@
             this.lblPrice.Location = new System.Drawing.Point(30, 380);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(52, 16);
-            this.lblPrice.TabIndex = 1;
+            this.lblPrice.TabIndex = 0;
             this.lblPrice.Text = "Cijena";
             // 
             // lblCarpetSize
@@ -175,7 +175,7 @@
             this.btnConfirm.Location = new System.Drawing.Point(200, 430);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(140, 35);
-            this.btnConfirm.TabIndex = 0;
+            this.btnConfirm.TabIndex = 9;
             this.btnConfirm.Text = "Potvrdi";
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
@@ -191,7 +191,7 @@
             this.btnCancel.Location = new System.Drawing.Point(359, 430);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(140, 35);
-            this.btnCancel.TabIndex = 0;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Otkaži";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -289,7 +289,7 @@
             this.mtbLicencePlate.Mask = "A00-L-000";
             this.mtbLicencePlate.Name = "mtbLicencePlate";
             this.mtbLicencePlate.Size = new System.Drawing.Size(270, 26);
-            this.mtbLicencePlate.TabIndex = 9;
+            this.mtbLicencePlate.TabIndex = 4;
             this.mtbLicencePlate.Validating += new System.ComponentModel.CancelEventHandler(this.mtbLicencePlate_Validating);
             // 
             // NewLegalEntityServiceForm
