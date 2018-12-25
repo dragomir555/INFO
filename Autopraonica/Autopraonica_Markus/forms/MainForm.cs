@@ -250,10 +250,18 @@ namespace Autopraonica_Markus
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Treba pitati korisnika da li zeli da zatvori aplikaciju bez odjave
-            if(employee != null)
+            if (employee != null)
             {
-                SaveLogoutTime();
+                DialogResult dialogResult = MessageBox.Show("Ukoliko nastavite bićete odjavljeni sa sistema. Da li ste sigurni da želite da zatvorite aplikaciju?",
+                    "Markus", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    SaveLogoutTime();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }
