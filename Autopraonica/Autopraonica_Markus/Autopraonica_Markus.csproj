@@ -114,23 +114,11 @@
     <Compile Include="forms\loginForms\PasswordChangeForm.Designer.cs">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\pricelistForms\DisplayPricelistItemNamesForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\pricelistForms\DisplayPricelistItemNamesForm.Designer.cs">
-      <DependentUpon>DisplayPricelistItemNamesForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="forms\pricelistForms\NewPricelistItem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\pricelistForms\NewPricelistItem.Designer.cs">
       <DependentUpon>NewPricelistItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forms\pricelistForms\NewPricelistItemName.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\pricelistForms\NewPricelistItemName.Designer.cs">
-      <DependentUpon>NewPricelistItemName.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\pricelistForms\NewServiceTypeForm.cs">
       <SubType>Form</SubType>
@@ -250,14 +238,8 @@
     <EmbeddedResource Include="forms\loginForms\PasswordChangeForm.resx">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\pricelistForms\DisplayPricelistItemNamesForm.resx">
-      <DependentUpon>DisplayPricelistItemNamesForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="forms\pricelistForms\NewPricelistItem.resx">
       <DependentUpon>NewPricelistItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forms\pricelistForms\NewPricelistItemName.resx">
-      <DependentUpon>NewPricelistItemName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\pricelistForms\NewServiceTypeForm.resx">
       <DependentUpon>NewServiceTypeForm.cs</DependentUpon>
