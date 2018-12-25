@@ -18,6 +18,7 @@ namespace Autopraonica_Markus
         private Button PressedButton;
         private Timer timer = new Timer();
         private employee employee;
+        private employee helpingEmployee;
 
         private bool allowShowDisplay = false;
 
@@ -25,6 +26,7 @@ namespace Autopraonica_Markus
         {
             InitializeComponent();
             employee = null;
+            helpingEmployee = null;
             if (!pnlContent.Controls.Contains(uclUsluge.Instance))
             {
                 pnlContent.Controls.Add(uclUsluge.Instance);
@@ -212,11 +214,26 @@ namespace Autopraonica_Markus
             {
                 var ers = (from c in context.employeerecords
                            where c.Employee_Id == employee.Id &&
-                           c.LogoutTime == null
-                           select c).ToList();
+                           c.LogoutTime == null select c).ToList();
                 var employeerecord = (employeerecord)ers[0];
                 context.employeerecords.Attach(employeerecord);
                 employeerecord.LogoutTime = DateTime.Now;
+                context.SaveChanges();
+            }
+        }
+
+        private void SaveHelperLogoutTime()
+        {
+            using(MarkusDb context = new MarkusDb())
+            {
+                Console.WriteLine("HelpingEmployee_Id " + helpingEmployee.Id + " Employee_Id " + employee.Id);
+                var hers = (from c in context.helpingemployeerecords
+                            where c.HelpingEmployee_Id == helpingEmployee.Id &&
+                            /*c.Employee_Id == employee.Id &&*/
+                            c.LogoutTime == null select c).ToList();
+                var helpingemployeerecord = (helpingemployeerecord)hers[0];
+                context.helpingemployeerecords.Attach(helpingemployeerecord);
+                helpingemployeerecord.LogoutTime = DateTime.Now;
                 context.SaveChanges();
             }
         }
@@ -257,6 +274,7 @@ namespace Autopraonica_Markus
                 if (dialogResult == DialogResult.Yes)
                 {
                     SaveLogoutTime();
+                    SaveHelperLogoutTime();
                 }
                 else
                 {
@@ -267,7 +285,16 @@ namespace Autopraonica_Markus
 
         private void btnRemoveHelper_Click(object sender, EventArgs e)
         {
-
+            DialogResult dialogResult = MessageBox.Show("Da li se sigurni da zelite da uklonite ispomoć?",
+                "Markus", MessageBoxButtons.YesNo);
+            if(dialogResult == DialogResult.Yes)
+            {
+                uclUsluge.Instance.RemoveHelpingEmployee();
+                SaveHelperLogoutTime();
+                lblHelper.Text = "Ispomoć";
+                btnAddHelper.Visible = true;
+                btnRemoveHelper.Visible = false;
+            }
         }
 
         private void btnAddHelper_Click(object sender, EventArgs e)
@@ -294,20 +321,33 @@ namespace Autopraonica_Markus
 
         private void cmbHelper_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            helpingEmployee = (employee)cmbHelper.SelectedItem;
             DialogResult dialogResult = MessageBox.Show("Da li se sigurni da zelite da dodate zaposlenog " +
-                ((employee)cmbHelper.SelectedItem).FirstName + " " + ((employee)cmbHelper.SelectedItem).LastName +
+                helpingEmployee.FirstName + " " + helpingEmployee.LastName +
                 " kao ispomoć?", "Markus", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                lblHelper.Text = "Ispomoć: " + ((employee)cmbHelper.SelectedItem).FirstName + " "
-                    + ((employee)cmbHelper.SelectedItem).LastName;
+                lblHelper.Text = "Ispomoć: " + helpingEmployee.FirstName + " " + helpingEmployee.LastName;
                 btnAddHelper.Visible = false;
                 btnRemoveHelper.Visible = true;
                 cmbHelper.Visible = false;
+                uclUsluge.Instance.SetHelpingEmployee(helpingEmployee);
+                using(MarkusDb context = new MarkusDb())
+                {
+                    var her = new helpingemployeerecord()
+                    {
+                        Employee_Id = employee.Id,
+                        HelpingEmployee_Id = (helpingEmployee).Id,
+                        LoginTime = DateTime.Now,
+                        LogoutTime = null
+                    };
+                    context.helpingemployeerecords.Add(her);
+                    context.SaveChanges();
+                }
             }
             else
             {
-
+                helpingEmployee = null;
             }
         }
     }
