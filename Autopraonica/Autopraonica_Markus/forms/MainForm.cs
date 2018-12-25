@@ -264,5 +264,51 @@ namespace Autopraonica_Markus
                 }
             }
         }
+
+        private void btnRemoveHelper_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddHelper_Click(object sender, EventArgs e)
+        {
+            using(MarkusDb context = new MarkusDb())
+            {
+                var employees = (from c1 in context.employees /*join c2 in context.employments
+                                 on c1.Id equals c2.Employee_Id
+                                 where c1.Id != employee.Id &&
+                                 c2.DateTo == null*/ select c1).ToList();
+                cmbHelper.DataSource = employees;
+                cmbHelper.DisplayMember = "FirstName";
+                cmbHelper.ValueMember = "Id";
+                cmbHelper.Visible = true;
+            }
+        }
+
+        private void cmbHelper_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string firstName = ((employee)e.ListItem).FirstName;
+            string lastName = ((employee)e.ListItem).LastName;
+            e.Value = firstName + " " + lastName;
+        }
+
+        private void cmbHelper_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Da li se sigurni da zelite da dodate zaposlenog " +
+                ((employee)cmbHelper.SelectedItem).FirstName + " " + ((employee)cmbHelper.SelectedItem).LastName +
+                " kao ispomoć?", "Markus", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                lblHelper.Text = "Ispomoć: " + ((employee)cmbHelper.SelectedItem).FirstName + " "
+                    + ((employee)cmbHelper.SelectedItem).LastName;
+                btnAddHelper.Visible = false;
+                btnRemoveHelper.Visible = true;
+                cmbHelper.Visible = false;
+            }
+            else
+            {
+
+            }
+        }
     }
 }
