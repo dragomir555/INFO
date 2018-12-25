@@ -39,18 +39,20 @@
             this.ViewPurchase = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbSearchType = new System.Windows.Forms.ComboBox();
-            this.searchType = new System.Windows.Forms.TextBox();
+            this.tbSearchtext = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbSumPurchase = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPurchase
             // 
+            this.dgvPurchase.AllowUserToAddRows = false;
+            this.dgvPurchase.AllowUserToDeleteRows = false;
             this.dgvPurchase.AllowUserToResizeColumns = false;
             this.dgvPurchase.AllowUserToResizeRows = false;
             this.dgvPurchase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -68,7 +70,7 @@
             this.dgvPurchase.Name = "dgvPurchase";
             this.dgvPurchase.RowHeadersVisible = false;
             this.dgvPurchase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPurchase.Size = new System.Drawing.Size(649, 178);
+            this.dgvPurchase.Size = new System.Drawing.Size(660, 178);
             this.dgvPurchase.TabIndex = 0;
             // 
             // purchaseNumber
@@ -142,18 +144,24 @@
             // 
             this.cmbSearchType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbSearchType.FormattingEnabled = true;
+            this.cmbSearchType.Items.AddRange(new object[] {
+            "Broj Računa",
+            "Radnik",
+            "Dobavljač"});
             this.cmbSearchType.Location = new System.Drawing.Point(127, 120);
             this.cmbSearchType.Name = "cmbSearchType";
             this.cmbSearchType.Size = new System.Drawing.Size(137, 24);
             this.cmbSearchType.TabIndex = 6;
+            this.cmbSearchType.SelectedIndexChanged += new System.EventHandler(this.cmbSearchType_SelectedIndexChanged);
             // 
-            // searchType
+            // tbSearchtext
             // 
-            this.searchType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.searchType.Location = new System.Drawing.Point(285, 120);
-            this.searchType.Name = "searchType";
-            this.searchType.Size = new System.Drawing.Size(384, 22);
-            this.searchType.TabIndex = 7;
+            this.tbSearchtext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbSearchtext.Location = new System.Drawing.Point(285, 120);
+            this.tbSearchtext.Name = "tbSearchtext";
+            this.tbSearchtext.Size = new System.Drawing.Size(384, 22);
+            this.tbSearchtext.TabIndex = 7;
+            this.tbSearchtext.TextChanged += new System.EventHandler(this.tbSearchtext_TextChanged);
             // 
             // label2
             // 
@@ -183,14 +191,18 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Troskovnik za period  Od";
             // 
-            // dateTimePicker1
+            // dtpFrom
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(184, 81);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(211, 22);
-            this.dateTimePicker1.TabIndex = 11;
+            this.dtpFrom.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dtpFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dtpFrom.Location = new System.Drawing.Point(184, 81);
+            this.dtpFrom.MaxDate = new System.DateTime(2018, 12, 25, 0, 0, 0, 0);
+            this.dtpFrom.MinDate = new System.DateTime(2018, 1, 25, 0, 0, 0, 0);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(211, 22);
+            this.dtpFrom.TabIndex = 11;
+            this.dtpFrom.Value = new System.DateTime(2018, 1, 25, 0, 0, 0, 0);
+            this.dtpFrom.ValueChanged += new System.EventHandler(this.dtpFrom_ValueChanged);
             // 
             // label4
             // 
@@ -202,26 +214,30 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Do";
             // 
-            // dateTimePicker2
+            // dtpTo
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(443, 81);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(226, 22);
-            this.dateTimePicker2.TabIndex = 13;
+            this.dtpTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dtpTo.Location = new System.Drawing.Point(443, 81);
+            this.dtpTo.MaxDate = new System.DateTime(2018, 12, 25, 21, 39, 27, 0);
+            this.dtpTo.MinDate = new System.DateTime(2018, 1, 25, 0, 0, 0, 0);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(226, 22);
+            this.dtpTo.TabIndex = 13;
+            this.dtpTo.Value = new System.DateTime(2018, 12, 25, 0, 0, 0, 0);
+            this.dtpTo.ValueChanged += new System.EventHandler(this.dtpTo_ValueChanged);
             // 
             // uclTroskovnik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtpTo);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpFrom);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbSumPurchase);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.searchType);
+            this.Controls.Add(this.tbSearchtext);
             this.Controls.Add(this.cmbSearchType);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ViewPurchase);
@@ -249,12 +265,12 @@
         private System.Windows.Forms.Button ViewPurchase;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbSearchType;
-        private System.Windows.Forms.TextBox searchType;
+        private System.Windows.Forms.TextBox tbSearchtext;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbSumPurchase;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpTo;
     }
 }
