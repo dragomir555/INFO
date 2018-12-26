@@ -330,6 +330,12 @@ namespace Autopraonica_Markus
                                  on c1.Id equals c2.Employee_Id
                                  where c1.Id != employee.Id &&
                                  c2.DateTo == null*/ select c1).ToList();
+                var newEmployee = new employee()
+                {
+                    FirstName = "Odaberi",
+                    LastName = "ispomoć"
+                };
+                employees.Insert(0, newEmployee);
                 cmbHelper.DataSource = employees;
                 cmbHelper.DisplayMember = "FirstName";
                 cmbHelper.ValueMember = "Id";
@@ -346,33 +352,36 @@ namespace Autopraonica_Markus
 
         private void cmbHelper_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            helpingEmployee = (employee)cmbHelper.SelectedItem;
-            DialogResult dialogResult = MessageBox.Show("Da li se sigurni da zelite da dodate zaposlenog " +
-                helpingEmployee.FirstName + " " + helpingEmployee.LastName +
-                " kao ispomoć?", "Markus", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (cmbHelper.SelectedIndex != 0)
             {
-                lblHelper.Text = "Ispomoć: " + helpingEmployee.FirstName + " " + helpingEmployee.LastName;
-                btnAddHelper.Visible = false;
-                btnRemoveHelper.Visible = true;
-                cmbHelper.Visible = false;
-                uclUsluge.Instance.SetHelpingEmployee(helpingEmployee);
-                using(MarkusDb context = new MarkusDb())
+                helpingEmployee = (employee)cmbHelper.SelectedItem;
+                DialogResult dialogResult = MessageBox.Show("Da li se sigurni da zelite da dodate zaposlenog " +
+                    helpingEmployee.FirstName + " " + helpingEmployee.LastName +
+                    " kao ispomoć?", "Markus", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    var her = new helpingemployeerecord()
+                    lblHelper.Text = "Ispomoć: " + helpingEmployee.FirstName + " " + helpingEmployee.LastName;
+                    btnAddHelper.Visible = false;
+                    btnRemoveHelper.Visible = true;
+                    cmbHelper.Visible = false;
+                    uclUsluge.Instance.SetHelpingEmployee(helpingEmployee);
+                    using (MarkusDb context = new MarkusDb())
                     {
-                        Employee_Id = employee.Id,
-                        HelpingEmployee_Id = (helpingEmployee).Id,
-                        LoginTime = DateTime.Now,
-                        LogoutTime = null
-                    };
-                    context.helpingemployeerecords.Add(her);
-                    context.SaveChanges();
+                        var her = new helpingemployeerecord()
+                        {
+                            Employee_Id = employee.Id,
+                            HelpingEmployee_Id = (helpingEmployee).Id,
+                            LoginTime = DateTime.Now,
+                            LogoutTime = null
+                        };
+                        context.helpingemployeerecords.Add(her);
+                        context.SaveChanges();
+                    }
                 }
-            }
-            else
-            {
-                helpingEmployee = null;
+                else
+                {
+                    helpingEmployee = null;
+                }
             }
         }
     }

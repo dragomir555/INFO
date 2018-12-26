@@ -32,7 +32,7 @@
             this.lblLoggedUser = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
-            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -65,17 +65,18 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(209, 26);
             this.tbPassword.TabIndex = 2;
+            this.tbPassword.UseSystemPasswordChar = true;
             // 
-            // lblUsername
+            // lblName
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
-            this.lblUsername.Location = new System.Drawing.Point(247, 42);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(118, 16);
-            this.lblUsername.TabIndex = 3;
-            this.lblUsername.Text = "Marko Markovic";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.lblName.Location = new System.Drawing.Point(247, 42);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(118, 16);
+            this.lblName.TabIndex = 3;
+            this.lblName.Text = "Marko Markovic";
             // 
             // btnConfirm
             // 
@@ -90,6 +91,7 @@
             this.btnConfirm.TabIndex = 4;
             this.btnConfirm.Text = "Potvrdi";
             this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // StandByForm
             // 
@@ -100,7 +102,7 @@
             this.ClientSize = new System.Drawing.Size(504, 207);
             this.ControlBox = false;
             this.Controls.Add(this.btnConfirm);
-            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblLoggedUser);
@@ -118,7 +120,7 @@
         private System.Windows.Forms.Label lblLoggedUser;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox tbPassword;
-        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnConfirm;
     }
 }
