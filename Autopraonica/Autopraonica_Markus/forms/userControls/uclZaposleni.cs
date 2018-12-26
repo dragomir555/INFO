@@ -11,6 +11,7 @@ using Autopraonica_Markus.forms.employeeForms;
 using Autopraonica_Markus.Model.Entities;
 using System.Data.Entity.Validation;
 using Autopraonica_Markus.services;
+using System.Diagnostics;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -59,9 +60,9 @@ namespace Autopraonica_Markus.forms.userControls
                         var emplmnt = new employment()
                         {
                             DateFrom = DateTime.Now,
-                            UserName = "DD",
+                            UserName = UserService.GenerateUsername(newEmployeeForm.FirstName, newEmployeeForm.LastName),
                             Salt = UserService.GenerateSalt(),
-                            FirstLogin = 0,
+                            FirstLogin = 1,
                         };
                         emplmnt.HashPassword = UserService.GetPasswordHash(emplmnt.Salt, UserService.GeneratePassword());
                         
@@ -176,18 +177,14 @@ namespace Autopraonica_Markus.forms.userControls
 
 
                     }
-
-
                 }
+            }
             else
             {
                 MessageBox.Show("Izaberite klijenta iz tabele");
             }
 }
-  }
               
-                               
-                           
         private void deleteSelectedEmployee(){
             using (MarkusDb context = new MarkusDb())
             {
