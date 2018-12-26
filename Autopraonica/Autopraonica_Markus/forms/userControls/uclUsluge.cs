@@ -68,7 +68,7 @@ namespace Autopraonica_Markus.forms.userControls
                         Tag = s
                     };
                     row.CreateCells(dgvLegalEntity);
-                    row.SetValues(s.client.Name, s.naturalentityservice.ServiceTime,
+                    row.SetValues(s.client.Name, s.naturalentityservice.ServiceTime.ToString("dd.MM.yyyy HH:mm:ss"),
                         s.naturalentityservice.pricelistitem.servicetype.Name,
                         s.naturalentityservice.pricelistitem.pricelistitemname.Name, s.naturalentityservice.Price);
                     dgvLegalEntity.Rows.Add(row);
@@ -102,7 +102,7 @@ namespace Autopraonica_Markus.forms.userControls
                             Tag = s
                         };
                         row.CreateCells(dgvNaturalEntity);
-                        row.SetValues(s.ServiceTime, s.pricelistitem.servicetype.Name,
+                        row.SetValues(s.ServiceTime.ToString("dd.MM.yyyy HH:mm:ss"), s.pricelistitem.servicetype.Name,
                             s.pricelistitem.pricelistitemname.Name, s.Price);
                         dgvNaturalEntity.Rows.Add(row);
                     }
