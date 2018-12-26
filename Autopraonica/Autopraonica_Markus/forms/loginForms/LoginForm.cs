@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.Model.Entities;
 using Autopraonica_Markus.services;
+using System.Net.Mail;
+using System.Net;
 
 namespace Autopraonica_Markus.forms
 {
@@ -101,6 +103,19 @@ namespace Autopraonica_Markus.forms
                                 {
                                     string mail = ((employment)employment[0]).employee.E_mail;
                                     // Treba dodati slanje maila
+                                    NetworkCredential login = new NetworkCredential("autopraonica.markus@gmail.com", "admin!23");
+                                    MailMessage mailMessage = new MailMessage("autopraonica.markus@gmail.com", "dragomir555@hotmail.rs");
+                                    SmtpClient client = new SmtpClient();
+                                    client.Port = 587;
+                                    client.EnableSsl = true;
+                                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                                    client.UseDefaultCredentials = false;
+                                    client.Credentials = login;
+                                    client.Host = "smtp.gmail.com";
+                                    mailMessage.Subject = "Test";
+                                    mailMessage.Body = "Testiram slanje maila iz aplikacije.";
+                                    client.Send(mailMessage);
+
                                     MessageBox.Show("Na vaš e-mail je poslata poruka sa vašom novom lozinkom.", "Obavještenje");
                                     PasswordChangeForm pcf = new PasswordChangeForm(employment[0], mainForm);
                                     pcf.Show();

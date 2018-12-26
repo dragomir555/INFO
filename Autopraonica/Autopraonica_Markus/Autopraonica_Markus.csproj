@@ -102,6 +102,12 @@
     <Compile Include="forms\loginForms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\loginForms\StandByForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\loginForms\StandByForm.Designer.cs">
+      <DependentUpon>StandByForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
