@@ -18,6 +18,7 @@ namespace Autopraonica_Markus.forms.userControls
     public partial class uclZaposleni : UserControl
     {
         private static uclZaposleni instance;
+        private Label lblEmp = new Label();
 
         public static uclZaposleni Instance
         {
@@ -300,12 +301,31 @@ namespace Autopraonica_Markus.forms.userControls
         {
             tbSearchEmployee.Clear();
             FillTable();
+            lblEmp.Visible = false;
+            btnNewEmployee.Visible = true;
+            btnUpdateEmployee.Visible = true;
+            btnDeleteEmployee.Visible = true;
         }
 
         private void rbPerfect_CheckedChanged(object sender, EventArgs e)
         {
             tbSearchEmployee.Clear();
             FillTable();
+            lblEmp.Visible = true;
+            btnNewEmployee.Visible = false;
+            btnUpdateEmployee.Visible = false;
+            btnDeleteEmployee.Visible = false;          
+            lblEmp.Text = "Arhivirani zaposleni";
+            lblEmp.Location = new Point(218, 19);
+            FontFamily fontFamily = new FontFamily("Microsoft Sans Serif");
+            Font font = new Font(
+               fontFamily,
+               20,
+               FontStyle.Regular,
+               GraphicsUnit.Pixel);
+            lblEmp.Width = 200;
+            lblEmp.Font = font;
+            this.Controls.Add(lblEmp);
         }
     }
 }
