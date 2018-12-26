@@ -202,10 +202,32 @@ namespace Autopraonica_Markus
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            SaveLogoutTime();
-            this.Hide();
-            LoginForm loginForm = new LoginForm(this);
-            loginForm.Show();
+            if (helpingEmployee != null)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ukoliko nastavite i ispomoć će biti odjavljena. Da li ste sigurni da želite da nastavite?",
+                "Markus", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    SaveLogoutTime();
+                    SaveHelperLogoutTime();
+                    btnAddHelper.Visible = true;
+                    btnRemoveHelper.Visible = false;
+                    lblHelper.Text = "Ispomoć";
+                    employee = null;
+                    helpingEmployee = null;
+                    this.Hide();
+                    LoginForm loginForm = new LoginForm(this);
+                    loginForm.Show();
+                }
+            }
+            else
+            {
+                SaveLogoutTime();
+                employee = null;
+                this.Hide();
+                LoginForm loginForm = new LoginForm(this);
+                loginForm.Show();
+            }
         }
 
         private void SaveLogoutTime()
