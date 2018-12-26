@@ -36,8 +36,10 @@
             this.btnNewEmployee = new System.Windows.Forms.Button();
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.btnDeleteEmployee = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbSearchEmployee = new System.Windows.Forms.TextBox();
             this.lblSrcEmp = new System.Windows.Forms.Label();
+            this.rbPresent = new System.Windows.Forms.RadioButton();
+            this.rbPerfect = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +56,7 @@
             this.colLastName,
             this.colPhoneNumber,
             this.colAddress});
-            this.dgvEmployees.Location = new System.Drawing.Point(28, 122);
+            this.dgvEmployees.Location = new System.Drawing.Point(32, 119);
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.RowHeadersVisible = false;
@@ -124,28 +126,55 @@
             this.btnDeleteEmployee.UseVisualStyleBackColor = false;
             this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
             // 
-            // textBox1
+            // tbSearchEmployee
             // 
-            this.textBox1.Location = new System.Drawing.Point(171, 93);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(360, 22);
-            this.textBox1.TabIndex = 8;
+            this.tbSearchEmployee.Location = new System.Drawing.Point(244, 90);
+            this.tbSearchEmployee.Name = "tbSearchEmployee";
+            this.tbSearchEmployee.Size = new System.Drawing.Size(360, 22);
+            this.tbSearchEmployee.TabIndex = 8;
+            this.tbSearchEmployee.TextChanged += new System.EventHandler(this.tbSearchEmployee_TextChanged);
             // 
             // lblSrcEmp
             // 
             this.lblSrcEmp.AutoSize = true;
-            this.lblSrcEmp.Location = new System.Drawing.Point(28, 93);
+            this.lblSrcEmp.Location = new System.Drawing.Point(29, 95);
             this.lblSrcEmp.Name = "lblSrcEmp";
-            this.lblSrcEmp.Size = new System.Drawing.Size(137, 17);
+            this.lblSrcEmp.Size = new System.Drawing.Size(210, 17);
             this.lblSrcEmp.TabIndex = 9;
-            this.lblSrcEmp.Text = "Podatak za pretragu";
+            this.lblSrcEmp.Text = "Pretraga po imenu i prezimenu :";
+            // 
+            // rbPresent
+            // 
+            this.rbPresent.AutoSize = true;
+            this.rbPresent.Checked = true;
+            this.rbPresent.Location = new System.Drawing.Point(52, 435);
+            this.rbPresent.Name = "rbPresent";
+            this.rbPresent.Size = new System.Drawing.Size(82, 21);
+            this.rbPresent.TabIndex = 10;
+            this.rbPresent.TabStop = true;
+            this.rbPresent.Text = "Trenutni";
+            this.rbPresent.UseVisualStyleBackColor = true;
+            this.rbPresent.CheckedChanged += new System.EventHandler(this.rbPresent_CheckedChanged);
+            // 
+            // rbPerfect
+            // 
+            this.rbPerfect.AutoSize = true;
+            this.rbPerfect.Location = new System.Drawing.Point(191, 435);
+            this.rbPerfect.Name = "rbPerfect";
+            this.rbPerfect.Size = new System.Drawing.Size(58, 21);
+            this.rbPerfect.TabIndex = 11;
+            this.rbPerfect.Text = "Bivsi";
+            this.rbPerfect.UseVisualStyleBackColor = true;
+            this.rbPerfect.CheckedChanged += new System.EventHandler(this.rbPerfect_CheckedChanged);
             // 
             // uclZaposleni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.rbPerfect);
+            this.Controls.Add(this.rbPresent);
             this.Controls.Add(this.lblSrcEmp);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbSearchEmployee);
             this.Controls.Add(this.btnDeleteEmployee);
             this.Controls.Add(this.btnUpdateEmployee);
             this.Controls.Add(this.btnNewEmployee);
@@ -169,7 +198,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPhoneNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
         private System.Windows.Forms.Button btnDeleteEmployee;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbSearchEmployee;
         private System.Windows.Forms.Label lblSrcEmp;
+        private System.Windows.Forms.RadioButton rbPresent;
+        private System.Windows.Forms.RadioButton rbPerfect;
     }
 }

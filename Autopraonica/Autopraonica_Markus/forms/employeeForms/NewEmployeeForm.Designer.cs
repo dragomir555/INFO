@@ -139,6 +139,7 @@
             this.btnCancel.TabIndex = 22;
             this.btnCancel.Text = "Otkazi";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // tbFirstName
             // 

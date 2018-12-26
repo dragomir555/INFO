@@ -11,6 +11,7 @@ using Autopraonica_Markus.forms.employeeForms;
 using Autopraonica_Markus.Model.Entities;
 using System.Data.Entity.Validation;
 using Autopraonica_Markus.services;
+using System.Diagnostics;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -59,9 +60,9 @@ namespace Autopraonica_Markus.forms.userControls
                         var emplmnt = new employment()
                         {
                             DateFrom = DateTime.Now,
-                            UserName = "DD",
+                            UserName = UserService.GenerateUsername(newEmployeeForm.FirstName, newEmployeeForm.LastName),
                             Salt = UserService.GenerateSalt(),
-                            FirstLogin = 0,
+                            FirstLogin = 1,
                         };
                         emplmnt.HashPassword = UserService.GetPasswordHash(emplmnt.Salt, UserService.GeneratePassword());
                         
@@ -96,10 +97,18 @@ namespace Autopraonica_Markus.forms.userControls
             dgvEmployees.Rows.Clear();
             using (MarkusDb context = new MarkusDb())
             {
-                var zaposleni = (from c in context.employees
+                var zaposleni = new System.Collections.Generic.List<employee>(); ;
+                if (rbPresent.Checked)
+                zaposleni = (from c in context.employees
                                  join ents in context.employments on c.Id equals ents.Employee_Id
                                  where ents.DateTo == null
                                  select c).ToList();
+                else
+                    zaposleni = (from c in context.employees
+                                 join ents in context.employments on c.Id equals ents.Employee_Id
+                                 where ents.DateTo != null
+                                 select c).ToList();
+
                 foreach (var c in zaposleni)
                 {              
                     DataGridViewRow r = new DataGridViewRow() { Tag = c };
@@ -176,18 +185,14 @@ namespace Autopraonica_Markus.forms.userControls
 
 
                     }
-
-
                 }
+            }
             else
             {
                 MessageBox.Show("Izaberite klijenta iz tabele");
             }
 }
-  }
               
-                               
-                           
         private void deleteSelectedEmployee(){
             using (MarkusDb context = new MarkusDb())
             {
@@ -208,6 +213,99 @@ namespace Autopraonica_Markus.forms.userControls
                     deleteSelectedEmployee();
                 }
             }
+        }
+
+        private void tbSearchEmployee_TextChanged(object sender, EventArgs e)
+        {
+            string[] text = tbSearchEmployee.Text.Split(' ');
+            if (text.Count() == 3) {
+                MessageBox.Show("Ne mozete unijeti vise od dva parametra za pretragu");
+                tbSearchEmployee.Text = text[0] + " " + text[1];
+             }
+            SearchEmployee();
+        }
+
+
+       
+
+       
+           
+               
+      
+                 
+                    
+
+
+
+        private void SearchEmployee()
+        {
+            string[] text = tbSearchEmployee.Text.Split(' ');
+            string firstName = text[0];
+            string lastName="*";
+
+            if (text.Count()>1)
+            lastName = text[1];
+
+            dgvEmployees.Rows.Clear();
+
+            using (MarkusDb context = new MarkusDb())
+            {
+                var empl = new System.Collections.Generic.List<employee>();
+
+                if (rbPresent.Checked)
+                {
+                    if (text.Count() == 3)
+                        empl = (from c in context.employees
+                                join emp in context.employments on c.Id equals emp.Employee_Id
+                                where (c.FirstName.StartsWith(firstName) || c.LastName.StartsWith(lastName)) && emp.DateTo == null
+                                orderby c.LastName
+                                select c).ToList();
+                    else
+                        empl = (from c in context.employees
+                                join emp in context.employments on c.Id equals emp.Employee_Id
+                                where c.FirstName.StartsWith(firstName) && emp.DateTo == null
+                                orderby c.LastName
+                                select c).ToList();
+                }
+                else {
+                    if (text.Count() == 3)
+                        empl = (from c in context.employees
+                                join emp in context.employments on c.Id equals emp.Employee_Id
+                                where (c.FirstName.StartsWith(firstName) || c.LastName.StartsWith(lastName)) && emp.DateTo != null
+                                orderby c.LastName
+                                select c).ToList();
+                    else
+                        empl = (from c in context.employees
+                                join emp in context.employments on c.Id equals emp.Employee_Id
+                                where c.FirstName.StartsWith(firstName) && emp.DateTo != null
+                                orderby c.LastName
+                                select c).ToList();
+                }
+
+                foreach (var e in empl)
+                {
+                    DataGridViewRow r = new DataGridViewRow()
+                    {
+                        Tag = e
+                    };
+
+                    r.CreateCells(dgvEmployees);
+                    r.SetValues(e.FirstName, e.LastName, e.PhoneNumber, e.Address);
+                    dgvEmployees.Rows.Add(r);
+                }
+            }
+        }
+
+        private void rbPresent_CheckedChanged(object sender, EventArgs e)
+        {
+            tbSearchEmployee.Clear();
+            FillTable();
+        }
+
+        private void rbPerfect_CheckedChanged(object sender, EventArgs e)
+        {
+            tbSearchEmployee.Clear();
+            FillTable();
         }
     }
 }

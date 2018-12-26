@@ -177,5 +177,10 @@ namespace Autopraonica_Markus.forms.employeeForms
                 errorProvider.SetError(tbPID, null);
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
     }
 }
