@@ -238,6 +238,9 @@
     <EmbeddedResource Include="forms\loginForms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\loginForms\StandByForm.resx">
+      <DependentUpon>StandByForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
