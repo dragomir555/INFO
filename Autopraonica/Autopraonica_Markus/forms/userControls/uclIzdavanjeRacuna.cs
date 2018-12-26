@@ -256,7 +256,7 @@ namespace Autopraonica_Markus.forms.userControls
             //Define columns
             friend.Columns.Add("R.b.");
             friend.Columns.Add("Naziv usluge");
-            friend.Columns.Add("Iznos(KM)");
+            friend.Columns.Add("Iznos (KM)");
 
             
             //Populate with unpaid services 
@@ -277,9 +277,8 @@ namespace Autopraonica_Markus.forms.userControls
             friend.Columns.Add("Marka i tip vozila");
             friend.Columns.Add("Registarski broj\r\nvozila");
             friend.Columns.Add("Vrsta usluge"); 
-            friend.Columns.Add("Ime vozaca");
-            friend.Columns.Add("Prezime vozaca");
-            friend.Columns.Add("Cijena sa PDV-om");
+            friend.Columns.Add("Ime i prezime vozaca");
+            friend.Columns.Add("Cijena sa PDV-om (KM)");
 
             //Populate with unpaid services 
             populateRowsForUnpaidServices(friend, dtpDateFrom);
@@ -320,7 +319,7 @@ namespace Autopraonica_Markus.forms.userControls
                     var serviceDate = v.ServiceTime;
                     if (dateCondition(serviceDate)) 
                     {
-                        dt.Rows.Add(i++, serviceDate.ToShortDateString() , v.carBrandName, v.LicencePlate, v.Name, v.FirstName , v.LastName, v.Price);
+                        dt.Rows.Add(i++, serviceDate.ToShortDateString() , v.carBrandName, v.LicencePlate, v.Name, v.FirstName + " " +v.LastName, v.Price);
                     }
                 }
             }
@@ -431,7 +430,7 @@ namespace Autopraonica_Markus.forms.userControls
 
             Paragraph prgSignature = new Paragraph();
             prgSignature.Alignment = Element.ALIGN_LEFT;
-            prgSignature.Add(new Chunk("\nMP                       " + "POTPIS"));
+            prgSignature.Add(new Chunk("\nMP                                                    " + "POTPIS"));
             document.Add(prgSignature); 
 
             document.Close();
@@ -498,7 +497,7 @@ namespace Autopraonica_Markus.forms.userControls
  
             //Write the table
             PdfPTable table = new PdfPTable(dtblTable.Columns.Count);
-            table.SetWidths(new int[] { 1, 3, 2, 3, 3, 3,3, 2});
+            table.SetWidths(new int[] { 1, 3, 2, 3, 3, 3, 3});
 
             //Table header
             BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
