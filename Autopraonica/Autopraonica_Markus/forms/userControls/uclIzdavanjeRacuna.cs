@@ -50,8 +50,11 @@ namespace Autopraonica_Markus.forms.userControls
         private void dtpFormat()
         {
             dtpDateFrom.Format = DateTimePickerFormat.Custom;
-            dtpDateFrom.CustomFormat = "MM/yyyy";
+            dtpDateFrom.CustomFormat = "MM-yyyy";
+            DateTime newDateValue = new DateTime(dtpDateFrom.Value.Year, 1, 1);
+            dtpDateFrom.Value = newDateValue;
             
+            dtpDateFrom.ShowUpDown = true;   
             dtpDateFrom.Height = 30;
         }
 
@@ -69,10 +72,14 @@ namespace Autopraonica_Markus.forms.userControls
             using (MarkusDb context = new MarkusDb())
             {
                 var clients = (from c in context.clients select c).ToList();
-
+                Boolean firstTime = true; 
                 foreach(client c in clients)
                 {
-                    cmbClients.Items.Add(c.Name);
+                    if (firstTime) { 
+                        cmbClients.Text = c.Name;
+                        firstTime = false;
+                    }
+                    cmbClients.Items.Add(c.Name); 
                 }
             }
         }
@@ -185,23 +192,13 @@ namespace Autopraonica_Markus.forms.userControls
  
             fillListOfClients();
             decimal suma = searchUnpaidServices(dateFrom);
-            Boolean areValidFields = true;
-
-           
-            if (cmbClients.SelectedItem == null)
-            {
-                MessageBox.Show("Odaberite klijenta kojem zelite da izlistate neplacene usluge.");
-                areValidFields = false;
-            }
-            if(areValidFields) 
-            {               
+                      
                 lblPrice.Text = suma.ToString();
                 
                 if (lblPrice.Text == "0") 
                     btnGenBill.Enabled = false;
                 else
                     btnGenBill.Enabled = true; 
-            }
         }
 
         private void fillListOfClients() {

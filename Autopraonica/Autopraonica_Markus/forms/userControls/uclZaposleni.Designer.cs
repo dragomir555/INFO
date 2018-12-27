@@ -45,6 +45,7 @@
             // 
             // dgvEmployees
             // 
+            this.dgvEmployees.AllowUserToAddRows = false;
             this.dgvEmployees.AllowUserToResizeColumns = false;
             this.dgvEmployees.AllowUserToResizeRows = false;
             this.dgvEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -56,10 +57,11 @@
             this.colLastName,
             this.colPhoneNumber,
             this.colAddress});
-            this.dgvEmployees.Location = new System.Drawing.Point(32, 119);
+            this.dgvEmployees.Location = new System.Drawing.Point(13, 119);
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.RowHeadersVisible = false;
+            this.dgvEmployees.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmployees.Size = new System.Drawing.Size(802, 295);
             this.dgvEmployees.TabIndex = 4;
@@ -90,9 +92,9 @@
             this.btnNewEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewEmployee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnNewEmployee.Location = new System.Drawing.Point(52, 26);
+            this.btnNewEmployee.Location = new System.Drawing.Point(13, 26);
             this.btnNewEmployee.Name = "btnNewEmployee";
-            this.btnNewEmployee.Size = new System.Drawing.Size(187, 49);
+            this.btnNewEmployee.Size = new System.Drawing.Size(219, 49);
             this.btnNewEmployee.TabIndex = 5;
             this.btnNewEmployee.Text = "Novi zaposleni";
             this.btnNewEmployee.UseVisualStyleBackColor = false;
@@ -104,9 +106,9 @@
             this.btnUpdateEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateEmployee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(268, 26);
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(248, 26);
             this.btnUpdateEmployee.Name = "btnUpdateEmployee";
-            this.btnUpdateEmployee.Size = new System.Drawing.Size(187, 49);
+            this.btnUpdateEmployee.Size = new System.Drawing.Size(219, 49);
             this.btnUpdateEmployee.TabIndex = 6;
             this.btnUpdateEmployee.Text = "Izmjena zaposlenog";
             this.btnUpdateEmployee.UseVisualStyleBackColor = false;
@@ -118,9 +120,9 @@
             this.btnDeleteEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteEmployee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(487, 26);
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(486, 26);
             this.btnDeleteEmployee.Name = "btnDeleteEmployee";
-            this.btnDeleteEmployee.Size = new System.Drawing.Size(187, 49);
+            this.btnDeleteEmployee.Size = new System.Drawing.Size(219, 49);
             this.btnDeleteEmployee.TabIndex = 7;
             this.btnDeleteEmployee.Text = "Obrisi zaposlenog";
             this.btnDeleteEmployee.UseVisualStyleBackColor = false;
@@ -128,7 +130,7 @@
             // 
             // tbSearchEmployee
             // 
-            this.tbSearchEmployee.Location = new System.Drawing.Point(244, 90);
+            this.tbSearchEmployee.Location = new System.Drawing.Point(226, 92);
             this.tbSearchEmployee.Name = "tbSearchEmployee";
             this.tbSearchEmployee.Size = new System.Drawing.Size(360, 22);
             this.tbSearchEmployee.TabIndex = 8;
@@ -137,7 +139,7 @@
             // lblSrcEmp
             // 
             this.lblSrcEmp.AutoSize = true;
-            this.lblSrcEmp.Location = new System.Drawing.Point(29, 95);
+            this.lblSrcEmp.Location = new System.Drawing.Point(10, 95);
             this.lblSrcEmp.Name = "lblSrcEmp";
             this.lblSrcEmp.Size = new System.Drawing.Size(210, 17);
             this.lblSrcEmp.TabIndex = 9;
@@ -147,9 +149,10 @@
             // 
             this.rbPresent.AutoSize = true;
             this.rbPresent.Checked = true;
-            this.rbPresent.Location = new System.Drawing.Point(52, 435);
+            this.rbPresent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbPresent.Location = new System.Drawing.Point(13, 434);
             this.rbPresent.Name = "rbPresent";
-            this.rbPresent.Size = new System.Drawing.Size(82, 21);
+            this.rbPresent.Size = new System.Drawing.Size(123, 33);
             this.rbPresent.TabIndex = 10;
             this.rbPresent.TabStop = true;
             this.rbPresent.Text = "Trenutni";
@@ -159,9 +162,10 @@
             // rbPerfect
             // 
             this.rbPerfect.AutoSize = true;
-            this.rbPerfect.Location = new System.Drawing.Point(191, 435);
+            this.rbPerfect.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbPerfect.Location = new System.Drawing.Point(147, 434);
             this.rbPerfect.Name = "rbPerfect";
-            this.rbPerfect.Size = new System.Drawing.Size(58, 21);
+            this.rbPerfect.Size = new System.Drawing.Size(85, 33);
             this.rbPerfect.TabIndex = 11;
             this.rbPerfect.Text = "Bivsi";
             this.rbPerfect.UseVisualStyleBackColor = true;

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.label3 = new System.Windows.Forms.Label();
             this.cmbClients = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -122,7 +122,9 @@
             // 
             // lvUpSer
             // 
-            this.lvUpSer.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lvUpSer.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.lvUpSer.BackColor = System.Drawing.SystemColors.Menu;
+            this.lvUpSer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lvUpSer.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.hdSerNumSer,
             this.hdTypeSer,
@@ -132,8 +134,11 @@
             this.hdDtTime,
             this.hdLicPl,
             this.hdPrice});
+            this.lvUpSer.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvUpSer.HotTracking = true;
+            this.lvUpSer.HoverSelection = true;
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem4});
             this.lvUpSer.Location = new System.Drawing.Point(3, 192);
             this.lvUpSer.Name = "lvUpSer";
             this.lvUpSer.Size = new System.Drawing.Size(798, 210);
@@ -202,7 +207,7 @@
             this.lblGenBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenBill.Location = new System.Drawing.Point(16, 11);
             this.lblGenBill.Name = "lblGenBill";
-            this.lblGenBill.Size = new System.Drawing.Size(508, 39);
+            this.lblGenBill.Size = new System.Drawing.Size(488, 38);
             this.lblGenBill.TabIndex = 18;
             this.lblGenBill.Text = "Parametri za generisanje racuna";
             // 
@@ -238,7 +243,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnDspUnpSer;
         private System.Windows.Forms.ListView lvUpSer;
-        private System.Windows.Forms.ColumnHeader hdSerNumSer;
         private System.Windows.Forms.ColumnHeader hdTypeSer;
         private System.Windows.Forms.ColumnHeader hdFirstName;
         private System.Windows.Forms.ColumnHeader hdSecName;
@@ -248,5 +252,6 @@
         private System.Windows.Forms.ColumnHeader hdPrice;
         private System.Windows.Forms.ColumnHeader hdSubtypeSer;
         private System.Windows.Forms.Label lblGenBill;
+        private System.Windows.Forms.ColumnHeader hdSerNumSer;
     }
 }
