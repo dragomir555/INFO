@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StandByForm));
             this.lblLoggedUser = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblLoggedUser
@@ -66,6 +69,7 @@
             this.tbPassword.Size = new System.Drawing.Size(209, 26);
             this.tbPassword.TabIndex = 2;
             this.tbPassword.UseSystemPasswordChar = true;
+            this.tbPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbPassword_Validating);
             // 
             // lblName
             // 
@@ -93,6 +97,11 @@
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            // 
             // StandByForm
             // 
             this.AcceptButton = this.btnConfirm;
@@ -110,6 +119,8 @@
             this.Name = "StandByForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Markus";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StandByForm_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,5 +133,6 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

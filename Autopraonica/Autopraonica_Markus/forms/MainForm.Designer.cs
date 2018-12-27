@@ -37,6 +37,7 @@
             this.btnUsluge = new System.Windows.Forms.Button();
             this.btnTroskovnik = new System.Windows.Forms.Button();
             this.pnlStatus = new System.Windows.Forms.Panel();
+            this.cmbHelper = new System.Windows.Forms.ComboBox();
             this.btnRemoveHelper = new System.Windows.Forms.Button();
             this.btnAddHelper = new System.Windows.Forms.Button();
             this.lblHelper = new System.Windows.Forms.Label();
@@ -47,7 +48,8 @@
             this.pnlContent = new System.Windows.Forms.Panel();
             this.tlpMenu = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cmbHelper = new System.Windows.Forms.ComboBox();
+            this.btnPasswordChange = new System.Windows.Forms.Button();
+            this.btnInactive = new System.Windows.Forms.Button();
             this.pnlStatus.SuspendLayout();
             this.tlpMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -178,6 +180,8 @@
             this.pnlStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.pnlStatus.Controls.Add(this.btnInactive);
+            this.pnlStatus.Controls.Add(this.btnPasswordChange);
             this.pnlStatus.Controls.Add(this.cmbHelper);
             this.pnlStatus.Controls.Add(this.btnRemoveHelper);
             this.pnlStatus.Controls.Add(this.btnAddHelper);
@@ -192,13 +196,25 @@
             this.pnlStatus.TabIndex = 1;
             this.pnlStatus.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // cmbHelper
+            // 
+            this.cmbHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbHelper.FormattingEnabled = true;
+            this.cmbHelper.Location = new System.Drawing.Point(298, 38);
+            this.cmbHelper.Name = "cmbHelper";
+            this.cmbHelper.Size = new System.Drawing.Size(146, 26);
+            this.cmbHelper.TabIndex = 7;
+            this.cmbHelper.Visible = false;
+            this.cmbHelper.SelectionChangeCommitted += new System.EventHandler(this.cmbHelper_SelectionChangeCommitted);
+            this.cmbHelper.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbHelper_Format);
+            // 
             // btnRemoveHelper
             // 
             this.btnRemoveHelper.BackColor = System.Drawing.Color.White;
             this.btnRemoveHelper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveHelper.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnRemoveHelper.Location = new System.Drawing.Point(188, 38);
+            this.btnRemoveHelper.Location = new System.Drawing.Point(214, 37);
             this.btnRemoveHelper.Name = "btnRemoveHelper";
             this.btnRemoveHelper.Size = new System.Drawing.Size(78, 27);
             this.btnRemoveHelper.TabIndex = 6;
@@ -213,7 +229,7 @@
             this.btnAddHelper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddHelper.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnAddHelper.Location = new System.Drawing.Point(188, 37);
+            this.btnAddHelper.Location = new System.Drawing.Point(214, 37);
             this.btnAddHelper.Name = "btnAddHelper";
             this.btnAddHelper.Size = new System.Drawing.Size(78, 27);
             this.btnAddHelper.TabIndex = 5;
@@ -226,7 +242,7 @@
             this.lblHelper.AutoSize = true;
             this.lblHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHelper.ForeColor = System.Drawing.Color.White;
-            this.lblHelper.Location = new System.Drawing.Point(184, 10);
+            this.lblHelper.Location = new System.Drawing.Point(210, 10);
             this.lblHelper.Name = "lblHelper";
             this.lblHelper.Size = new System.Drawing.Size(82, 24);
             this.lblHelper.TabIndex = 4;
@@ -234,11 +250,12 @@
             // 
             // btnLogout
             // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogout.BackColor = System.Drawing.Color.White;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnLogout.Location = new System.Drawing.Point(24, 37);
+            this.btnLogout.Location = new System.Drawing.Point(456, 10);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(107, 27);
             this.btnLogout.TabIndex = 3;
@@ -263,7 +280,7 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(569, 38);
+            this.lblDate.Location = new System.Drawing.Point(580, 38);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(100, 24);
             this.lblDate.TabIndex = 1;
@@ -340,17 +357,34 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // cmbHelper
+            // btnPasswordChange
             // 
-            this.cmbHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbHelper.FormattingEnabled = true;
-            this.cmbHelper.Location = new System.Drawing.Point(272, 38);
-            this.cmbHelper.Name = "cmbHelper";
-            this.cmbHelper.Size = new System.Drawing.Size(146, 26);
-            this.cmbHelper.TabIndex = 7;
-            this.cmbHelper.Visible = false;
-            this.cmbHelper.SelectionChangeCommitted += new System.EventHandler(this.cmbHelper_SelectionChangeCommitted);
-            this.cmbHelper.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbHelper_Format);
+            this.btnPasswordChange.BackColor = System.Drawing.Color.White;
+            this.btnPasswordChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPasswordChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPasswordChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnPasswordChange.Location = new System.Drawing.Point(11, 38);
+            this.btnPasswordChange.Name = "btnPasswordChange";
+            this.btnPasswordChange.Size = new System.Drawing.Size(138, 27);
+            this.btnPasswordChange.TabIndex = 8;
+            this.btnPasswordChange.Text = "Promjeni lozinku";
+            this.btnPasswordChange.UseVisualStyleBackColor = false;
+            this.btnPasswordChange.Click += new System.EventHandler(this.btnPasswordChange_Click);
+            // 
+            // btnInactive
+            // 
+            this.btnInactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInactive.BackColor = System.Drawing.Color.White;
+            this.btnInactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInactive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnInactive.Location = new System.Drawing.Point(456, 38);
+            this.btnInactive.Name = "btnInactive";
+            this.btnInactive.Size = new System.Drawing.Size(107, 27);
+            this.btnInactive.TabIndex = 9;
+            this.btnInactive.Text = "Neaktivan";
+            this.btnInactive.UseVisualStyleBackColor = false;
+            this.btnInactive.Click += new System.EventHandler(this.btnInactive_Click);
             // 
             // MainForm
             // 
@@ -394,6 +428,8 @@
         private System.Windows.Forms.Button btnAddHelper;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cmbHelper;
+        private System.Windows.Forms.Button btnPasswordChange;
+        private System.Windows.Forms.Button btnInactive;
     }
 }
 

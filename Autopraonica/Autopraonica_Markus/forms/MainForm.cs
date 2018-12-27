@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Autopraonica_Markus.forms.userControls;
 using Autopraonica_Markus.forms;
 using Autopraonica_Markus.Model.Entities;
+using Autopraonica_Markus.forms.loginForms;
 
 namespace Autopraonica_Markus
 {
@@ -180,7 +181,7 @@ namespace Autopraonica_Markus
         void timer_Tick(object sender, EventArgs e)
         {
             lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
-            lblDate.Text = DateTime.Now.ToString("MMM dd yyyy");
+            lblDate.Text = DateTime.Now.ToString("dd.MM.yyyy");
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -382,6 +383,25 @@ namespace Autopraonica_Markus
                 {
                     helpingEmployee = null;
                 }
+            }
+        }
+
+        private void btnInactive_Click(object sender, EventArgs e)
+        {
+            StandByForm sbf = new StandByForm(employee);
+            sbf.ShowDialog();
+        }
+
+        private void btnPasswordChange_Click(object sender, EventArgs e)
+        {
+            using (MarkusDb context = new MarkusDb())
+            {
+                var employment = (from c in context.employments
+                                  where c.Employee_Id == employee.Id &&
+                                  c.DateTo == null
+                                  select c).ToList();
+                PasswordChangeForm pcf = new PasswordChangeForm(employment[0], this, 1);
+                pcf.ShowDialog();
             }
         }
     }
