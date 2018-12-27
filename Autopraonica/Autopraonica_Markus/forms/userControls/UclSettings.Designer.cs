@@ -35,20 +35,20 @@
             this.lblAccountNumber = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.tbUID = new System.Windows.Forms.TextBox();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.tbPhoneNumber = new System.Windows.Forms.TextBox();
+            this.tbAccountNumber = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(130, 50);
+            this.lblName.Location = new System.Drawing.Point(80, 30);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(142, 16);
             this.lblName.TabIndex = 0;
@@ -57,7 +57,7 @@
             // lblUID
             // 
             this.lblUID.AutoSize = true;
-            this.lblUID.Location = new System.Drawing.Point(130, 100);
+            this.lblUID.Location = new System.Drawing.Point(80, 70);
             this.lblUID.Name = "lblUID";
             this.lblUID.Size = new System.Drawing.Size(30, 16);
             this.lblUID.TabIndex = 1;
@@ -66,7 +66,7 @@
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(130, 150);
+            this.lblAddress.Location = new System.Drawing.Point(80, 110);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(58, 16);
             this.lblAddress.TabIndex = 2;
@@ -75,7 +75,7 @@
             // lblPhoneNumber
             // 
             this.lblPhoneNumber.AutoSize = true;
-            this.lblPhoneNumber.Location = new System.Drawing.Point(130, 200);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(80, 150);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
             this.lblPhoneNumber.Size = new System.Drawing.Size(96, 16);
             this.lblPhoneNumber.TabIndex = 3;
@@ -84,7 +84,7 @@
             // lblAccountNumber
             // 
             this.lblAccountNumber.AutoSize = true;
-            this.lblAccountNumber.Location = new System.Drawing.Point(130, 250);
+            this.lblAccountNumber.Location = new System.Drawing.Point(80, 190);
             this.lblAccountNumber.Name = "lblAccountNumber";
             this.lblAccountNumber.Size = new System.Drawing.Size(87, 16);
             this.lblAccountNumber.TabIndex = 4;
@@ -93,7 +93,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(130, 300);
+            this.lblEmail.Location = new System.Drawing.Point(80, 230);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(105, 16);
             this.lblEmail.TabIndex = 5;
@@ -102,77 +102,78 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(130, 350);
+            this.lblPassword.Location = new System.Drawing.Point(80, 270);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(61, 16);
             this.lblPassword.TabIndex = 6;
             this.lblPassword.Text = "Lozinka";
             // 
-            // textBox1
+            // tbName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(500, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(380, 26);
-            this.textBox1.TabIndex = 7;
+            this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbName.Location = new System.Drawing.Point(300, 20);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(320, 26);
+            this.tbName.TabIndex = 7;
             // 
-            // textBox2
+            // tbUID
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(500, 90);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(380, 26);
-            this.textBox2.TabIndex = 8;
+            this.tbUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUID.Location = new System.Drawing.Point(300, 60);
+            this.tbUID.Name = "tbUID";
+            this.tbUID.Size = new System.Drawing.Size(320, 26);
+            this.tbUID.TabIndex = 8;
             // 
-            // textBox3
+            // tbAddress
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(500, 140);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(380, 26);
-            this.textBox3.TabIndex = 9;
+            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAddress.Location = new System.Drawing.Point(300, 100);
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(320, 26);
+            this.tbAddress.TabIndex = 9;
             // 
-            // textBox4
+            // tbPhoneNumber
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(500, 190);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(380, 26);
-            this.textBox4.TabIndex = 10;
+            this.tbPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPhoneNumber.Location = new System.Drawing.Point(300, 140);
+            this.tbPhoneNumber.Name = "tbPhoneNumber";
+            this.tbPhoneNumber.Size = new System.Drawing.Size(320, 26);
+            this.tbPhoneNumber.TabIndex = 10;
             // 
-            // textBox5
+            // tbAccountNumber
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(500, 240);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(380, 26);
-            this.textBox5.TabIndex = 11;
+            this.tbAccountNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAccountNumber.Location = new System.Drawing.Point(300, 180);
+            this.tbAccountNumber.Name = "tbAccountNumber";
+            this.tbAccountNumber.Size = new System.Drawing.Size(320, 26);
+            this.tbAccountNumber.TabIndex = 11;
             // 
-            // textBox6
+            // tbEmail
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(500, 290);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(380, 26);
-            this.textBox6.TabIndex = 12;
+            this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEmail.Location = new System.Drawing.Point(300, 220);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(320, 26);
+            this.tbEmail.TabIndex = 12;
             // 
-            // textBox7
+            // tbPassword
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(500, 340);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(380, 26);
-            this.textBox7.TabIndex = 13;
-            this.textBox7.UseSystemPasswordChar = true;
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword.Location = new System.Drawing.Point(300, 260);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(320, 26);
+            this.tbPassword.TabIndex = 13;
+            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnSave.Enabled = false;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(770, 400);
+            this.btnSave.Location = new System.Drawing.Point(510, 315);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 35);
             this.btnSave.TabIndex = 14;
@@ -185,13 +186,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbPassword);
+            this.Controls.Add(this.tbEmail);
+            this.Controls.Add(this.tbAccountNumber);
+            this.Controls.Add(this.tbPhoneNumber);
+            this.Controls.Add(this.tbAddress);
+            this.Controls.Add(this.tbUID);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblAccountNumber);
@@ -201,9 +202,9 @@
             this.Controls.Add(this.lblName);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UclSettings";
-            this.Size = new System.Drawing.Size(1024, 470);
+            this.Size = new System.Drawing.Size(685, 391);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,13 +219,13 @@
         private System.Windows.Forms.Label lblAccountNumber;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.TextBox tbUID;
+        private System.Windows.Forms.TextBox tbAddress;
+        private System.Windows.Forms.TextBox tbPhoneNumber;
+        private System.Windows.Forms.TextBox tbAccountNumber;
+        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnSave;
     }
 }

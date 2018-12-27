@@ -140,6 +140,7 @@ namespace Autopraonica_Markus.forms
         {
             if(this.DialogResult == DialogResult.None)
             {
+                mainForm.WindowState = FormWindowState.Minimized;
                 mainForm.ChangeAllowShowDisplay();
                 mainForm.Close();
             }
