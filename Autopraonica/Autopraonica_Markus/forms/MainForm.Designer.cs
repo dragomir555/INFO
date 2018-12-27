@@ -37,6 +37,8 @@
             this.btnUsluge = new System.Windows.Forms.Button();
             this.btnTroskovnik = new System.Windows.Forms.Button();
             this.pnlStatus = new System.Windows.Forms.Panel();
+            this.btnInactive = new System.Windows.Forms.Button();
+            this.btnPasswordChange = new System.Windows.Forms.Button();
             this.cmbHelper = new System.Windows.Forms.ComboBox();
             this.btnRemoveHelper = new System.Windows.Forms.Button();
             this.btnAddHelper = new System.Windows.Forms.Button();
@@ -48,8 +50,7 @@
             this.pnlContent = new System.Windows.Forms.Panel();
             this.tlpMenu = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnPasswordChange = new System.Windows.Forms.Button();
-            this.btnInactive = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.pnlStatus.SuspendLayout();
             this.tlpMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,9 +65,9 @@
             this.btnIzdRac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIzdRac.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnIzdRac.ForeColor = System.Drawing.Color.White;
-            this.btnIzdRac.Location = new System.Drawing.Point(3, 353);
+            this.btnIzdRac.Location = new System.Drawing.Point(3, 329);
             this.btnIzdRac.Name = "btnIzdRac";
-            this.btnIzdRac.Size = new System.Drawing.Size(194, 40);
+            this.btnIzdRac.Size = new System.Drawing.Size(194, 36);
             this.btnIzdRac.TabIndex = 0;
             this.btnIzdRac.Text = "Izdavanje računa";
             this.btnIzdRac.UseVisualStyleBackColor = true;
@@ -81,9 +82,9 @@
             this.btnStatistika.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistika.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnStatistika.ForeColor = System.Drawing.Color.White;
-            this.btnStatistika.Location = new System.Drawing.Point(3, 399);
+            this.btnStatistika.Location = new System.Drawing.Point(3, 371);
             this.btnStatistika.Name = "btnStatistika";
-            this.btnStatistika.Size = new System.Drawing.Size(194, 40);
+            this.btnStatistika.Size = new System.Drawing.Size(194, 36);
             this.btnStatistika.TabIndex = 3;
             this.btnStatistika.Text = "Statistika";
             this.btnStatistika.UseVisualStyleBackColor = true;
@@ -98,9 +99,9 @@
             this.btnZaposleni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZaposleni.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnZaposleni.ForeColor = System.Drawing.Color.White;
-            this.btnZaposleni.Location = new System.Drawing.Point(3, 307);
+            this.btnZaposleni.Location = new System.Drawing.Point(3, 287);
             this.btnZaposleni.Name = "btnZaposleni";
-            this.btnZaposleni.Size = new System.Drawing.Size(194, 40);
+            this.btnZaposleni.Size = new System.Drawing.Size(194, 36);
             this.btnZaposleni.TabIndex = 2;
             this.btnZaposleni.Text = "Zaposleni";
             this.btnZaposleni.UseVisualStyleBackColor = true;
@@ -115,9 +116,9 @@
             this.btnKlijenti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKlijenti.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnKlijenti.ForeColor = System.Drawing.Color.White;
-            this.btnKlijenti.Location = new System.Drawing.Point(3, 261);
+            this.btnKlijenti.Location = new System.Drawing.Point(3, 245);
             this.btnKlijenti.Name = "btnKlijenti";
-            this.btnKlijenti.Size = new System.Drawing.Size(194, 40);
+            this.btnKlijenti.Size = new System.Drawing.Size(194, 36);
             this.btnKlijenti.TabIndex = 0;
             this.btnKlijenti.Text = "Klijenti";
             this.btnKlijenti.UseVisualStyleBackColor = true;
@@ -132,9 +133,9 @@
             this.btnCjenovnik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCjenovnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCjenovnik.ForeColor = System.Drawing.Color.White;
-            this.btnCjenovnik.Location = new System.Drawing.Point(3, 215);
+            this.btnCjenovnik.Location = new System.Drawing.Point(3, 203);
             this.btnCjenovnik.Name = "btnCjenovnik";
-            this.btnCjenovnik.Size = new System.Drawing.Size(194, 40);
+            this.btnCjenovnik.Size = new System.Drawing.Size(194, 36);
             this.btnCjenovnik.TabIndex = 0;
             this.btnCjenovnik.Text = "Cjenovnik";
             this.btnCjenovnik.UseVisualStyleBackColor = true;
@@ -150,9 +151,9 @@
             this.btnUsluge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsluge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnUsluge.ForeColor = System.Drawing.Color.White;
-            this.btnUsluge.Location = new System.Drawing.Point(3, 123);
+            this.btnUsluge.Location = new System.Drawing.Point(3, 119);
             this.btnUsluge.Name = "btnUsluge";
-            this.btnUsluge.Size = new System.Drawing.Size(194, 40);
+            this.btnUsluge.Size = new System.Drawing.Size(194, 36);
             this.btnUsluge.TabIndex = 0;
             this.btnUsluge.Text = "Usluge";
             this.btnUsluge.UseVisualStyleBackColor = true;
@@ -167,9 +168,9 @@
             this.btnTroskovnik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTroskovnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnTroskovnik.ForeColor = System.Drawing.Color.White;
-            this.btnTroskovnik.Location = new System.Drawing.Point(3, 169);
+            this.btnTroskovnik.Location = new System.Drawing.Point(3, 161);
             this.btnTroskovnik.Name = "btnTroskovnik";
-            this.btnTroskovnik.Size = new System.Drawing.Size(194, 40);
+            this.btnTroskovnik.Size = new System.Drawing.Size(194, 36);
             this.btnTroskovnik.TabIndex = 1;
             this.btnTroskovnik.Text = "Troškovnik";
             this.btnTroskovnik.UseVisualStyleBackColor = true;
@@ -195,6 +196,35 @@
             this.pnlStatus.Size = new System.Drawing.Size(684, 70);
             this.pnlStatus.TabIndex = 1;
             this.pnlStatus.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // btnInactive
+            // 
+            this.btnInactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInactive.BackColor = System.Drawing.Color.White;
+            this.btnInactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInactive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnInactive.Location = new System.Drawing.Point(456, 38);
+            this.btnInactive.Name = "btnInactive";
+            this.btnInactive.Size = new System.Drawing.Size(107, 27);
+            this.btnInactive.TabIndex = 9;
+            this.btnInactive.Text = "Neaktivan";
+            this.btnInactive.UseVisualStyleBackColor = false;
+            this.btnInactive.Click += new System.EventHandler(this.btnInactive_Click);
+            // 
+            // btnPasswordChange
+            // 
+            this.btnPasswordChange.BackColor = System.Drawing.Color.White;
+            this.btnPasswordChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPasswordChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPasswordChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnPasswordChange.Location = new System.Drawing.Point(11, 38);
+            this.btnPasswordChange.Name = "btnPasswordChange";
+            this.btnPasswordChange.Size = new System.Drawing.Size(138, 27);
+            this.btnPasswordChange.TabIndex = 8;
+            this.btnPasswordChange.Text = "Promjeni lozinku";
+            this.btnPasswordChange.UseVisualStyleBackColor = false;
+            this.btnPasswordChange.Click += new System.EventHandler(this.btnPasswordChange_Click);
             // 
             // cmbHelper
             // 
@@ -328,19 +358,21 @@
             this.tlpMenu.Controls.Add(this.btnCjenovnik, 0, 4);
             this.tlpMenu.Controls.Add(this.btnTroskovnik, 0, 3);
             this.tlpMenu.Controls.Add(this.pictureBox1, 0, 0);
+            this.tlpMenu.Controls.Add(this.btnSettings, 0, 9);
             this.tlpMenu.Location = new System.Drawing.Point(0, 0);
             this.tlpMenu.Name = "tlpMenu";
-            this.tlpMenu.RowCount = 10;
+            this.tlpMenu.RowCount = 11;
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22F));
-            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
-            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3F));
             this.tlpMenu.Size = new System.Drawing.Size(200, 467);
             this.tlpMenu.TabIndex = 4;
             this.tlpMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpContent_Paint);
@@ -358,34 +390,22 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // btnPasswordChange
+            // btnSettings
             // 
-            this.btnPasswordChange.BackColor = System.Drawing.Color.White;
-            this.btnPasswordChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPasswordChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPasswordChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnPasswordChange.Location = new System.Drawing.Point(11, 38);
-            this.btnPasswordChange.Name = "btnPasswordChange";
-            this.btnPasswordChange.Size = new System.Drawing.Size(138, 27);
-            this.btnPasswordChange.TabIndex = 8;
-            this.btnPasswordChange.Text = "Promjeni lozinku";
-            this.btnPasswordChange.UseVisualStyleBackColor = false;
-            this.btnPasswordChange.Click += new System.EventHandler(this.btnPasswordChange_Click);
-            // 
-            // btnInactive
-            // 
-            this.btnInactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInactive.BackColor = System.Drawing.Color.White;
-            this.btnInactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInactive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnInactive.Location = new System.Drawing.Point(456, 38);
-            this.btnInactive.Name = "btnInactive";
-            this.btnInactive.Size = new System.Drawing.Size(107, 27);
-            this.btnInactive.TabIndex = 9;
-            this.btnInactive.Text = "Neaktivan";
-            this.btnInactive.UseVisualStyleBackColor = false;
-            this.btnInactive.Click += new System.EventHandler(this.btnInactive_Click);
+            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.ForeColor = System.Drawing.Color.White;
+            this.btnSettings.Location = new System.Drawing.Point(3, 413);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(194, 36);
+            this.btnSettings.TabIndex = 5;
+            this.btnSettings.Text = "Podešavanja";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // MainForm
             // 
@@ -431,6 +451,7 @@
         private System.Windows.Forms.ComboBox cmbHelper;
         private System.Windows.Forms.Button btnPasswordChange;
         private System.Windows.Forms.Button btnInactive;
+        private System.Windows.Forms.Button btnSettings;
     }
 }
 

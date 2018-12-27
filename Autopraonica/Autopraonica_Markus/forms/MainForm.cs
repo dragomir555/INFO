@@ -404,5 +404,22 @@ namespace Autopraonica_Markus
                 pcf.ShowDialog();
             }
         }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            if (!pnlContent.Controls.Contains(UclSettings.Instance))
+            {
+                pnlContent.Controls.Add(UclSettings.Instance);
+                UclSettings.Instance.Dock = DockStyle.Fill;
+                UclSettings.Instance.BringToFront();
+            }
+            else
+            {
+                UclSettings.Instance.BringToFront();
+            }
+            PressedButton.BackColor = Color.FromArgb(107, 65, 150);
+            btnSettings.BackColor = Color.FromArgb(93, 46, 140);
+            PressedButton = btnSettings;
+        }
     }
 }
