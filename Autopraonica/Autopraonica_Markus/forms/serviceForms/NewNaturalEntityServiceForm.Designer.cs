@@ -60,6 +60,7 @@
             // 
             // cmbServiceType
             // 
+            this.cmbServiceType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbServiceType.FormattingEnabled = true;
             this.cmbServiceType.Location = new System.Drawing.Point(229, 18);
@@ -70,6 +71,7 @@
             // 
             // cmbPricelistItem
             // 
+            this.cmbPricelistItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPricelistItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPricelistItem.FormattingEnabled = true;
             this.cmbPricelistItem.Location = new System.Drawing.Point(229, 68);
@@ -102,6 +104,7 @@
             // 
             // cmbCarBrand
             // 
+            this.cmbCarBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCarBrand.FormattingEnabled = true;
             this.cmbCarBrand.Location = new System.Drawing.Point(229, 118);

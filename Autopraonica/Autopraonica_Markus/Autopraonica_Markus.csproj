@@ -199,6 +199,12 @@
     <Compile Include="forms\userControls\uclKlijenti.Designer.cs">
       <DependentUpon>uclKlijenti.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\userControls\UclSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\userControls\UclSettings.Designer.cs">
+      <DependentUpon>UclSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\userControls\uclStatistika.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -304,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\userControls\uclKlijenti.resx">
       <DependentUpon>uclKlijenti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\userControls\UclSettings.resx">
+      <DependentUpon>UclSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\userControls\uclStatistika.resx">
       <DependentUpon>uclStatistika.cs</DependentUpon>
