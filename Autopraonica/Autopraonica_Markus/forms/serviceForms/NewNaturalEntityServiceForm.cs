@@ -216,7 +216,7 @@ namespace Autopraonica_Markus.forms.serviceForms
             // checks to make sure only 1 decimal is allowed
             if (e.KeyChar == 46)
             {
-                if ((sender as TextBox).Text.IndexOf(e.KeyChar) != -1)
+                if ((sender as TextBox).Text.IndexOf(e.KeyChar) != -1 || (sender as TextBox).Text.Length == 0)
                     e.Handled = true;
             }
         }
@@ -238,12 +238,12 @@ namespace Autopraonica_Markus.forms.serviceForms
             {
                 e.Cancel = true;
                 tbCarpetSize.Focus();
-                errCarpetSize.SetError(tbCarpetSize, "Niste unijeli kvadraturu opranog tepiha.");
+                errorProvider.SetError(tbCarpetSize, "Niste unijeli kvadraturu opranog tepiha.");
             }
             else
             {
-                //e.Cancel = true;
-                errCarpetSize.SetError(tbCarpetSize, null);
+                e.Cancel = false;
+                errorProvider.SetError(tbCarpetSize, null);
             }
         }
 
@@ -253,12 +253,12 @@ namespace Autopraonica_Markus.forms.serviceForms
             {
                 e.Cancel = true;
                 tbPrice.Focus();
-                errPrice.SetError(tbPrice, "Niste unijeli cijenu usluge.");
+                errorProvider.SetError(tbPrice, "Niste unijeli cijenu usluge.");
             }
             else
             {
-                //e.Cancel = true;
-                errPrice.SetError(tbPrice, null);
+                e.Cancel = false;
+                errorProvider.SetError(tbPrice, null);
             }
         }
     }

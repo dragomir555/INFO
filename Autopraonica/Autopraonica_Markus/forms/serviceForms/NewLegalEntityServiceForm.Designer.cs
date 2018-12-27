@@ -50,17 +50,9 @@
             this.lblLicencePlates = new System.Windows.Forms.Label();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
-            this.errFirstName = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errLastName = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errLicencePlates = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errCarpetSize = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.mtbLicencePlate = new System.Windows.Forms.MaskedTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.errFirstName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errLastName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errLicencePlates)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errCarpetSize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblServiceType
@@ -148,7 +140,7 @@
             this.lblPrice.Location = new System.Drawing.Point(30, 380);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(52, 16);
-            this.lblPrice.TabIndex = 1;
+            this.lblPrice.TabIndex = 0;
             this.lblPrice.Text = "Cijena";
             // 
             // lblCarpetSize
@@ -183,7 +175,7 @@
             this.btnConfirm.Location = new System.Drawing.Point(200, 430);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(140, 35);
-            this.btnConfirm.TabIndex = 0;
+            this.btnConfirm.TabIndex = 9;
             this.btnConfirm.Text = "Potvrdi";
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
@@ -199,7 +191,7 @@
             this.btnCancel.Location = new System.Drawing.Point(359, 430);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(140, 35);
-            this.btnCancel.TabIndex = 0;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Otkaži";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -285,30 +277,10 @@
             this.tbLastName.TabIndex = 3;
             this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.tbLastName_Validating);
             // 
-            // errFirstName
+            // errorProvider
             // 
-            this.errFirstName.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errFirstName.ContainerControl = this;
-            // 
-            // errLastName
-            // 
-            this.errLastName.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errLastName.ContainerControl = this;
-            // 
-            // errLicencePlates
-            // 
-            this.errLicencePlates.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errLicencePlates.ContainerControl = this;
-            // 
-            // errCarpetSize
-            // 
-            this.errCarpetSize.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errCarpetSize.ContainerControl = this;
-            // 
-            // errPrice
-            // 
-            this.errPrice.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errPrice.ContainerControl = this;
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
             // 
             // mtbLicencePlate
             // 
@@ -317,7 +289,7 @@
             this.mtbLicencePlate.Mask = "A00-L-000";
             this.mtbLicencePlate.Name = "mtbLicencePlate";
             this.mtbLicencePlate.Size = new System.Drawing.Size(270, 26);
-            this.mtbLicencePlate.TabIndex = 9;
+            this.mtbLicencePlate.TabIndex = 4;
             this.mtbLicencePlate.Validating += new System.ComponentModel.CancelEventHandler(this.mtbLicencePlate_Validating);
             // 
             // NewLegalEntityServiceForm
@@ -353,11 +325,7 @@
             this.Name = "NewLegalEntityServiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Markus";
-            ((System.ComponentModel.ISupportInitialize)(this.errFirstName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errLastName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errLicencePlates)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errCarpetSize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,11 +353,7 @@
         private System.Windows.Forms.Label lblLicencePlates;
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.TextBox tbLastName;
-        private System.Windows.Forms.ErrorProvider errFirstName;
-        private System.Windows.Forms.ErrorProvider errLastName;
-        private System.Windows.Forms.ErrorProvider errLicencePlates;
-        private System.Windows.Forms.ErrorProvider errCarpetSize;
-        private System.Windows.Forms.ErrorProvider errPrice;
+        private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.MaskedTextBox mtbLicencePlate;
     }
 }

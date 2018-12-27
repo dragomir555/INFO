@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.label3 = new System.Windows.Forms.Label();
             this.cmbClients = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,13 +46,14 @@
             this.hdLicPl = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnGenBill = new System.Windows.Forms.Button();
+            this.lblGenBill = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 61);
+            this.label3.Location = new System.Drawing.Point(16, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(137, 25);
             this.label3.TabIndex = 12;
@@ -62,7 +63,7 @@
             // 
             this.cmbClients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbClients.FormattingEnabled = true;
-            this.cmbClients.Location = new System.Drawing.Point(172, 60);
+            this.cmbClients.Location = new System.Drawing.Point(172, 83);
             this.cmbClients.Name = "cmbClients";
             this.cmbClients.Size = new System.Drawing.Size(247, 26);
             this.cmbClients.TabIndex = 11;
@@ -72,7 +73,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 101);
+            this.label1.Location = new System.Drawing.Point(16, 131);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 25);
             this.label1.TabIndex = 9;
@@ -80,7 +81,7 @@
             // 
             // dtpDateFrom
             // 
-            this.dtpDateFrom.Location = new System.Drawing.Point(172, 101);
+            this.dtpDateFrom.Location = new System.Drawing.Point(172, 134);
             this.dtpDateFrom.Name = "dtpDateFrom";
             this.dtpDateFrom.Size = new System.Drawing.Size(247, 22);
             this.dtpDateFrom.TabIndex = 7;
@@ -132,7 +133,7 @@
             this.hdLicPl,
             this.hdPrice});
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem1});
             this.lvUpSer.Location = new System.Drawing.Point(3, 192);
             this.lvUpSer.Name = "lvUpSer";
             this.lvUpSer.Size = new System.Drawing.Size(798, 210);
@@ -195,10 +196,21 @@
             this.btnGenBill.UseVisualStyleBackColor = false;
             this.btnGenBill.Click += new System.EventHandler(this.btnGenBill_Click);
             // 
+            // lblGenBill
+            // 
+            this.lblGenBill.AutoSize = true;
+            this.lblGenBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenBill.Location = new System.Drawing.Point(16, 11);
+            this.lblGenBill.Name = "lblGenBill";
+            this.lblGenBill.Size = new System.Drawing.Size(508, 39);
+            this.lblGenBill.TabIndex = 18;
+            this.lblGenBill.Text = "Parametri za generisanje racuna";
+            // 
             // uclIzdavanjeRacuna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblGenBill);
             this.Controls.Add(this.btnGenBill);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.label4);
@@ -235,5 +247,6 @@
         private System.Windows.Forms.ColumnHeader hdLicPl;
         private System.Windows.Forms.ColumnHeader hdPrice;
         private System.Windows.Forms.ColumnHeader hdSubtypeSer;
+        private System.Windows.Forms.Label lblGenBill;
     }
 }

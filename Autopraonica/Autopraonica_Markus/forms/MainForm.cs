@@ -18,6 +18,7 @@ namespace Autopraonica_Markus
         private Button PressedButton;
         private Timer timer = new Timer();
         private employee employee;
+        private employee helpingEmployee;
 
         private bool allowShowDisplay = false;
 
@@ -25,6 +26,7 @@ namespace Autopraonica_Markus
         {
             InitializeComponent();
             employee = null;
+            helpingEmployee = null;
             if (!pnlContent.Controls.Contains(uclUsluge.Instance))
             {
                 pnlContent.Controls.Add(uclUsluge.Instance);
@@ -200,10 +202,32 @@ namespace Autopraonica_Markus
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            SaveLogoutTime();
-            this.Hide();
-            LoginForm loginForm = new LoginForm(this);
-            loginForm.Show();
+            if (helpingEmployee != null)
+            {
+                DialogResult dialogResult = MessageBox.Show("Ukoliko nastavite i ispomoć će biti odjavljena. Da li ste sigurni da želite da nastavite?",
+                "Markus", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    SaveLogoutTime();
+                    SaveHelperLogoutTime();
+                    btnAddHelper.Visible = true;
+                    btnRemoveHelper.Visible = false;
+                    lblHelper.Text = "Ispomoć";
+                    employee = null;
+                    helpingEmployee = null;
+                    this.Hide();
+                    LoginForm loginForm = new LoginForm(this);
+                    loginForm.Show();
+                }
+            }
+            else
+            {
+                SaveLogoutTime();
+                employee = null;
+                this.Hide();
+                LoginForm loginForm = new LoginForm(this);
+                loginForm.Show();
+            }
         }
 
         private void SaveLogoutTime()
@@ -212,11 +236,26 @@ namespace Autopraonica_Markus
             {
                 var ers = (from c in context.employeerecords
                            where c.Employee_Id == employee.Id &&
-                           c.LogoutTime == null
-                           select c).ToList();
+                           c.LogoutTime == null select c).ToList();
                 var employeerecord = (employeerecord)ers[0];
                 context.employeerecords.Attach(employeerecord);
                 employeerecord.LogoutTime = DateTime.Now;
+                context.SaveChanges();
+            }
+        }
+
+        private void SaveHelperLogoutTime()
+        {
+            using(MarkusDb context = new MarkusDb())
+            {
+                Console.WriteLine("HelpingEmployee_Id " + helpingEmployee.Id + " Employee_Id " + employee.Id);
+                var hers = (from c in context.helpingemployeerecords
+                            where c.HelpingEmployee_Id == helpingEmployee.Id &&
+                            /*c.Employee_Id == employee.Id &&*/
+                            c.LogoutTime == null select c).ToList();
+                var helpingemployeerecord = (helpingemployeerecord)hers[0];
+                context.helpingemployeerecords.Attach(helpingemployeerecord);
+                helpingemployeerecord.LogoutTime = DateTime.Now;
                 context.SaveChanges();
             }
         }
@@ -250,10 +289,99 @@ namespace Autopraonica_Markus
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Treba pitati korisnika da li zeli da zatvori aplikaciju bez odjave
-            if(employee != null)
+            if (employee != null)
             {
-                SaveLogoutTime();
+                DialogResult dialogResult = MessageBox.Show("Ukoliko nastavite bićete odjavljeni sa sistema. Da li ste sigurni da želite da zatvorite aplikaciju?",
+                    "Markus", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    SaveLogoutTime();
+                    if (helpingEmployee != null)
+                    {
+                        SaveHelperLogoutTime();
+                    }
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void btnRemoveHelper_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Da li se sigurni da zelite da uklonite ispomoć?",
+                "Markus", MessageBoxButtons.YesNo);
+            if(dialogResult == DialogResult.Yes)
+            {
+                uclUsluge.Instance.RemoveHelpingEmployee();
+                SaveHelperLogoutTime();
+                lblHelper.Text = "Ispomoć";
+                btnAddHelper.Visible = true;
+                btnRemoveHelper.Visible = false;
+            }
+        }
+
+        private void btnAddHelper_Click(object sender, EventArgs e)
+        {
+            using(MarkusDb context = new MarkusDb())
+            {
+                var employees = (from c1 in context.employees /*join c2 in context.employments
+                                 on c1.Id equals c2.Employee_Id
+                                 where c1.Id != employee.Id &&
+                                 c2.DateTo == null*/ select c1).ToList();
+                var newEmployee = new employee()
+                {
+                    FirstName = "Odaberi",
+                    LastName = "ispomoć"
+                };
+                employees.Insert(0, newEmployee);
+                cmbHelper.DataSource = employees;
+                cmbHelper.DisplayMember = "FirstName";
+                cmbHelper.ValueMember = "Id";
+                cmbHelper.Visible = true;
+            }
+        }
+
+        private void cmbHelper_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string firstName = ((employee)e.ListItem).FirstName;
+            string lastName = ((employee)e.ListItem).LastName;
+            e.Value = firstName + " " + lastName;
+        }
+
+        private void cmbHelper_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cmbHelper.SelectedIndex != 0)
+            {
+                helpingEmployee = (employee)cmbHelper.SelectedItem;
+                DialogResult dialogResult = MessageBox.Show("Da li se sigurni da zelite da dodate zaposlenog " +
+                    helpingEmployee.FirstName + " " + helpingEmployee.LastName +
+                    " kao ispomoć?", "Markus", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    lblHelper.Text = "Ispomoć: " + helpingEmployee.FirstName + " " + helpingEmployee.LastName;
+                    btnAddHelper.Visible = false;
+                    btnRemoveHelper.Visible = true;
+                    cmbHelper.Visible = false;
+                    uclUsluge.Instance.SetHelpingEmployee(helpingEmployee);
+                    using (MarkusDb context = new MarkusDb())
+                    {
+                        var her = new helpingemployeerecord()
+                        {
+                            Employee_Id = employee.Id,
+                            HelpingEmployee_Id = (helpingEmployee).Id,
+                            LoginTime = DateTime.Now,
+                            LogoutTime = null
+                        };
+                        context.helpingemployeerecords.Add(her);
+                        context.SaveChanges();
+                    }
+                }
+                else
+                {
+                    helpingEmployee = null;
+                }
             }
         }
     }

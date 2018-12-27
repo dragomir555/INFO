@@ -47,6 +47,7 @@
             this.pnlContent = new System.Windows.Forms.Panel();
             this.tlpMenu = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbHelper = new System.Windows.Forms.ComboBox();
             this.pnlStatus.SuspendLayout();
             this.tlpMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -177,6 +178,7 @@
             this.pnlStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.pnlStatus.Controls.Add(this.cmbHelper);
             this.pnlStatus.Controls.Add(this.btnRemoveHelper);
             this.pnlStatus.Controls.Add(this.btnAddHelper);
             this.pnlStatus.Controls.Add(this.lblHelper);
@@ -192,21 +194,32 @@
             // 
             // btnRemoveHelper
             // 
-            this.btnRemoveHelper.Location = new System.Drawing.Point(227, 41);
+            this.btnRemoveHelper.BackColor = System.Drawing.Color.White;
+            this.btnRemoveHelper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveHelper.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnRemoveHelper.Location = new System.Drawing.Point(188, 38);
             this.btnRemoveHelper.Name = "btnRemoveHelper";
-            this.btnRemoveHelper.Size = new System.Drawing.Size(23, 23);
+            this.btnRemoveHelper.Size = new System.Drawing.Size(78, 27);
             this.btnRemoveHelper.TabIndex = 6;
-            this.btnRemoveHelper.Text = "X";
-            this.btnRemoveHelper.UseVisualStyleBackColor = true;
+            this.btnRemoveHelper.Text = "Ukloni";
+            this.btnRemoveHelper.UseVisualStyleBackColor = false;
+            this.btnRemoveHelper.Visible = false;
+            this.btnRemoveHelper.Click += new System.EventHandler(this.btnRemoveHelper_Click);
             // 
             // btnAddHelper
             // 
-            this.btnAddHelper.Location = new System.Drawing.Point(198, 41);
+            this.btnAddHelper.BackColor = System.Drawing.Color.White;
+            this.btnAddHelper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddHelper.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnAddHelper.Location = new System.Drawing.Point(188, 37);
             this.btnAddHelper.Name = "btnAddHelper";
-            this.btnAddHelper.Size = new System.Drawing.Size(23, 23);
+            this.btnAddHelper.Size = new System.Drawing.Size(78, 27);
             this.btnAddHelper.TabIndex = 5;
-            this.btnAddHelper.Text = "+";
-            this.btnAddHelper.UseVisualStyleBackColor = true;
+            this.btnAddHelper.Text = "Dodaj";
+            this.btnAddHelper.UseVisualStyleBackColor = false;
+            this.btnAddHelper.Click += new System.EventHandler(this.btnAddHelper_Click);
             // 
             // lblHelper
             // 
@@ -217,16 +230,20 @@
             this.lblHelper.Name = "lblHelper";
             this.lblHelper.Size = new System.Drawing.Size(82, 24);
             this.lblHelper.TabIndex = 4;
-            this.lblHelper.Text = "Ispomoc";
+            this.lblHelper.Text = "Ispomoć";
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(24, 41);
+            this.btnLogout.BackColor = System.Drawing.Color.White;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnLogout.Location = new System.Drawing.Point(24, 37);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(107, 23);
+            this.btnLogout.Size = new System.Drawing.Size(107, 27);
             this.btnLogout.TabIndex = 3;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Text = "Odjavi me";
+            this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // lblUser
@@ -323,6 +340,18 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // cmbHelper
+            // 
+            this.cmbHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbHelper.FormattingEnabled = true;
+            this.cmbHelper.Location = new System.Drawing.Point(272, 38);
+            this.cmbHelper.Name = "cmbHelper";
+            this.cmbHelper.Size = new System.Drawing.Size(146, 26);
+            this.cmbHelper.TabIndex = 7;
+            this.cmbHelper.Visible = false;
+            this.cmbHelper.SelectionChangeCommitted += new System.EventHandler(this.cmbHelper_SelectionChangeCommitted);
+            this.cmbHelper.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbHelper_Format);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,6 +362,7 @@
             this.Controls.Add(this.pnlStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Markus";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -363,6 +393,7 @@
         private System.Windows.Forms.Button btnRemoveHelper;
         private System.Windows.Forms.Button btnAddHelper;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cmbHelper;
     }
 }
 

@@ -16,6 +16,7 @@ namespace Autopraonica_Markus.forms.userControls
     {
         private static uclUsluge instance;
         private employee employee;
+        private employee helpingEmployee;
 
         public static uclUsluge Instance
         {
@@ -32,6 +33,7 @@ namespace Autopraonica_Markus.forms.userControls
         public uclUsluge()
         {
             InitializeComponent();
+            helpingEmployee = null;
         }
 
         public void SetEmployee(employee employee)
@@ -39,6 +41,16 @@ namespace Autopraonica_Markus.forms.userControls
             this.employee = employee;
             FillTableNaturalEntityServices();
             FillTableLegalEntityServices();
+        }
+
+        public void SetHelpingEmployee(employee employee)
+        {
+            helpingEmployee = employee;
+        }
+
+        public void RemoveHelpingEmployee()
+        {
+            helpingEmployee = null;
         }
 
         private void FillTableLegalEntityServices()
@@ -56,7 +68,7 @@ namespace Autopraonica_Markus.forms.userControls
                         Tag = s
                     };
                     row.CreateCells(dgvLegalEntity);
-                    row.SetValues(s.client.Name, s.naturalentityservice.ServiceTime,
+                    row.SetValues(s.client.Name, s.naturalentityservice.ServiceTime.ToString("dd.MM.yyyy HH:mm:ss"),
                         s.naturalentityservice.pricelistitem.servicetype.Name,
                         s.naturalentityservice.pricelistitem.pricelistitemname.Name, s.naturalentityservice.Price);
                     dgvLegalEntity.Rows.Add(row);
@@ -90,7 +102,7 @@ namespace Autopraonica_Markus.forms.userControls
                             Tag = s
                         };
                         row.CreateCells(dgvNaturalEntity);
-                        row.SetValues(s.ServiceTime, s.pricelistitem.servicetype.Name,
+                        row.SetValues(s.ServiceTime.ToString("dd.MM.yyyy HH:mm:ss"), s.pricelistitem.servicetype.Name,
                             s.pricelistitem.pricelistitemname.Name, s.Price);
                         dgvNaturalEntity.Rows.Add(row);
                     }
@@ -129,7 +141,8 @@ namespace Autopraonica_Markus.forms.userControls
                             CarBrand_Id = nnesf.CarBrand_Id,
                             PricelistItem_Id = nnesf.PricelistItem_Id,
                             ServiceTime = DateTime.Now,
-                            Employee_Id = employee.Id
+                            Employee_Id = employee.Id,
+                            HelpingEmployee_Id = (helpingEmployee == null) ? new int?() : helpingEmployee.Id
                         };
                         context.naturalentityservices.Add(naturalEntityService);
                         context.SaveChanges();
@@ -159,7 +172,8 @@ namespace Autopraonica_Markus.forms.userControls
                             CarBrand_Id = nlesf.CarBrand_Id,
                             PricelistItem_Id = nlesf.PricelistItem_Id,
                             ServiceTime = DateTime.Now,
-                            Employee_Id = employee.Id
+                            Employee_Id = employee.Id,
+                            HelpingEmployee_Id = (helpingEmployee == null) ? new int?() : helpingEmployee.Id
                         };
                         context.naturalentityservices.Add(naturalEntityService);
                         context.SaveChanges();
@@ -179,7 +193,8 @@ namespace Autopraonica_Markus.forms.userControls
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Source);
+                    Console.WriteLine(ex.ToString());
+                    MessageBox.Show(ex.StackTrace);
                 }
             }
         }

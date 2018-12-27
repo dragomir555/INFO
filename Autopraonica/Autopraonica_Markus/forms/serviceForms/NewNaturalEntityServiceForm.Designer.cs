@@ -43,10 +43,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblCarpetSize = new System.Windows.Forms.Label();
             this.tbCarpetSize = new System.Windows.Forms.TextBox();
-            this.errCarpetSize = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errPrice = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.errCarpetSize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errPrice)).BeginInit();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblServiceType
@@ -88,7 +86,7 @@
             this.lblPricelistItem.Location = new System.Drawing.Point(30, 80);
             this.lblPricelistItem.Name = "lblPricelistItem";
             this.lblPricelistItem.Size = new System.Drawing.Size(57, 16);
-            this.lblPricelistItem.TabIndex = 3;
+            this.lblPricelistItem.TabIndex = 0;
             this.lblPricelistItem.Text = "Usluga";
             // 
             // lblCarBrand
@@ -99,7 +97,7 @@
             this.lblCarBrand.Location = new System.Drawing.Point(30, 130);
             this.lblCarBrand.Name = "lblCarBrand";
             this.lblCarBrand.Size = new System.Drawing.Size(132, 16);
-            this.lblCarBrand.TabIndex = 4;
+            this.lblCarBrand.TabIndex = 0;
             this.lblCarBrand.Text = "Marka automobila";
             // 
             // cmbCarBrand
@@ -109,7 +107,7 @@
             this.cmbCarBrand.Location = new System.Drawing.Point(229, 118);
             this.cmbCarBrand.Name = "cmbCarBrand";
             this.cmbCarBrand.Size = new System.Drawing.Size(236, 28);
-            this.cmbCarBrand.TabIndex = 5;
+            this.cmbCarBrand.TabIndex = 3;
             // 
             // lblPrice
             // 
@@ -119,7 +117,7 @@
             this.lblPrice.Location = new System.Drawing.Point(30, 180);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(52, 16);
-            this.lblPrice.TabIndex = 6;
+            this.lblPrice.TabIndex = 0;
             this.lblPrice.Text = "Cijena";
             // 
             // tbPrice
@@ -128,7 +126,7 @@
             this.tbPrice.Location = new System.Drawing.Point(229, 170);
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(270, 26);
-            this.tbPrice.TabIndex = 7;
+            this.tbPrice.TabIndex = 5;
             this.tbPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrice_KeyPress);
             this.tbPrice.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrice_Validating);
             // 
@@ -142,7 +140,7 @@
             this.btnAddCarBrand.Location = new System.Drawing.Point(471, 118);
             this.btnAddCarBrand.Name = "btnAddCarBrand";
             this.btnAddCarBrand.Size = new System.Drawing.Size(28, 28);
-            this.btnAddCarBrand.TabIndex = 8;
+            this.btnAddCarBrand.TabIndex = 0;
             this.btnAddCarBrand.Text = "+";
             this.btnAddCarBrand.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAddCarBrand.UseVisualStyleBackColor = false;
@@ -157,7 +155,7 @@
             this.btnConfirm.Location = new System.Drawing.Point(200, 230);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(140, 35);
-            this.btnConfirm.TabIndex = 9;
+            this.btnConfirm.TabIndex = 6;
             this.btnConfirm.Text = "Potvrdi";
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
@@ -173,7 +171,7 @@
             this.btnCancel.Location = new System.Drawing.Point(359, 230);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(140, 35);
-            this.btnCancel.TabIndex = 10;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Otkaži";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -185,7 +183,7 @@
             this.lblCarpetSize.Location = new System.Drawing.Point(30, 130);
             this.lblCarpetSize.Name = "lblCarpetSize";
             this.lblCarpetSize.Size = new System.Drawing.Size(83, 16);
-            this.lblCarpetSize.TabIndex = 11;
+            this.lblCarpetSize.TabIndex = 0;
             this.lblCarpetSize.Text = "Kvadratura";
             this.lblCarpetSize.Visible = false;
             // 
@@ -195,20 +193,15 @@
             this.tbCarpetSize.Location = new System.Drawing.Point(229, 120);
             this.tbCarpetSize.Name = "tbCarpetSize";
             this.tbCarpetSize.Size = new System.Drawing.Size(270, 26);
-            this.tbCarpetSize.TabIndex = 12;
+            this.tbCarpetSize.TabIndex = 4;
             this.tbCarpetSize.Visible = false;
             this.tbCarpetSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCarpetSize_KeyPress);
             this.tbCarpetSize.Validating += new System.ComponentModel.CancelEventHandler(this.tbCarpetSize_Validating);
             // 
-            // errCarpetSize
+            // errorProvider
             // 
-            this.errCarpetSize.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errCarpetSize.ContainerControl = this;
-            // 
-            // errPrice
-            // 
-            this.errPrice.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errPrice.ContainerControl = this;
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
             // 
             // NewNaturalEntityServiceForm
             // 
@@ -237,8 +230,7 @@
             this.Name = "NewNaturalEntityServiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Markus";
-            ((System.ComponentModel.ISupportInitialize)(this.errCarpetSize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,7 +251,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblCarpetSize;
         private System.Windows.Forms.TextBox tbCarpetSize;
-        private System.Windows.Forms.ErrorProvider errCarpetSize;
-        private System.Windows.Forms.ErrorProvider errPrice;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
