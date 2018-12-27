@@ -38,7 +38,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGenerateStatistics = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -135,20 +135,21 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Do";
             // 
-            // button1
+            // btnGenerateStatistics
             // 
-            this.button1.Location = new System.Drawing.Point(259, 340);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Generisi statistiku";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGenerateStatistics.Location = new System.Drawing.Point(259, 340);
+            this.btnGenerateStatistics.Name = "btnGenerateStatistics";
+            this.btnGenerateStatistics.Size = new System.Drawing.Size(98, 23);
+            this.btnGenerateStatistics.TabIndex = 10;
+            this.btnGenerateStatistics.Text = "Generisi statistiku";
+            this.btnGenerateStatistics.UseVisualStyleBackColor = true;
+            this.btnGenerateStatistics.Click += new System.EventHandler(this.btnGenerateStatistics_Click);
             // 
             // uclStatistika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGenerateStatistics);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimePicker2);
@@ -178,6 +179,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGenerateStatistics;
     }
 }

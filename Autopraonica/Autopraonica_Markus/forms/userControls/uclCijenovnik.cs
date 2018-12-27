@@ -150,7 +150,8 @@ namespace Autopraonica_Markus.forms.userControls
 
             private void addTables()
         {
-            this.Controls.Clear();
+            //flowLayoutPanel1.Controls.Clear();
+           // flowLayoutPanel1.AutoSize = true;
             Label lblPriceList = new Label();
             this.Controls.Add(lblPriceList);
             lblPriceList.Text = "CJENOVNIK";

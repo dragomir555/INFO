@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.Model.Entities;
+using Autopraonica_Markus.forms.statisticsForms;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -41,6 +42,7 @@ namespace Autopraonica_Markus.forms.userControls
                 fillEmployeeComboBox();
             } else if("Statistika po klijentu".Equals(selectedItem.ToString()))
             {
+
                 cbEmployee.Enabled = false;
                 cbClient.Enabled = true;
                 fillClientComboBox();
@@ -83,6 +85,27 @@ namespace Autopraonica_Markus.forms.userControls
         private void cbClient_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnGenerateStatistics_Click(object sender, EventArgs e)
+        {
+            DateTime dt1 = this.dateTimePicker1.Value.Date;
+            DateTime dt2 = this.dateTimePicker2.Value.Date;
+            if ("Statistika po radniku".Equals(cbStatistics.Text))
+            {
+                int id = (int)cbEmployee.SelectedValue;
+                EmployeeChartForm ecf = new EmployeeChartForm(id, cbEmployee.Text, dt1, dt2);
+                ecf.ShowDialog();
+            } else if("Statistika po klijentu".Equals(cbStatistics.Text))
+            {
+                int id = (int)cbClient.SelectedValue;
+                ClientChartForm ccf = new ClientChartForm(id, cbClient.Text, dt1, dt2);
+                ccf.ShowDialog();
+            } else
+            {
+                TotalStatisticsChartForm tscf = new TotalStatisticsChartForm(dt1, dt2);
+                tscf.ShowDialog();
+            }
         }
     }
 }

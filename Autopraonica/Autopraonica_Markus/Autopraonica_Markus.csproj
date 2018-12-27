@@ -67,6 +67,7 @@
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -155,6 +156,24 @@
     </Compile>
     <Compile Include="forms\serviceForms\NewNaturalEntityServiceForm.Designer.cs">
       <DependentUpon>NewNaturalEntityServiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\statisticsForms\ClientChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\statisticsForms\ClientChartForm.Designer.cs">
+      <DependentUpon>ClientChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\statisticsForms\EmployeeChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\statisticsForms\EmployeeChartForm.Designer.cs">
+      <DependentUpon>EmployeeChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\statisticsForms\TotalStatisticsChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\statisticsForms\TotalStatisticsChartForm.Designer.cs">
+      <DependentUpon>TotalStatisticsChartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\userControls\uclCijenovnik.cs">
       <SubType>UserControl</SubType>
@@ -258,6 +277,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\serviceForms\NewNaturalEntityServiceForm.resx">
       <DependentUpon>NewNaturalEntityServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\statisticsForms\ClientChartForm.resx">
+      <DependentUpon>ClientChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\statisticsForms\EmployeeChartForm.resx">
+      <DependentUpon>EmployeeChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\statisticsForms\TotalStatisticsChartForm.resx">
+      <DependentUpon>TotalStatisticsChartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\userControls\uclCijenovnik.resx">
       <DependentUpon>uclCijenovnik.cs</DependentUpon>
