@@ -139,12 +139,13 @@
     <Compile Include="forms\pricelistForms\UpdatePricelistItem.Designer.cs">
       <DependentUpon>UpdatePricelistItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\puchaseForms\NewItem.cs">
+    <Compile Include="forms\puchaseForms\Item.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\puchaseForms\NewItem.Designer.cs">
-      <DependentUpon>NewItem.cs</DependentUpon>
+    <Compile Include="forms\puchaseForms\Item.Designer.cs">
+      <DependentUpon>Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\puchaseForms\NewItem.cs" />
     <Compile Include="forms\puchaseForms\NewPurchase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,8 +282,8 @@
     <EmbeddedResource Include="forms\pricelistForms\UpdatePricelistItem.resx">
       <DependentUpon>UpdatePricelistItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\puchaseForms\NewItem.resx">
-      <DependentUpon>NewItem.cs</DependentUpon>
+    <EmbeddedResource Include="forms\puchaseForms\Item.resx">
+      <DependentUpon>Item.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\puchaseForms\NewPurchase.resx">
       <DependentUpon>NewPurchase.cs</DependentUpon>
