@@ -116,5 +116,12 @@ namespace Autopraonica_Markus.forms.userControls
 
 
         }
+
+        private void dgvPurchase_SelectionChanged(object sender, EventArgs e)
+        {
+
+            if (dgvPurchase.SelectedRows.Count > 0)
+                tbSumPurchase.Text = ((decimal)dgvPurchase.SelectedRows[0].Cells[4].Value).ToString();
+        }
     }
 }

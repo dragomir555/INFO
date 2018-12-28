@@ -26,8 +26,6 @@ namespace Autopraonica_Markus.forms.puchaseForms
 
 
 
-
-
             }
             else
             {
