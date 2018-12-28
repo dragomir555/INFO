@@ -157,6 +157,7 @@
             this.newItemT.TabIndex = 9;
             this.newItemT.Text = "Nova stavka";
             this.newItemT.UseVisualStyleBackColor = true;
+            this.newItemT.Click += new System.EventHandler(this.newItemT_Click);
             // 
             // deleteItemT
             // 

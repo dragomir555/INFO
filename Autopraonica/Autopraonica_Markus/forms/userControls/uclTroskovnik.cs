@@ -98,8 +98,12 @@ namespace Autopraonica_Markus.forms.userControls
         private void newPurchase_Click(object sender, EventArgs e)
         {
             Item item = new Item();
-            if (DialogResult.OK == item.ShowDialog())
+            NewPurchase newPurchase = new NewPurchase();
+            if (DialogResult.OK == newPurchase.ShowDialog())
             {
+
+
+
 
 
             }
