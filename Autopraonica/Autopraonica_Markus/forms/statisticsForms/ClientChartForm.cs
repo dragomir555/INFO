@@ -21,6 +21,7 @@ namespace Autopraonica_Markus.forms.statisticsForms
 
         private void fillChart(int id, string name, DateTime dt1, DateTime dt2)
         {
+            label4.Text = "Period " + dt1.ToString("dd.MM.yyyy") + " - " + dt2.ToString("dd.MM.yyyy");
             decimal incomesFromClient = 0;
             int numberOfServices = 0;
             using (MarkusDb context = new MarkusDb())
@@ -51,7 +52,8 @@ namespace Autopraonica_Markus.forms.statisticsForms
                     {
                         Id = g.Key,
                         Price = g.Sum(m => m.Price),
-                        Name = g.FirstOrDefault().Name
+                        Name = g.FirstOrDefault().Name,
+                        Count = g.Count()
                     }).ToList();
 
                 lblName.Text = "Statistika za klijenta " + name;
@@ -59,7 +61,7 @@ namespace Autopraonica_Markus.forms.statisticsForms
             
                 foreach(var s in serviceswithservicetype)
                 {
-                    listView1.Items.Add(s.Name + ": " + s.Price);
+                    listView1.Items.Add("Broj usluga za " + s.Name + ":" + s.Count + ". Ukupan prihod:" + s.Price + "KM.");
                 }
                 foreach(ListViewItem lvi in listView1.Items)
                 {
@@ -68,7 +70,7 @@ namespace Autopraonica_Markus.forms.statisticsForms
                 
                 Label lbl2 = new Label();
                 lbl2.Text = "Ukupan prihod: " + incomesFromClient;
-                lbl2.Location = new Point(0, 290);
+                lbl2.Location = new Point(0, 340);
                 lbl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom)
                     | System.Windows.Forms.AnchorStyles.Left)
                     ));
@@ -79,7 +81,7 @@ namespace Autopraonica_Markus.forms.statisticsForms
 
                 Label lbl3 = new Label();
                 lbl3.Text = "Ukupan broj usluga: " + numberOfServices;
-                lbl3.Location = new Point(0, 320);
+                lbl3.Location = new Point(0, 370);
                 lbl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom)
                     | System.Windows.Forms.AnchorStyles.Left)));
                 lbl3.Size = new Size(200, 20);
@@ -87,6 +89,11 @@ namespace Autopraonica_Markus.forms.statisticsForms
                 lbl3.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold);
                 this.Controls.Add(lbl3);
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

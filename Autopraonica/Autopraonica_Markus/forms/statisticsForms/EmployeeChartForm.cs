@@ -21,6 +21,7 @@ namespace Autopraonica_Markus.forms.statisticsForms
 
         private void fillChart(int employeeId, string employeeName, DateTime dt1, DateTime dt2)
         {
+            label5.Text = "Period " + dt1.ToString("dd.MM.yyyy") + " - " + dt2.ToString("dd.MM.yyyy");
             int hours = 0;
             int hoursAsHelp = 0;
             int numberOfWashings = 0;
@@ -65,12 +66,12 @@ namespace Autopraonica_Markus.forms.statisticsForms
                     select nes
                     ).Count();
             }
-            chart1.Titles.Add("Statistika za radnika " + employeeName + " za period " + dt1.ToString("dd/MM/yyyy") + " - " + dt2.ToString("dd/MM/yyyy"));
+            chart1.Titles.Add("Statistika  za  radnika  " + employeeName);
             chart1.Series["Hours"].IsValueShownAsLabel = true;
             chart1.Series["Hours"].Points.AddXY("Ukupan broj sati", hours);
             chart1.Series["Hours"].Points.AddXY("Broj sati kao ispomoc", hoursAsHelp);
 
-            chart2.Titles.Add("Statistika za radnika " + employeeName + " za period " + dt1.ToString("dd/MM/yyyy") + " - " + dt2.ToString("dd/MM/yyyy"));
+            chart2.Titles.Add("Statistika  za  radnika  " + employeeName);
             chart2.Series["Washings"].IsValueShownAsLabel = true;
             chart2.Series["Washings"].Points.AddXY("Ukupan broj pranja", numberOfWashings);
             chart2.Series["Washings"].Points.AddXY("Broj pranja kao ispomoc", numberOfWashingsAsHelp);
