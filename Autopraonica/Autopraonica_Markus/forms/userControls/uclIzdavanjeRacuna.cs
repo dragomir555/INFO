@@ -15,6 +15,7 @@ using iTextSharp.text;
 using System.IO;
 using Font = iTextSharp.text.Font;
 using System.Globalization;
+using System.Data.Entity.Validation;
 
 
 
@@ -26,7 +27,7 @@ namespace Autopraonica_Markus.forms.userControls
     public partial class uclIzdavanjeRacuna : UserControl
     {
         private static uclIzdavanjeRacuna instance;
-        
+
 
         public static uclIzdavanjeRacuna Instance
         {
@@ -44,7 +45,7 @@ namespace Autopraonica_Markus.forms.userControls
         {
             InitializeComponent();
             UpdateComboBox();
-           
+
             dtpFormat();
         }
 
@@ -54,25 +55,25 @@ namespace Autopraonica_Markus.forms.userControls
             dtpDateFrom.CustomFormat = "MM-yyyy";
             DateTime newDateValue = new DateTime(dtpDateFrom.Value.Year, 1, 1);
             dtpDateFrom.Value = newDateValue;
-            
-            dtpDateFrom.ShowUpDown = true;   
+
+            dtpDateFrom.ShowUpDown = true;
             dtpDateFrom.Height = 30;
         }
 
-      public void UpdateComboBox()
+        public void UpdateComboBox()
         {
             cmbClients.Items.Clear();
             using (MarkusDb context = new MarkusDb())
             {
                 var clients = (from c in context.clients select c).ToList();
-                Boolean firstTime = true; 
-                foreach(client c in clients)
+                Boolean firstTime = true;
+                foreach (client c in clients)
                 {
-                    if (firstTime) { 
+                    if (firstTime) {
                         cmbClients.Text = c.Name;
                         firstTime = false;
                     }
-                    cmbClients.Items.Add(c.Name); 
+                    cmbClients.Items.Add(c.Name);
                 }
             }
         }
@@ -82,51 +83,51 @@ namespace Autopraonica_Markus.forms.userControls
             {
                 var listNamesOfServiceTypes =
                 (from st in context.servicetypes
-                 select new { st.Name}).ToList();
-                
-                    var listOfClientsUnpaidServices =
-                (from les in context.legalentityservices
-                 join cl in context.clients on les.Client_Id equals cl.Id
-                 join nes in context.naturalentityservices on les.NaturalEntityService_Id equals nes.Id
-                 join plit in context.pricelistitems on nes.PricelistItem_Id equals plit.Id
-                 join plin in context.pricelistitemnames on plit.PricelistItemName_Id equals plin.Id
-                 join serTp in context.servicetypes on plit.ServiceType_Id equals serTp.Id
-                 where cl.Name == cmbClients.Text
-                 select new
-                 {
-                     serTp.Name,
-                     les.FirstName,
-                     priceName = plin.Name,
-                     les.LastName,
-                     nes.ServiceTime,
-                     les.LicencePlate,
-                     nes.Price,
-                 }).ToList();
+                 select new { st.Name }).ToList();
+
+                var listOfClientsUnpaidServices =
+            (from les in context.legalentityservices
+             join cl in context.clients on les.Client_Id equals cl.Id
+             join nes in context.naturalentityservices on les.NaturalEntityService_Id equals nes.Id
+             join plit in context.pricelistitems on nes.PricelistItem_Id equals plit.Id
+             join plin in context.pricelistitemnames on plit.PricelistItemName_Id equals plin.Id
+             join serTp in context.servicetypes on plit.ServiceType_Id equals serTp.Id
+             where cl.Name == cmbClients.Text
+             select new
+             {
+                 serTp.Name,
+                 les.FirstName,
+                 priceName = plin.Name,
+                 les.LastName,
+                 nes.ServiceTime,
+                 les.LicencePlate,
+                 nes.Price,
+             }).ToList();
                 int i = 1;
                 decimal totalSumOfServiceType = 0;
 
                 foreach (var stN in listNamesOfServiceTypes)
                 {
                     totalSumOfServiceType = 0;
-                    
+
                     foreach (var v in listOfClientsUnpaidServices)
                     {
-                    var serviceDate = v.ServiceTime;
-                    
-                    if (dateCondition(serviceDate) && stN.Name.Equals(v.Name))
-                    {
+                        var serviceDate = v.ServiceTime;
+
+                        if (dateCondition(serviceDate) && stN.Name.Equals(v.Name))
+                        {
                             totalSumOfServiceType += v.Price;
-                    }}
-                    if(totalSumOfServiceType !=0)
+                        } }
+                    if (totalSumOfServiceType != 0)
                         dt.Rows.Add(i++, stN.Name, totalSumOfServiceType);
                 }
             }
-    }
+        }
 
 
         private Boolean dateCondition(DateTime serviceDate) {
-            if((dtpDateFrom.Value.Month == serviceDate.Month) && (dtpDateFrom.Value.Year == serviceDate.Year))
-                    return true;
+            if ((dtpDateFrom.Value.Month == serviceDate.Month) && (dtpDateFrom.Value.Year == serviceDate.Year))
+                return true;
             return false;
         }
 
@@ -135,24 +136,24 @@ namespace Autopraonica_Markus.forms.userControls
 
             using (MarkusDb context = new MarkusDb())
             {
-                 var listOfClientsUnpaidServices =
-                (from les in context.legalentityservices
-                 join cl in context.clients on les.Client_Id equals cl.Id
-                 join nes in context.naturalentityservices on les.NaturalEntityService_Id equals nes.Id
-                 join plit in context.pricelistitems on nes.PricelistItem_Id equals plit.Id
-                 join plin in context.pricelistitemnames on plit.PricelistItemName_Id equals plin.Id
-                 join serTp in context.servicetypes on plit.ServiceType_Id equals serTp.Id
-                 where cl.Name == cmbClients.Text
-                 select new
-                 {
-                     serTp.Name,
-                     les.FirstName,
-                     priceName = plin.Name,
-                     les.LastName,
-                     nes.ServiceTime,
-                     les.LicencePlate,
-                     nes.Price,
-                 }).ToList();
+                var listOfClientsUnpaidServices =
+               (from les in context.legalentityservices
+                join cl in context.clients on les.Client_Id equals cl.Id
+                join nes in context.naturalentityservices on les.NaturalEntityService_Id equals nes.Id
+                join plit in context.pricelistitems on nes.PricelistItem_Id equals plit.Id
+                join plin in context.pricelistitemnames on plit.PricelistItemName_Id equals plin.Id
+                join serTp in context.servicetypes on plit.ServiceType_Id equals serTp.Id
+                where cl.Name == cmbClients.Text
+                select new
+                {
+                    serTp.Name,
+                    les.FirstName,
+                    priceName = plin.Name,
+                    les.LastName,
+                    nes.ServiceTime,
+                    les.LicencePlate,
+                    nes.Price,
+                }).ToList();
 
                 int i = 1;
                 DateTime serviceDate;
@@ -160,9 +161,9 @@ namespace Autopraonica_Markus.forms.userControls
 
                 foreach (var v in listOfClientsUnpaidServices)
                 {
-                     serviceDate = v.ServiceTime;
-                     formattedDate = serviceDate.ToString("dd-MM-yyyy");
-                    if (dateCondition(serviceDate)) 
+                    serviceDate = v.ServiceTime;
+                    formattedDate = serviceDate.ToString("dd-MM-yyyy");
+                    if (dateCondition(serviceDate))
                     {
                         ListViewItem item = new ListViewItem(i++.ToString());
                         item.SubItems.Add(v.Name);
@@ -174,7 +175,7 @@ namespace Autopraonica_Markus.forms.userControls
                         item.SubItems.Add(v.Price.ToString());
                         suma += v.Price;
                         lvUpSer.Items.Add(item);
-                        
+
                     }
                 }
 
@@ -187,16 +188,16 @@ namespace Autopraonica_Markus.forms.userControls
             lvUpSer.Items.Clear();
             DateTimePicker dateFrom = new DateTimePicker();
             dateFrom.Value = dtpDateFrom.Value;
- 
+
             fillListOfClients();
             decimal suma = searchUnpaidServices(dateFrom);
-                      
-                lblPrice.Text = suma.ToString();
-                
-                if (lblPrice.Text == "0") 
-                    btnGenBill.Enabled = false;
-                else
-                    btnGenBill.Enabled = true; 
+
+            lblPrice.Text = suma.ToString();
+
+            if (lblPrice.Text == "0")
+                btnGenBill.Enabled = false;
+            else
+                btnGenBill.Enabled = true;
         }
 
         private void fillListOfClients() {
@@ -204,7 +205,7 @@ namespace Autopraonica_Markus.forms.userControls
             {
                 var klijenti = (from les in ctx.legalentityservices
                                 join cl in ctx.clients on les.Client_Id equals cl.Id
-                                select new { legalentityservice = les, Contract = cl}).ToList();
+                                select new { legalentityservice = les, Contract = cl }).ToList();
             }
         }
 
@@ -215,27 +216,133 @@ namespace Autopraonica_Markus.forms.userControls
                 DataTable dtus = MakeDataTableForUnpaidServices();
                 DataTable dtbl = MakeDataTableForBill();
 
-                var month = DateTimeFormatInfo.CurrentInfo.GetMonthName(DateTime.Now.Month - 1);
+                String date = dtpDateFrom.Value.Date.ToString("MM/dd/yyyy");
+                String year = date.ToString().Substring(6, 4);
 
-                Func<string> year = () => {
-                    if (DateTime.Now.Month == 1)
-                        return (DateTime.Now.Year - 1).ToString();
-                    return (DateTime.Now.Year).ToString();
-                };
+                int monthIndex = dtpDateFrom.Value.Month;
+                int yearIndex = dtpDateFrom.Value.Year;
+                String month = getNameOfMonth(monthIndex);
+                Autopraonica_Markus.Model.Entities.receipt rec = null;
+
+                try
+                {
+                    using (MarkusDb context = new MarkusDb())
+                    {
+                        var cl = (from c in context.clients
+                                  where c.Name == cmbClients.Text
+                                  select c).First();
+
+                        rec = (from r in context.receipts
+                                   where r.PDF != null
+                                   where r.DateFrom.Month == monthIndex 
+                                   where r.DateFrom.Year == yearIndex
+                                   select r).First();
+
+                        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                        System.IO.File.WriteAllBytes(path  + "/hello.pdf", rec.PDF);
+                    }
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    var errorMessages = ex.EntityValidationErrors
+                       .SelectMany(x => x.ValidationErrors)
+                       .Select(x => x.ErrorMessage);
+
+                    // Join the list to a single string.
+                    var fullErrorMessage = string.Join("; ", errorMessages);
+
+                    // Combine the original exception message with the new one.
+                    var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                    // Throw a new DbEntityValidationException with the improved exception message.
+                    throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
 
 
+                }
+            
 
-                /*TO DO*/
-                //make directory if not exists 
-                ExportDataTableOfUnpaidServicesToPdf(dtus, @"D:efp\NeplaćeneUsluge" + month + year() + ".pdf", "AUTOPRAONICA MARKUS");
-                ExportDataTableForBillToPdf(dtbl, @"D:efp\RačunZa" + month + year() + ".pdf", "AUTOPRAONICA MARKUS");
-                MessageBox.Show("Uspjesno generisan PDF", "PDF");
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.FileName = "Usluge" + cmbClients.Text.ToUpper() + month + year;
+                saveFileDialog.Filter = "Pdf files (*.Pdf)|*.Pdf";
+                saveFileDialog.DefaultExt = "pdf";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    ExportDataTableOfUnpaidServicesToPdf(dtus, @"" + saveFileDialog.FileName, "AUTOPRAONICA MARKUS");
+                    ExportDataTableForBillToPdf(dtbl, @"" + saveFileDialog.FileName, "AUTOPRAONICA MARKUS");
+                    MessageBox.Show("Uspjesno generisan PDF", "PDF");
+                }
+                else
+                    MessageBox.Show("Neuspjesno generisan PDF", "PDF");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error Message");
             }
 
+        }
+
+        private void databaseFilePut(string varFilePath)
+        {
+            byte[] file;
+            using (var stream = new FileStream(varFilePath, FileMode.Open, FileAccess.Read))
+            {
+                using (var reader = new BinaryReader(stream))
+                {
+                    file = reader.ReadBytes((int)stream.Length);
+                }
+            }
+
+            try
+            {
+                String date = dtpDateFrom.Value.Date.ToString("MM/dd/yyyy");
+                String dateFrom = date.ToString().Substring(6, 4) +"-" + date.ToString().Substring(0, 2) + "-01";
+                String dateTo = date.ToString().Substring(6, 4) + "-" + date.ToString().Substring(0, 2) + "-31";
+
+                DateTime dtFrom = DateTime.Parse(dateFrom);
+                DateTime dtTo = DateTime.Parse(dateTo);
+                using (MarkusDb context = new MarkusDb())
+                {
+                    var emp = (from e in context.employees
+                               join emrec in context.employeerecords on e.Id equals emrec.Employee_Id
+                               where emrec.LogoutTime != null
+                               select e).First();
+
+                    var cl = (from c in context.clients
+                               where c.Name == cmbClients.Text
+                               select c).First();
+
+                    var rec = new receipt()
+                    {
+                      DateFrom = dtFrom,
+                      DateTo = dtTo,
+                      PDF = file,
+                      Paid = 1,
+                      Client_Id = cl.Id,
+                      Manager_Id = emp.Id
+                    };
+
+                    context.receipts.Add(rec);
+                    context.SaveChanges();
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                var errorMessages = ex.EntityValidationErrors
+                   .SelectMany(x => x.ValidationErrors)
+                   .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Combine the original exception message with the new one.
+                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+
+
+            }
         }
 
         DataTable MakeDataTableForBill()
@@ -319,7 +426,9 @@ namespace Autopraonica_Markus.forms.userControls
 
         void ExportDataTableForBillToPdf(DataTable dtblTable, String strPdfPath, string strHeader)
         {
-            System.IO.FileStream fs = new FileStream(strPdfPath, FileMode.Create, FileAccess.Write, FileShare.None);
+            string outputPDF = strPdfPath.Replace("Usluge", "Racun");
+            
+            System.IO.FileStream fs = new FileStream(outputPDF, FileMode.Create, FileAccess.Write, FileShare.None);
             Document document = new Document();
             document.SetPageSize(iTextSharp.text.PageSize.A4);
             PdfWriter writer = PdfWriter.GetInstance(document, fs);
@@ -422,11 +531,14 @@ namespace Autopraonica_Markus.forms.userControls
             Paragraph prgSignature = new Paragraph();
             prgSignature.Alignment = Element.ALIGN_LEFT;
             prgSignature.Add(new Chunk("\nMP                                                    " + "POTPIS"));
-            document.Add(prgSignature); 
+            document.Add(prgSignature);
+ 
+               
 
             document.Close();
             writer.Close();
             fs.Close();
+            databaseFilePut(outputPDF);
         }
 
         String getNameOfMonth(int monthIndex) {
@@ -516,6 +628,7 @@ namespace Autopraonica_Markus.forms.userControls
             document.Close();
             writer.Close();
             fs.Close();
+            databaseFilePut(strPdfPath);
         }
 
         private void uclIzdavanjeRacuna_Resize(object sender, EventArgs e)
@@ -566,38 +679,10 @@ namespace Autopraonica_Markus.forms.userControls
             e.Cancel = true;
         }
 
-        private void cmbClients_TextChanged(object sender, EventArgs e)
+        private void cmbClients_SelectedValueChanged(object sender, EventArgs e)
         {
-          //  HandleTextChanged();
+            lvUpSer.Items.Clear();
         }
-
-        private void HandleTextChanged()
-        {
-            var txt = cmbClients.Text;
-
-            using (MarkusDb context = new MarkusDb())
-            {
-                var list = from d in context.clients
-                           where d.Name.ToUpper().StartsWith(cmbClients.Text.ToUpper())
-                           select d;
-
-                if (list.Count() > 0)
-                {
-                    cmbClients.DataSource = list.ToList();
-                    var sText = cmbClients.Items[0].ToString();
-                    cmbClients.SelectionStart = txt.Length;
-                    cmbClients.SelectionLength = sText.Length - txt.Length;
-                    cmbClients.DroppedDown = true;
-                    return;
-                }
-                else
-                {
-                    cmbClients.DroppedDown = false;
-                    cmbClients.SelectionStart = txt.Length;
-                }
-            }
-        }
-
     }
 }
 
