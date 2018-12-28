@@ -36,7 +36,6 @@
             this.cmbPricelistItem = new System.Windows.Forms.ComboBox();
             this.lblCarBrand = new System.Windows.Forms.Label();
             this.cmbCarBrand = new System.Windows.Forms.ComboBox();
-            this.btnAddCarBrand = new System.Windows.Forms.Button();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblCarpetSize = new System.Windows.Forms.Label();
             this.tbPrice = new System.Windows.Forms.TextBox();
@@ -117,23 +116,8 @@
             this.cmbCarBrand.FormattingEnabled = true;
             this.cmbCarBrand.Location = new System.Drawing.Point(229, 318);
             this.cmbCarBrand.Name = "cmbCarBrand";
-            this.cmbCarBrand.Size = new System.Drawing.Size(236, 28);
+            this.cmbCarBrand.Size = new System.Drawing.Size(270, 28);
             this.cmbCarBrand.TabIndex = 7;
-            // 
-            // btnAddCarBrand
-            // 
-            this.btnAddCarBrand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
-            this.btnAddCarBrand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnAddCarBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddCarBrand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCarBrand.ForeColor = System.Drawing.Color.White;
-            this.btnAddCarBrand.Location = new System.Drawing.Point(471, 318);
-            this.btnAddCarBrand.Name = "btnAddCarBrand";
-            this.btnAddCarBrand.Size = new System.Drawing.Size(28, 28);
-            this.btnAddCarBrand.TabIndex = 0;
-            this.btnAddCarBrand.Text = "+";
-            this.btnAddCarBrand.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAddCarBrand.UseVisualStyleBackColor = false;
             // 
             // lblPrice
             // 
@@ -316,7 +300,6 @@
             this.Controls.Add(this.tbPrice);
             this.Controls.Add(this.lblCarpetSize);
             this.Controls.Add(this.lblPrice);
-            this.Controls.Add(this.btnAddCarBrand);
             this.Controls.Add(this.cmbCarBrand);
             this.Controls.Add(this.lblCarBrand);
             this.Controls.Add(this.cmbPricelistItem);
@@ -343,7 +326,6 @@
         private System.Windows.Forms.ComboBox cmbPricelistItem;
         private System.Windows.Forms.Label lblCarBrand;
         private System.Windows.Forms.ComboBox cmbCarBrand;
-        private System.Windows.Forms.Button btnAddCarBrand;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblCarpetSize;
         private System.Windows.Forms.TextBox tbPrice;
