@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblName = new System.Windows.Forms.Label();
             this.lblUID = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
@@ -43,6 +44,8 @@
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
@@ -115,6 +118,8 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(320, 26);
             this.tbName.TabIndex = 7;
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
+            this.tbName.Validating += new System.ComponentModel.CancelEventHandler(this.tbName_Validating);
             // 
             // tbUID
             // 
@@ -123,6 +128,8 @@
             this.tbUID.Name = "tbUID";
             this.tbUID.Size = new System.Drawing.Size(320, 26);
             this.tbUID.TabIndex = 8;
+            this.tbUID.TextChanged += new System.EventHandler(this.tbUID_TextChanged);
+            this.tbUID.Validating += new System.ComponentModel.CancelEventHandler(this.tbUID_Validating);
             // 
             // tbAddress
             // 
@@ -131,6 +138,8 @@
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(320, 26);
             this.tbAddress.TabIndex = 9;
+            this.tbAddress.TextChanged += new System.EventHandler(this.tbAddress_TextChanged);
+            this.tbAddress.Validating += new System.ComponentModel.CancelEventHandler(this.tbAddress_Validating);
             // 
             // tbPhoneNumber
             // 
@@ -139,6 +148,8 @@
             this.tbPhoneNumber.Name = "tbPhoneNumber";
             this.tbPhoneNumber.Size = new System.Drawing.Size(320, 26);
             this.tbPhoneNumber.TabIndex = 10;
+            this.tbPhoneNumber.TextChanged += new System.EventHandler(this.tbPhoneNumber_TextChanged);
+            this.tbPhoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.tbPhoneNumber_Validating);
             // 
             // tbAccountNumber
             // 
@@ -147,6 +158,8 @@
             this.tbAccountNumber.Name = "tbAccountNumber";
             this.tbAccountNumber.Size = new System.Drawing.Size(320, 26);
             this.tbAccountNumber.TabIndex = 11;
+            this.tbAccountNumber.TextChanged += new System.EventHandler(this.tbAccountNumber_TextChanged);
+            this.tbAccountNumber.Validating += new System.ComponentModel.CancelEventHandler(this.tbAccountNumber_Validating);
             // 
             // tbEmail
             // 
@@ -155,6 +168,8 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(320, 26);
             this.tbEmail.TabIndex = 12;
+            this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
+            this.tbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmail_Validating);
             // 
             // tbPassword
             // 
@@ -164,6 +179,8 @@
             this.tbPassword.Size = new System.Drawing.Size(320, 26);
             this.tbPassword.TabIndex = 13;
             this.tbPassword.UseSystemPasswordChar = true;
+            this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
+            this.tbPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbPassword_Validating);
             // 
             // btnSave
             // 
@@ -179,6 +196,12 @@
             this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Sačuvaj";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
             // 
             // UclSettings
             // 
@@ -205,6 +228,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UclSettings";
             this.Size = new System.Drawing.Size(685, 391);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +251,6 @@
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

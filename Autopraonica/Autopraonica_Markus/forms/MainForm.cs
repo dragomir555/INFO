@@ -417,6 +417,7 @@ namespace Autopraonica_Markus
             {
                 UclSettings.Instance.BringToFront();
             }
+            UclSettings.Instance.SetValues();
             PressedButton.BackColor = Color.FromArgb(107, 65, 150);
             btnSettings.BackColor = Color.FromArgb(93, 46, 140);
             PressedButton = btnSettings;
