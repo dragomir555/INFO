@@ -51,10 +51,13 @@
             // 
             this.dgvLegalEntity.AllowUserToAddRows = false;
             this.dgvLegalEntity.AllowUserToDeleteRows = false;
+            this.dgvLegalEntity.AllowUserToResizeColumns = false;
+            this.dgvLegalEntity.AllowUserToResizeRows = false;
             this.dgvLegalEntity.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLegalEntity.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLegalEntity.BackgroundColor = System.Drawing.Color.White;
             this.dgvLegalEntity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLegalEntity.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Naziv,
@@ -162,10 +165,13 @@
             // 
             this.dgvNaturalEntity.AllowUserToAddRows = false;
             this.dgvNaturalEntity.AllowUserToDeleteRows = false;
+            this.dgvNaturalEntity.AllowUserToResizeColumns = false;
+            this.dgvNaturalEntity.AllowUserToResizeRows = false;
             this.dgvNaturalEntity.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvNaturalEntity.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvNaturalEntity.BackgroundColor = System.Drawing.Color.White;
             this.dgvNaturalEntity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNaturalEntity.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Vrijeme,

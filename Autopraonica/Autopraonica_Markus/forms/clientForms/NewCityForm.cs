@@ -37,7 +37,6 @@ namespace Autopraonica_Markus.forms.clientForms
                 using (MarkusDb context = new MarkusDb())
                 {
                     var ci= (from c in context.cities where c.PostCode == PostCode select c).Count();
-                    Debug.WriteLine(ci);
                     if (ci != 0)
                     {
                         MessageBox.Show("Grad sa " + PostCode + " postcodom postoji u bazi", "Error");

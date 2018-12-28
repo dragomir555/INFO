@@ -193,12 +193,13 @@
             this.btnAddNewItem.TabIndex = 15;
             this.btnAddNewItem.Text = "Nova stavka";
             this.btnAddNewItem.UseVisualStyleBackColor = false;
+            this.btnAddNewItem.Click += new System.EventHandler(this.btnAddNewItem_Click);
             // 
             // Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 292);
+            this.ClientSize = new System.Drawing.Size(506, 292);
             this.Controls.Add(this.btnAddNewItem);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbSearchText);

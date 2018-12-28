@@ -68,7 +68,7 @@ namespace Autopraonica_Markus.forms.serviceForms
                 tbCarpetSize.Visible = true;
                 lblCarBrand.Visible = false;
                 cmbCarBrand.Visible = false;
-                btnAddCarBrand.Visible = false;
+                //btnAddCarBrand.Visible = false;
                 lblPrice.Location = new Point(30, 180);
                 tbPrice.Location = new Point(229, 170);
                 btnConfirm.Location = new Point(200, 230);
@@ -82,7 +82,7 @@ namespace Autopraonica_Markus.forms.serviceForms
                 tbCarpetSize.Clear();
                 lblCarBrand.Visible = true;
                 cmbCarBrand.Visible = true;
-                btnAddCarBrand.Visible = true;
+                //btnAddCarBrand.Visible = true;
                 lblPrice.Location = new Point(30, 180);
                 tbPrice.Location = new Point(229, 170);
                 btnConfirm.Location = new Point(200, 230);
@@ -92,7 +92,7 @@ namespace Autopraonica_Markus.forms.serviceForms
                 {
                     lblCarBrand.Visible = false;
                     cmbCarBrand.Visible = false;
-                    btnAddCarBrand.Visible = false;
+                    //btnAddCarBrand.Visible = false;
                     lblPrice.Location = new Point(30, 130);
                     tbPrice.Location = new Point(229, 120);
                     btnConfirm.Location = new Point(200, 180);

@@ -111,6 +111,7 @@
             this.newPurchase.TabIndex = 1;
             this.newPurchase.Text = "Nova nabavka";
             this.newPurchase.UseVisualStyleBackColor = true;
+            this.newPurchase.Click += new System.EventHandler(this.newPurchase_Click);
             // 
             // stormPurchase
             // 
