@@ -29,6 +29,13 @@ namespace Autopraonica_Markus.forms.userControls
         public UclSettings()
         {
             InitializeComponent();
+            tbName.Text = Properties.Settings.Default.Name;
+            tbUID.Text = Properties.Settings.Default.UID;
+            tbAddress.Text = Properties.Settings.Default.Address;
+            tbPhoneNumber.Text = Properties.Settings.Default.PhoneNumber;
+            tbAccountNumber.Text = Properties.Settings.Default.AccountNumber;
+            tbEmail.Text = Properties.Settings.Default.Email;
+            tbPassword.Text = Properties.Settings.Default.Password;
         }
     }
 }
