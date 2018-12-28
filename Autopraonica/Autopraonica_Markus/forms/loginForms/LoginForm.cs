@@ -33,16 +33,6 @@ namespace Autopraonica_Markus.forms
             string username = tbUsername.Text;
             string password = tbPassword.Text;
 
-            /*(string.IsNullOrWhiteSpace(username))
-            {
-                MessageBox.Show("Niste unijeli korisničko ime.", "Upozorenje");
-                tbUsername.Focus();
-            }
-            else if(string.IsNullOrWhiteSpace(password))
-            {
-                MessageBox.Show("Niste unijeli lozinku.", "Upozorenje");
-                tbPassword.Focus();
-            }*/
             if(ValidateChildren(ValidationConstraints.Enabled))
             {
                 using(MarkusDb context = new MarkusDb())
@@ -53,7 +43,6 @@ namespace Autopraonica_Markus.forms
                                       select c).ToList();
                     if(employment.Count == 0)
                     {
-                        //MessageBox.Show("Ne postoji uneseno korisničko ime.", "Upozorenje");
                         tbUsername.Clear();
                         tbPassword.Clear();
                         tbUsername.Focus();
@@ -69,29 +58,29 @@ namespace Autopraonica_Markus.forms
                         }
                         else
                         {
+                            employee employee = ((employment)employment[0]).employee;
+                            var emp = new employeerecord()
+                            {
+                                Employee_Id = employee.Id,
+                                LoginTime = DateTime.Now,
+                                LogoutTime = null
+                            };
+                            employee.employeerecords.Add(emp);
+                            context.SaveChanges();
+                            mainForm.SetEmployee(employee);
+                            var managers = (from c in context.managers select c).ToList();
+                            mainForm.SetButtonsVisibility(false);
+                            foreach (manager m in managers)
+                            {
+                                if (employee.Id == m.Employee_Id)
+                                {
+                                    mainForm.SetButtonsVisibility(true);
+                                }
+                            }
                             string salt = ((employment)employment[0]).Salt;
                             string passwordHash = UserService.GetPasswordHash(salt, password);
                             if (passwordHash.Equals(((employment)employment[0]).HashPassword))
                             {
-                                employee employee = ((employment)employment[0]).employee;
-                                var emp = new employeerecord()
-                                {
-                                    Employee_Id = employee.Id,
-                                    LoginTime = DateTime.Now,
-                                    LogoutTime = null
-                                };
-                                employee.employeerecords.Add(emp);
-                                context.SaveChanges();
-                                mainForm.SetEmployee(employee);
-                                var managers = (from c in context.managers select c).ToList();
-                                mainForm.SetButtonsVisibility(false);
-                                foreach (manager m in managers)
-                                {
-                                    if (employee.Id == m.Employee_Id)
-                                    {
-                                        mainForm.SetButtonsVisibility(true);
-                                    }
-                                }
                                 mainForm.ChangeAllowShowDisplay();
                                 this.DialogResult = DialogResult.OK;
                                 this.Close();
@@ -102,9 +91,18 @@ namespace Autopraonica_Markus.forms
                                 if (numberOfFailedLogin == 3)
                                 {
                                     string mail = ((employment)employment[0]).employee.E_mail;
-                                    // Treba dodati slanje maila
-                                    NetworkCredential login = new NetworkCredential("autopraonica.markus@gmail.com", "admin!23");
-                                    MailMessage mailMessage = new MailMessage("autopraonica.markus@gmail.com", "dragomir555@hotmail.rs");
+                                    string newSalt = UserService.GenerateSalt();
+                                    string newPassword = UserService.GeneratePassword();
+                                    string newHash = UserService.GetPasswordHash(newSalt, newPassword);
+                                    context.employments.Attach(employment[0]);
+                                    employment[0].Salt = newSalt;
+                                    employment[0].HashPassword = newHash;
+                                    employment[0].FirstLogin = 1;
+                                    context.SaveChanges();
+
+                                    NetworkCredential login = new NetworkCredential(Properties.Settings.Default.Email,
+                                        Properties.Settings.Default.Password);
+                                    MailMessage mailMessage = new MailMessage(Properties.Settings.Default.Email, mail);
                                     SmtpClient client = new SmtpClient();
                                     client.Port = 587;
                                     client.EnableSsl = true;
@@ -112,8 +110,8 @@ namespace Autopraonica_Markus.forms
                                     client.UseDefaultCredentials = false;
                                     client.Credentials = login;
                                     client.Host = "smtp.gmail.com";
-                                    mailMessage.Subject = "Test";
-                                    mailMessage.Body = "Testiram slanje maila iz aplikacije.";
+                                    mailMessage.Subject = "Nova lozinka";
+                                    mailMessage.Body = "Vaša nova lozinka je: " + newPassword;
                                     client.Send(mailMessage);
 
                                     MessageBox.Show("Na vaš e-mail je poslata poruka sa vašom novom lozinkom.", "Obavještenje");
@@ -124,7 +122,6 @@ namespace Autopraonica_Markus.forms
                                 }
                                 else
                                 {
-                                    //MessageBox.Show("Niste unijeli odgovarajuću lozinku.", "Upozorenje");
                                     tbPassword.Clear();
                                     tbPassword.Focus();
                                     errorProvider.SetError(tbPassword, "Niste unijeli odgovarajuću lozinku.");
