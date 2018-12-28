@@ -81,6 +81,7 @@ namespace Autopraonica_Markus.forms
                         context.SaveChanges();
                         if (caller == 0)
                         {
+                            mainForm.StartEmployeeLogoutUpdate();
                             mainForm.SetEmployee(employment.employee);
                             mainForm.ChangeAllowShowDisplay();
                         }
