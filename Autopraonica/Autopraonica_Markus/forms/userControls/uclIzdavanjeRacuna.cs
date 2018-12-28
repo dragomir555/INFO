@@ -565,6 +565,39 @@ namespace Autopraonica_Markus.forms.userControls
             e.NewWidth = this.lvUpSer.Columns[e.ColumnIndex].Width;
             e.Cancel = true;
         }
+
+        private void cmbClients_TextChanged(object sender, EventArgs e)
+        {
+          //  HandleTextChanged();
+        }
+
+        private void HandleTextChanged()
+        {
+            var txt = cmbClients.Text;
+
+            using (MarkusDb context = new MarkusDb())
+            {
+                var list = from d in context.clients
+                           where d.Name.ToUpper().StartsWith(cmbClients.Text.ToUpper())
+                           select d;
+
+                if (list.Count() > 0)
+                {
+                    cmbClients.DataSource = list.ToList();
+                    var sText = cmbClients.Items[0].ToString();
+                    cmbClients.SelectionStart = txt.Length;
+                    cmbClients.SelectionLength = sText.Length - txt.Length;
+                    cmbClients.DroppedDown = true;
+                    return;
+                }
+                else
+                {
+                    cmbClients.DroppedDown = false;
+                    cmbClients.SelectionStart = txt.Length;
+                }
+            }
+        }
+
     }
 }
 
