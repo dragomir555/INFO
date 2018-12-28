@@ -14,14 +14,16 @@ namespace Autopraonica_Markus.forms
 {
     public partial class PasswordChangeForm : Form
     {
-        private employment employment;
+        private employment firstEmployment;
         private MainForm mainForm;
+        private int caller;
 
-        public PasswordChangeForm(employment employment, MainForm mainForm)
+        public PasswordChangeForm(employment firstEmployment, MainForm mainForm, int caller)
         {
             InitializeComponent();
-            this.employment = employment;
+            this.firstEmployment = firstEmployment;
             this.mainForm = mainForm;
+            this.caller = caller;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -63,6 +65,8 @@ namespace Autopraonica_Markus.forms
             {
                 using (MarkusDb context = new MarkusDb())
                 {
+                    var employment = (from c in context.employments
+                                         where c.Id == firstEmployment.Id select c).ToList()[0];
                     string salt = employment.Salt;
                     string currentPasswordHash1 = employment.HashPassword;
                     string currentPasswordHash2 = UserService.GetPasswordHash(salt, currentPassword);
@@ -75,8 +79,12 @@ namespace Autopraonica_Markus.forms
                         employment.HashPassword = newPasswordHash;
                         employment.FirstLogin = 0;
                         context.SaveChanges();
-                        mainForm.SetEmployee(employment.employee);
-                        mainForm.ChangeAllowShowDisplay();
+                        if (caller == 0)
+                        {
+                            mainForm.StartEmployeeLogoutUpdate();
+                            mainForm.SetEmployee(employment.employee);
+                            mainForm.ChangeAllowShowDisplay();
+                        }
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
@@ -96,6 +104,7 @@ namespace Autopraonica_Markus.forms
         {
             if (this.DialogResult == DialogResult.None)
             {
+                mainForm.WindowState = FormWindowState.Minimized;
                 mainForm.ChangeAllowShowDisplay();
                 mainForm.Close();
             }

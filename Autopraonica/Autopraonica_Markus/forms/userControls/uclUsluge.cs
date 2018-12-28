@@ -59,7 +59,10 @@ namespace Autopraonica_Markus.forms.userControls
             using(MarkusDb context = new MarkusDb())
             {
                 var services = (from c in context.legalentityservices
-                                where c.naturalentityservice.Employee_Id == employee.Id
+                                where c.naturalentityservice.Employee_Id == employee.Id &&
+                                c.naturalentityservice.ServiceTime.Day == DateTime.Now.Day &&
+                                c.naturalentityservice.ServiceTime.Month == DateTime.Now.Month &&
+                                c.naturalentityservice.ServiceTime.Year == DateTime.Now.Year
                                 select c).ToList();
                 foreach(var s in services)
                 {
@@ -68,7 +71,7 @@ namespace Autopraonica_Markus.forms.userControls
                         Tag = s
                     };
                     row.CreateCells(dgvLegalEntity);
-                    row.SetValues(s.client.Name, s.naturalentityservice.ServiceTime.ToString("dd.MM.yyyy HH:mm:ss"),
+                    row.SetValues(s.client.Name, s.naturalentityservice.ServiceTime.ToString("HH:mm:ss"),
                         s.naturalentityservice.pricelistitem.servicetype.Name,
                         s.naturalentityservice.pricelistitem.pricelistitemname.Name, s.naturalentityservice.Price);
                     dgvLegalEntity.Rows.Add(row);
@@ -86,7 +89,10 @@ namespace Autopraonica_Markus.forms.userControls
                                      where c.naturalentityservice.Employee_Id == employee.Id
                                      select c).ToList();
                 var services = (from c in context.naturalentityservices
-                                where c.Employee_Id == employee.Id
+                                where c.Employee_Id == employee.Id &&
+                                c.ServiceTime.Day == DateTime.Now.Day &&
+                                c.ServiceTime.Month == DateTime.Now.Month &&
+                                c.ServiceTime.Year == DateTime.Now.Year
                                 select c).ToList();
                 List<naturalentityservice> naturalservices = new List<naturalentityservice>();
                 foreach(var s in legalServices)
@@ -102,7 +108,7 @@ namespace Autopraonica_Markus.forms.userControls
                             Tag = s
                         };
                         row.CreateCells(dgvNaturalEntity);
-                        row.SetValues(s.ServiceTime.ToString("dd.MM.yyyy HH:mm:ss"), s.pricelistitem.servicetype.Name,
+                        row.SetValues(s.ServiceTime.ToString("HH:mm:ss"), s.pricelistitem.servicetype.Name,
                             s.pricelistitem.pricelistitemname.Name, s.Price);
                         dgvNaturalEntity.Rows.Add(row);
                     }

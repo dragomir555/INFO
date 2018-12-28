@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autopraonica_Markus.Model.Entities;
+using Autopraonica_Markus.forms.puchaseForms;
+using System.Diagnostics;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -91,6 +93,28 @@ namespace Autopraonica_Markus.forms.userControls
         {
             tbSearchtext.Text = "";
             FillTable();
+        }
+
+        private void newPurchase_Click(object sender, EventArgs e)
+        {
+            Item item = new Item();
+            NewPurchase newPurchase = new NewPurchase();
+            if (DialogResult.OK == newPurchase.ShowDialog())
+            {
+
+
+
+
+
+            }
+            else
+            {
+                Debug.WriteLine("Dialog result don't OK");
+            }
+
+
+
+
         }
     }
 }

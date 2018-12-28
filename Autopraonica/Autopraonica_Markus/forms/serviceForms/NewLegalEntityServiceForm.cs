@@ -78,7 +78,7 @@ namespace Autopraonica_Markus.forms.serviceForms
                 tbCarpetSize.Visible = true;
                 lblCarBrand.Visible = false;
                 cmbCarBrand.Visible = false;
-                btnAddCarBrand.Visible = false;
+                //btnAddCarBrand.Visible = false;
                 lblLicencePlates.Visible = false;
                 mtbLicencePlate.Visible = false;
                 lblServiceType.Location = new Point(30, 180);
@@ -100,7 +100,7 @@ namespace Autopraonica_Markus.forms.serviceForms
                 tbCarpetSize.Clear();
                 lblCarBrand.Visible = true;
                 cmbCarBrand.Visible = true;
-                btnAddCarBrand.Visible = true;
+                //btnAddCarBrand.Visible = true;
                 lblLicencePlates.Visible = true;
                 mtbLicencePlate.Visible = true;
                 lblServiceType.Location = new Point(30, 230);
@@ -116,7 +116,7 @@ namespace Autopraonica_Markus.forms.serviceForms
                 {
                     lblCarBrand.Visible = false;
                     cmbCarBrand.Visible = false;
-                    btnAddCarBrand.Visible = false;
+                    //btnAddCarBrand.Visible = false;
                     lblLicencePlates.Visible = false;
                     mtbLicencePlate.Visible = false;
                     lblServiceType.Location = new Point(30, 180);

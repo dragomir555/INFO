@@ -10,17 +10,22 @@ using System.Windows.Forms;
 using Autopraonica_Markus.forms.userControls;
 using Autopraonica_Markus.forms;
 using Autopraonica_Markus.Model.Entities;
+using Autopraonica_Markus.forms.loginForms;
+using System.Threading;
 
 namespace Autopraonica_Markus
 {
     public partial class MainForm : Form
     {
         private Button PressedButton;
-        private Timer timer = new Timer();
+        private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         private employee employee;
         private employee helpingEmployee;
 
         private bool allowShowDisplay = false;
+
+        bool employeeFlag = true;
+        bool helpingEmployeeFlag = true;
 
         public MainForm()
         {
@@ -88,7 +93,7 @@ namespace Autopraonica_Markus
             {
                 pnlContent.Controls.Add(uclIzdavanjeRacuna.Instance);
                 uclIzdavanjeRacuna.Instance.Dock = DockStyle.Fill;
-                uclIzdavanjeRacuna.Instance.BringToFront();                
+                uclIzdavanjeRacuna.Instance.BringToFront();
             }
             else
             {
@@ -180,7 +185,7 @@ namespace Autopraonica_Markus
         void timer_Tick(object sender, EventArgs e)
         {
             lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
-            lblDate.Text = DateTime.Now.ToString("MMM dd yyyy");
+            lblDate.Text = DateTime.Now.ToString("dd.MM.yyyy");
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -208,6 +213,8 @@ namespace Autopraonica_Markus
                 "Markus", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
+                    employeeFlag = false;
+                    helpingEmployeeFlag = false;
                     SaveLogoutTime();
                     SaveHelperLogoutTime();
                     btnAddHelper.Visible = true;
@@ -222,7 +229,9 @@ namespace Autopraonica_Markus
             }
             else
             {
+                employeeFlag = false;
                 SaveLogoutTime();
+                cmbHelper.Visible = false;
                 employee = null;
                 this.Hide();
                 LoginForm loginForm = new LoginForm(this);
@@ -235,8 +244,9 @@ namespace Autopraonica_Markus
             using (MarkusDb context = new MarkusDb())
             {
                 var ers = (from c in context.employeerecords
-                           where c.Employee_Id == employee.Id &&
-                           c.LogoutTime == null select c).ToList();
+                           where c.Employee_Id == employee.Id
+                           orderby c.LogoutTime descending
+                           select c).ToList();
                 var employeerecord = (employeerecord)ers[0];
                 context.employeerecords.Attach(employeerecord);
                 employeerecord.LogoutTime = DateTime.Now;
@@ -246,13 +256,13 @@ namespace Autopraonica_Markus
 
         private void SaveHelperLogoutTime()
         {
-            using(MarkusDb context = new MarkusDb())
+            using (MarkusDb context = new MarkusDb())
             {
-                Console.WriteLine("HelpingEmployee_Id " + helpingEmployee.Id + " Employee_Id " + employee.Id);
                 var hers = (from c in context.helpingemployeerecords
                             where c.HelpingEmployee_Id == helpingEmployee.Id &&
-                            /*c.Employee_Id == employee.Id &&*/
-                            c.LogoutTime == null select c).ToList();
+                            c.Employee_Id == employee.Id
+                            orderby c.LogoutTime descending
+                            select c).ToList();
                 var helpingemployeerecord = (helpingemployeerecord)hers[0];
                 context.helpingemployeerecords.Attach(helpingemployeerecord);
                 helpingemployeerecord.LogoutTime = DateTime.Now;
@@ -295,9 +305,11 @@ namespace Autopraonica_Markus
                     "Markus", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
+                    employeeFlag = false;
                     SaveLogoutTime();
                     if (helpingEmployee != null)
                     {
+                        helpingEmployeeFlag = false;
                         SaveHelperLogoutTime();
                     }
                 }
@@ -312,9 +324,10 @@ namespace Autopraonica_Markus
         {
             DialogResult dialogResult = MessageBox.Show("Da li se sigurni da zelite da uklonite ispomoć?",
                 "Markus", MessageBoxButtons.YesNo);
-            if(dialogResult == DialogResult.Yes)
+            if (dialogResult == DialogResult.Yes)
             {
                 uclUsluge.Instance.RemoveHelpingEmployee();
+                helpingEmployeeFlag = false;
                 SaveHelperLogoutTime();
                 lblHelper.Text = "Ispomoć";
                 btnAddHelper.Visible = true;
@@ -324,12 +337,13 @@ namespace Autopraonica_Markus
 
         private void btnAddHelper_Click(object sender, EventArgs e)
         {
-            using(MarkusDb context = new MarkusDb())
+            using (MarkusDb context = new MarkusDb())
             {
-                var employees = (from c1 in context.employees /*join c2 in context.employments
+                var employees = (from c1 in context.employees join c2 in context.employments
                                  on c1.Id equals c2.Employee_Id
                                  where c1.Id != employee.Id &&
-                                 c2.DateTo == null*/ select c1).ToList();
+                                 c2.DateTo == null
+                                 select c1).ToList();
                 var newEmployee = new employee()
                 {
                     FirstName = "Odaberi",
@@ -377,12 +391,110 @@ namespace Autopraonica_Markus
                         context.helpingemployeerecords.Add(her);
                         context.SaveChanges();
                     }
+                    StartHelpingEmployeeLogoutUpdate();
                 }
                 else
                 {
                     helpingEmployee = null;
                 }
             }
+        }
+
+        private void btnInactive_Click(object sender, EventArgs e)
+        {
+            StandByForm sbf = new StandByForm(employee);
+            sbf.ShowDialog();
+        }
+
+        private void btnPasswordChange_Click(object sender, EventArgs e)
+        {
+            using (MarkusDb context = new MarkusDb())
+            {
+                var employment = (from c in context.employments
+                                  where c.Employee_Id == employee.Id &&
+                                  c.DateTo == null
+                                  select c).ToList();
+                PasswordChangeForm pcf = new PasswordChangeForm(employment[0], this, 1);
+                pcf.ShowDialog();
+            }
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            if (!pnlContent.Controls.Contains(UclSettings.Instance))
+            {
+                pnlContent.Controls.Add(UclSettings.Instance);
+                UclSettings.Instance.Dock = DockStyle.Fill;
+                UclSettings.Instance.BringToFront();
+            }
+            else
+            {
+                UclSettings.Instance.BringToFront();
+            }
+            UclSettings.Instance.SetValues();
+            PressedButton.BackColor = Color.FromArgb(107, 65, 150);
+            btnSettings.BackColor = Color.FromArgb(93, 46, 140);
+            PressedButton = btnSettings;
+        }
+
+        public void StartEmployeeLogoutUpdate()
+        {
+            Thread employeeLogoutThread = new Thread(() =>
+            {
+                while (employeeFlag)
+                {
+                    using (MarkusDb context = new MarkusDb())
+                    {
+                        var emps = (from c in context.employeerecords
+                                    where c.Employee_Id == employee.Id &&
+                                    c.LogoutTime == null
+                                    select c).ToList();
+                        if (emps.Count == 0)
+                        {
+                            emps = (from c in context.employeerecords
+                                    where c.Employee_Id == employee.Id
+                                    orderby c.LogoutTime descending
+                                    select c).ToList();
+                        }
+                        var emp = emps[0];
+                        context.employeerecords.Attach(emp);
+                        emp.LogoutTime = DateTime.Now;
+                        context.SaveChanges();
+                    }
+                    Thread.Sleep(10000);
+                }
+            });
+            employeeLogoutThread.Start();
+        }
+
+        public void StartHelpingEmployeeLogoutUpdate()
+        {
+            Thread helpingEmployeeLogoutThread = new Thread(() =>
+            {
+                while (helpingEmployeeFlag)
+                {
+                    using (MarkusDb context = new MarkusDb())
+                    {
+                        var emps = (from c in context.helpingemployeerecords
+                                    where c.Employee_Id == employee.Id && c.HelpingEmployee_Id == helpingEmployee.Id
+                                    && c.LogoutTime == null
+                                    select c).ToList();
+                        if (emps.Count == 0)
+                        {
+                            emps = (from c in context.helpingemployeerecords
+                                    where c.Employee_Id == employee.Id && c.HelpingEmployee_Id == helpingEmployee.Id
+                                    orderby c.LogoutTime descending
+                                    select c).ToList();
+                        }
+                        var emp = emps[0];
+                        context.helpingemployeerecords.Attach(emp);
+                        emp.LogoutTime = DateTime.Now;
+                        context.SaveChanges();
+                    }
+                    Thread.Sleep(10000);
+                }
+            });
+            helpingEmployeeLogoutThread.Start();
         }
     }
 }

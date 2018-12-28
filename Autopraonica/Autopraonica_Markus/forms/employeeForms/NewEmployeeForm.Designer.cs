@@ -238,6 +238,7 @@
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblFirstName);
             this.Name = "NewEmployeeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodavanje zaposlenog";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);

@@ -25,17 +25,64 @@ namespace Autopraonica_Markus.forms.loginForms
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            using(MarkusDb context = new MarkusDb())
+            if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                var employment = (from c in context.employments where c.Employee_Id == employee.Id &&
-                                   c.DateTo == null select c).ToList()[0];
-                string salt = employment.Salt;
-                string hash = employment.HashPassword;
-                string password = tbPassword.Text;
-                string newHash = UserService.GetPasswordHash(salt, password);
-                if(hash.Equals(newHash))
+                using (MarkusDb context = new MarkusDb())
                 {
-                    this.Close();
+                    var employment = (from c in context.employments
+                                      where c.Employee_Id == employee.Id &&
+                                      c.DateTo == null
+                                      select c).ToList()[0];
+                    string salt = employment.Salt;
+                    string hash = employment.HashPassword;
+                    string password = tbPassword.Text;
+                    string newHash = UserService.GetPasswordHash(salt, password);
+                    if (hash.Equals(newHash))
+                    {
+                        this.Close();
+                    }
+                    this.DialogResult = DialogResult.OK;
+                }
+            }
+        }
+
+        private void StandByForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(this.DialogResult != DialogResult.OK)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void tbPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(tbPassword.Text))
+            {
+                e.Cancel = true;
+                tbPassword.Focus();
+                errorProvider.SetError(tbPassword, "Niste unijeli lozinku.");
+            }
+            else
+            {
+                using(MarkusDb context = new MarkusDb())
+                {
+                    var employment = (from c in context.employments where c.Employee_Id == employee.Id &&
+                                   c.DateTo == null select c).ToList()[0];
+                    string salt = employment.Salt;
+                    string hash = employment.HashPassword;
+                    string password = tbPassword.Text;
+                    string newHash = UserService.GetPasswordHash(salt, password);
+                    if(!hash.Equals(newHash))
+                    {
+                        e.Cancel = true;
+                        tbPassword.Focus();
+                        errorProvider.SetError(tbPassword, "Niste ispravno unijeli lozinku.");
+                    }
+                    else
+                    {
+                        e.Cancel = false;
+                        errorProvider.SetError(tbPassword, null);
+                    }
                 }
             }
         }
