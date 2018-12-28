@@ -26,7 +26,7 @@ namespace Autopraonica_Markus.forms.userControls
     public partial class uclIzdavanjeRacuna : UserControl
     {
         private static uclIzdavanjeRacuna instance;
-
+      
         public static uclIzdavanjeRacuna Instance
         {
             get
@@ -43,7 +43,7 @@ namespace Autopraonica_Markus.forms.userControls
         {
             InitializeComponent();
             UpdateComboBox();
-            setColumnSize();
+           
             dtpFormat();
         }
 
@@ -58,15 +58,7 @@ namespace Autopraonica_Markus.forms.userControls
             dtpDateFrom.Height = 30;
         }
 
-        private void setColumnSize() {
-            lvUpSer.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            lvUpSer.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-            hdFirstName.Width = 70;
-            hdSecName.Width = 70;
-            hdPrice.Width = 55;
-            hdTypeSer.Width = 100;
-        }
-        public void UpdateComboBox()
+      public void UpdateComboBox()
         {
             cmbClients.Items.Clear();
             using (MarkusDb context = new MarkusDb())
@@ -225,17 +217,13 @@ namespace Autopraonica_Markus.forms.userControls
                     return (DateTime.Now.Year).ToString();
                 };
 
-                
-                
 
-                //make directory if not exists
+
+                /*TO DO*/
+                //make directory if not exists 
                 ExportDataTableOfUnpaidServicesToPdf(dtus, @"D:efp\NeplaćeneUsluge" + month + year() + ".pdf", "AUTOPRAONICA MARKUS");
                 ExportDataTableForBillToPdf(dtbl, @"D:efp\RačunZa" + month + year() + ".pdf", "AUTOPRAONICA MARKUS");
-                //if (cbxopen.checked)
-                //{
-                //        system.diagnostics.process.start(@"e:\test.pdf");
-                //        this.windowstate = system.windows.forms.formwindowstate.minimized;
-                //    }
+                MessageBox.Show("Uspjesno generisan PDF", "PDF");
             }
             catch (Exception ex)
             {
@@ -523,7 +511,31 @@ namespace Autopraonica_Markus.forms.userControls
             writer.Close();
             fs.Close();
         }
- 
+
+        private void uclIzdavanjeRacuna_Resize(object sender, EventArgs e)
+        {
+            autoResizeColumns(lvUpSer);
+        }
+
+        public static void autoResizeColumns(ListView lv)
+        {
+            lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            ListView.ColumnHeaderCollection cc = lv.Columns;
+            for (int i = 0; i < cc.Count; i++)
+            {
+                int colWidth = TextRenderer.MeasureText(cc[i].Text, lv.Font).Width + 10;
+                if (colWidth > cc[i].Width)
+                {
+                    cc[i].Width = colWidth;
+                }
+            }
+        }
+
+        private void lvUpSer_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.NewWidth = this.lvUpSer.Columns[e.ColumnIndex].Width;
+            e.Cancel = true;
+        }
     }
 }
 

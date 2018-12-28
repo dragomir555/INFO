@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.label3 = new System.Windows.Forms.Label();
             this.cmbClients = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +41,7 @@
             this.hdTypeSer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdSubtypeSer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.hdSecName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.hdLastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdDtTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdLicPl = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -51,6 +51,9 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(16, 84);
@@ -61,6 +64,9 @@
             // 
             // cmbClients
             // 
+            this.cmbClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbClients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbClients.FormattingEnabled = true;
             this.cmbClients.Location = new System.Drawing.Point(172, 83);
@@ -71,6 +77,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(16, 131);
@@ -81,6 +90,9 @@
             // 
             // dtpDateFrom
             // 
+            this.dtpDateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDateFrom.Location = new System.Drawing.Point(172, 134);
             this.dtpDateFrom.Name = "dtpDateFrom";
             this.dtpDateFrom.Size = new System.Drawing.Size(247, 22);
@@ -88,6 +100,7 @@
             // 
             // lblPrice
             // 
+            this.lblPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrice.Location = new System.Drawing.Point(259, 419);
@@ -98,6 +111,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 419);
@@ -108,6 +122,7 @@
             // 
             // btnDspUnpSer
             // 
+            this.btnDspUnpSer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDspUnpSer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnDspUnpSer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDspUnpSer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
@@ -123,6 +138,10 @@
             // lvUpSer
             // 
             this.lvUpSer.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.lvUpSer.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.lvUpSer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvUpSer.BackColor = System.Drawing.SystemColors.Menu;
             this.lvUpSer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lvUpSer.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -130,21 +149,19 @@
             this.hdTypeSer,
             this.hdSubtypeSer,
             this.hdFirstName,
-            this.hdSecName,
+            this.hdLastName,
             this.hdDtTime,
             this.hdLicPl,
             this.hdPrice});
-            this.lvUpSer.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lvUpSer.HotTracking = true;
-            this.lvUpSer.HoverSelection = true;
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
-            this.lvUpSer.Location = new System.Drawing.Point(3, 192);
+            listViewItem1});
+            this.lvUpSer.Location = new System.Drawing.Point(23, 192);
             this.lvUpSer.Name = "lvUpSer";
-            this.lvUpSer.Size = new System.Drawing.Size(798, 210);
+            this.lvUpSer.Size = new System.Drawing.Size(759, 210);
             this.lvUpSer.TabIndex = 13;
             this.lvUpSer.UseCompatibleStateImageBehavior = false;
             this.lvUpSer.View = System.Windows.Forms.View.Details;
+            this.lvUpSer.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvUpSer_ColumnWidthChanging);
             // 
             // hdSerNumSer
             // 
@@ -166,10 +183,10 @@
             this.hdFirstName.Text = "Ime";
             this.hdFirstName.Width = 89;
             // 
-            // hdSecName
+            // hdLastName
             // 
-            this.hdSecName.Text = "Prezime";
-            this.hdSecName.Width = 99;
+            this.hdLastName.Text = "Prezime";
+            this.hdLastName.Width = 99;
             // 
             // hdDtTime
             // 
@@ -184,10 +201,11 @@
             // hdPrice
             // 
             this.hdPrice.Text = "Cijena";
-            this.hdPrice.Width = 57;
+            this.hdPrice.Width = 73;
             // 
             // btnGenBill
             // 
+            this.btnGenBill.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnGenBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnGenBill.Enabled = false;
             this.btnGenBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -203,6 +221,9 @@
             // 
             // lblGenBill
             // 
+            this.lblGenBill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblGenBill.AutoSize = true;
             this.lblGenBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenBill.Location = new System.Drawing.Point(16, 11);
@@ -228,6 +249,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uclIzdavanjeRacuna";
             this.Size = new System.Drawing.Size(801, 470);
+            this.Resize += new System.EventHandler(this.uclIzdavanjeRacuna_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,7 +267,7 @@
         private System.Windows.Forms.ListView lvUpSer;
         private System.Windows.Forms.ColumnHeader hdTypeSer;
         private System.Windows.Forms.ColumnHeader hdFirstName;
-        private System.Windows.Forms.ColumnHeader hdSecName;
+        private System.Windows.Forms.ColumnHeader hdLastName;
         private System.Windows.Forms.Button btnGenBill;
         private System.Windows.Forms.ColumnHeader hdDtTime;
         private System.Windows.Forms.ColumnHeader hdLicPl;
