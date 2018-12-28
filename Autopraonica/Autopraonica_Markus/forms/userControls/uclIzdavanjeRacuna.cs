@@ -26,7 +26,8 @@ namespace Autopraonica_Markus.forms.userControls
     public partial class uclIzdavanjeRacuna : UserControl
     {
         private static uclIzdavanjeRacuna instance;
-      
+        
+
         public static uclIzdavanjeRacuna Instance
         {
             get
@@ -128,6 +129,7 @@ namespace Autopraonica_Markus.forms.userControls
                     return true;
             return false;
         }
+
         private decimal searchUnpaidServices(DateTimePicker dateFrom) {
             decimal suma = 0;
 
@@ -151,11 +153,15 @@ namespace Autopraonica_Markus.forms.userControls
                      les.LicencePlate,
                      nes.Price,
                  }).ToList();
+
                 int i = 1;
- 
+                DateTime serviceDate;
+                String formattedDate;
+
                 foreach (var v in listOfClientsUnpaidServices)
                 {
-                    var serviceDate = v.ServiceTime;
+                     serviceDate = v.ServiceTime;
+                     formattedDate = serviceDate.ToString("dd-MM-yyyy");
                     if (dateCondition(serviceDate)) 
                     {
                         ListViewItem item = new ListViewItem(i++.ToString());
@@ -163,7 +169,7 @@ namespace Autopraonica_Markus.forms.userControls
                         item.SubItems.Add(v.priceName);
                         item.SubItems.Add(v.FirstName);
                         item.SubItems.Add(v.LastName);
-                        item.SubItems.Add(serviceDate.ToShortDateString());
+                        item.SubItems.Add(formattedDate);
                         item.SubItems.Add(v.LicencePlate);
                         item.SubItems.Add(v.Price.ToString());
                         suma += v.Price;
@@ -303,7 +309,7 @@ namespace Autopraonica_Markus.forms.userControls
                 {
                     var serviceDate = v.ServiceTime;
                     if (dateCondition(serviceDate)) 
-                    {
+                    { 
                         dt.Rows.Add(i++, serviceDate.ToShortDateString() , v.carBrandName, v.LicencePlate, v.Name, v.FirstName + " " +v.LastName, v.Price);
                     }
                 }
@@ -514,20 +520,43 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void uclIzdavanjeRacuna_Resize(object sender, EventArgs e)
         {
-            autoResizeColumns(lvUpSer);
+          resizeColumns(lvUpSer);
         }
 
-        public static void autoResizeColumns(ListView lv)
+        private void resizeColumns(ListView lv)
         {
-            lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            ListView.ColumnHeaderCollection cc = lv.Columns;
-            for (int i = 0; i < cc.Count; i++)
+            int lvWidth = lv.Width;
+            int clmnWidth;
+            
+            if (lvWidth > 1000)
             {
-                int colWidth = TextRenderer.MeasureText(cc[i].Text, lv.Font).Width + 10;
-                if (colWidth > cc[i].Width)
-                {
-                    cc[i].Width = colWidth;
-                }
+                clmnWidth = lvWidth / 7;
+            }
+
+            else if (lvWidth > 600)
+            {
+                
+                clmnWidth = lvWidth / 8 ;
+            }
+            else
+            {
+                clmnWidth = lvWidth / 8 + 10;
+            }
+
+
+         foreach (ColumnHeader column in lv.Columns)
+         {
+            if (!(column.Text.Equals("R.b.")))
+                column.Width = clmnWidth;
+            if (column.Text.Equals("Registarske tablice") || column.Text.Equals("Podvrsta usluge") || column.Text.Equals("Vrsta usluge"))
+                column.Width = clmnWidth + 25;
+            if (column.Text.Equals("Cijena"))
+                column.Width = clmnWidth - 25;
+         }
+
+            if (lvWidth > 1000)
+            {
+                hdPrice.Width = clmnWidth - 110;
             }
         }
 

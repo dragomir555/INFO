@@ -138,7 +138,7 @@
             // lvUpSer
             // 
             this.lvUpSer.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.lvUpSer.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.lvUpSer.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.lvUpSer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -161,7 +161,6 @@
             this.lvUpSer.TabIndex = 13;
             this.lvUpSer.UseCompatibleStateImageBehavior = false;
             this.lvUpSer.View = System.Windows.Forms.View.Details;
-            this.lvUpSer.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvUpSer_ColumnWidthChanging);
             // 
             // hdSerNumSer
             // 
