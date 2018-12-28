@@ -81,6 +81,7 @@ namespace Autopraonica_Markus.forms
                             string passwordHash = UserService.GetPasswordHash(salt, password);
                             if (passwordHash.Equals(((employment)employment[0]).HashPassword))
                             {
+                                mainForm.StartEmployeeLogoutUpdate();
                                 mainForm.ChangeAllowShowDisplay();
                                 this.DialogResult = DialogResult.OK;
                                 this.Close();
