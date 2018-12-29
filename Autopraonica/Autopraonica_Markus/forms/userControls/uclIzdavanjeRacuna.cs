@@ -222,7 +222,8 @@ namespace Autopraonica_Markus.forms.userControls
                 int monthIndex = dtpDateFrom.Value.Month;
                 int yearIndex = dtpDateFrom.Value.Year;
                 String month = getNameOfMonth(monthIndex);
-                Autopraonica_Markus.Model.Entities.receipt rec = null;
+                Autopraonica_Markus.Model.Entities.receipt  rec = null;
+                string path = null;
 
                 try
                 {
@@ -232,14 +233,11 @@ namespace Autopraonica_Markus.forms.userControls
                                   where c.Name == cmbClients.Text
                                   select c).First();
 
-                        rec = (from r in context.receipts
-                                   where r.PDF != null
-                                   where r.DateFrom.Month == monthIndex 
-                                   where r.DateFrom.Year == yearIndex
-                                   select r).First();
-
-                        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                        System.IO.File.WriteAllBytes(path  + "/hello.pdf", rec.PDF);
+                      rec = (from r in context.receipts
+                             where r.PDF != null
+                             where r.DateFrom.Month == monthIndex 
+                             where r.DateFrom.Year == yearIndex
+                             select r).FirstOrDefault();
                     }
                 }
                 catch (DbEntityValidationException ex)
@@ -259,22 +257,48 @@ namespace Autopraonica_Markus.forms.userControls
 
 
                 }
-            
 
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.FileName = "Usluge" + cmbClients.Text.ToUpper() + month + year;
-                saveFileDialog.Filter = "Pdf files (*.Pdf)|*.Pdf";
-                saveFileDialog.DefaultExt = "pdf";
 
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                if (rec != null)
                 {
-                    ExportDataTableOfUnpaidServicesToPdf(dtus, @"" + saveFileDialog.FileName, "AUTOPRAONICA MARKUS");
-                    ExportDataTableForBillToPdf(dtbl, @"" + saveFileDialog.FileName, "AUTOPRAONICA MARKUS");
-                    MessageBox.Show("Uspjesno generisan PDF", "PDF");
+                    if (DialogResult.Yes == MessageBox.Show("Racun je vec generisan.Da li zelite ponovo da sacuvate PDF?", "Cuvanje racuna", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+                    {
+                        path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                        SaveFileDialog saveFileDialog = new SaveFileDialog();
+                        String filePath;
+                        String filePath1;
+
+                        saveFileDialog.FileName = "Usluge" + cmbClients.Text.ToUpper() + month + year;
+                        saveFileDialog.Filter = "Pdf files (*.Pdf)|*.Pdf";
+                        saveFileDialog.DefaultExt = "pdf";
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        { 
+                            filePath = saveFileDialog.FileName;
+                            filePath1 = filePath.Replace("Usluge", "Racun");
+                            System.IO.File.WriteAllBytes(filePath , rec.PDF);
+                            System.IO.File.WriteAllBytes(filePath1, rec.PDF_TABLE);
+                        }
+                    }
                 }
-                else
-                    MessageBox.Show("Neuspjesno generisan PDF", "PDF");
-            }
+                else {
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.FileName = "Usluge" + cmbClients.Text.ToUpper() + month + year;
+                    saveFileDialog.Filter = "Pdf files (*.Pdf)|*.Pdf";
+                    saveFileDialog.DefaultExt = "pdf";
+                    String compName = Properties.Settings.Default.Name;
+                    String filePath;
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        filePath = saveFileDialog.FileName;
+                        ExportDataTableOfUnpaidServicesToPdf(dtus, @"" + filePath, compName.ToUpper());
+                        ExportDataTableForBillToPdf(dtbl, @"" + filePath, compName.ToUpper());
+                        databaseFilePut(filePath);
+                        MessageBox.Show("Uspjesno generisan PDF", "PDF");
+                    }
+                    else
+                        MessageBox.Show("Neuspjesno generisan PDF", "PDF");
+                } }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error Message");
@@ -285,11 +309,23 @@ namespace Autopraonica_Markus.forms.userControls
         private void databaseFilePut(string varFilePath)
         {
             byte[] file;
+            byte[] file1;
+
+            string outputPDF = varFilePath.Replace("Usluge", "Racun");
+
             using (var stream = new FileStream(varFilePath, FileMode.Open, FileAccess.Read))
             {
                 using (var reader = new BinaryReader(stream))
                 {
                     file = reader.ReadBytes((int)stream.Length);
+                }
+            }
+
+            using (var stream = new FileStream(outputPDF, FileMode.Open, FileAccess.Read))
+            {
+                using (var reader = new BinaryReader(stream))
+                {
+                    file1 = reader.ReadBytes((int)stream.Length);
                 }
             }
 
@@ -317,13 +353,16 @@ namespace Autopraonica_Markus.forms.userControls
                       DateFrom = dtFrom,
                       DateTo = dtTo,
                       PDF = file,
-                      Paid = 1,
+                      PDF_TABLE = file1,
+                      Paid = 0,
                       Client_Id = cl.Id,
                       Manager_Id = emp.Id
                     };
 
                     context.receipts.Add(rec);
                     context.SaveChanges();
+                    System.IO.File.WriteAllBytes(varFilePath, rec.PDF);
+                    System.IO.File.WriteAllBytes(outputPDF, rec.PDF_TABLE);
                 }
             }
             catch (DbEntityValidationException ex)
@@ -458,8 +497,8 @@ namespace Autopraonica_Markus.forms.userControls
             prgBillNumb.Alignment = Element.ALIGN_CENTER;
 
             prgCompanyInfo.Alignment = Element.ALIGN_RIGHT;
-            prgAuthor.Add(new Chunk("\nUL.V.Putnika bb prop",boldFont));
-            prgAuthor.Add(new Chunk("\nKoz.Dubica prop", boldFont));
+            prgAuthor.Add(new Chunk("\nUL." + Properties.Settings.Default.Address, boldFont));
+            prgAuthor.Add(new Chunk("\nKoz.Dubica", boldFont));
             String clientName = cmbClients.Text;
             using (MarkusDb ctx = new MarkusDb()) {
 
@@ -477,8 +516,8 @@ namespace Autopraonica_Markus.forms.userControls
             prgAuthor1.Add(new Chunk("\n Datum izdavanja: " + strDate));
             String date = dtpDateFrom.Value.Date.ToString("MM/dd/yyyy");
             prgAuthor1.Add(new Chunk("\n Za period: 01." + date.ToString().Substring(0, 2) + ". - 31." + date.ToString().Substring(0, 2) + "." + date.ToString().Substring(6, 4)+ ". GOD."));
-            prgAuthor.Add(new Chunk("\nJIB  property123214", boldFont));
-            prgAuthor.Add(new Chunk("\nZ.r. property312311", boldFont));
+            prgAuthor.Add(new Chunk("\nJIB: " + Properties.Settings.Default.UID, boldFont));
+            prgAuthor.Add(new Chunk("\nZiro racun: " + Properties.Settings.Default.AccountNumber, boldFont));
             
             prgBillNumb.Add(new Chunk("RACUN BR. " + date.ToString().Substring(0, 2) + "/" + date.ToString().Substring(8, 2) , boldFont));
 
@@ -538,7 +577,7 @@ namespace Autopraonica_Markus.forms.userControls
             document.Close();
             writer.Close();
             fs.Close();
-            databaseFilePut(outputPDF);
+           
         }
 
         String getNameOfMonth(int monthIndex) {
@@ -628,7 +667,6 @@ namespace Autopraonica_Markus.forms.userControls
             document.Close();
             writer.Close();
             fs.Close();
-            databaseFilePut(strPdfPath);
         }
 
         private void uclIzdavanjeRacuna_Resize(object sender, EventArgs e)
