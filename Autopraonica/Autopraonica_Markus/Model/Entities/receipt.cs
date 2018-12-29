@@ -27,6 +27,9 @@ namespace Autopraonica_Markus.Model.Entities
 
         public int Manager_Id { get; set; }
 
+        [Column(TypeName = "blob")]
+        public byte[] PDF_TABLE { get; set; }
+
         public virtual client client { get; set; }
 
         public virtual manager manager { get; set; }

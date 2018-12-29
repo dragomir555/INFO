@@ -8,7 +8,7 @@ namespace Autopraonica_Markus.Model.Entities
     public partial class MarkusDb : DbContext
     {
         public MarkusDb()
-            : base("name=MarkusDb1")
+            : base("name=MarkusDb")
         {
         }
 

@@ -99,8 +99,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
                 Count =decimal.Parse(tbQuantity.Text);
                 Prize = decimal.Parse(tbPrize.Text);
                 ItemInForm =(item)tbStavka.Tag;
-
-
+                this.DialogResult = DialogResult.OK;
             }
         }
     }
