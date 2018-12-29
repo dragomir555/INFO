@@ -168,14 +168,14 @@ namespace Autopraonica_Markus.forms.userControls
             DateTime dt2 = this.dateTimePicker2.Value.Date;
             if ("Statistika po radniku".Equals(cbStatistics.Text))
             {
-                int id = (int)dataGridView1.SelectedRows[0].Cells[2].Value;
-                string name = dataGridView1.SelectedRows[0].Cells[0].Value.ToString() + dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                int id = (int)dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value;
+                string name = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString() + "  " + dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
                 EmployeeChartForm ecf = new EmployeeChartForm(id, name, dt1, dt2);
                 ecf.ShowDialog();
             } else if("Statistika po klijentu".Equals(cbStatistics.Text))
             {
-                int id = (int)dataGridView1.SelectedRows[0].Cells[1].Value;
-                string name = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                int id = (int)dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value;
+                string name = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString();
                 ClientChartForm ccf = new ClientChartForm(id, name, dt1, dt2);
                 ccf.ShowDialog();
             } else
