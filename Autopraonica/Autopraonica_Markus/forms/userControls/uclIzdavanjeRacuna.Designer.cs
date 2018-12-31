@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.label3 = new System.Windows.Forms.Label();
             this.cmbClients = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,9 +49,9 @@
             this.lblGenBill = new System.Windows.Forms.Label();
             this.lblRacuni = new System.Windows.Forms.Label();
             this.dgvBills = new System.Windows.Forms.DataGridView();
-            this.dtpYear = new System.Windows.Forms.DateTimePicker();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hdState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dtpYear = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,9 +75,9 @@
             this.cmbClients.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbClients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbClients.FormattingEnabled = true;
-            this.cmbClients.Location = new System.Drawing.Point(172, 83);
+            this.cmbClients.Location = new System.Drawing.Point(176, 83);
             this.cmbClients.Name = "cmbClients";
-            this.cmbClients.Size = new System.Drawing.Size(343, 26);
+            this.cmbClients.Size = new System.Drawing.Size(339, 26);
             this.cmbClients.TabIndex = 11;
             this.cmbClients.Text = "  Odabir klijenta";
             this.cmbClients.SelectedValueChanged += new System.EventHandler(this.cmbClients_SelectedValueChanged);
@@ -98,9 +98,9 @@
             // 
             this.dtpDateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtpDateFrom.Location = new System.Drawing.Point(172, 134);
+            this.dtpDateFrom.Location = new System.Drawing.Point(176, 134);
             this.dtpDateFrom.Name = "dtpDateFrom";
-            this.dtpDateFrom.Size = new System.Drawing.Size(343, 22);
+            this.dtpDateFrom.Size = new System.Drawing.Size(339, 22);
             this.dtpDateFrom.TabIndex = 7;
             // 
             // lblPrice
@@ -159,7 +159,7 @@
             this.hdLicPl,
             this.hdPrice});
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5});
+            listViewItem1});
             this.lvUpSer.Location = new System.Drawing.Point(21, 192);
             this.lvUpSer.Name = "lvUpSer";
             this.lvUpSer.Size = new System.Drawing.Size(855, 210);
@@ -270,16 +270,6 @@
             this.dgvBills.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellContentClick);
             this.dgvBills.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellValueChanged);
             // 
-            // dtpYear
-            // 
-            this.dtpYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpYear.Location = new System.Drawing.Point(702, 20);
-            this.dtpYear.Name = "dtpYear";
-            this.dtpYear.Size = new System.Drawing.Size(173, 22);
-            this.dtpYear.TabIndex = 23;
-            this.dtpYear.ValueChanged += new System.EventHandler(this.dtpYear_ValueChanged);
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "Broj racuna";
@@ -290,6 +280,16 @@
             this.hdState.HeaderText = "Placen";
             this.hdState.Name = "hdState";
             this.hdState.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dtpYear
+            // 
+            this.dtpYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpYear.Location = new System.Drawing.Point(702, 20);
+            this.dtpYear.Name = "dtpYear";
+            this.dtpYear.Size = new System.Drawing.Size(173, 22);
+            this.dtpYear.TabIndex = 23;
+            this.dtpYear.ValueChanged += new System.EventHandler(this.dtpYear_ValueChanged);
             // 
             // uclIzdavanjeRacuna
             // 
