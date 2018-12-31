@@ -28,7 +28,7 @@ namespace Autopraonica_Markus.forms.userControls
     public partial class uclIzdavanjeRacuna : UserControl
     {
         private static uclIzdavanjeRacuna instance;
- 
+
 
 
         public static uclIzdavanjeRacuna Instance
@@ -46,13 +46,12 @@ namespace Autopraonica_Markus.forms.userControls
         public uclIzdavanjeRacuna()
         {
             InitializeComponent();
-             
             updateComboBox();
-            updateComboCell();
             dtpFormat();
         }
 
-        private void updateDgvBills() {
+        private void updateDgvBills()
+        {
             dgvBills.Rows.Clear();
             String date = dtpYear.Value.Date.ToString("MM/dd/yyyy");
             String billMonth = date.ToString().Substring(0, 2);
@@ -65,37 +64,38 @@ namespace Autopraonica_Markus.forms.userControls
                 {
                     String clientName = cmbClients.Text;
                     var receipts = (from r in context.receipts
-                                   join cl in context.clients on r.Client_Id equals cl.Id
-                                   where cl.Name == clientName
-                                   where r.DateFrom.Year == dtpYr
-                                   select r).ToList();
+                                    join cl in context.clients on r.Client_Id equals cl.Id
+                                    where cl.Name == clientName
+                                    where r.DateFrom.Year == dtpYr
+                                    select r).ToList();
 
+
+                    Boolean isChecked;
                     foreach (var r in receipts)
                     {
                         DataGridViewRow rw = new DataGridViewRow() { Tag = r };
                         rw.CreateCells(dgvBills);
-                        String billState = setComboCell(r.Paid); 
-                        rw.SetValues(r.DateFrom.Month + "/" + r.DateFrom.Year, billState);
+
+                        if (isPaid(r.Paid))
+                            isChecked = true;
+                        else
+                            isChecked = false;
+
+                        rw.SetValues(r.DateFrom.Month + "/" + r.DateFrom.Year, isChecked);
                         dgvBills.Rows.Add(rw);
                     }
                 }
             }
         }
 
-        private string setComboCell(sbyte paid)
+        private Boolean isPaid(sbyte paid)
         {
             if (paid.Equals(1))
-                return "Placen";
-            return "Neplacen";
+                return true;
+            return false;
         }
 
-        private void updateComboCell()
-        {
-              ArrayList row = new ArrayList();
-              row.Add("Neplacen");
-              row.Add("Placen");
-              cmbState.Items.AddRange(row.ToArray());
-        }
+
 
         private void dtpFormat()
         {
@@ -130,7 +130,8 @@ namespace Autopraonica_Markus.forms.userControls
             }
         }
 
-        private void populateRowsForBill(DataTable dt, DateTimePicker dateFrom) {
+        private void populateRowsForBill(DataTable dt, DateTimePicker dateFrom)
+        {
             using (MarkusDb context = new MarkusDb())
             {
                 var listNamesOfServiceTypes =
@@ -169,7 +170,8 @@ namespace Autopraonica_Markus.forms.userControls
                         if (dateCondition(serviceDate) && stN.Name.Equals(v.Name))
                         {
                             totalSumOfServiceType += v.Price;
-                        } }
+                        }
+                    }
                     if (totalSumOfServiceType != 0)
                         dt.Rows.Add(i++, stN.Name, totalSumOfServiceType);
                 }
@@ -177,13 +179,15 @@ namespace Autopraonica_Markus.forms.userControls
         }
 
 
-        private Boolean dateCondition(DateTime serviceDate) {
+        private Boolean dateCondition(DateTime serviceDate)
+        {
             if ((dtpDateFrom.Value.Month == serviceDate.Month) && (dtpDateFrom.Value.Year == serviceDate.Year))
                 return true;
             return false;
         }
 
-        private decimal searchUnpaidServices(DateTimePicker dateFrom) {
+        private decimal searchUnpaidServices(DateTimePicker dateFrom)
+        {
             decimal suma = 0;
 
             using (MarkusDb context = new MarkusDb())
@@ -254,7 +258,8 @@ namespace Autopraonica_Markus.forms.userControls
                 btnGenBill.Enabled = true;
         }
 
-        private void fillListOfClients() {
+        private void fillListOfClients()
+        {
             using (MarkusDb ctx = new MarkusDb())
             {
                 var klijenti = (from les in ctx.legalentityservices
@@ -276,7 +281,7 @@ namespace Autopraonica_Markus.forms.userControls
                 int monthIndex = dtpDateFrom.Value.Month;
                 int yearIndex = dtpDateFrom.Value.Year;
                 String month = getNameOfMonth(monthIndex);
-                Autopraonica_Markus.Model.Entities.receipt  rec = null;
+                Autopraonica_Markus.Model.Entities.receipt rec = null;
                 string path = null;
 
                 try
@@ -287,11 +292,11 @@ namespace Autopraonica_Markus.forms.userControls
                                   where c.Name == cmbClients.Text
                                   select c).First();
 
-                      rec = (from r in context.receipts
-                             where r.PDF != null
-                             where r.DateFrom.Month == monthIndex 
-                             where r.DateFrom.Year == yearIndex
-                             select r).FirstOrDefault();
+                        rec = (from r in context.receipts
+                               where r.PDF != null
+                               where r.DateFrom.Month == monthIndex
+                               where r.DateFrom.Year == yearIndex
+                               select r).FirstOrDefault();
                     }
                 }
                 catch (DbEntityValidationException ex)
@@ -326,15 +331,16 @@ namespace Autopraonica_Markus.forms.userControls
                         saveFileDialog.Filter = "Pdf files (*.Pdf)|*.Pdf";
                         saveFileDialog.DefaultExt = "pdf";
                         if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                        { 
+                        {
                             filePath = saveFileDialog.FileName;
                             filePath1 = filePath.Replace("Usluge", "Racun");
-                            System.IO.File.WriteAllBytes(filePath , rec.PDF);
+                            System.IO.File.WriteAllBytes(filePath, rec.PDF);
                             System.IO.File.WriteAllBytes(filePath1, rec.PDF_TABLE);
                         }
                     }
                 }
-                else {
+                else
+                {
                     SaveFileDialog saveFileDialog = new SaveFileDialog();
                     saveFileDialog.FileName = "Usluge" + cmbClients.Text.ToUpper() + month + year;
                     saveFileDialog.Filter = "Pdf files (*.Pdf)|*.Pdf";
@@ -352,7 +358,8 @@ namespace Autopraonica_Markus.forms.userControls
                     }
                     else
                         MessageBox.Show("Neuspjesno generisan PDF", "PDF");
-                } }
+                }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error Message");
@@ -386,7 +393,7 @@ namespace Autopraonica_Markus.forms.userControls
             try
             {
                 String date = dtpDateFrom.Value.Date.ToString("MM/dd/yyyy");
-                String dateFrom = date.ToString().Substring(6, 4) +"-" + date.ToString().Substring(0, 2) + "-01";
+                String dateFrom = date.ToString().Substring(6, 4) + "-" + date.ToString().Substring(0, 2) + "-01";
                 String dateTo = date.ToString().Substring(6, 4) + "-" + date.ToString().Substring(0, 2) + "-31";
 
                 DateTime dtFrom = DateTime.Parse(dateFrom);
@@ -399,18 +406,18 @@ namespace Autopraonica_Markus.forms.userControls
                                select e).First();
 
                     var cl = (from c in context.clients
-                               where c.Name == cmbClients.Text
-                               select c).First();
+                              where c.Name == cmbClients.Text
+                              select c).First();
 
                     var rec = new receipt()
                     {
-                      DateFrom = dtFrom,
-                      DateTo = dtTo,
-                      PDF = file,
-                      PDF_TABLE = file1,
-                      Paid = 0,
-                      Client_Id = cl.Id,
-                      Manager_Id = emp.Id
+                        DateFrom = dtFrom,
+                        DateTo = dtTo,
+                        PDF = file,
+                        PDF_TABLE = file1,
+                        Paid = 0,
+                        Client_Id = cl.Id,
+                        Manager_Id = emp.Id
                     };
 
                     context.receipts.Add(rec);
@@ -442,17 +449,17 @@ namespace Autopraonica_Markus.forms.userControls
         {
             //Create friend table object
             DataTable friend = new DataTable();
-          
-            
+
+
             //Define columns
             friend.Columns.Add("R.b.");
             friend.Columns.Add("Naziv usluge");
             friend.Columns.Add("Iznos (KM)");
 
-            
+
             //Populate with unpaid services 
             populateRowsForBill(friend, dtpDateFrom);
-            
+
             return friend;
         }
 
@@ -467,7 +474,7 @@ namespace Autopraonica_Markus.forms.userControls
             friend.Columns.Add("Datum usluge");
             friend.Columns.Add("Marka i tip vozila");
             friend.Columns.Add("Registarski broj\r\nvozila");
-            friend.Columns.Add("Vrsta usluge"); 
+            friend.Columns.Add("Vrsta usluge");
             friend.Columns.Add("Ime i prezime vozaca");
             friend.Columns.Add("Cijena sa PDV-om (KM)");
 
@@ -508,9 +515,9 @@ namespace Autopraonica_Markus.forms.userControls
                 foreach (var v in listOfClientsUnpaidServices)
                 {
                     var serviceDate = v.ServiceTime;
-                    if (dateCondition(serviceDate)) 
-                    { 
-                        dt.Rows.Add(i++, serviceDate.ToShortDateString() , v.carBrandName, v.LicencePlate, v.Name, v.FirstName + " " +v.LastName, v.Price);
+                    if (dateCondition(serviceDate))
+                    {
+                        dt.Rows.Add(i++, serviceDate.ToShortDateString(), v.carBrandName, v.LicencePlate, v.Name, v.FirstName + " " + v.LastName, v.Price);
                     }
                 }
             }
@@ -520,7 +527,7 @@ namespace Autopraonica_Markus.forms.userControls
         void ExportDataTableForBillToPdf(DataTable dtblTable, String strPdfPath, string strHeader)
         {
             string outputPDF = strPdfPath.Replace("Usluge", "Racun");
-            
+
             System.IO.FileStream fs = new FileStream(outputPDF, FileMode.Create, FileAccess.Write, FileShare.None);
             Document document = new Document();
             document.SetPageSize(iTextSharp.text.PageSize.A4);
@@ -545,7 +552,7 @@ namespace Autopraonica_Markus.forms.userControls
             Font fntAuthor = new Font(btnAuthor, 10, 2, iTextSharp.text.Color.GRAY);
 
             Paragraph prgAuthor2 = new Paragraph();
-            
+
             var boldFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
 
             prgBillNumb.Alignment = Element.ALIGN_CENTER;
@@ -554,12 +561,13 @@ namespace Autopraonica_Markus.forms.userControls
             prgAuthor.Add(new Chunk("\nUL." + Properties.Settings.Default.Address, boldFont));
             prgAuthor.Add(new Chunk("\nKoz.Dubica", boldFont));
             String clientName = cmbClients.Text;
-            using (MarkusDb ctx = new MarkusDb()) {
+            using (MarkusDb ctx = new MarkusDb())
+            {
 
                 var cl = (from c in ctx.clients
-                            where c.Name ==clientName
-                            select c).FirstOrDefault();
-                prgCompanyInfo.Add(new Chunk("\n" + cl.Name, boldFont));  
+                          where c.Name == clientName
+                          select c).FirstOrDefault();
+                prgCompanyInfo.Add(new Chunk("\n" + cl.Name, boldFont));
                 prgCompanyInfo.Add(new Chunk("\n" + cl.Address, boldFont));
                 prgCompanyInfo.Add(new Chunk("\n" + cl.city.PostCode, boldFont));
                 prgCompanyInfo.Add(new Chunk("\n" + cl.city.Name, boldFont));
@@ -569,12 +577,12 @@ namespace Autopraonica_Markus.forms.userControls
             string strDate = DateTime.Now.ToString("dd/MM/yyyy");
             prgAuthor1.Add(new Chunk("\n Datum izdavanja: " + strDate));
             String date = dtpDateFrom.Value.Date.ToString("MM/dd/yyyy");
-            prgAuthor1.Add(new Chunk("\n Za period: 01." + date.ToString().Substring(0, 2) + ". - 31." + date.ToString().Substring(0, 2) + "." + date.ToString().Substring(6, 4)+ ". GOD."));
+            prgAuthor1.Add(new Chunk("\n Za period: 01." + date.ToString().Substring(0, 2) + ". - 31." + date.ToString().Substring(0, 2) + "." + date.ToString().Substring(6, 4) + ". GOD."));
             prgAuthor.Add(new Chunk("\nJIB: " + Properties.Settings.Default.UID, boldFont));
             prgAuthor.Add(new Chunk("\nZiro racun: " + Properties.Settings.Default.AccountNumber, boldFont));
-            
-            prgBillNumb.Add(new Chunk("RACUN BR. " + date.ToString().Substring(0, 2) + "/" + date.ToString().Substring(8, 2) , boldFont));
-            
+
+            prgBillNumb.Add(new Chunk("RACUN BR. " + date.ToString().Substring(0, 2) + "/" + date.ToString().Substring(8, 2), boldFont));
+
             document.Add(prgAuthor);
             document.Add(prgCompanyInfo);
             document.Add(prgBillNumb);
@@ -590,7 +598,7 @@ namespace Autopraonica_Markus.forms.userControls
             //Write the table
             PdfPTable table = new PdfPTable(dtblTable.Columns.Count);
 
-            
+
 
             //Table header
             BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
@@ -603,7 +611,7 @@ namespace Autopraonica_Markus.forms.userControls
                 table.AddCell(cell);
             }
 
-            table.SetWidths(new int[] { 1, 3, 3});
+            table.SetWidths(new int[] { 1, 3, 3 });
 
             //table Data
             for (int i = 0; i < dtblTable.Rows.Count; i++)
@@ -611,7 +619,7 @@ namespace Autopraonica_Markus.forms.userControls
                 for (int j = 0; j < dtblTable.Columns.Count; j++)
                 {
                     table.AddCell(dtblTable.Rows[i][j].ToString());
-        
+
                 }
             }
             document.Add(table);
@@ -625,17 +633,19 @@ namespace Autopraonica_Markus.forms.userControls
             prgSignature.Alignment = Element.ALIGN_LEFT;
             prgSignature.Add(new Chunk("\nMP                                                    " + "POTPIS"));
             document.Add(prgSignature);
- 
-               
+
+
 
             document.Close();
             writer.Close();
             fs.Close();
-           
+
         }
 
-        String getNameOfMonth(int monthIndex) {
-              switch (monthIndex) {
+        String getNameOfMonth(int monthIndex)
+        {
+            switch (monthIndex)
+            {
                 case 1: return "Januar";
                 case 2: return "Februar";
                 case 3: return "Mart";
@@ -645,11 +655,11 @@ namespace Autopraonica_Markus.forms.userControls
                 case 7: return "Jul";
                 case 8: return "Avgust";
                 case 9: return "Septembar";
-                case 10:return "Oktobar";
-                case 11:return "Novembar";
-                case 12:return "Decembar";
+                case 10: return "Oktobar";
+                case 11: return "Novembar";
+                case 12: return "Decembar";
                 default: return null;
-              }
+            }
         }
 
         void ExportDataTableOfUnpaidServicesToPdf(DataTable dtblTable, String strPdfPath, string strHeader)
@@ -676,7 +686,8 @@ namespace Autopraonica_Markus.forms.userControls
             var monthIndex = dtpDateFrom.Value.Month;
             var month = getNameOfMonth(monthIndex);
 
-            Func<string> year = () => {
+            Func<string> year = () =>
+            {
                 if (DateTime.Now.Month == 1)
                     return (DateTime.Now.Year - 1).ToString();
                 return (DateTime.Now.Year).ToString();
@@ -684,16 +695,16 @@ namespace Autopraonica_Markus.forms.userControls
             String date = dtpDateFrom.Value.Date.ToString("MM/dd/yyyy");
             var boldFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12);
 
-            prgContent.Add(new Chunk("\nPREGLED USLUGA PRANJA PUTNICKIH VOZILA ZA : " + month  , boldFont));
+            prgContent.Add(new Chunk("\nPREGLED USLUGA PRANJA PUTNICKIH VOZILA ZA : " + month, boldFont));
             prgContent.Add(new Chunk("\n" + year() + ". GODINA  " + cmbClients.Text, boldFont));
             prgContent.Add(new Chunk("\nRACUN BR. " + date.ToString().Substring(0, 2) + "/" + date.ToString().Substring(8, 2), boldFont));
             prgContent.Add(new Chunk("\n                                                     "));
             prgContent.Add(new Chunk("\n                                                     "));
             document.Add(prgContent);
- 
+
             //Write the table
             PdfPTable table = new PdfPTable(dtblTable.Columns.Count);
-            table.SetWidths(new int[] { 1, 3, 2, 3, 3, 3, 3});
+            table.SetWidths(new int[] { 1, 3, 2, 3, 3, 3, 3 });
 
             //Table header
             BaseFont btnColumnHeader = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
@@ -701,7 +712,7 @@ namespace Autopraonica_Markus.forms.userControls
             for (int i = 0; i < dtblTable.Columns.Count; i++)
             {
                 PdfPCell cell = new PdfPCell();
-                
+
                 cell.BackgroundColor = iTextSharp.text.Color.GRAY;
                 cell.AddElement(new Chunk(dtblTable.Columns[i].ColumnName.ToUpper(), fntColumnHeader));
                 table.AddCell(cell);
@@ -716,7 +727,7 @@ namespace Autopraonica_Markus.forms.userControls
 
                 }
             }
-           
+
             document.Add(table);
             document.Close();
             writer.Close();
@@ -725,26 +736,26 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void uclIzdavanjeRacuna_Resize(object sender, EventArgs e)
         {
-          resizeColumns(lvUpSer);
+            resizeColumns(lvUpSer);
         }
 
         private void resizeColumns(ListView lv)
         {
             int lvWidth = lv.Width;
             int clmnWidth;
-            
+
             if (lvWidth > 1000)
             {
                 clmnWidth = lvWidth / 7;
-             //   int dgvWidth = dgvBills.Width;
-           //     dgvBills.Columns[0].Width = dgvWidth / 2;
-              //dgvBills.Columns[1].Width = dgvWidth / 2 - 3;
+                //   int dgvWidth = dgvBills.Width;
+                //     dgvBills.Columns[0].Width = dgvWidth / 2;
+                //dgvBills.Columns[1].Width = dgvWidth / 2 - 3;
             }
 
             else if (lvWidth > 600)
             {
-                
-                clmnWidth = lvWidth / 8 ;
+
+                clmnWidth = lvWidth / 8;
             }
             else
             {
@@ -752,15 +763,15 @@ namespace Autopraonica_Markus.forms.userControls
             }
 
 
-         foreach (ColumnHeader column in lv.Columns)
-         {
-            if (!(column.Text.Equals("R.b.")))
-                column.Width = clmnWidth;
-            if (column.Text.Equals("Registarske tablice") || column.Text.Equals("Podvrsta usluge") || column.Text.Equals("Vrsta usluge"))
-                column.Width = clmnWidth + 25;
-            if (column.Text.Equals("Cijena"))
-                column.Width = clmnWidth - 25;
-         }
+            foreach (ColumnHeader column in lv.Columns)
+            {
+                if (!(column.Text.Equals("R.b.")))
+                    column.Width = clmnWidth;
+                if (column.Text.Equals("Registarske tablice") || column.Text.Equals("Podvrsta usluge") || column.Text.Equals("Vrsta usluge"))
+                    column.Width = clmnWidth + 25;
+                if (column.Text.Equals("Cijena"))
+                    column.Width = clmnWidth - 25;
+            }
 
             if (lvWidth > 1000)
             {
@@ -779,34 +790,82 @@ namespace Autopraonica_Markus.forms.userControls
             lvUpSer.Items.Clear();
             updateDgvBills();
         }
-        
+
         private void dtpYear_ValueChanged(object sender, EventArgs e)
         {
             updateDgvBills();
         }
 
-        private void dgvBills_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        private void dgvBills_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          if(dgvBills.CurrentCell.ColumnIndex == 1 && e.Control is ComboBox)
-          { 
-            ComboBox comboBox = e.Control as ComboBox;
-            int rowIndex = dgvBills.CurrentCell.RowIndex;
-            if (comboBox != null)
-            {
-                comboBox.SelectedIndexChanged -=
-                    new EventHandler(ComboBox_SelectedIndexChanged);
-
-                comboBox.SelectedIndexChanged +=
-                    new EventHandler(ComboBox_SelectedIndexChanged);
-            }
-          }
+            dgvBills.CommitEdit(DataGridViewDataErrorContexts.Commit);
         }
 
-        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void dgvBills_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            ComboBox combo = sender as ComboBox;
-            MessageBox.Show("Da li ste sigurni da zelite promijeniti stanje racuna?");
+
+           // if (cmbClients.Text.Equals("  Odabir klijenta"))
+           // {
+             //   MessageBox.Show("Molimo Vas unesite klijenta.");
+            //}
+            if(dgvBills.Rows.Count != 0)
+                if (DialogResult.Yes == MessageBox.Show("Da li zelite promijeniti stanje racuna?", "Racun", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+                {
+
+                String cellValue = dgvBills.Rows[e.RowIndex].Cells[0].Value.ToString();
+                String month = cellValue.Substring(0, 2);
+                String year = cellValue.Substring(3, 4);
+                String clientName = cmbClients.Text;
+
+                receipt rec = null;
+               
+                
+                try
+                {
+                        using (MarkusDb context = new MarkusDb())
+                        {
+                        rec = (from r in context.receipts
+                                   join cl in context.clients on r.Client_Id equals cl.Id
+                                   where cl.Name == clientName
+                                   where r.DateFrom.Year.ToString() == year
+                                   where r.DateFrom.Month.ToString() == month
+                                   select r).FirstOrDefault();
+                        context.receipts.Attach(rec);
+                        if (dgvBills.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "True")
+                        {
+                                rec.Paid = 1;
+                        }
+                        else
+                        {
+                                rec.Paid = 0;
+                        }
+
+                        context.SaveChanges();
+                        
+                        }
+
+                    }
+                    catch (DbEntityValidationException ex)
+                    {
+                        var errorMessages = ex.EntityValidationErrors
+                           .SelectMany(x => x.ValidationErrors)
+                           .Select(x => x.ErrorMessage);
+
+                        // Join the list to a single string.
+                        var fullErrorMessage = string.Join("; ", errorMessages);
+
+                        // Combine the original exception message with the new one.
+                        var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                        // Throw a new DbEntityValidationException with the improved exception message.
+                        throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+
+
+                    }
+                }
+            updateDgvBills();
         }
+      
     }
 }
 

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
             this.label3 = new System.Windows.Forms.Label();
             this.cmbClients = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,9 +49,9 @@
             this.lblGenBill = new System.Windows.Forms.Label();
             this.lblRacuni = new System.Windows.Forms.Label();
             this.dgvBills = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmbState = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dtpYear = new System.Windows.Forms.DateTimePicker();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hdState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,7 +159,7 @@
             this.hdLicPl,
             this.hdPrice});
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem5});
             this.lvUpSer.Location = new System.Drawing.Point(21, 192);
             this.lvUpSer.Name = "lvUpSer";
             this.lvUpSer.Size = new System.Drawing.Size(855, 210);
@@ -259,7 +259,7 @@
             this.dgvBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBills.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.cmbState});
+            this.hdState});
             this.dgvBills.Location = new System.Drawing.Point(578, 48);
             this.dgvBills.Name = "dgvBills";
             this.dgvBills.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -267,17 +267,8 @@
             this.dgvBills.RowTemplate.Height = 24;
             this.dgvBills.Size = new System.Drawing.Size(298, 120);
             this.dgvBills.TabIndex = 22;
-            this.dgvBills.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvBills_EditingControlShowing);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Broj racuna";
-            this.Column1.Name = "Column1";
-            // 
-            // cmbState
-            // 
-            this.cmbState.HeaderText = "Stanje";
-            this.cmbState.Name = "cmbState";
+            this.dgvBills.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellContentClick);
+            this.dgvBills.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellValueChanged);
             // 
             // dtpYear
             // 
@@ -288,6 +279,17 @@
             this.dtpYear.Size = new System.Drawing.Size(173, 22);
             this.dtpYear.TabIndex = 23;
             this.dtpYear.ValueChanged += new System.EventHandler(this.dtpYear_ValueChanged);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Broj racuna";
+            this.Column1.Name = "Column1";
+            // 
+            // hdState
+            // 
+            this.hdState.HeaderText = "Placen";
+            this.hdState.Name = "hdState";
+            this.hdState.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // uclIzdavanjeRacuna
             // 
@@ -338,8 +340,8 @@
         private System.Windows.Forms.ColumnHeader hdSerNumSer;
         private System.Windows.Forms.Label lblRacuni;
         private System.Windows.Forms.DataGridView dgvBills;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DateTimePicker dtpYear;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cmbState;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn hdState;
     }
 }
