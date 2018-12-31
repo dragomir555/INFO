@@ -16,6 +16,7 @@ using System.IO;
 using Font = iTextSharp.text.Font;
 using System.Globalization;
 using System.Data.Entity.Validation;
+using System.Collections;
 
 
 
@@ -27,6 +28,7 @@ namespace Autopraonica_Markus.forms.userControls
     public partial class uclIzdavanjeRacuna : UserControl
     {
         private static uclIzdavanjeRacuna instance;
+ 
 
 
         public static uclIzdavanjeRacuna Instance
@@ -44,9 +46,55 @@ namespace Autopraonica_Markus.forms.userControls
         public uclIzdavanjeRacuna()
         {
             InitializeComponent();
-            UpdateComboBox();
-
+             
+            updateComboBox();
+            updateComboCell();
             dtpFormat();
+        }
+
+        private void updateDgvBills() {
+            dgvBills.Rows.Clear();
+            String date = dtpYear.Value.Date.ToString("MM/dd/yyyy");
+            String billMonth = date.ToString().Substring(0, 2);
+            String billYear = date.ToString().Substring(8, 2);
+            int dtpYr = dtpYear.Value.Year;
+
+            using (MarkusDb context = new MarkusDb())
+            {
+                if (cmbClients.Text != "  Odabir klijenta")
+                {
+                    String clientName = cmbClients.Text;
+                    var receipts = (from r in context.receipts
+                                   join cl in context.clients on r.Client_Id equals cl.Id
+                                   where cl.Name == clientName
+                                   where r.DateFrom.Year == dtpYr
+                                   select r).ToList();
+
+                    foreach (var r in receipts)
+                    {
+                        DataGridViewRow rw = new DataGridViewRow() { Tag = r };
+                        rw.CreateCells(dgvBills);
+                        String billState = setComboCell(r.Paid); 
+                        rw.SetValues(r.DateFrom.Month + "/" + r.DateFrom.Year, billState);
+                        dgvBills.Rows.Add(rw);
+                    }
+                }
+            }
+        }
+
+        private string setComboCell(sbyte paid)
+        {
+            if (paid.Equals(1))
+                return "Placen";
+            return "Neplacen";
+        }
+
+        private void updateComboCell()
+        {
+              ArrayList row = new ArrayList();
+              row.Add("Neplacen");
+              row.Add("Placen");
+              cmbState.Items.AddRange(row.ToArray());
         }
 
         private void dtpFormat()
@@ -58,21 +106,25 @@ namespace Autopraonica_Markus.forms.userControls
 
             dtpDateFrom.ShowUpDown = true;
             dtpDateFrom.Height = 30;
+
+            dtpYear.Format = DateTimePickerFormat.Custom;
+            dtpYear.CustomFormat = "yyyy";
+            newDateValue = new DateTime(dtpYear.Value.Year, 1, 1);
+            dtpYear.Value = newDateValue;
+
+            dtpYear.ShowUpDown = true;
+            dtpYear.Height = 30;
+
         }
 
-        public void UpdateComboBox()
+        public void updateComboBox()
         {
             cmbClients.Items.Clear();
             using (MarkusDb context = new MarkusDb())
             {
                 var clients = (from c in context.clients select c).ToList();
-                Boolean firstTime = true;
                 foreach (client c in clients)
                 {
-                    if (firstTime) {
-                        cmbClients.Text = c.Name;
-                        firstTime = false;
-                    }
                     cmbClients.Items.Add(c.Name);
                 }
             }
@@ -194,7 +246,9 @@ namespace Autopraonica_Markus.forms.userControls
 
             lblPrice.Text = suma.ToString();
 
-            if (lblPrice.Text == "0")
+            if (cmbClients.Text.Equals("  Odabir klijenta"))
+                MessageBox.Show("Molimo Vas odaberite klijenta.");
+            else if (lblPrice.Text == "0")
                 btnGenBill.Enabled = false;
             else
                 btnGenBill.Enabled = true;
@@ -520,7 +574,7 @@ namespace Autopraonica_Markus.forms.userControls
             prgAuthor.Add(new Chunk("\nZiro racun: " + Properties.Settings.Default.AccountNumber, boldFont));
             
             prgBillNumb.Add(new Chunk("RACUN BR. " + date.ToString().Substring(0, 2) + "/" + date.ToString().Substring(8, 2) , boldFont));
-
+            
             document.Add(prgAuthor);
             document.Add(prgCompanyInfo);
             document.Add(prgBillNumb);
@@ -682,6 +736,9 @@ namespace Autopraonica_Markus.forms.userControls
             if (lvWidth > 1000)
             {
                 clmnWidth = lvWidth / 7;
+             //   int dgvWidth = dgvBills.Width;
+           //     dgvBills.Columns[0].Width = dgvWidth / 2;
+              //dgvBills.Columns[1].Width = dgvWidth / 2 - 3;
             }
 
             else if (lvWidth > 600)
@@ -720,6 +777,35 @@ namespace Autopraonica_Markus.forms.userControls
         private void cmbClients_SelectedValueChanged(object sender, EventArgs e)
         {
             lvUpSer.Items.Clear();
+            updateDgvBills();
+        }
+        
+        private void dtpYear_ValueChanged(object sender, EventArgs e)
+        {
+            updateDgvBills();
+        }
+
+        private void dgvBills_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+          if(dgvBills.CurrentCell.ColumnIndex == 1 && e.Control is ComboBox)
+          { 
+            ComboBox comboBox = e.Control as ComboBox;
+            int rowIndex = dgvBills.CurrentCell.RowIndex;
+            if (comboBox != null)
+            {
+                comboBox.SelectedIndexChanged -=
+                    new EventHandler(ComboBox_SelectedIndexChanged);
+
+                comboBox.SelectedIndexChanged +=
+                    new EventHandler(ComboBox_SelectedIndexChanged);
+            }
+          }
+        }
+
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox combo = sender as ComboBox;
+            MessageBox.Show("Da li ste sigurni da zelite promijeniti stanje racuna?");
         }
     }
 }

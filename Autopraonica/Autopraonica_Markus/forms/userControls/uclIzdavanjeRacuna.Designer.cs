@@ -47,13 +47,18 @@
             this.hdPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnGenBill = new System.Windows.Forms.Button();
             this.lblGenBill = new System.Windows.Forms.Label();
+            this.lblRacuni = new System.Windows.Forms.Label();
+            this.dgvBills = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbState = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dtpYear = new System.Windows.Forms.DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(16, 84);
@@ -64,25 +69,23 @@
             // 
             // cmbClients
             // 
-            this.cmbClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbClients.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.cmbClients.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbClients.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbClients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbClients.FormattingEnabled = true;
             this.cmbClients.Location = new System.Drawing.Point(172, 83);
             this.cmbClients.Name = "cmbClients";
-            this.cmbClients.Size = new System.Drawing.Size(247, 26);
+            this.cmbClients.Size = new System.Drawing.Size(343, 26);
             this.cmbClients.TabIndex = 11;
-            this.cmbClients.Text = "    Odabir klijenta";
+            this.cmbClients.Text = "  Odabir klijenta";
             this.cmbClients.SelectedValueChanged += new System.EventHandler(this.cmbClients_SelectedValueChanged);
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(16, 131);
@@ -93,12 +96,11 @@
             // 
             // dtpDateFrom
             // 
-            this.dtpDateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpDateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dtpDateFrom.Location = new System.Drawing.Point(172, 134);
             this.dtpDateFrom.Name = "dtpDateFrom";
-            this.dtpDateFrom.Size = new System.Drawing.Size(247, 22);
+            this.dtpDateFrom.Size = new System.Drawing.Size(343, 22);
             this.dtpDateFrom.TabIndex = 7;
             // 
             // lblPrice
@@ -134,7 +136,7 @@
             this.btnDspUnpSer.Name = "btnDspUnpSer";
             this.btnDspUnpSer.Size = new System.Drawing.Size(235, 49);
             this.btnDspUnpSer.TabIndex = 14;
-            this.btnDspUnpSer.Text = "Prikaži neplaćenih usluga";
+            this.btnDspUnpSer.Text = "Prikaži izvrsenih usluga";
             this.btnDspUnpSer.UseVisualStyleBackColor = false;
             this.btnDspUnpSer.Click += new System.EventHandler(this.btnDspUnpSer_Click);
             // 
@@ -158,9 +160,9 @@
             this.hdPrice});
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.lvUpSer.Location = new System.Drawing.Point(23, 192);
+            this.lvUpSer.Location = new System.Drawing.Point(21, 192);
             this.lvUpSer.Name = "lvUpSer";
-            this.lvUpSer.Size = new System.Drawing.Size(759, 210);
+            this.lvUpSer.Size = new System.Drawing.Size(855, 210);
             this.lvUpSer.TabIndex = 13;
             this.lvUpSer.UseCompatibleStateImageBehavior = false;
             this.lvUpSer.View = System.Windows.Forms.View.Details;
@@ -215,7 +217,7 @@
             this.btnGenBill.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnGenBill.Location = new System.Drawing.Point(611, 408);
             this.btnGenBill.Name = "btnGenBill";
-            this.btnGenBill.Size = new System.Drawing.Size(187, 49);
+            this.btnGenBill.Size = new System.Drawing.Size(235, 49);
             this.btnGenBill.TabIndex = 17;
             this.btnGenBill.Text = "Generiši račun";
             this.btnGenBill.UseVisualStyleBackColor = false;
@@ -223,9 +225,8 @@
             // 
             // lblGenBill
             // 
-            this.lblGenBill.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblGenBill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lblGenBill.AutoSize = true;
             this.lblGenBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGenBill.Location = new System.Drawing.Point(16, 11);
@@ -234,10 +235,67 @@
             this.lblGenBill.TabIndex = 18;
             this.lblGenBill.Text = "Parametri za generisanje racuna";
             // 
+            // lblRacuni
+            // 
+            this.lblRacuni.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRacuni.AutoSize = true;
+            this.lblRacuni.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRacuni.Location = new System.Drawing.Point(573, 15);
+            this.lblRacuni.Name = "lblRacuni";
+            this.lblRacuni.Size = new System.Drawing.Size(123, 29);
+            this.lblRacuni.TabIndex = 20;
+            this.lblRacuni.Text = "Racuni za ";
+            // 
+            // dgvBills
+            // 
+            this.dgvBills.AllowUserToAddRows = false;
+            this.dgvBills.AllowUserToDeleteRows = false;
+            this.dgvBills.AllowUserToResizeColumns = false;
+            this.dgvBills.AllowUserToResizeRows = false;
+            this.dgvBills.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvBills.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBills.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.cmbState});
+            this.dgvBills.Location = new System.Drawing.Point(578, 48);
+            this.dgvBills.Name = "dgvBills";
+            this.dgvBills.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvBills.RowHeadersVisible = false;
+            this.dgvBills.RowTemplate.Height = 24;
+            this.dgvBills.Size = new System.Drawing.Size(298, 120);
+            this.dgvBills.TabIndex = 22;
+            this.dgvBills.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvBills_EditingControlShowing);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Broj racuna";
+            this.Column1.Name = "Column1";
+            // 
+            // cmbState
+            // 
+            this.cmbState.HeaderText = "Stanje";
+            this.cmbState.Name = "cmbState";
+            // 
+            // dtpYear
+            // 
+            this.dtpYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpYear.Location = new System.Drawing.Point(702, 20);
+            this.dtpYear.Name = "dtpYear";
+            this.dtpYear.Size = new System.Drawing.Size(173, 22);
+            this.dtpYear.TabIndex = 23;
+            this.dtpYear.ValueChanged += new System.EventHandler(this.dtpYear_ValueChanged);
+            // 
             // uclIzdavanjeRacuna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dtpYear);
+            this.Controls.Add(this.dgvBills);
+            this.Controls.Add(this.lblRacuni);
             this.Controls.Add(this.lblGenBill);
             this.Controls.Add(this.btnGenBill);
             this.Controls.Add(this.lblPrice);
@@ -250,8 +308,9 @@
             this.Controls.Add(this.dtpDateFrom);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uclIzdavanjeRacuna";
-            this.Size = new System.Drawing.Size(801, 470);
+            this.Size = new System.Drawing.Size(897, 470);
             this.Resize += new System.EventHandler(this.uclIzdavanjeRacuna_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +336,10 @@
         private System.Windows.Forms.ColumnHeader hdSubtypeSer;
         private System.Windows.Forms.Label lblGenBill;
         private System.Windows.Forms.ColumnHeader hdSerNumSer;
+        private System.Windows.Forms.Label lblRacuni;
+        private System.Windows.Forms.DataGridView dgvBills;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DateTimePicker dtpYear;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cmbState;
     }
 }

@@ -99,7 +99,7 @@ namespace Autopraonica_Markus
             {
                 uclIzdavanjeRacuna.Instance.BringToFront();
             }
-            uclIzdavanjeRacuna.Instance.UpdateComboBox();
+            uclIzdavanjeRacuna.Instance.updateComboBox();
             PressedButton.BackColor = Color.FromArgb(107, 65, 150);
             btnIzdRac.BackColor = Color.FromArgb(93, 46, 140);
             PressedButton = btnIzdRac;
