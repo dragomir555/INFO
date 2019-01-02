@@ -200,6 +200,9 @@ namespace Autopraonica_Markus.forms.userControls
                     btnDeletePricelistItem.Size = new Size(70, 23);
                     btnDeletePricelistItem.Click += new EventHandler(btnDeletePricelistItem_Click);
                     btnDeletePricelistItem.AutoSize = false;
+                    btnDeletePricelistItem.BackColor = Color.FromArgb(107, 65, 150);
+                    btnDeletePricelistItem.FlatStyle = FlatStyle.Flat;
+                    btnDeletePricelistItem.ForeColor = Color.White;
 
                     btnUpdatePricelistItem.Name = "btnUpdatePricelistItem" + s.Id;
                     btnUpdatePricelistItem.Location = new Point(518, 285 + (i - 1) * 220);
@@ -209,6 +212,9 @@ namespace Autopraonica_Markus.forms.userControls
                     btnUpdatePricelistItem.Size = new Size(70, 23);
                     btnUpdatePricelistItem.Click += new EventHandler(btnUpdatePricelistItem_Click);
                     btnUpdatePricelistItem.AutoSize = false;
+                    btnUpdatePricelistItem.BackColor = Color.FromArgb(107, 65, 150);
+                    btnUpdatePricelistItem.FlatStyle = FlatStyle.Flat;
+                    btnUpdatePricelistItem.ForeColor = Color.White;
 
                     btnAddPricelistItem.Name = "btnAddPricelistItem" + s.Id;
                     btnAddPricelistItem.Location = new Point(598, 285 + (i - 1) * 220);
@@ -218,6 +224,9 @@ namespace Autopraonica_Markus.forms.userControls
                     btnAddPricelistItem.Size = new Size(70, 23);
                     btnAddPricelistItem.Click += new EventHandler(btnAddPricelistItem_Click);
                     btnAddPricelistItem.AutoSize = false;
+                    btnAddPricelistItem.BackColor = Color.FromArgb(107, 65, 150);
+                    btnAddPricelistItem.FlatStyle = FlatStyle.Flat;
+                    btnAddPricelistItem.ForeColor = Color.White;
 
                     dgw.Name = "dataGridView" + s.Id;
                     dgw.ColumnCount = 3;
@@ -247,6 +256,9 @@ namespace Autopraonica_Markus.forms.userControls
                 btnAddService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top)));
                 this.Controls.Add(btnAddService);
                 btnAddService.Click += new EventHandler(btnAddServiceType_Click);
+                btnAddService.BackColor = Color.FromArgb(107, 65, 150);
+                btnAddService.FlatStyle = FlatStyle.Flat;
+                btnAddService.ForeColor = Color.White;
             }
         }
 
