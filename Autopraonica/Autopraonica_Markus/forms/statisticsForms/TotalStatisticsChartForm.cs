@@ -52,7 +52,7 @@ namespace Autopraonica_Markus.forms.statisticsForms
                 }
             }
 
-            label2.Text = "Troskovi za period iznose: " + costs;
+            label2.Text = "Ukupni troškovi iznose: " + costs;
             label3.Text = "Ukupan prihod iznosi: " + prices;
         }
     }

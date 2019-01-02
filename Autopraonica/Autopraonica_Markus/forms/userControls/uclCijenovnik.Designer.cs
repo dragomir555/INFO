@@ -35,9 +35,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.AutoSize = true;
+            this.Location = new System.Drawing.Point(200, 70);
             this.Name = "uclCijenovnik";
-            this.Size = new System.Drawing.Size(753, 1320);
+            this.Size = new System.Drawing.Size(685, 391);
             this.ResumeLayout(false);
 
         }
