@@ -12,6 +12,7 @@ using Autopraonica_Markus.Model.Entities;
 using System.Data.Entity.Validation;
 using Autopraonica_Markus.services;
 using System.Diagnostics;
+using Autopraonica_Markus.forms.dialogForm;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -209,7 +210,9 @@ namespace Autopraonica_Markus.forms.userControls
         {
             if (dgvEmployees.SelectedRows.Count == 1)
             {
-                if (DialogResult.Yes == MessageBox.Show("Da li ste sigurni da želite obrisati označeni unos?", "Brisanje zaposlenog", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+                DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite obrisati označeni unos?", "Brisanje zaposlenog");
+                dialogForm.ShowDialog();
+                if (dialogForm.DialogResult == DialogResult.Yes)
                 {
                     deleteSelectedEmployee();
                 }

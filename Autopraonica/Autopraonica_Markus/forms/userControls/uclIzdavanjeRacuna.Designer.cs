@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbClients = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,12 +48,13 @@
             this.hdLicPl = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnGenBill = new System.Windows.Forms.Button();
-            this.lblGenBill = new System.Windows.Forms.Label();
             this.lblRacuni = new System.Windows.Forms.Label();
             this.dgvBills = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hdState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dtpYear = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblMtYr = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,12 +63,12 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 84);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(14, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 25);
+            this.label3.Size = new System.Drawing.Size(246, 39);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Naziv klijenta :";
+            this.label3.Text = "Naziv klijenta  :";
             // 
             // cmbClients
             // 
@@ -75,9 +78,9 @@
             this.cmbClients.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbClients.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbClients.FormattingEnabled = true;
-            this.cmbClients.Location = new System.Drawing.Point(176, 83);
+            this.cmbClients.Location = new System.Drawing.Point(290, 47);
             this.cmbClients.Name = "cmbClients";
-            this.cmbClients.Size = new System.Drawing.Size(339, 26);
+            this.cmbClients.Size = new System.Drawing.Size(246, 26);
             this.cmbClients.TabIndex = 11;
             this.cmbClients.Text = "  Odabir klijenta";
             this.cmbClients.SelectedValueChanged += new System.EventHandler(this.cmbClients_SelectedValueChanged);
@@ -87,21 +90,23 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 131);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 25);
+            this.label1.Size = new System.Drawing.Size(247, 39);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Za mjesec :";
+            this.label1.Text = "Izbor mjeseca :";
             // 
             // dtpDateFrom
             // 
             this.dtpDateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dtpDateFrom.Location = new System.Drawing.Point(176, 134);
+            this.dtpDateFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDateFrom.Location = new System.Drawing.Point(290, 100);
             this.dtpDateFrom.Name = "dtpDateFrom";
-            this.dtpDateFrom.Size = new System.Drawing.Size(339, 22);
+            this.dtpDateFrom.Size = new System.Drawing.Size(246, 24);
             this.dtpDateFrom.TabIndex = 7;
+            this.dtpDateFrom.ValueChanged += new System.EventHandler(this.dtpDateFrom_ValueChanged);
             // 
             // lblPrice
             // 
@@ -136,7 +141,7 @@
             this.btnDspUnpSer.Name = "btnDspUnpSer";
             this.btnDspUnpSer.Size = new System.Drawing.Size(235, 49);
             this.btnDspUnpSer.TabIndex = 14;
-            this.btnDspUnpSer.Text = "Prikaži izvrsenih usluga";
+            this.btnDspUnpSer.Text = "Prikaži izvrsene usluge";
             this.btnDspUnpSer.UseVisualStyleBackColor = false;
             this.btnDspUnpSer.Click += new System.EventHandler(this.btnDspUnpSer_Click);
             // 
@@ -159,7 +164,7 @@
             this.hdLicPl,
             this.hdPrice});
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem17});
             this.lvUpSer.Location = new System.Drawing.Point(21, 192);
             this.lvUpSer.Name = "lvUpSer";
             this.lvUpSer.Size = new System.Drawing.Size(855, 210);
@@ -223,25 +228,13 @@
             this.btnGenBill.UseVisualStyleBackColor = false;
             this.btnGenBill.Click += new System.EventHandler(this.btnGenBill_Click);
             // 
-            // lblGenBill
-            // 
-            this.lblGenBill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblGenBill.AutoSize = true;
-            this.lblGenBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenBill.Location = new System.Drawing.Point(16, 11);
-            this.lblGenBill.Name = "lblGenBill";
-            this.lblGenBill.Size = new System.Drawing.Size(488, 38);
-            this.lblGenBill.TabIndex = 18;
-            this.lblGenBill.Text = "Parametri za generisanje racuna";
-            // 
             // lblRacuni
             // 
             this.lblRacuni.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRacuni.AutoSize = true;
             this.lblRacuni.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRacuni.Location = new System.Drawing.Point(573, 15);
+            this.lblRacuni.Location = new System.Drawing.Point(567, 16);
             this.lblRacuni.Name = "lblRacuni";
             this.lblRacuni.Size = new System.Drawing.Size(123, 29);
             this.lblRacuni.TabIndex = 20;
@@ -260,23 +253,28 @@
             this.dgvBills.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.hdState});
-            this.dgvBills.Location = new System.Drawing.Point(578, 48);
+            this.dgvBills.Location = new System.Drawing.Point(572, 48);
             this.dgvBills.Name = "dgvBills";
             this.dgvBills.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvBills.RowHeadersVisible = false;
             this.dgvBills.RowTemplate.Height = 24;
-            this.dgvBills.Size = new System.Drawing.Size(298, 120);
+            this.dgvBills.Size = new System.Drawing.Size(304, 120);
             this.dgvBills.TabIndex = 22;
             this.dgvBills.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellContentClick);
             this.dgvBills.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellValueChanged);
             // 
             // Column1
             // 
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle33;
             this.Column1.HeaderText = "Broj racuna";
             this.Column1.Name = "Column1";
             // 
             // hdState
             // 
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle34.NullValue = false;
+            this.hdState.DefaultCellStyle = dataGridViewCellStyle34;
             this.hdState.HeaderText = "Placen";
             this.hdState.Name = "hdState";
             this.hdState.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -285,20 +283,41 @@
             // 
             this.dtpYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpYear.Location = new System.Drawing.Point(702, 20);
+            this.dtpYear.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpYear.Location = new System.Drawing.Point(688, 20);
             this.dtpYear.Name = "dtpYear";
-            this.dtpYear.Size = new System.Drawing.Size(173, 22);
+            this.dtpYear.Size = new System.Drawing.Size(187, 22);
             this.dtpYear.TabIndex = 23;
             this.dtpYear.ValueChanged += new System.EventHandler(this.dtpYear_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(15, 150);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(315, 25);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "PRIKAZ IZVRSENIH USLUGA ZA ";
+            // 
+            // lblMtYr
+            // 
+            this.lblMtYr.AutoSize = true;
+            this.lblMtYr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMtYr.Location = new System.Drawing.Point(354, 150);
+            this.lblMtYr.Name = "lblMtYr";
+            this.lblMtYr.Size = new System.Drawing.Size(0, 25);
+            this.lblMtYr.TabIndex = 25;
             // 
             // uclIzdavanjeRacuna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblMtYr);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpYear);
             this.Controls.Add(this.dgvBills);
             this.Controls.Add(this.lblRacuni);
-            this.Controls.Add(this.lblGenBill);
             this.Controls.Add(this.btnGenBill);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.label4);
@@ -336,12 +355,13 @@
         private System.Windows.Forms.ColumnHeader hdLicPl;
         private System.Windows.Forms.ColumnHeader hdPrice;
         private System.Windows.Forms.ColumnHeader hdSubtypeSer;
-        private System.Windows.Forms.Label lblGenBill;
         private System.Windows.Forms.ColumnHeader hdSerNumSer;
         private System.Windows.Forms.Label lblRacuni;
         private System.Windows.Forms.DataGridView dgvBills;
         private System.Windows.Forms.DateTimePicker dtpYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn hdState;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblMtYr;
     }
 }

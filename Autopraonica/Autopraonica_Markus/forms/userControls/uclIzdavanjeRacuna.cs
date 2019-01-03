@@ -17,6 +17,7 @@ using Font = iTextSharp.text.Font;
 using System.Globalization;
 using System.Data.Entity.Validation;
 using System.Collections;
+using Autopraonica_Markus.forms.dialogForm;
 
 
 
@@ -28,9 +29,7 @@ namespace Autopraonica_Markus.forms.userControls
     public partial class uclIzdavanjeRacuna : UserControl
     {
         private static uclIzdavanjeRacuna instance;
-
-
-
+        
         public static uclIzdavanjeRacuna Instance
         {
             get
@@ -320,7 +319,9 @@ namespace Autopraonica_Markus.forms.userControls
 
                 if (rec != null)
                 {
-                    if (DialogResult.Yes == MessageBox.Show("Racun je vec generisan.Da li zelite ponovo da sacuvate PDF?", "Cuvanje racuna", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+                    DialogForm dialogForm = new DialogForm("Racun je vec generisan.Da li zelite ponovo da sacuvate PDF?", "Generisanje racuna");
+                    dialogForm.ShowDialog();
+                    if(dialogForm.DialogResult == DialogResult.Yes)
                     {
                         path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                         SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -804,68 +805,73 @@ namespace Autopraonica_Markus.forms.userControls
         private void dgvBills_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
 
-           // if (cmbClients.Text.Equals("  Odabir klijenta"))
-           // {
-             //   MessageBox.Show("Molimo Vas unesite klijenta.");
-            //}
-            if(dgvBills.Rows.Count != 0)
-                if (DialogResult.Yes == MessageBox.Show("Da li zelite promijeniti stanje racuna?", "Racun", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+
+            if (dgvBills.Rows.Count != 0)
+            {
+
+                DialogForm dialogForm = new DialogForm("Da li zelite promijeniti stanje racuna?", "Racun");
+                dialogForm.ShowDialog();
+                if (dialogForm.DialogResult == DialogResult.Yes)
                 {
+                   String cellValue = dgvBills.Rows[e.RowIndex].Cells[0].Value.ToString();
+                   String month = cellValue.Substring(0, 2);
+                   String year = cellValue.Substring(3, 4);
+                   String clientName = cmbClients.Text;
+                   receipt rec = null;
 
-                String cellValue = dgvBills.Rows[e.RowIndex].Cells[0].Value.ToString();
-                String month = cellValue.Substring(0, 2);
-                String year = cellValue.Substring(3, 4);
-                String clientName = cmbClients.Text;
-
-                receipt rec = null;
-               
-                
-                try
-                {
-                        using (MarkusDb context = new MarkusDb())
+                    try
                         {
-                        rec = (from r in context.receipts
-                                   join cl in context.clients on r.Client_Id equals cl.Id
-                                   where cl.Name == clientName
-                                   where r.DateFrom.Year.ToString() == year
-                                   where r.DateFrom.Month.ToString() == month
-                                   select r).FirstOrDefault();
-                        context.receipts.Attach(rec);
-                        if (dgvBills.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "True")
-                        {
-                                rec.Paid = 1;
-                        }
-                        else
-                        {
-                                rec.Paid = 0;
-                        }
+                            using (MarkusDb context = new MarkusDb())
+                            {
+                                rec = (from r in context.receipts
+                                       join cl in context.clients on r.Client_Id equals cl.Id
+                                       where cl.Name == clientName
+                                       where r.DateFrom.Year.ToString() == year
+                                       where r.DateFrom.Month.ToString() == month
+                                       select r).FirstOrDefault();
+                                context.receipts.Attach(rec);
+                                if (dgvBills.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "True")
+                                {
+                                    rec.Paid = 1;
+                                }
+                                else
+                                {
+                                    rec.Paid = 0;
+                                }
 
-                        context.SaveChanges();
-                        
-                        }
+                                context.SaveChanges();
 
+                            }
+
+                        }
+                        catch (DbEntityValidationException ex)
+                        {
+                            var errorMessages = ex.EntityValidationErrors
+                               .SelectMany(x => x.ValidationErrors)
+                               .Select(x => x.ErrorMessage);
+
+                            // Join the list to a single string.
+                            var fullErrorMessage = string.Join("; ", errorMessages);
+
+                            // Combine the original exception message with the new one.
+                            var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                            // Throw a new DbEntityValidationException with the improved exception message.
+                            throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+
+
+                        }
                     }
-                    catch (DbEntityValidationException ex)
-                    {
-                        var errorMessages = ex.EntityValidationErrors
-                           .SelectMany(x => x.ValidationErrors)
-                           .Select(x => x.ErrorMessage);
-
-                        // Join the list to a single string.
-                        var fullErrorMessage = string.Join("; ", errorMessages);
-
-                        // Combine the original exception message with the new one.
-                        var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
-
-                        // Throw a new DbEntityValidationException with the improved exception message.
-                        throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
-
-
-                    }
-                }
-            updateDgvBills();
+                updateDgvBills();
+            }
         }
-      
+
+        private void dtpDateFrom_ValueChanged(object sender, EventArgs e)
+        {
+            String month = getNameOfMonth(dtpDateFrom.Value.Month).ToUpper();
+            String year = dtpDateFrom.Value.Year.ToString().ToUpper();
+            lblMtYr.Text = month  + " " + year;
+        }
     }
 }
 

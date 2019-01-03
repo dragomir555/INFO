@@ -91,6 +91,12 @@
     <Compile Include="forms\clientForms\NewClientForm.Designer.cs">
       <DependentUpon>NewClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\dialogForm\DialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\dialogForm\DialogForm.Designer.cs">
+      <DependentUpon>DialogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\employeeForms\NewEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\clientForms\NewClientForm.resx">
       <DependentUpon>NewClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\dialogForm\DialogForm.resx">
+      <DependentUpon>DialogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\employeeForms\NewEmployeeForm.resx">
       <DependentUpon>NewEmployeeForm.cs</DependentUpon>
