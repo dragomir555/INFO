@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbClients = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@
             this.dtpYear = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.lblMtYr = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +67,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(14, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(246, 39);
+            this.label3.Size = new System.Drawing.Size(237, 38);
             this.label3.TabIndex = 12;
             this.label3.Text = "Naziv klijenta  :";
             // 
@@ -93,7 +94,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(15, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(247, 39);
+            this.label1.Size = new System.Drawing.Size(238, 38);
             this.label1.TabIndex = 9;
             this.label1.Text = "Izbor mjeseca :";
             // 
@@ -164,7 +165,7 @@
             this.hdLicPl,
             this.hdPrice});
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem17});
+            listViewItem2});
             this.lvUpSer.Location = new System.Drawing.Point(21, 192);
             this.lvUpSer.Name = "lvUpSer";
             this.lvUpSer.Size = new System.Drawing.Size(855, 210);
@@ -265,16 +266,16 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column1.HeaderText = "Broj racuna";
             this.Column1.Name = "Column1";
             // 
             // hdState
             // 
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle34.NullValue = false;
-            this.hdState.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.NullValue = false;
+            this.hdState.DefaultCellStyle = dataGridViewCellStyle4;
             this.hdState.HeaderText = "Placen";
             this.hdState.Name = "hdState";
             this.hdState.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -286,7 +287,7 @@
             this.dtpYear.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpYear.Location = new System.Drawing.Point(688, 20);
             this.dtpYear.Name = "dtpYear";
-            this.dtpYear.Size = new System.Drawing.Size(187, 22);
+            this.dtpYear.Size = new System.Drawing.Size(95, 22);
             this.dtpYear.TabIndex = 23;
             this.dtpYear.ValueChanged += new System.EventHandler(this.dtpYear_ValueChanged);
             // 
@@ -309,10 +310,21 @@
             this.lblMtYr.Size = new System.Drawing.Size(0, 25);
             this.lblMtYr.TabIndex = 25;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(798, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 29);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "godinu";
+            // 
             // uclIzdavanjeRacuna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblMtYr);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpYear);
@@ -363,5 +375,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn hdState;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblMtYr;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -29,7 +29,7 @@ namespace Autopraonica_Markus.forms.userControls
     public partial class uclIzdavanjeRacuna : UserControl
     {
         private static uclIzdavanjeRacuna instance;
-        
+        private Boolean isFirstTime = true;
         public static uclIzdavanjeRacuna Instance
         {
             get
@@ -57,10 +57,11 @@ namespace Autopraonica_Markus.forms.userControls
             String billYear = date.ToString().Substring(8, 2);
             int dtpYr = dtpYear.Value.Year;
 
-            using (MarkusDb context = new MarkusDb())
+            if (cmbClients.Text != "  Odabir klijenta")
             {
-                if (cmbClients.Text != "  Odabir klijenta")
-                {
+                using (MarkusDb context = new MarkusDb())
+            {
+                
                     String clientName = cmbClients.Text;
                     var receipts = (from r in context.receipts
                                     join cl in context.clients on r.Client_Id equals cl.Id
@@ -85,6 +86,7 @@ namespace Autopraonica_Markus.forms.userControls
                     }
                 }
             }
+            
         }
 
         private Boolean isPaid(sbyte paid)
@@ -794,7 +796,12 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void dtpYear_ValueChanged(object sender, EventArgs e)
         {
-            updateDgvBills();
+            if (cmbClients.Text != "  Odabir klijenta")
+                updateDgvBills();
+            else if (!isFirstTime)  
+                MessageBox.Show("Molimo Vas odaberite klijenta");
+            else
+                isFirstTime = false;
         }
 
         private void dgvBills_CellContentClick(object sender, DataGridViewCellEventArgs e)
