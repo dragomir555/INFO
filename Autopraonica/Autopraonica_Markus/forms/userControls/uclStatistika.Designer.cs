@@ -59,31 +59,34 @@
             // 
             this.cbStatistics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbStatistics.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStatistics.FormattingEnabled = true;
             this.cbStatistics.Items.AddRange(new object[] {
             "Statistika po radniku",
             "Statistika po klijentu",
             "Ukupna statistika"});
-            this.cbStatistics.Location = new System.Drawing.Point(415, 29);
+            this.cbStatistics.Location = new System.Drawing.Point(415, 22);
             this.cbStatistics.Name = "cbStatistics";
-            this.cbStatistics.Size = new System.Drawing.Size(161, 21);
+            this.cbStatistics.Size = new System.Drawing.Size(161, 24);
             this.cbStatistics.TabIndex = 1;
             this.cbStatistics.SelectedIndexChanged += new System.EventHandler(this.cbStatistics_SelectedIndexChanged);
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(209, 413);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(214, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(214, 21);
             this.dateTimePicker1.TabIndex = 6;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Location = new System.Drawing.Point(209, 452);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(214, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(214, 21);
             this.dateTimePicker2.TabIndex = 7;
             // 
             // label4
@@ -111,14 +114,17 @@
             // btnGenerateStatistics
             // 
             this.btnGenerateStatistics.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnGenerateStatistics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnGenerateStatistics.Enabled = false;
+            this.btnGenerateStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerateStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateStatistics.ForeColor = System.Drawing.Color.White;
             this.btnGenerateStatistics.Location = new System.Drawing.Point(248, 487);
             this.btnGenerateStatistics.Name = "btnGenerateStatistics";
             this.btnGenerateStatistics.Size = new System.Drawing.Size(132, 34);
             this.btnGenerateStatistics.TabIndex = 10;
             this.btnGenerateStatistics.Text = "Generiši statistiku";
-            this.btnGenerateStatistics.UseVisualStyleBackColor = true;
+            this.btnGenerateStatistics.UseVisualStyleBackColor = false;
             this.btnGenerateStatistics.Click += new System.EventHandler(this.btnGenerateStatistics_Click);
             // 
             // label2
