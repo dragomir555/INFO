@@ -78,6 +78,7 @@
             this.dgvItems.Location = new System.Drawing.Point(3, 52);
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.RowHeadersVisible = false;
+            this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItems.Size = new System.Drawing.Size(535, 182);
             this.dgvItems.TabIndex = 2;
             // 
@@ -167,6 +168,7 @@
             this.deleteItemT.TabIndex = 10;
             this.deleteItemT.Text = "Ukloni stavku";
             this.deleteItemT.UseVisualStyleBackColor = true;
+            this.deleteItemT.Click += new System.EventHandler(this.deleteItemT_Click);
             // 
             // NewPurchase
             // 

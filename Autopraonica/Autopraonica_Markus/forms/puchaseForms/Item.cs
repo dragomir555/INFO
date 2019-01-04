@@ -15,9 +15,9 @@ namespace Autopraonica_Markus.forms.puchaseForms
 {
     public partial class Item : Form
     {
-        Decimal Count { get; set; }
-        Decimal Prize { get; set; }
-        item ItemInForm { get; set;}
+      public  int Count { get; set; }
+      public  Decimal Prize { get; set; }
+      public   item ItemInForm { get; set;}
 
         public Item()
         {
@@ -98,7 +98,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
             }
             else
             {
-                Count =decimal.Parse(tbQuantity.Text);
+                Count =int.Parse(tbQuantity.Text);
                 Prize = decimal.Parse(tbPrize.Text);
                 ItemInForm =(item)tbStavka.Tag;
                 this.DialogResult = DialogResult.OK;
