@@ -19,6 +19,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
         public NewItem()
         {
             InitializeComponent();
+            FillCombo();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -32,7 +33,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
             {
                 List<item> it = (from c in context.items select c).ToList();
                 cmbUnit.DataSource = it;
-                cmbUnit.DisplayMember = "MesauringUnit";
+                cmbUnit.DisplayMember = "MeasuringUnit";
                 cmbUnit.ValueMember = "Id";
             }
         }
@@ -44,7 +45,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
             }
             else {
                 NameItem = tbNameItem.Text;
-                NameUnit = cmbUnit.SelectedText;
+                NameUnit = ((item)cmbUnit.SelectedItem).MeasuringUnit;
                 using (MarkusDb context = new MarkusDb())
                 {
                     var ci = (from c in context.items where c.Name == NameItem select c).Count();

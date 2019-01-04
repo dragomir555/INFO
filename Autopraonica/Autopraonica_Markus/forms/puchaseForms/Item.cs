@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Data.Entity.Validation;
 using Autopraonica_Markus.Model.Entities;
 
 namespace Autopraonica_Markus.forms.puchaseForms
@@ -60,13 +61,14 @@ namespace Autopraonica_Markus.forms.puchaseForms
                             Name = newItem.NameItem,
                             MeasuringUnit = newItem.NameUnit
                         };
+                        Debug.WriteLine(it.Name+"  "+it.MeasuringUnit);
                         context.items.Add(it);
                         context.SaveChanges();
                         FillTable();
                     }
 
                 }
-                catch (Exception ex) { Debug.WriteLine(ex); }
+                catch (DbEntityValidationException ex) { Debug.WriteLine(ex); }
             }
             else
             {
