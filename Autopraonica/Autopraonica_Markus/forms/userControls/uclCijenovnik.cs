@@ -99,37 +99,42 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void btnUpdatePricelistItem_Click(object sender, EventArgs e)
         {
-
             var button = (Button)sender;
             var resultString = Regex.Match(button.Name, @"\d+").Value;
             string dataGridViewName = "dataGridView" + resultString;
             DataGridView dgw = this.Controls[dataGridViewName] as DataGridView;
-            UpdatePricelistItem npi = new UpdatePricelistItem(Int32.Parse(dgw.Rows[dgw.CurrentCell.RowIndex].Cells[2].Value.ToString()));
-            if (DialogResult.OK == npi.ShowDialog())
+            if (dgw.CurrentCell != null)
             {
-                using (MarkusDb context = new MarkusDb())
+                UpdatePricelistItem npi = new UpdatePricelistItem(Int32.Parse(dgw.Rows[dgw.CurrentCell.RowIndex].Cells[2].Value.ToString()));
+                if (DialogResult.OK == npi.ShowDialog())
                 {
-                    int pricelistItem_id = Int32.Parse(dgw.Rows[dgw.CurrentCell.RowIndex].Cells[2].Value.ToString());
-                    var pricelistItem = context.pricelistitems.Find(pricelistItem_id);
-                    if(Decimal.Compare(pricelistItem.Price, npi.Price) != 0)
+                    using (MarkusDb context = new MarkusDb())
                     {
-                        pricelistItem.DateTo = DateTime.Now;
-                        pricelistItem.Current = 0;
-                        context.SaveChanges();
-
-                        var newPricelistItem = new pricelistitem()
+                        int pricelistItem_id = Int32.Parse(dgw.Rows[dgw.CurrentCell.RowIndex].Cells[2].Value.ToString());
+                        var pricelistItem = context.pricelistitems.Find(pricelistItem_id);
+                        if (Decimal.Compare(pricelistItem.Price, npi.Price) != 0)
                         {
-                            Price = npi.Price,
-                            PricelistItemName_Id = pricelistItem.PricelistItemName_Id,
-                            ServiceType_Id = pricelistItem.ServiceType_Id,
-                            DateFrom = DateTime.Now,
-                            Current = 1,
-                        };
-                        context.pricelistitems.Add(newPricelistItem);
-                        context.SaveChanges();
-                        fillTable(this.Controls[dataGridViewName] as DataGridView, pricelistItem.ServiceType_Id);
+                            pricelistItem.DateTo = DateTime.Now;
+                            pricelistItem.Current = 0;
+                            context.SaveChanges();
+
+                            var newPricelistItem = new pricelistitem()
+                            {
+                                Price = npi.Price,
+                                PricelistItemName_Id = pricelistItem.PricelistItemName_Id,
+                                ServiceType_Id = pricelistItem.ServiceType_Id,
+                                DateFrom = DateTime.Now,
+                                Current = 1,
+                            };
+                            context.pricelistitems.Add(newPricelistItem);
+                            context.SaveChanges();
+                            fillTable(this.Controls[dataGridViewName] as DataGridView, pricelistItem.ServiceType_Id);
+                        }
                     }
                 }
+            } else
+            { 
+                MessageBox.Show("Nemate stavki za izmjenu", "Obavjestenje o izmjeni", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -139,14 +144,20 @@ namespace Autopraonica_Markus.forms.userControls
             var resultString = Regex.Match(button.Name, @"\d+").Value;
             string dataGridViewName = "dataGridView" + resultString;
             DataGridView dgw = this.Controls[dataGridViewName] as DataGridView;
-            using (MarkusDb context = new MarkusDb())
+            if (dgw.CurrentCell != null)
             {
-                int pricelistItem_id = Int32.Parse(dgw.Rows[dgw.CurrentCell.RowIndex].Cells[2].Value.ToString());
-                var pricelistItem = context.pricelistitems.Find(pricelistItem_id);
-                pricelistItem.DateTo = DateTime.Now;
-                pricelistItem.Current = 0;
-                context.SaveChanges();
-                fillTable(this.Controls[dataGridViewName] as DataGridView, pricelistItem.ServiceType_Id);
+                using (MarkusDb context = new MarkusDb())
+                {
+                    int pricelistItem_id = Int32.Parse(dgw.Rows[dgw.CurrentCell.RowIndex].Cells[2].Value.ToString());
+                    var pricelistItem = context.pricelistitems.Find(pricelistItem_id);
+                    pricelistItem.DateTo = DateTime.Now;
+                    pricelistItem.Current = 0;
+                    context.SaveChanges();
+                    fillTable(this.Controls[dataGridViewName] as DataGridView, pricelistItem.ServiceType_Id);
+                }
+            } else
+            {
+                MessageBox.Show("Nemate stavki za brisanje", "Obavjestenje o brisanju", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
