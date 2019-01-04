@@ -91,6 +91,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(245, 20);
             this.tbName.TabIndex = 0;
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckPressedKey);
             this.tbName.Validating += new System.ComponentModel.CancelEventHandler(this.tbName_Validating);
             // 
             // button2

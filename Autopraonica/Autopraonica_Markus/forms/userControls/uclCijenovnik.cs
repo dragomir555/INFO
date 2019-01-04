@@ -248,6 +248,7 @@ namespace Autopraonica_Markus.forms.userControls
                     dgw.Size = new Size(this.Width - 40, 150);
                     dgw.AutoSize = false;
                     fillTable(dgw, s.Id);
+                    dgw.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                     i++;
                 }
 
@@ -298,6 +299,9 @@ namespace Autopraonica_Markus.forms.userControls
             btnDeletePricelistItem.Size = new Size(70, 23);
             btnDeletePricelistItem.Click += new EventHandler(btnDeletePricelistItem_Click);
             btnDeletePricelistItem.AutoSize = false;
+            btnDeletePricelistItem.BackColor = Color.FromArgb(107, 65, 150);
+            btnDeletePricelistItem.FlatStyle = FlatStyle.Flat;
+            btnDeletePricelistItem.ForeColor = Color.White;
 
             btnUpdatePricelistItem.Name = "btnUpdatePricelistItem" + serviceType.Id;
             btnUpdatePricelistItem.Location = new Point(this.Width - 190, 155 + (i - 1) * 220);
@@ -307,6 +311,9 @@ namespace Autopraonica_Markus.forms.userControls
             btnUpdatePricelistItem.Size = new Size(70, 23);
             btnUpdatePricelistItem.Click += new EventHandler(btnUpdatePricelistItem_Click);
             btnUpdatePricelistItem.AutoSize = false;
+            btnUpdatePricelistItem.BackColor = Color.FromArgb(107, 65, 150);
+            btnUpdatePricelistItem.FlatStyle = FlatStyle.Flat;
+            btnUpdatePricelistItem.ForeColor = Color.White;
 
             btnAddPricelistItem.Name = "btnAddPricelistItem" + serviceType.Id;
             btnAddPricelistItem.Location = new Point(this.Width - 107, 155 + (i - 1) * 220);
@@ -316,6 +323,9 @@ namespace Autopraonica_Markus.forms.userControls
             btnAddPricelistItem.Size = new Size(70, 23);
             btnAddPricelistItem.Click += new EventHandler(btnAddPricelistItem_Click);
             btnAddPricelistItem.AutoSize = false;
+            btnAddPricelistItem.BackColor = Color.FromArgb(107, 65, 150);
+            btnAddPricelistItem.FlatStyle = FlatStyle.Flat;
+            btnAddPricelistItem.ForeColor = Color.White;
 
             dgw.Name = "dataGridView" + serviceType.Id;
             dgw.ColumnCount = 3;
@@ -336,6 +346,7 @@ namespace Autopraonica_Markus.forms.userControls
             dgw.Size = new Size(this.Width - 60, 150);
             dgw.AutoSize = false;
             fillTable(dgw, serviceType.Id);
+            dgw.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             i++;
 
             btnAddService = new Button();
@@ -346,6 +357,9 @@ namespace Autopraonica_Markus.forms.userControls
             btnAddService.Click += new EventHandler(btnAddServiceType_Click);
             btnAddService.AutoSize = false;
             this.Controls.Add(btnAddService);
+            btnAddService.BackColor = Color.FromArgb(107, 65, 150);
+            btnAddService.FlatStyle = FlatStyle.Flat;
+            btnAddService.ForeColor = Color.White;
         }
 
         private void fillTable(DataGridView dgw, int id)
@@ -380,6 +394,8 @@ namespace Autopraonica_Markus.forms.userControls
         {
 
         }
+
+
 
     }
 }

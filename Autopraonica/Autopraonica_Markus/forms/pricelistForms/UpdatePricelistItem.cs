@@ -78,9 +78,24 @@ namespace Autopraonica_Markus.forms.pricelistForms
             }
         }
 
+        private void CheckPressedKey(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                button1_Click(sender, e);
+                e.Handled = true;
+            }
+            else if (e.KeyChar == (char)Keys.Escape)
+            {
+                button2_Click(sender, e);
+                e.Handled = true;
+            }
+        }
+
         private void tbPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             AllowDecimal(sender, e);
+            CheckPressedKey(sender, e);
         }
     }
 }

@@ -142,25 +142,6 @@ namespace Autopraonica_Markus.forms.userControls
             e.Value = lastname + " " + firstname;
         }
 
-    /*    private void textBox1_KeyUp(object sender, KeyEventArgs e)
-        {
-            
-            foreach (System.Windows.Forms.DataGridViewRow r in dataGridView1.Rows)
-            {
-                if ((r.Cells[0].Value).ToString().ToUpper().Contains(textBox1.Text.ToUpper()))
-                {
-                    dataGridView1.Rows[r.Index].Visible = true;
-                    dataGridView1.Rows[r.Index].Selected = true;
-                }
-                else
-                {
-                    dataGridView1.CurrentCell = null;
-                    dataGridView1.Rows[r.Index].Visible = false;
-                }
-            }
-            Console.WriteLine("Dobar dan " + textBox1.Text);
-            
-        }*/
 
         private void btnGenerateStatistics_Click(object sender, EventArgs e)
         {

@@ -36,6 +36,19 @@ namespace Autopraonica_Markus.forms.pricelistForms
             }
         }
 
+        private void CheckPressedKey(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnAddServiceType_Click(sender, e);
+                e.Handled = true;
+            } else if(e.KeyChar == (char)Keys.Escape)
+            {
+                button1_Click(sender, e);
+                e.Handled = true;
+            }
+        }
+
         private void btnAddServiceType_Click(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
@@ -49,5 +62,6 @@ namespace Autopraonica_Markus.forms.pricelistForms
         {
             this.DialogResult = DialogResult.Cancel;
         }
+
     }
 }
