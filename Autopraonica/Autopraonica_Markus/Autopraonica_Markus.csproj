@@ -127,6 +127,12 @@
     <Compile Include="forms\loginForms\PasswordChangeForm.Designer.cs">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\CustomControls\MyDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Model\CustomControls\MyListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="forms\pricelistForms\NewPricelistItem.cs">
       <SubType>Form</SubType>
     </Compile>

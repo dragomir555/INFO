@@ -172,7 +172,7 @@ namespace Autopraonica_Markus.forms.userControls
                 foreach(var s in serviceTypes)
                 {
                     Label lbl = new Label();
-                    DataGridView dgw = new DataGridView();
+                    MyDataGridView dgw = new MyDataGridView();
                     Button btnAddPricelistItem = new Button();
                     Button btnUpdatePricelistItem = new Button();
                     Button btnDeletePricelistItem = new Button();
