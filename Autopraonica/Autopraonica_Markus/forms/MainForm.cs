@@ -32,6 +32,13 @@ namespace Autopraonica_Markus
             InitializeComponent();
             employee = null;
             helpingEmployee = null;
+            SetUclUslugeFirst();
+            LoginForm loginForm = new LoginForm(this);
+            loginForm.Show();
+        }
+
+        public void SetUclUslugeFirst()
+        {
             if (!pnlContent.Controls.Contains(uclUsluge.Instance))
             {
                 pnlContent.Controls.Add(uclUsluge.Instance);
@@ -44,8 +51,6 @@ namespace Autopraonica_Markus
             }
             btnUsluge.BackColor = Color.FromArgb(93, 46, 140);
             PressedButton = btnUsluge;
-            LoginForm loginForm = new LoginForm(this);
-            loginForm.Show();
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)

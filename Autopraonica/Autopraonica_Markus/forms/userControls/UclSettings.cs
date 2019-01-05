@@ -192,6 +192,7 @@ namespace Autopraonica_Markus.forms.userControls
             Properties.Settings.Default.AccountNumber = tbAccountNumber.Text;
             Properties.Settings.Default.Email = tbEmail.Text;
             Properties.Settings.Default.Password = tbPassword.Text;
+            Properties.Settings.Default.Save();
             btnSave.Enabled = false;
         }
     }
