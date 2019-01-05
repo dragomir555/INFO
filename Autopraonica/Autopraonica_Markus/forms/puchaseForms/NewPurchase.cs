@@ -52,7 +52,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
                 dgvItems.Rows.Add(row);
                 sumPrize += p.Price;
             }
-            lbSumPrize.Text = sumPrize.ToString();
+            lbSumPrize.Text = sumPrize.ToString()+"  [KM]";
         }
 
         private void deleteItemT_Click(object sender, EventArgs e)
@@ -66,6 +66,38 @@ namespace Autopraonica_Markus.forms.puchaseForms
             }
             list.RemoveAll((x) => x.Item_Id == id);
             FillTable();
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            int idPur;
+            if (list.Count() > 0)
+            {
+                using(MarkusDb context=new MarkusDb())
+                {
+                    var purchase = new purchase()
+                    {
+                        PurchaseTime = DateTime.Now,
+                        SupplierName = tbNameSuplier.Text,
+                        PurchaseNumber = tbNumberPurchase.Text,
+                        Employee_Id = 1
+                        
+                    };
+                    context.purchases.Add(purchase);
+                    context.SaveChanges();
+                    idPur = purchase.Id;
+                    foreach (purchaseitem p in list)
+                    {
+                        p.Purchase_Id = idPur;
+                        context.purchaseitems.Add(p);
+                        context.SaveChanges();
+                    }
+                    this.DialogResult = DialogResult.OK;
+                }
+            }
+            else{
+                MessageBox.Show("Nemate stavki u nabavci", "Info");
+            }
         }
     }
 }

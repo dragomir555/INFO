@@ -34,6 +34,8 @@ namespace Autopraonica_Markus.forms.userControls
             InitializeComponent();
             FillTable();
             cmbSearchType.SelectedIndex = 1;
+            dtpTo.MaxDate = DateTime.Now;
+            dtpTo.Value = DateTime.Now;
         }
 
         private void FillTable()
@@ -58,7 +60,7 @@ namespace Autopraonica_Markus.forms.userControls
                 decimal sumPurchase = 0;
                 foreach (var p in lista)
                 {
-                    if (p.PurchaseTime<dtpTo.Value && p.PurchaseTime>dtpFrom.Value) { 
+                    if (p.PurchaseTime<=dtpTo.Value && p.PurchaseTime>=dtpFrom.Value) { 
                     DataGridViewRow r = new DataGridViewRow() { Tag = p };
                     r.CreateCells(dgvPurchase);
                     Decimal dec = 0;
@@ -101,11 +103,8 @@ namespace Autopraonica_Markus.forms.userControls
             NewPurchase newPurchase = new NewPurchase();
             if (DialogResult.OK == newPurchase.ShowDialog())
             {
-
-
-
-
-
+                FillTable();
+                MessageBox.Show("Uspjesno dodavanje nabavke", "Info");
             }
             else
             {
@@ -121,7 +120,15 @@ namespace Autopraonica_Markus.forms.userControls
         {
 
             if (dgvPurchase.SelectedRows.Count > 0)
-                tbSumPurchase.Text = ((decimal)dgvPurchase.SelectedRows[0].Cells[4].Value).ToString();
+            {
+                //Sta se desi kad se oznaci neka nabavka
+            }
+               
+        }
+
+        private void dtpTo_Enter(object sender, EventArgs e)
+        {
+            dtpTo.MaxDate = DateTime.Now;
         }
     }
 }

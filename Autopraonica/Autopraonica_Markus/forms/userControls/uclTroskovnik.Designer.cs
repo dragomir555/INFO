@@ -201,6 +201,7 @@
             this.tbSumPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbSumPurchase.Location = new System.Drawing.Point(167, 350);
             this.tbSumPurchase.Name = "tbSumPurchase";
+            this.tbSumPurchase.ReadOnly = true;
             this.tbSumPurchase.Size = new System.Drawing.Size(134, 22);
             this.tbSumPurchase.TabIndex = 9;
             // 
@@ -248,6 +249,7 @@
             this.dtpTo.TabIndex = 13;
             this.dtpTo.Value = new System.DateTime(2018, 12, 25, 0, 0, 0, 0);
             this.dtpTo.ValueChanged += new System.EventHandler(this.dtpTo_ValueChanged);
+            this.dtpTo.Enter += new System.EventHandler(this.dtpTo_Enter);
             // 
             // uclTroskovnik
             // 
