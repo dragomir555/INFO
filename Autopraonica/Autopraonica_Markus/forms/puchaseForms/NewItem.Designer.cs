@@ -90,6 +90,7 @@
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Odustani";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // cmbUnit
             // 
@@ -107,6 +108,7 @@
             this.tbNameItem.Name = "tbNameItem";
             this.tbNameItem.Size = new System.Drawing.Size(171, 22);
             this.tbNameItem.TabIndex = 6;
+            this.tbNameItem.Validating += new System.ComponentModel.CancelEventHandler(this.tbNameItem_Validating);
             // 
             // errorProvider1
             // 

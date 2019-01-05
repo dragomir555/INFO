@@ -31,7 +31,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
         {
             using(MarkusDb context=new MarkusDb())
             {
-                List<item> it = (from c in context.items select c).ToList();
+                List<item> it = (from c in context.items select c).ToList().GroupBy((x)=>x.MeasuringUnit).Select(y=>y.First()).ToList();
                 cmbUnit.DataSource = it;
                 cmbUnit.DisplayMember = "MeasuringUnit";
                 cmbUnit.ValueMember = "Id";
@@ -40,8 +40,8 @@ namespace Autopraonica_Markus.forms.puchaseForms
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (!ValidateChildren(ValidationConstraints.Enabled)) {
-                
+            if (this.ValidateChildren()) {
+                Debug.WriteLine("Nije dobra validacija");
             }
             else {
                 NameItem = tbNameItem.Text;
@@ -61,5 +61,20 @@ namespace Autopraonica_Markus.forms.puchaseForms
                 }
             }
         }
+
+        private void tbNameItem_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbNameItem.Text))
+            {
+                errorProvider1.SetError(tbNameItem, "Molimo vas unesite naziv stavke.");
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+ 
     }
 }

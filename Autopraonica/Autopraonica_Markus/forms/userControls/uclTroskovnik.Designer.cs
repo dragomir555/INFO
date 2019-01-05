@@ -134,6 +134,7 @@
             this.stormPurchase.TabIndex = 2;
             this.stormPurchase.Text = "Poništi nabavku";
             this.stormPurchase.UseVisualStyleBackColor = false;
+            this.stormPurchase.Click += new System.EventHandler(this.stormPurchase_Click);
             // 
             // ViewPurchase
             // 
@@ -149,6 +150,7 @@
             this.ViewPurchase.TabIndex = 4;
             this.ViewPurchase.Text = "Detalji nabavke";
             this.ViewPurchase.UseVisualStyleBackColor = false;
+            this.ViewPurchase.Click += new System.EventHandler(this.ViewPurchase_Click);
             // 
             // label1
             // 

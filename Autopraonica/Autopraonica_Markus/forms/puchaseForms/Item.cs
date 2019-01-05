@@ -27,7 +27,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void FillTable()
@@ -45,6 +45,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
                 }
 
             }
+          
         }
 
         private void btnAddNewItem_Click(object sender, EventArgs e)
@@ -94,7 +95,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
         {
             if (!ValidateChildren(ValidationConstraints.Enabled))
             {
-
+               
             }
             else
             {
@@ -102,6 +103,24 @@ namespace Autopraonica_Markus.forms.puchaseForms
                 Prize = decimal.Parse(tbPrize.Text);
                 ItemInForm =(item)tbStavka.Tag;
                 this.DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void tbQuantity_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbQuantity.Text))
+            {
+                errorProvider1.SetError(tbQuantity, "Unesite količinu !!!");
+                e.Cancel = true;
+            }
+        }
+
+        private void tbPrize_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbPrize.Text))
+            {
+                errorProvider1.SetError(tbPrize, "Unesite cijenu stavke");
+                e.Cancel = true;
             }
         }
     }

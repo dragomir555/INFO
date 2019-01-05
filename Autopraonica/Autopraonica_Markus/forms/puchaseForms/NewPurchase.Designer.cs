@@ -40,8 +40,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lbSumPrize = new System.Windows.Forms.Label();
-            this.newItemT = new System.Windows.Forms.Button();
-            this.deleteItemT = new System.Windows.Forms.Button();
+            this.btnNewItemT = new System.Windows.Forms.Button();
+            this.btnDeleteItemT = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tbNameSuplier = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
@@ -105,22 +105,35 @@
             // 
             // btnConfirm
             // 
+            this.btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnConfirm.FlatAppearance.BorderSize = 0;
+            this.btnConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnConfirm.ForeColor = System.Drawing.Color.White;
             this.btnConfirm.Location = new System.Drawing.Point(94, 279);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(140, 35);
             this.btnConfirm.TabIndex = 3;
             this.btnConfirm.Text = "Zavrsi";
-            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(295, 279);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(140, 35);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Otkazi";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label2
             // 
@@ -141,25 +154,37 @@
             this.lbSumPrize.Size = new System.Drawing.Size(0, 16);
             this.lbSumPrize.TabIndex = 8;
             // 
-            // newItemT
+            // btnNewItemT
             // 
-            this.newItemT.Location = new System.Drawing.Point(407, 11);
-            this.newItemT.Name = "newItemT";
-            this.newItemT.Size = new System.Drawing.Size(132, 30);
-            this.newItemT.TabIndex = 9;
-            this.newItemT.Text = "Nova stavka";
-            this.newItemT.UseVisualStyleBackColor = true;
-            this.newItemT.Click += new System.EventHandler(this.newItemT_Click);
+            this.btnNewItemT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnNewItemT.FlatAppearance.BorderSize = 0;
+            this.btnNewItemT.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnNewItemT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewItemT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnNewItemT.ForeColor = System.Drawing.Color.White;
+            this.btnNewItemT.Location = new System.Drawing.Point(407, 11);
+            this.btnNewItemT.Name = "btnNewItemT";
+            this.btnNewItemT.Size = new System.Drawing.Size(132, 30);
+            this.btnNewItemT.TabIndex = 9;
+            this.btnNewItemT.Text = "Nova stavka";
+            this.btnNewItemT.UseVisualStyleBackColor = false;
+            this.btnNewItemT.Click += new System.EventHandler(this.newItemT_Click);
             // 
-            // deleteItemT
+            // btnDeleteItemT
             // 
-            this.deleteItemT.Location = new System.Drawing.Point(407, 47);
-            this.deleteItemT.Name = "deleteItemT";
-            this.deleteItemT.Size = new System.Drawing.Size(131, 30);
-            this.deleteItemT.TabIndex = 10;
-            this.deleteItemT.Text = "Ukloni stavku";
-            this.deleteItemT.UseVisualStyleBackColor = true;
-            this.deleteItemT.Click += new System.EventHandler(this.deleteItemT_Click);
+            this.btnDeleteItemT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnDeleteItemT.FlatAppearance.BorderSize = 0;
+            this.btnDeleteItemT.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnDeleteItemT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteItemT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDeleteItemT.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteItemT.Location = new System.Drawing.Point(407, 47);
+            this.btnDeleteItemT.Name = "btnDeleteItemT";
+            this.btnDeleteItemT.Size = new System.Drawing.Size(131, 30);
+            this.btnDeleteItemT.TabIndex = 10;
+            this.btnDeleteItemT.Text = "Ukloni stavku";
+            this.btnDeleteItemT.UseVisualStyleBackColor = false;
+            this.btnDeleteItemT.Click += new System.EventHandler(this.deleteItemT_Click);
             // 
             // label4
             // 
@@ -185,8 +210,8 @@
             this.ClientSize = new System.Drawing.Size(550, 326);
             this.Controls.Add(this.tbNameSuplier);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.deleteItemT);
-            this.Controls.Add(this.newItemT);
+            this.Controls.Add(this.btnDeleteItemT);
+            this.Controls.Add(this.btnNewItemT);
             this.Controls.Add(this.lbSumPrize);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancel);
@@ -197,6 +222,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewPurchase";
             this.Text = "Nova nabavka";
+            this.Load += new System.EventHandler(this.NewPurchase_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -216,8 +242,8 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbSumPrize;
-        private System.Windows.Forms.Button newItemT;
-        private System.Windows.Forms.Button deleteItemT;
+        private System.Windows.Forms.Button btnNewItemT;
+        private System.Windows.Forms.Button btnDeleteItemT;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbNameSuplier;
     }

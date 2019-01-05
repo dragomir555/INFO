@@ -41,18 +41,18 @@ namespace Autopraonica_Markus.forms.puchaseForms
             }
         }
         private void FillTable()
-        {
-            dgvItems.Rows.Clear();
-            decimal sumPrize = 0;
-            foreach (purchaseitem p in list)
-            {
-                DataGridViewRow row = new DataGridViewRow() { Tag = p };
-                row.CreateCells(dgvItems);
-                row.SetValues(p.item.Name, p.Quantity, p.item.MeasuringUnit, p.Price);
-                dgvItems.Rows.Add(row);
-                sumPrize += p.Price;
-            }
-            lbSumPrize.Text = sumPrize.ToString()+"  [KM]";
+        {         
+                dgvItems.Rows.Clear();
+                decimal sumPrize = 0;
+                foreach (purchaseitem p in list)
+                {
+                    DataGridViewRow row = new DataGridViewRow() { Tag = p };
+                    row.CreateCells(dgvItems);
+                    row.SetValues(p.item.Name, p.Quantity, p.item.MeasuringUnit, p.Price);
+                    dgvItems.Rows.Add(row);
+                    sumPrize += p.Price;
+                }
+                lbSumPrize.Text = sumPrize.ToString() + "  [KM]";             
         }
 
         private void deleteItemT_Click(object sender, EventArgs e)
@@ -70,33 +70,77 @@ namespace Autopraonica_Markus.forms.puchaseForms
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            int idPur;
-            if (list.Count() > 0)
+            if (this.Tag != null)
             {
-                using(MarkusDb context=new MarkusDb())
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                int idPur;
+                if (list.Count() > 0)
                 {
-                    var purchase = new purchase()
+                    using (MarkusDb context = new MarkusDb())
                     {
-                        PurchaseTime = DateTime.Now,
-                        SupplierName = tbNameSuplier.Text,
-                        PurchaseNumber = tbNumberPurchase.Text,
-                        Employee_Id = 1
-                        
-                    };
-                    context.purchases.Add(purchase);
-                    context.SaveChanges();
-                    idPur = purchase.Id;
-                    foreach (purchaseitem p in list)
-                    {
-                        p.Purchase_Id = idPur;
-                        context.purchaseitems.Add(p);
+                        var purchase = new purchase()
+                        {
+                            PurchaseTime = DateTime.Now,
+                            SupplierName = tbNameSuplier.Text,
+                            PurchaseNumber = tbNumberPurchase.Text,
+                            Employee_Id = 1
+
+                        };
+                        context.purchases.Add(purchase);
                         context.SaveChanges();
+                        idPur = purchase.Id;
+                        foreach (purchaseitem p in list)
+                        {
+                            p.Purchase_Id = idPur;
+                            context.purchaseitems.Add(p);
+                            context.SaveChanges();
+                        }
+                        this.DialogResult = DialogResult.OK;
                     }
-                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("Nemate stavki u nabavci", "Info");
                 }
             }
-            else{
-                MessageBox.Show("Nemate stavki u nabavci", "Info");
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void NewPurchase_Load(object sender, EventArgs e)
+        { decimal sum = 0;
+            if (this.Tag != null)
+            {
+                purchase temp = (purchase)this.Tag;
+                tbNameSuplier.Text = temp.SupplierName;
+                tbNumberPurchase.Text = temp.PurchaseNumber;
+
+                tbNameSuplier.ReadOnly = true;
+                tbNumberPurchase.ReadOnly = true;
+                btnDeleteItemT.Hide();
+                btnNewItemT.Hide();
+
+                using(MarkusDb context=new MarkusDb())
+                {
+                    var xl = (from c in context.purchaseitems where c.Purchase_Id == temp.Id select c).ToList();
+                    foreach(purchaseitem p in xl)
+                    {
+                        DataGridViewRow row = new DataGridViewRow();
+                        row.CreateCells(dgvItems);
+                        row.SetValues(p.item.Name, p.Quantity, p.item.MeasuringUnit, p.Price);
+                        dgvItems.Rows.Add(row);
+                        sum += p.Price;
+                    }
+                    lbSumPrize.Text = sum + " [KM]";
+                }
+
             }
         }
     }

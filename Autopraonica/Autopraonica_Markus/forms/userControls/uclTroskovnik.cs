@@ -99,8 +99,8 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void newPurchase_Click(object sender, EventArgs e)
         {
-            Item item = new Item();
             NewPurchase newPurchase = new NewPurchase();
+            newPurchase.Tag = null;
             if (DialogResult.OK == newPurchase.ShowDialog())
             {
                 FillTable();
@@ -110,10 +110,6 @@ namespace Autopraonica_Markus.forms.userControls
             {
                 Debug.WriteLine("Dialog result don't OK");
             }
-
-
-
-
         }
 
         private void dgvPurchase_SelectionChanged(object sender, EventArgs e)
@@ -129,6 +125,35 @@ namespace Autopraonica_Markus.forms.userControls
         private void dtpTo_Enter(object sender, EventArgs e)
         {
             dtpTo.MaxDate = DateTime.Now;
+        }
+
+        private void ViewPurchase_Click(object sender, EventArgs e)
+        {
+            if (dgvPurchase.SelectedRows.Count > 0)
+            {
+                purchase temp = (purchase)dgvPurchase.SelectedRows[0].Tag;
+                NewPurchase newPurchase = new NewPurchase();
+                newPurchase.Tag = temp;
+                if (DialogResult.OK == newPurchase.ShowDialog())
+                {
+                    FillTable();
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Izaberite nabavku iz tabele", "Greškа");
+            }
+        }
+
+        private void stormPurchase_Click(object sender, EventArgs e)
+        {
+
+
+
         }
     }
 }

@@ -121,6 +121,7 @@
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.Size = new System.Drawing.Size(185, 22);
             this.tbQuantity.TabIndex = 5;
+            this.tbQuantity.Validating += new System.ComponentModel.CancelEventHandler(this.tbQuantity_Validating);
             // 
             // tbPrize
             // 
@@ -128,6 +129,7 @@
             this.tbPrize.Name = "tbPrize";
             this.tbPrize.Size = new System.Drawing.Size(91, 22);
             this.tbPrize.TabIndex = 6;
+            this.tbPrize.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrize_Validating);
             // 
             // label4
             // 
