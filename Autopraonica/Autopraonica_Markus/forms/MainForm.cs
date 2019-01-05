@@ -280,6 +280,7 @@ namespace Autopraonica_Markus
             this.employee = employee;
             lblUser.Text = employee.FirstName + " " + employee.LastName;
             uclUsluge.Instance.SetEmployee(employee);
+            uclTroskovnik.ActiveEmployee = employee;
         }
 
         protected override void SetVisibleCore(bool value)
