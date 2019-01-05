@@ -17,7 +17,7 @@ namespace Autopraonica_Markus.forms.userControls
     {
 
         private static uclTroskovnik instance;
-
+        public static  employee ActiveEmployee { get; set; }
         public static uclTroskovnik Instance
         {
             get
