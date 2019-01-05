@@ -107,15 +107,15 @@ namespace Autopraonica_Markus
 
         private void btnCjenovnik_Click(object sender, EventArgs e)
         {
-            if (!pnlContent.Controls.Contains(uclCijenovnik.Instance))
+            if (!pnlContent.Controls.Contains(uclPricelist.Instance))
             {
-                pnlContent.Controls.Add(uclCijenovnik.Instance);
-                uclCijenovnik.Instance.Dock = DockStyle.Fill;
-                uclCijenovnik.Instance.BringToFront();
+                pnlContent.Controls.Add(uclPricelist.Instance);
+                uclPricelist.Instance.Dock = DockStyle.Fill;
+                uclPricelist.Instance.BringToFront();
             }
             else
             {
-                uclCijenovnik.Instance.BringToFront();
+                uclPricelist.Instance.BringToFront();
             }
             PressedButton.BackColor = Color.FromArgb(107, 65, 150);
             btnCjenovnik.BackColor = Color.FromArgb(93, 46, 140);
@@ -158,15 +158,15 @@ namespace Autopraonica_Markus
 
         private void btnStatistika_Click(object sender, EventArgs e)
         {
-            if (!pnlContent.Controls.Contains(uclStatistika.Instance))
+            if (!pnlContent.Controls.Contains(uclStatistics.Instance))
             {
-                pnlContent.Controls.Add(uclStatistika.Instance);
-                uclStatistika.Instance.Dock = DockStyle.Fill;
-                uclStatistika.Instance.BringToFront();
+                pnlContent.Controls.Add(uclStatistics.Instance);
+                uclStatistics.Instance.Dock = DockStyle.Fill;
+                uclStatistics.Instance.BringToFront();
             }
             else
             {
-                uclStatistika.Instance.BringToFront();
+                uclStatistics.Instance.BringToFront();
             }
             PressedButton.BackColor = Color.FromArgb(107, 65, 150);
             btnStatistika.BackColor = Color.FromArgb(93, 46, 140);

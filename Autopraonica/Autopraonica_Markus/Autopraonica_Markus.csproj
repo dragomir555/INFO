@@ -181,29 +181,29 @@
     <Compile Include="forms\serviceForms\NewNaturalEntityServiceForm.Designer.cs">
       <DependentUpon>NewNaturalEntityServiceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\statisticsForms\ClientChartForm.cs">
+    <Compile Include="forms\statisticsForms\ClientStatisticsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\statisticsForms\ClientChartForm.Designer.cs">
-      <DependentUpon>ClientChartForm.cs</DependentUpon>
+    <Compile Include="forms\statisticsForms\ClientStatisticsForm.Designer.cs">
+      <DependentUpon>ClientStatisticsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\statisticsForms\EmployeeChartForm.cs">
+    <Compile Include="forms\statisticsForms\EmployeeStatisticsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\statisticsForms\EmployeeChartForm.Designer.cs">
-      <DependentUpon>EmployeeChartForm.cs</DependentUpon>
+    <Compile Include="forms\statisticsForms\EmployeeStatisticsForm.Designer.cs">
+      <DependentUpon>EmployeeStatisticsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\statisticsForms\TotalStatisticsChartForm.cs">
+    <Compile Include="forms\statisticsForms\TotalStatisticsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\statisticsForms\TotalStatisticsChartForm.Designer.cs">
-      <DependentUpon>TotalStatisticsChartForm.cs</DependentUpon>
+    <Compile Include="forms\statisticsForms\TotalStatisticsForm.Designer.cs">
+      <DependentUpon>TotalStatisticsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\userControls\uclCijenovnik.cs">
+    <Compile Include="forms\userControls\uclPricelist.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="forms\userControls\uclCijenovnik.Designer.cs">
-      <DependentUpon>uclCijenovnik.cs</DependentUpon>
+    <Compile Include="forms\userControls\uclPricelist.Designer.cs">
+      <DependentUpon>uclPricelist.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\userControls\uclIzdavanjeRacuna.cs">
       <SubType>UserControl</SubType>
@@ -223,11 +223,11 @@
     <Compile Include="forms\userControls\UclSettings.Designer.cs">
       <DependentUpon>UclSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="forms\userControls\uclStatistika.cs">
+    <Compile Include="forms\userControls\uclStatistics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="forms\userControls\uclStatistika.Designer.cs">
-      <DependentUpon>uclStatistika.cs</DependentUpon>
+    <Compile Include="forms\userControls\uclStatistics.Designer.cs">
+      <DependentUpon>uclStatistics.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\userControls\uclTroskovnik.cs">
       <SubType>UserControl</SubType>
@@ -317,17 +317,17 @@
     <EmbeddedResource Include="forms\serviceForms\NewNaturalEntityServiceForm.resx">
       <DependentUpon>NewNaturalEntityServiceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\statisticsForms\ClientChartForm.resx">
-      <DependentUpon>ClientChartForm.cs</DependentUpon>
+    <EmbeddedResource Include="forms\statisticsForms\ClientStatisticsForm.resx">
+      <DependentUpon>ClientStatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\statisticsForms\EmployeeChartForm.resx">
-      <DependentUpon>EmployeeChartForm.cs</DependentUpon>
+    <EmbeddedResource Include="forms\statisticsForms\EmployeeStatisticsForm.resx">
+      <DependentUpon>EmployeeStatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\statisticsForms\TotalStatisticsChartForm.resx">
-      <DependentUpon>TotalStatisticsChartForm.cs</DependentUpon>
+    <EmbeddedResource Include="forms\statisticsForms\TotalStatisticsForm.resx">
+      <DependentUpon>TotalStatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\userControls\uclCijenovnik.resx">
-      <DependentUpon>uclCijenovnik.cs</DependentUpon>
+    <EmbeddedResource Include="forms\userControls\uclPricelist.resx">
+      <DependentUpon>uclPricelist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\userControls\uclIzdavanjeRacuna.resx">
       <DependentUpon>uclIzdavanjeRacuna.cs</DependentUpon>
@@ -338,8 +338,8 @@
     <EmbeddedResource Include="forms\userControls\UclSettings.resx">
       <DependentUpon>UclSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forms\userControls\uclStatistika.resx">
-      <DependentUpon>uclStatistika.cs</DependentUpon>
+    <EmbeddedResource Include="forms\userControls\uclStatistics.resx">
+      <DependentUpon>uclStatistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\userControls\uclTroskovnik.resx">
       <DependentUpon>uclTroskovnik.cs</DependentUpon>

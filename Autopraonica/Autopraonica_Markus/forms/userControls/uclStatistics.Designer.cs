@@ -1,6 +1,6 @@
 ﻿namespace Autopraonica_Markus.forms.userControls
 {
-    partial class uclStatistika
+    partial class uclStatistics
     {
         /// <summary> 
         /// Required designer variable.

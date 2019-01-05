@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Autopraonica_Markus.forms.statisticsForms
 {
-    public partial class ClientChartForm : Form
+    public partial class ClientStatisticsForm : Form
     {
-        public ClientChartForm(int id, string name, DateTime dt1, DateTime dt2)
+        public ClientStatisticsForm(int id, string name, DateTime dt1, DateTime dt2)
         {
             InitializeComponent();
             fillChart(id, name, dt1, dt2);

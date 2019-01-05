@@ -1,6 +1,6 @@
 ﻿namespace Autopraonica_Markus.forms.userControls
 {
-    partial class uclCijenovnik
+    partial class uclPricelist
     {
         /// <summary> 
         /// Required designer variable.

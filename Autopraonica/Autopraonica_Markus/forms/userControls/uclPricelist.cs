@@ -10,35 +10,29 @@ using System.Collections.Generic;
 
 namespace Autopraonica_Markus.forms.userControls
 {
-    public partial class uclCijenovnik : UserControl
+    public partial class uclPricelist : UserControl
     {
-        private static uclCijenovnik instance;
+        private static uclPricelist instance;
         private int i = 1;
         Button btnAddService = new Button();
 
-        public static uclCijenovnik Instance
+        public static uclPricelist Instance
         {
 
             get
             {
                 if (instance == null)
                 {
-                    instance = new uclCijenovnik();
+                    instance = new uclPricelist();
                 }
                 return instance;
             }
         }
-        public uclCijenovnik()
+        public uclPricelist()
         {
         
             InitializeComponent();
             addTables();
-        }
-
-
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
 
@@ -102,15 +96,15 @@ namespace Autopraonica_Markus.forms.userControls
             var button = (Button)sender;
             var resultString = Regex.Match(button.Name, @"\d+").Value;
             string dataGridViewName = "dataGridView" + resultString;
-            DataGridView dgw = this.Controls[dataGridViewName] as DataGridView;
-            if (dgw.CurrentCell != null)
+            DataGridView dgv = this.Controls[dataGridViewName] as DataGridView;
+            if (dgv.CurrentCell != null)
             {
-                UpdatePricelistItem npi = new UpdatePricelistItem(Int32.Parse(dgw.Rows[dgw.CurrentCell.RowIndex].Cells[2].Value.ToString()));
+                UpdatePricelistItem npi = new UpdatePricelistItem(Int32.Parse(dgv.Rows[dgv.CurrentCell.RowIndex].Cells[2].Value.ToString()));
                 if (DialogResult.OK == npi.ShowDialog())
                 {
                     using (MarkusDb context = new MarkusDb())
                     {
-                        int pricelistItem_id = Int32.Parse(dgw.Rows[dgw.CurrentCell.RowIndex].Cells[2].Value.ToString());
+                        int pricelistItem_id = Int32.Parse(dgv.Rows[dgv.CurrentCell.RowIndex].Cells[2].Value.ToString());
                         var pricelistItem = context.pricelistitems.Find(pricelistItem_id);
                         if (Decimal.Compare(pricelistItem.Price, npi.Price) != 0)
                         {
@@ -143,12 +137,12 @@ namespace Autopraonica_Markus.forms.userControls
             var button = (Button)sender;
             var resultString = Regex.Match(button.Name, @"\d+").Value;
             string dataGridViewName = "dataGridView" + resultString;
-            DataGridView dgw = this.Controls[dataGridViewName] as DataGridView;
-            if (dgw.CurrentCell != null)
+            DataGridView dgv = this.Controls[dataGridViewName] as DataGridView;
+            if (dgv.CurrentCell != null)
             {
                 using (MarkusDb context = new MarkusDb())
                 {
-                    int pricelistItem_id = Int32.Parse(dgw.Rows[dgw.CurrentCell.RowIndex].Cells[2].Value.ToString());
+                    int pricelistItem_id = Int32.Parse(dgv.Rows[dgv.CurrentCell.RowIndex].Cells[2].Value.ToString());
                     var pricelistItem = context.pricelistitems.Find(pricelistItem_id);
                     pricelistItem.DateTo = DateTime.Now;
                     pricelistItem.Current = 0;
@@ -183,12 +177,12 @@ namespace Autopraonica_Markus.forms.userControls
                 foreach(var s in serviceTypes)
                 {
                     Label lbl = new Label();
-                    MyDataGridView dgw = new MyDataGridView();
+                    MyDataGridView dgv = new MyDataGridView();
                     Button btnAddPricelistItem = new Button();
                     Button btnUpdatePricelistItem = new Button();
                     Button btnDeletePricelistItem = new Button();
                     this.Controls.Add(lbl);
-                    this.Controls.Add(dgw);
+                    this.Controls.Add(dgv);
                     this.Controls.Add(btnAddPricelistItem);
                     this.Controls.Add(btnUpdatePricelistItem);
                     this.Controls.Add(btnDeletePricelistItem);
@@ -240,26 +234,28 @@ namespace Autopraonica_Markus.forms.userControls
                     btnAddPricelistItem.FlatStyle = FlatStyle.Flat;
                     btnAddPricelistItem.ForeColor = Color.White;
 
-                    dgw.Name = "dataGridView" + s.Id;
-                    dgw.ColumnCount = 3;
-                    dgw.Columns[0].Name = "Naziv usluge";
-                    dgw.Columns[1].Name = "Cijena";
-                    dgw.Columns[2].Name = "Id";
-                    dgw.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    dgw.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    dgw.Columns[2].Visible = false;
-                    dgw.RowHeadersVisible = false;
-                    dgw.AllowUserToAddRows = false;
-                    dgw.AllowUserToDeleteRows = false;
-                    dgw.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    dgw.Location = new Point(21, 130 + (i - 1) * 220);
-                    dgw.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top)
+                    dgv.Name = "dataGridView" + s.Id;
+                    dgv.ColumnCount = 3;
+                    dgv.Columns[0].Name = "Naziv usluge";
+                    dgv.Columns[1].Name = "Cijena";
+                    dgv.Columns[2].Name = "Id";
+                    dgv.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dgv.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dgv.Columns[2].Visible = false;
+                    dgv.RowHeadersVisible = false;
+                    dgv.AllowUserToAddRows = false;
+                    dgv.AllowUserToDeleteRows = false;
+                    dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgv.Location = new Point(21, 130 + (i - 1) * 220);
+                    dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top)
                     | System.Windows.Forms.AnchorStyles.Left)
                     | System.Windows.Forms.AnchorStyles.Right)));
-                    dgw.Size = new Size(this.Width - 40, 150);
-                    dgw.AutoSize = false;
-                    fillTable(dgw, s.Id);
-                    dgw.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    dgv.Size = new Size(this.Width - 40, 150);
+                    dgv.AutoSize = false;
+                    dgv.ReadOnly = true;
+                    dgv.MultiSelect = false;
+                    fillTable(dgv, s.Id);
+                    dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                     i++;
                 }
 
@@ -280,13 +276,13 @@ namespace Autopraonica_Markus.forms.userControls
             this.Controls.Remove(btnAddService);
             btnAddService.Dispose();
 
-            DataGridView dgw = new DataGridView();
+            DataGridView dgv = new DataGridView();
             Label lbl = new Label();
             Button btnAddPricelistItem = new Button();
             Button btnUpdatePricelistItem = new Button();
             Button btnDeletePricelistItem = new Button();
             this.Controls.Add(lbl);
-            this.Controls.Add(dgw);
+            this.Controls.Add(dgv);
             this.Controls.Add(btnAddPricelistItem);
             this.Controls.Add(btnUpdatePricelistItem);
             this.Controls.Add(btnDeletePricelistItem);
@@ -338,26 +334,28 @@ namespace Autopraonica_Markus.forms.userControls
             btnAddPricelistItem.FlatStyle = FlatStyle.Flat;
             btnAddPricelistItem.ForeColor = Color.White;
 
-            dgw.Name = "dataGridView" + serviceType.Id;
-            dgw.ColumnCount = 3;
-            dgw.Columns[0].Name = "Naziv usluge";
-            dgw.Columns[1].Name = "Cijena";
-            dgw.Columns[2].Name = "Id";
-            dgw.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgw.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgw.Columns[2].Visible = false;
-            dgw.RowHeadersVisible = false;
-            dgw.AllowUserToAddRows = false;
-            dgw.AllowUserToDeleteRows = false;
-            dgw.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgw.Location = new Point(21,  (i - 1) * 220);
-            dgw.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top)
+            dgv.Name = "dataGridView" + serviceType.Id;
+            dgv.ColumnCount = 3;
+            dgv.Columns[0].Name = "Naziv usluge";
+            dgv.Columns[1].Name = "Cijena";
+            dgv.Columns[2].Name = "Id";
+            dgv.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv.Columns[2].Visible = false;
+            dgv.RowHeadersVisible = false;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv.Location = new Point(21,  (i - 1) * 220);
+            dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
-            dgw.Size = new Size(this.Width - 60, 150);
-            dgw.AutoSize = false;
-            fillTable(dgw, serviceType.Id);
-            dgw.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv.Size = new Size(this.Width - 60, 150);
+            dgv.AutoSize = false;
+            dgv.ReadOnly = true;
+            dgv.MultiSelect = false;
+            fillTable(dgv, serviceType.Id);
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             i++;
 
             btnAddService = new Button();
@@ -373,9 +371,9 @@ namespace Autopraonica_Markus.forms.userControls
             btnAddService.ForeColor = Color.White;
         }
 
-        private void fillTable(DataGridView dgw, int id)
+        private void fillTable(DataGridView dgv, int id)
         {
-            dgw.Rows.Clear();
+            dgv.Rows.Clear();
             using (MarkusDb context = new MarkusDb())
             {
                 var pricelistitems =
@@ -394,17 +392,13 @@ namespace Autopraonica_Markus.forms.userControls
                     {
                         Tag = p
                     };
-                    row.CreateCells(dgw);
+                    row.CreateCells(dgv);
                     row.SetValues(p.Name, p.Price, p.Id);
-                    dgw.Rows.Add(row);
+                    dgv.Rows.Add(row);
                 }
             }
         }
 
-        private void btnServiceType_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
 

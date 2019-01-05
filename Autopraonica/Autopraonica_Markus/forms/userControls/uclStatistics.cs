@@ -12,22 +12,22 @@ using Autopraonica_Markus.forms.statisticsForms;
 
 namespace Autopraonica_Markus.forms.userControls
 {
-    public partial class uclStatistika : UserControl
+    public partial class uclStatistics : UserControl
     {
-        private static uclStatistika instance;
+        private static uclStatistics instance;
 
-        public static uclStatistika Instance
+        public static uclStatistics Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new uclStatistika();
+                    instance = new uclStatistics();
                 }
                 return instance;
             }
         }
-        public uclStatistika()
+        public uclStatistics()
         {
             InitializeComponent();
         }
@@ -147,22 +147,31 @@ namespace Autopraonica_Markus.forms.userControls
         {
             DateTime dt1 = this.dateTimePicker1.Value.Date;
             DateTime dt2 = this.dateTimePicker2.Value.Date;
-            if ("Statistika po radniku".Equals(cbStatistics.Text))
+            if (DateTime.Compare(dt1, dt2) >= 0)
             {
-                int id = (int)dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value;
-                string name = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString() + "  " + dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
-                EmployeeChartForm ecf = new EmployeeChartForm(id, name, dt1, dt2);
-                ecf.ShowDialog();
-            } else if("Statistika po klijentu".Equals(cbStatistics.Text))
+                MessageBox.Show("Datum 'od' je veći od datuma 'do'. Odaberite korektan datum.", "Obavjestenje o datumu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
             {
-                int id = (int)dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value;
-                string name = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString();
-                ClientChartForm ccf = new ClientChartForm(id, name, dt1, dt2);
-                ccf.ShowDialog();
-            } else
-            {
-                TotalStatisticsChartForm tscf = new TotalStatisticsChartForm(dt1, dt2);
-                tscf.ShowDialog();
+                if ("Statistika po radniku".Equals(cbStatistics.Text))
+                {
+                    int id = (int)dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[2].Value;
+                    string name = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString() + "  " + dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
+                    EmployeeStatisticsForm ecf = new EmployeeStatisticsForm(id, name, dt1, dt2);
+                    ecf.ShowDialog();
+                }
+                else if ("Statistika po klijentu".Equals(cbStatistics.Text))
+                {
+                    int id = (int)dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value;
+                    string name = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value.ToString();
+                    ClientStatisticsForm ccf = new ClientStatisticsForm(id, name, dt1, dt2);
+                    ccf.ShowDialog();
+                }
+                else
+                {
+                    TotalStatisticsForm tscf = new TotalStatisticsForm(dt1, dt2);
+                    tscf.ShowDialog();
+                }
             }
         }
 

@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Autopraonica_Markus.forms.statisticsForms
 {
-    public partial class EmployeeChartForm : Form
+    public partial class EmployeeStatisticsForm : Form
     {
-        public EmployeeChartForm(int employeeId, string employeeName, DateTime dt1, DateTime dt2)
+        public EmployeeStatisticsForm(int employeeId, string employeeName, DateTime dt1, DateTime dt2)
         {
             InitializeComponent();
             fillChart(employeeId, employeeName, dt1, dt2);
@@ -31,7 +31,7 @@ namespace Autopraonica_Markus.forms.statisticsForms
                 var employeerecords = (
                     from er in context.employeerecords
                     where er.Employee_Id == employeeId &&
-                    DateTime.Compare(er.LoginTime, dt1) > 0 && er.LogoutTime != null &&  DateTime.Compare(er.LogoutTime.Value, dt2) < 0
+                    DateTime.Compare(er.LoginTime, dt1) >= 0 && er.LogoutTime != null &&  DateTime.Compare(er.LogoutTime.Value, dt2) <= 0
                     select er
                     ).ToList();
 
@@ -39,11 +39,14 @@ namespace Autopraonica_Markus.forms.statisticsForms
                 {
                     hours += (int)(e.LogoutTime.Value - e.LoginTime).TotalHours;
                 }
-
+                if(hours == 0)
+                {
+                    chart1.Visible = false;
+                }
                 var helpingemployeerecords = (
                     from her in context.helpingemployeerecords
                     where her.HelpingEmployee_Id == employeeId &&
-                    DateTime.Compare(her.LoginTime, dt1) > 0 && her.LogoutTime != null && DateTime.Compare(her.LogoutTime.Value, dt2) < 0
+                    DateTime.Compare(her.LoginTime, dt1) >= 0 && her.LogoutTime != null && DateTime.Compare(her.LogoutTime.Value, dt2) <= 0
                     select her
                     ).ToList();
 
@@ -52,6 +55,11 @@ namespace Autopraonica_Markus.forms.statisticsForms
                     hoursAsHelp += (int)(h.LogoutTime.Value - h.LoginTime).TotalHours;
                 }
 
+                if(numberOfWashings == 0)
+                {
+                    chart2.Visible = false;
+                }
+            
                 numberOfWashings = (
                     from e in context.employees
                     join nes in context.naturalentityservices on e.Id equals nes.Employee_Id
