@@ -98,6 +98,7 @@
             this.Controls.Add(this.tbName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewServiceTypeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodavanje nove usluge";
             this.ResumeLayout(false);
             this.PerformLayout();
