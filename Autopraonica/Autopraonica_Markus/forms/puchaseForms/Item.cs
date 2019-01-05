@@ -8,15 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Data.Entity.Validation;
 using Autopraonica_Markus.Model.Entities;
 
 namespace Autopraonica_Markus.forms.puchaseForms
 {
     public partial class Item : Form
     {
-        Decimal Count { get; set; }
-        Decimal Prize { get; set; }
-        item ItemInForm { get; set;}
+      public  int Count { get; set; }
+      public  Decimal Prize { get; set; }
+      public   item ItemInForm { get; set;}
 
         public Item()
         {
@@ -60,13 +61,14 @@ namespace Autopraonica_Markus.forms.puchaseForms
                             Name = newItem.NameItem,
                             MeasuringUnit = newItem.NameUnit
                         };
+                        Debug.WriteLine(it.Name+"  "+it.MeasuringUnit);
                         context.items.Add(it);
                         context.SaveChanges();
                         FillTable();
                     }
 
                 }
-                catch (Exception ex) { Debug.WriteLine(ex); }
+                catch (DbEntityValidationException ex) { Debug.WriteLine(ex); }
             }
             else
             {
@@ -96,7 +98,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
             }
             else
             {
-                Count =decimal.Parse(tbQuantity.Text);
+                Count =int.Parse(tbQuantity.Text);
                 Prize = decimal.Parse(tbPrize.Text);
                 ItemInForm =(item)tbStavka.Tag;
                 this.DialogResult = DialogResult.OK;
