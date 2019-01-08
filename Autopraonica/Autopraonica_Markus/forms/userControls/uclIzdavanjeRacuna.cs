@@ -115,7 +115,9 @@ namespace Autopraonica_Markus.forms.userControls
 
             dtpYear.ShowUpDown = true;
             dtpYear.Height = 30;
-
+            
+            dtpDateFrom.MaxDate = DateTime.Now;
+            dtpYear.MaxDate = DateTime.Now;
         }
 
         public void updateComboBox()
@@ -395,9 +397,10 @@ namespace Autopraonica_Markus.forms.userControls
 
             try
             {
+                int days = DateTime.DaysInMonth(dtpDateFrom.Value.Year, dtpDateFrom.Value.Month);
                 String date = dtpDateFrom.Value.Date.ToString("MM/dd/yyyy");
                 String dateFrom = date.ToString().Substring(6, 4) + "-" + date.ToString().Substring(0, 2) + "-01";
-                String dateTo = date.ToString().Substring(6, 4) + "-" + date.ToString().Substring(0, 2) + "-31";
+                String dateTo = date.ToString().Substring(6, 4) + "-" + date.ToString().Substring(0, 2) + "-"+ days.ToString();
 
                 DateTime dtFrom = DateTime.Parse(dateFrom);
                 DateTime dtTo = DateTime.Parse(dateTo);
