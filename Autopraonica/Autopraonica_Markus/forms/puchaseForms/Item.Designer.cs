@@ -173,6 +173,7 @@
             this.tbSearchText.Name = "tbSearchText";
             this.tbSearchText.Size = new System.Drawing.Size(207, 22);
             this.tbSearchText.TabIndex = 13;
+            this.tbSearchText.TextChanged += new System.EventHandler(this.tbSearchText_TextChanged);
             // 
             // label6
             // 

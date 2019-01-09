@@ -32,9 +32,10 @@ namespace Autopraonica_Markus.forms.puchaseForms
 
         private void FillTable()
         {
+            string textSearch = tbSearchText.Text;
             using (MarkusDb context = new MarkusDb())
             {
-                var list = (from c in context.items select c).ToList();
+                var list = (from c in context.items where c.Name.StartsWith(textSearch) select c ).ToList();
                 dgvItems.Rows.Clear();
                 foreach(var x in list)
                 {
@@ -122,6 +123,11 @@ namespace Autopraonica_Markus.forms.puchaseForms
                 errorProvider1.SetError(tbPrize, "Unesite cijenu stavke");
                 e.Cancel = true;
             }
+        }
+
+        private void tbSearchText_TextChanged(object sender, EventArgs e)
+        {
+            FillTable();
         }
     }
 }

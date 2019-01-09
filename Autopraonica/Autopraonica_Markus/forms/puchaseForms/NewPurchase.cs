@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Autopraonica_Markus.Model.Entities;
+using Autopraonica_Markus.forms.userControls;
 
 namespace Autopraonica_Markus.forms.puchaseForms
 {
@@ -87,7 +88,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
                             PurchaseTime = DateTime.Now,
                             SupplierName = tbNameSuplier.Text,
                             PurchaseNumber = tbNumberPurchase.Text,
-                            Employee_Id = 1
+                            Employee_Id = uclTroskovnik.ActiveEmployee.Id
 
                         };
                         context.purchases.Add(purchase);

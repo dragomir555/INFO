@@ -151,7 +151,33 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void stormPurchase_Click(object sender, EventArgs e)
         {
-
+            if (dgvPurchase.SelectedRows.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da zelite poništiti nabavku?",
+                   "Markus", MessageBoxButtons.YesNo);
+                if (dialogResult==DialogResult.Yes)
+                {
+                   using(MarkusDb context=new MarkusDb())
+                    { 
+                       purchase p = (purchase)dgvPurchase.SelectedRows[0].Tag;
+                        if (p.Employee_Id != ActiveEmployee.Id)
+                        {
+                            //context.purchases.Attach(p);
+                            //Treba izvrsiti izmjenu nad p ali nema u bazi
+                            //context.SaveChanges();
+                            MessageBox.Show("Uspješno poništavanje nabavke", "Info");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Neuspješno poništavanje nabavke, niste kreator iste", "Greška");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Izaberite nabavku iz tabele", "Greška");
+            }
 
 
         }

@@ -187,9 +187,9 @@
             this.cbContractOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbContractOver.Location = new System.Drawing.Point(20, 96);
             this.cbContractOver.Name = "cbContractOver";
-            this.cbContractOver.Size = new System.Drawing.Size(138, 24);
+            this.cbContractOver.Size = new System.Drawing.Size(143, 24);
             this.cbContractOver.TabIndex = 8;
-            this.cbContractOver.Text = "Ugovor zavrsen";
+            this.cbContractOver.Text = "Završeni ugovori";
             this.cbContractOver.UseVisualStyleBackColor = true;
             this.cbContractOver.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
