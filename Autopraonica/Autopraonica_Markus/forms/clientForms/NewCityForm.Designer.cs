@@ -127,7 +127,10 @@
             this.Controls.Add(this.tbCityName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblCityName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewCityForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj grad";

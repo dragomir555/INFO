@@ -219,8 +219,12 @@
             this.Controls.Add(this.dgvItems);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbNumberPurchase);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewPurchase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nova nabavka";
             this.Load += new System.EventHandler(this.NewPurchase_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();

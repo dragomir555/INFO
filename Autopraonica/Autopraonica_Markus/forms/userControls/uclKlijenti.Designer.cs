@@ -73,12 +73,14 @@
             // 
             // dgvKlijenti
             // 
-            this.dgvKlijenti.AllowUserToResizeColumns = false;
+            this.dgvKlijenti.AllowUserToAddRows = false;
+            this.dgvKlijenti.AllowUserToDeleteRows = false;
             this.dgvKlijenti.AllowUserToResizeRows = false;
             this.dgvKlijenti.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvKlijenti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvKlijenti.BackgroundColor = System.Drawing.Color.White;
             this.dgvKlijenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKlijenti.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNaziv,

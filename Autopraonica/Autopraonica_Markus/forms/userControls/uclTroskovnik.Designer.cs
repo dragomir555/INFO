@@ -53,7 +53,6 @@
             // 
             this.dgvPurchase.AllowUserToAddRows = false;
             this.dgvPurchase.AllowUserToDeleteRows = false;
-            this.dgvPurchase.AllowUserToResizeColumns = false;
             this.dgvPurchase.AllowUserToResizeRows = false;
             this.dgvPurchase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 

@@ -144,12 +144,16 @@ new { Client = cl, Contract = cop }).ToList();
                 {
                     try
                     {
+                        DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite poništiti ugovor?",
+                         "Markus", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes) { 
                         context.contracts.Attach(con);
                         con.Current = 0;
                         con.DateTo = DateTime.Now;
                         context.SaveChanges();
                         FillTable();
-                        MessageBox.Show("Ponisten ugovor sa ...", "Obavjest");
+                        MessageBox.Show("Ponisten ugovor klijenta "+con.client.Name+".", "Markus");
+                    }
                     }
                     catch (Exception ex) { Debug.WriteLine(ex); }
                 }
@@ -184,13 +188,17 @@ new { Client = cl, Contract = cop }).ToList();
                     {
                         using (MarkusDb context = new MarkusDb())
                         {
-                            context.clients.Attach(cl);
-                            cl.Name = clientForm.NameClient;
-                            cl.Address = clientForm.Address;
-                            cl.City_Id = clientForm.IdCity;
-                            cl.UID = clientForm.UID;
-                            context.SaveChanges();
-                            FillTable();
+                            DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite sačuvati izmjene?",
+                             "Markus", MessageBoxButtons.YesNo);
+                            if (dialogResult==DialogResult.Yes) {
+                                context.clients.Attach(cl);
+                                cl.Name = clientForm.NameClient;
+                                cl.Address = clientForm.Address;
+                                cl.City_Id = clientForm.IdCity;
+                                cl.UID = clientForm.UID;
+                                context.SaveChanges();
+                                FillTable();
+                            }
                         }
                     }
                     catch (Exception ex) { Debug.WriteLine(ex); }
@@ -253,7 +261,7 @@ new { Client = cl, Contract = cop }).ToList();
                 }
                 else
                 {
-                    MessageBox.Show("Postojeci klijent ima aktivan ugovor za novi ugovor ponistiti prethodni", "Greska");
+                    MessageBox.Show("Кlijent ima aktivan ugovor za novi ugovor poništiti prethodni", "Markus");
                 }
             }
             else

@@ -215,8 +215,11 @@
             this.Controls.Add(this.txtUID);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnCancel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(496, 355);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(496, 355);
             this.Name = "NewClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

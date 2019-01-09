@@ -125,7 +125,10 @@
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewItem";
             this.Text = "Nova stavka";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
