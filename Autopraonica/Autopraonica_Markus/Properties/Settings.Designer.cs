@@ -25,7 +25,7 @@ namespace Autopraonica_Markus.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Markus")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Autopraonica Markus")]
         public string Name {
             get {
                 return ((string)(this["Name"]));
