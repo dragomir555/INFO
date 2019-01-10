@@ -65,47 +65,58 @@ namespace Autopraonica_Markus.forms.puchaseForms
                 purchaseitem temp = (purchaseitem)row.Tag;
                 id = temp.Item_Id;
             }
+            else
+            {
+                MessageBox.Show("Izaberite stavku u nabavci", "Markus");
+            }
             list.RemoveAll((x) => x.Item_Id == id);
             FillTable();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (this.Tag != null)
+            if (this.ValidateChildren())
             {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                Debug.WriteLine("Nije dobra validacija");
             }
             else
             {
-                int idPur;
-                if (list.Count() > 0)
+                if (this.Tag != null)
                 {
-                    using (MarkusDb context = new MarkusDb())
-                    {
-                        var purchase = new purchase()
-                        {
-                            PurchaseTime = DateTime.Now,
-                            SupplierName = tbNameSuplier.Text,
-                            PurchaseNumber = tbNumberPurchase.Text,
-                            Employee_Id = uclTroskovnik.ActiveEmployee.Id
-
-                        };
-                        context.purchases.Add(purchase);
-                        context.SaveChanges();
-                        idPur = purchase.Id;
-                        foreach (purchaseitem p in list)
-                        {
-                            p.Purchase_Id = idPur;
-                            context.purchaseitems.Add(p);
-                            context.SaveChanges();
-                        }
-                        this.DialogResult = DialogResult.OK;
-                    }
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Nemate stavki u nabavci", "Info");
+                    int idPur;
+                    if (list.Count() > 0)
+                    {
+                        using (MarkusDb context = new MarkusDb())
+                        {
+                            var purchase = new purchase()
+                            {
+                                PurchaseTime = DateTime.Now,
+                                SupplierName = tbNameSuplier.Text,
+                                PurchaseNumber = tbNumberPurchase.Text,
+                                Employee_Id = uclTroskovnik.ActiveEmployee.Id
+
+                            };
+                            context.purchases.Add(purchase);
+                            context.SaveChanges();
+                            idPur = purchase.Id;
+                            foreach (purchaseitem p in list)
+                            {
+                                p.Purchase_Id = idPur;
+                                context.purchaseitems.Add(p);
+                                context.SaveChanges();
+                            }
+                            this.DialogResult = DialogResult.OK;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nemate stavki u nabavci", "Info");
+                    }
                 }
             }
         }
@@ -125,6 +136,10 @@ namespace Autopraonica_Markus.forms.puchaseForms
 
                 tbNameSuplier.ReadOnly = true;
                 tbNumberPurchase.ReadOnly = true;
+                ActiveControl = btnCancel;
+                btnCancel.Text = "OK";
+                btnCancel.Left = 200;
+                btnConfirm.Hide();
                 btnDeleteItemT.Hide();
                 btnNewItemT.Hide();
 
@@ -142,6 +157,22 @@ namespace Autopraonica_Markus.forms.puchaseForms
                     lbSumPrize.Text = sum + " [KM]";
                 }
 
+            }
+        }
+
+        private void tbNumberPurchase_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbNumberPurchase.Text))
+            {
+                errorProvider1.SetError(tbNumberPurchase, "Molimo vas unesite broj računa.");
+            }
+        }
+
+        private void tbNameSuplier_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbNameSuplier.Text))
+            {
+                errorProvider1.SetError(tbNameSuplier, "Molimo vas unesite naziv dobavljaca");
             }
         }
     }

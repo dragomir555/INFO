@@ -136,31 +136,39 @@ new { Client = cl, Contract = cop }).ToList();
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (dgvKlijenti.SelectedRows.Count > 0)
+            if (cbContractOver.Checked==false)
             {
-                DataGridViewRow row = dgvKlijenti.SelectedRows[0];
-                contract con = (contract)row.Tag;
-                using (MarkusDb context = new MarkusDb())
+                if (dgvKlijenti.SelectedRows.Count > 0)
                 {
-                    try
+                    DataGridViewRow row = dgvKlijenti.SelectedRows[0];
+                    contract con = (contract)row.Tag;
+                    using (MarkusDb context = new MarkusDb())
                     {
-                        DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite poništiti ugovor?",
-                         "Markus", MessageBoxButtons.YesNo);
-                        if (dialogResult == DialogResult.Yes) { 
-                        context.contracts.Attach(con);
-                        con.Current = 0;
-                        con.DateTo = DateTime.Now;
-                        context.SaveChanges();
-                        FillTable();
-                        MessageBox.Show("Ponisten ugovor klijenta "+con.client.Name+".", "Markus");
+                        try
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite poništiti ugovor?",
+                             "Markus", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                context.contracts.Attach(con);
+                                con.Current = 0;
+                                con.DateTo = DateTime.Now;
+                                context.SaveChanges();
+                                FillTable();
+                                MessageBox.Show("Ponisten ugovor klijenta " + con.client.Name + ".", "Markus");
+                            }
+                        }
+                        catch (Exception ex) { Debug.WriteLine(ex); }
                     }
-                    }
-                    catch (Exception ex) { Debug.WriteLine(ex); }
+                }
+                else
+                {
+                    MessageBox.Show("Izaberite klijenta iz tabele","Markus");
                 }
             }
             else
             {
-                MessageBox.Show("Izaberite klijenta iz tabele");
+                MessageBox.Show("Izabrani ugovor je neaktivan","Markus");
             }
         }
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewPurchase));
             this.tbNumberPurchase = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,16 +45,19 @@
             this.btnDeleteItemT = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tbNameSuplier = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbNumberPurchase
             // 
             this.tbNumberPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbNumberPurchase.Location = new System.Drawing.Point(159, 15);
+            this.tbNumberPurchase.Location = new System.Drawing.Point(139, 15);
             this.tbNumberPurchase.Name = "tbNumberPurchase";
             this.tbNumberPurchase.Size = new System.Drawing.Size(242, 22);
             this.tbNumberPurchase.TabIndex = 0;
+            this.tbNumberPurchase.Validating += new System.ComponentModel.CancelEventHandler(this.tbNumberPurchase_Validating);
             // 
             // label1
             // 
@@ -198,10 +202,15 @@
             // 
             // tbNameSuplier
             // 
-            this.tbNameSuplier.Location = new System.Drawing.Point(159, 53);
+            this.tbNameSuplier.Location = new System.Drawing.Point(139, 53);
             this.tbNameSuplier.Name = "tbNameSuplier";
             this.tbNameSuplier.Size = new System.Drawing.Size(242, 20);
             this.tbNameSuplier.TabIndex = 12;
+            this.tbNameSuplier.Validating += new System.ComponentModel.CancelEventHandler(this.tbNameSuplier_Validating);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // NewPurchase
             // 
@@ -228,6 +237,7 @@
             this.Text = "Nova nabavka";
             this.Load += new System.EventHandler(this.NewPurchase_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,5 +260,6 @@
         private System.Windows.Forms.Button btnDeleteItemT;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbNameSuplier;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
