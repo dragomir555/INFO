@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnIzmjeniKlijenta = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbSearchText = new System.Windows.Forms.TextBox();
             this.dgvKlijenti = new System.Windows.Forms.DataGridView();
             this.colNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colJIB = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,14 +62,14 @@
             this.btnIzmjeniKlijenta.UseVisualStyleBackColor = false;
             this.btnIzmjeniKlijenta.Click += new System.EventHandler(this.btnIzmjeniKlijenta_Click);
             // 
-            // textBox1
+            // tbSearchText
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox1.Location = new System.Drawing.Point(402, 96);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(238, 26);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tbSearchText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tbSearchText.Location = new System.Drawing.Point(402, 96);
+            this.tbSearchText.Name = "tbSearchText";
+            this.tbSearchText.Size = new System.Drawing.Size(238, 26);
+            this.tbSearchText.TabIndex = 2;
+            this.tbSearchText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // dgvKlijenti
             // 
@@ -163,6 +163,7 @@
             // 
             // cmbSearchType
             // 
+            this.cmbSearchType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSearchType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbSearchType.FormattingEnabled = true;
             this.cmbSearchType.Items.AddRange(new object[] {
@@ -218,7 +219,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.cancelContract);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbSearchText);
             this.Controls.Add(this.cmbSearchType);
             this.Controls.Add(this.cbContractOver);
             this.Controls.Add(this.label1);
@@ -237,7 +238,7 @@
 
         #endregion
         private System.Windows.Forms.Button btnIzmjeniKlijenta;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbSearchText;
         private System.Windows.Forms.DataGridView dgvKlijenti;
         private System.Windows.Forms.Button btnNoviKlijent;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNaziv;

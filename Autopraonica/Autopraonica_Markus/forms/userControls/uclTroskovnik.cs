@@ -95,6 +95,7 @@ namespace Autopraonica_Markus.forms.userControls
         {
             tbSearchtext.Text = "";
             FillTable();
+            tbSearchtext.Focus();
         }
 
         private void newPurchase_Click(object sender, EventArgs e)

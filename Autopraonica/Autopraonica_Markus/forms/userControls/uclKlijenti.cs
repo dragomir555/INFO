@@ -126,7 +126,9 @@ new { Client = cl, Contract = cop }).ToList();
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            tbSearchText.Text = "";
+            FillTable();
+            tbSearchText.Focus();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -281,7 +283,7 @@ new { Client = cl, Contract = cop }).ToList();
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             string text = (string)cmbSearchType.SelectedItem;
-            string searchText = textBox1.Text;
+            string searchText = tbSearchText.Text;
             dgvKlijenti.Rows.Clear();
             using (MarkusDb context=new MarkusDb())
                 {
