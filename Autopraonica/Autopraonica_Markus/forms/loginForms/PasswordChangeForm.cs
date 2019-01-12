@@ -92,6 +92,7 @@ namespace Autopraonica_Markus.forms
                                 mainForm.SetEmployee(employment.employee);
                                 mainForm.ChangeAllowShowDisplay();
                             }
+                            MessageBox.Show("Lozinka uspješno promjenjena.", "Markus");
                             this.DialogResult = DialogResult.OK;
                             this.Close();
                         }
