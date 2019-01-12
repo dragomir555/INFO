@@ -445,6 +445,7 @@ namespace Autopraonica_Markus
 
         public void StartEmployeeLogoutUpdate()
         {
+            employeeFlag = true;
             Thread employeeLogoutThread = new Thread(() =>
             {
                 while (employeeFlag)
@@ -475,6 +476,7 @@ namespace Autopraonica_Markus
 
         public void StartHelpingEmployeeLogoutUpdate()
         {
+            helpingEmployeeFlag = true;
             Thread helpingEmployeeLogoutThread = new Thread(() =>
             {
                 while (helpingEmployeeFlag)
