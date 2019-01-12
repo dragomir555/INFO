@@ -75,7 +75,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (this.ValidateChildren())
+            if (!ValidateChildren(ValidationConstraints.Enabled))
             {
                 Debug.WriteLine("Nije dobra validacija");
             }
@@ -110,7 +110,9 @@ namespace Autopraonica_Markus.forms.puchaseForms
                                 context.purchaseitems.Add(p);
                                 context.SaveChanges();
                             }
+                            Debug.WriteLine("Sve je sacuvano");
                             this.DialogResult = DialogResult.OK;
+                            this.Close();
                         }
                     }
                     else

@@ -103,8 +103,8 @@ namespace Autopraonica_Markus.forms.userControls
             newPurchase.Tag = null;
             if (DialogResult.OK == newPurchase.ShowDialog())
             {
-                FillTable();
                 MessageBox.Show("Uspjesno dodavanje nabavke", "Info");
+                FillTable();
             }
             else
             {
@@ -160,7 +160,7 @@ namespace Autopraonica_Markus.forms.userControls
                    using(MarkusDb context=new MarkusDb())
                     { 
                        purchase p = (purchase)dgvPurchase.SelectedRows[0].Tag;
-                        if (p.Employee_Id != ActiveEmployee.Id)
+                        if (p.Employee_Id == ActiveEmployee.Id)
                         {
                             //context.purchases.Attach(p);
                             //Treba izvrsiti izmjenu nad p ali nema u bazi

@@ -194,6 +194,7 @@
             // 
             // errorProviderClient
             // 
+            this.errorProviderClient.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProviderClient.ContainerControl = this;
             // 
             // NewClientForm

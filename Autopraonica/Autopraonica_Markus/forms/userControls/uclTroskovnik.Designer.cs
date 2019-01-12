@@ -66,6 +66,7 @@
             this.time,
             this.sumValue});
             this.dgvPurchase.Location = new System.Drawing.Point(20, 158);
+            this.dgvPurchase.MultiSelect = false;
             this.dgvPurchase.Name = "dgvPurchase";
             this.dgvPurchase.RowHeadersVisible = false;
             this.dgvPurchase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

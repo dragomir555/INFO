@@ -90,6 +90,7 @@
             this.colUgovorOd,
             this.colUgovorDo});
             this.dgvKlijenti.Location = new System.Drawing.Point(20, 129);
+            this.dgvKlijenti.MultiSelect = false;
             this.dgvKlijenti.Name = "dgvKlijenti";
             this.dgvKlijenti.RowHeadersVisible = false;
             this.dgvKlijenti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
