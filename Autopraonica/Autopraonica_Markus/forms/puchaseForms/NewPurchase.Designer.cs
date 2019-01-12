@@ -57,6 +57,7 @@
             this.tbNumberPurchase.Name = "tbNumberPurchase";
             this.tbNumberPurchase.Size = new System.Drawing.Size(242, 22);
             this.tbNumberPurchase.TabIndex = 0;
+            this.tbNumberPurchase.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNumberPurchase_KeyPress);
             this.tbNumberPurchase.Validating += new System.ComponentModel.CancelEventHandler(this.tbNumberPurchase_Validating);
             // 
             // label1

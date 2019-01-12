@@ -16,6 +16,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
     public partial class NewPurchase : Form
     {
         List<purchaseitem> list = new List<purchaseitem>();
+
         public NewPurchase()
         {
             InitializeComponent();
@@ -72,7 +73,15 @@ namespace Autopraonica_Markus.forms.puchaseForms
             list.RemoveAll((x) => x.Item_Id == id);
             FillTable();
         }
-
+        private void AllowInteger(object sender, KeyPressEventArgs e)
+        {
+            // allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (!ValidateChildren(ValidationConstraints.Enabled))
@@ -107,10 +116,10 @@ namespace Autopraonica_Markus.forms.puchaseForms
                             foreach (purchaseitem p in list)
                             {
                                 p.Purchase_Id = idPur;
-                                context.purchaseitems.Add(p);
+                                p.item = (from c in context.items where c.Id == p.Item_Id select c).ToList().First();
+                                context.purchaseitems.Add(p);                              
                                 context.SaveChanges();
                             }
-                            Debug.WriteLine("Sve je sacuvano");
                             this.DialogResult = DialogResult.OK;
                             this.Close();
                         }
@@ -176,6 +185,11 @@ namespace Autopraonica_Markus.forms.puchaseForms
             {
                 errorProvider1.SetError(tbNameSuplier, "Molimo vas unesite naziv dobavljaca");
             }
+        }
+
+        private void tbNumberPurchase_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowInteger(sender,e);
         }
     }
 }

@@ -86,6 +86,7 @@
             this.txtUID.Name = "txtUID";
             this.txtUID.Size = new System.Drawing.Size(271, 26);
             this.txtUID.TabIndex = 2;
+            this.txtUID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUID_KeyPress);
             this.txtUID.Validating += new System.ComponentModel.CancelEventHandler(this.txtUID_Validating);
             // 
             // txtName

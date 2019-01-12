@@ -233,41 +233,52 @@ new { Client = cl, Contract = cop }).ToList();
                 {
                     client cl = null;
                     int idClient = con.Client_Id;
+                    Boolean imaUgovor=false;
                     using (MarkusDb context = new MarkusDb())
                     {
                         cl = (from c in context.clients where c.Id == idClient select c).ToList().First();
+                     var   co = (from c in context.contracts where c.Current == 1 && c.Client_Id==idClient select c).ToList();
+                        if (co.Count > 0)
+                        {
+                            imaUgovor = true;
+                        }
                     }
                     clientForm.IdCity = cl.City_Id;
                     clientForm.NameClient = cl.Name;
                     clientForm.UID = cl.UID;
                     clientForm.Address = cl.Address;
                     clientForm.Tag = 2;
-
-                    if (DialogResult.OK == clientForm.ShowDialog())
+                    if (!imaUgovor)
                     {
-                        try
+                        if (DialogResult.OK == clientForm.ShowDialog())
                         {
-                            using (MarkusDb context = new MarkusDb())
+                            try
                             {
-                                var co = new contract()
+                                using (MarkusDb context = new MarkusDb())
                                 {
-                                    Current = 1,
-                                    DateFrom = DateTime.Now
-                                };
-                                if (clientForm.ContractTo != null)
-                                {
-                                    co.DateTo = clientForm.ContractTo;
+                                    var co = new contract()
+                                    {
+                                        Current = 1,
+                                        DateFrom = DateTime.Now
+                                    };
+                                    if (clientForm.ContractTo != null)
+                                    {
+                                        co.DateTo = clientForm.ContractTo;
+                                    }
+                                    co.Client_Id = cl.Id;
+                                    context.contracts.Add(co);
+                                    context.SaveChanges();
+                                    FillTable();
                                 }
-                                co.Client_Id = cl.Id;
-                                context.contracts.Add(co);
-                                context.SaveChanges();
-                                FillTable();
                             }
+                            catch (Exception ex) { Debug.WriteLine(ex); }
                         }
-                        catch (Exception ex) { Debug.WriteLine(ex); }
                     }
-                    else { Debug.WriteLine("Dragoljub ne otvori Dialog"); }
-
+                    else
+                    {
+                        MessageBox.Show("Кlijent ima aktivan ugovor za novi ugovor poništiti prethodni", "Markus");
+                    }
+                    
                 }
                 else
                 {
@@ -320,7 +331,7 @@ new { Client = cl, Contract = cop }).ToList();
                                     join cop in context.contracts on cl.Id equals cop.Client_Id
                                     where cl.UID.StartsWith(searchText)
                                     select
-                     new { Client = cl, Contract = cop }).ToList();
+                    new { Client = cl, Contract = cop }).ToList();
                     int conOver = 1;
                     if (cbContractOver.Checked == true)
                     {

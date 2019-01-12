@@ -32,6 +32,7 @@ namespace Autopraonica_Markus.forms.clientForms
             }
             else
             {
+ 
                 NameCity = tbCityName.Text;
                 PostCode = tbPostCode.Text;
                 using (MarkusDb context = new MarkusDb())
@@ -85,18 +86,24 @@ namespace Autopraonica_Markus.forms.clientForms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            closeForm();
-        }
-
-        private void NewCityForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            closeForm();
-        }
-
-        private void closeForm()
-        {
             this.DialogResult = DialogResult.Cancel;
-            //this.Close();
+        }
+
+
+        private void AllowInteger(object sender, KeyPressEventArgs e)
+        {
+            // allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+
+        private void tbPostCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowInteger(sender, e);
         }
     }
 }

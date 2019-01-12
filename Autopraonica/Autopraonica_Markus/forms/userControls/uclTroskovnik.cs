@@ -60,7 +60,7 @@ namespace Autopraonica_Markus.forms.userControls
                 decimal sumPurchase = 0;
                 foreach (var p in lista)
                 {
-                    if (p.PurchaseTime<=dtpTo.Value && p.PurchaseTime>=dtpFrom.Value) { 
+                    if (p.PurchaseTime<=dtpTo.Value.AddHours(1) && p.PurchaseTime>=dtpFrom.Value) { 
                     DataGridViewRow r = new DataGridViewRow() { Tag = p };
                     r.CreateCells(dgvPurchase);
                     Decimal dec = 0;
