@@ -130,6 +130,7 @@
             this.tbPrize.Name = "tbPrize";
             this.tbPrize.Size = new System.Drawing.Size(91, 22);
             this.tbPrize.TabIndex = 6;
+            this.tbPrize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrize_KeyPress);
             this.tbPrize.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrize_Validating);
             // 
             // label4
