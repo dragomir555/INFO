@@ -95,8 +95,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (!ValidateChildren(ValidationConstraints.Enabled))
-            {
-               
+            {             
             }
             else
             {

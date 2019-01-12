@@ -29,6 +29,8 @@ namespace Autopraonica_Markus.Model.Entities
 
         public int Employee_Id { get; set; }
 
+        public bool? Canceled { get; set; }
+
         public virtual employee employee { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
