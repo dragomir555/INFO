@@ -227,6 +227,7 @@ namespace Autopraonica_Markus
                     lblHelper.Text = "Ispomoć";
                     employee = null;
                     helpingEmployee = null;
+                    PressedButton.BackColor = Color.FromArgb(107, 65, 150);
                     this.Hide();
                     LoginForm loginForm = new LoginForm(this);
                     loginForm.Show();
@@ -238,6 +239,7 @@ namespace Autopraonica_Markus
                 SaveLogoutTime();
                 cmbHelper.Visible = false;
                 employee = null;
+                PressedButton.BackColor = Color.FromArgb(107, 65, 150);
                 this.Hide();
                 LoginForm loginForm = new LoginForm(this);
                 loginForm.Show();
