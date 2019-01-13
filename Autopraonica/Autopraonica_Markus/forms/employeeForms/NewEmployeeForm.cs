@@ -63,6 +63,8 @@ namespace Autopraonica_Markus.forms.employeeForms
                     Address = tbAddress.Text;
                     PhoneNumber = tbPhoneNumber.Text;
                     PID = tbPID.Text;
+                   
+
                     this.DialogResult = DialogResult.OK;
                 }
             }

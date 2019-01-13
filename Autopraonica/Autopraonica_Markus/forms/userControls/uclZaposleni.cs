@@ -66,11 +66,13 @@ namespace Autopraonica_Markus.forms.userControls
                             Salt = UserService.GenerateSalt(),
                             FirstLogin = 1,
                         };
-                        emplmnt.HashPassword = UserService.GetPasswordHash(emplmnt.Salt, UserService.GeneratePassword());
-                        
+                        String password = UserService.GeneratePassword();
+                        emplmnt.HashPassword = UserService.GetPasswordHash(emplmnt.Salt, password);
                         context.employments.Add(emplmnt);
                         context.employees.Add(emp);
                         context.SaveChanges();
+                        NewEmployeeInfoForm newEmp = new NewEmployeeInfoForm(newEmployeeForm.FirstName, newEmployeeForm.LastName, emplmnt.UserName, password);
+                        newEmp.ShowDialog();
                         FillTable();
                     }
                 }

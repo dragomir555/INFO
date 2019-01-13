@@ -103,6 +103,12 @@
     <Compile Include="forms\employeeForms\NewEmployeeForm.Designer.cs">
       <DependentUpon>NewEmployeeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\employeeForms\NewEmployeeInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\employeeForms\NewEmployeeInfoForm.Designer.cs">
+      <DependentUpon>NewEmployeeInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\loginForms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     <EmbeddedResource Include="forms\employeeForms\NewEmployeeForm.resx">
       <DependentUpon>NewEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\employeeForms\NewEmployeeInfoForm.resx">
+      <DependentUpon>NewEmployeeInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\loginForms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -358,6 +367,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -378,6 +388,7 @@
     <Content Include="resources\add2.png" />
     <Content Include="resources\car-wash.png" />
     <Content Include="resources\icon.ico" />
+    <None Include="resources\usr.ico" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
