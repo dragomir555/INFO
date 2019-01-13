@@ -101,20 +101,34 @@ namespace Autopraonica_Markus.forms.userControls
             dgvEmployees.Rows.Clear();
             using (MarkusDb context = new MarkusDb())
             {
-                var zaposleni = new System.Collections.Generic.List<employee>(); ;
-                if (rbPresent.Checked)
-                zaposleni = (from c in context.employees
+                var employeed = new System.Collections.Generic.List<employee>();
+
+                var praviZaposleni = new System.Collections.Generic.List<employee>();
+                var nezaposleni = new System.Collections.Generic.List<employee>();
+
+                praviZaposleni = (from c in context.employees
                                  join ents in context.employments on c.Id equals ents.Employee_Id
                                  where ents.DateTo == null 
                                  select c).ToList();
-                else
-                    zaposleni = (from c in context.employees
+               
+                nezaposleni = (from c in context.employees
                                  join ents in context.employments on c.Id equals ents.Employee_Id
                                  where ents.DateTo != null 
-                         
                                  select c).ToList();
 
-                foreach (var c in zaposleni)
+                if (rbPresent.Checked)
+                    employeed = praviZaposleni;
+                else
+                {
+                    foreach (var z in nezaposleni)
+                    {
+                        if (!praviZaposleni.Contains(z) )
+                            employeed.Add(z);
+                    }    
+                }
+
+                employeed = employeed.Distinct().ToList();
+                foreach (var c in employeed)
                 {              
                     DataGridViewRow r = new DataGridViewRow() { Tag = c };
                     r.CreateCells(dgvEmployees);
@@ -205,8 +219,13 @@ namespace Autopraonica_Markus.forms.userControls
             using (MarkusDb context = new MarkusDb())
             {
                 employee emp = (employee)dgvEmployees.SelectedRows[0].Tag;
-                context.employees.Attach(emp);
-                emp.employments.ElementAt(0).DateTo = DateTime.Now;
+                employment empnt = (from c in context.employments
+                                    where c.Employee_Id == emp.Id
+                                    where c.DateTo == null
+                                    select c).ToList().First();
+
+                context.employments.Attach(empnt);
+                empnt.DateTo = DateTime.Now;
                 context.SaveChanges();
                 FillTable();
             }
@@ -300,6 +319,7 @@ namespace Autopraonica_Markus.forms.userControls
             FillTable();
             lblEmp.Visible = false;
             btnNewEmployee.Visible = true;
+            btnHireEmployee.Visible = false;
             btnUpdateEmployee.Visible = true;
             btnDeleteEmployee.Visible = true;
         }
@@ -313,17 +333,17 @@ namespace Autopraonica_Markus.forms.userControls
             btnNewEmployee.Visible = false;
             btnUpdateEmployee.Visible = false;
             btnDeleteEmployee.Visible = false;          
-            lblEmp.Text = "Arhivirani zaposleni";
-            lblEmp.Location = new Point(218, 19);
-            FontFamily fontFamily = new FontFamily("Microsoft Sans Serif");
-            Font font = new Font(
-               fontFamily,
-               20,
-               FontStyle.Regular,
-               GraphicsUnit.Pixel);
-            lblEmp.Width = 200;
-            lblEmp.Font = font;
-            this.Controls.Add(lblEmp);
+      //    lblEmp.Text = "Arhivirani zaposleni";
+       //     lblEmp.Location = new Point(218, 19);
+        //    FontFamily fontFamily = new FontFamily("Microsoft Sans Serif");
+          //  Font font = new Font(
+            //   fontFamily,
+              // 20,
+              // FontStyle.Regular,
+              // GraphicsUnit.Pixel);
+     //       lblEmp.Width = 200;
+      //      lblEmp.Font = font;
+       //     this.Controls.Add(lblEmp);
         }
 
         private void btnHireEmployee_Click(object sender, EventArgs e)
@@ -343,7 +363,7 @@ namespace Autopraonica_Markus.forms.userControls
                 {
                     empl = (from c in context.employees where c.Id == idEmployee select c).ToList().First();
                 }
-
+                 
                 using (MarkusDb context = new MarkusDb())
                 {
                     empnt = (from c in context.employments where c.Employee_Id ==  empl.Id select c).ToList().First();
