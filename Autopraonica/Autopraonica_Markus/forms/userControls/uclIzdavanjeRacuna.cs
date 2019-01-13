@@ -791,6 +791,7 @@ namespace Autopraonica_Markus.forms.userControls
         {
             lvUpSer.Items.Clear();
             updateDgvBills();
+            lblPrice.Text = "0";
         }
 
         private void dtpYear_ValueChanged(object sender, EventArgs e)
@@ -883,6 +884,12 @@ namespace Autopraonica_Markus.forms.userControls
         {
             e.NewWidth = this.lvUpSer.Columns[e.ColumnIndex].Width;
             e.Cancel = true;
+        }
+
+        private void lblPrice_TextChanged(object sender, EventArgs e)
+        {
+            if ("0".Equals(lblPrice.Text))
+                btnGenBill.Enabled = false;
         }
     }
 }

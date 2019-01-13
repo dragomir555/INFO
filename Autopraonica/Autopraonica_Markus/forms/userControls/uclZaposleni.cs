@@ -105,12 +105,13 @@ namespace Autopraonica_Markus.forms.userControls
                 if (rbPresent.Checked)
                 zaposleni = (from c in context.employees
                                  join ents in context.employments on c.Id equals ents.Employee_Id
-                                 where ents.DateTo == null
+                                 where ents.DateTo == null 
                                  select c).ToList();
                 else
                     zaposleni = (from c in context.employees
                                  join ents in context.employments on c.Id equals ents.Employee_Id
-                                 where ents.DateTo != null
+                                 where ents.DateTo != null 
+                         
                                  select c).ToList();
 
                 foreach (var c in zaposleni)
@@ -151,13 +152,16 @@ namespace Autopraonica_Markus.forms.userControls
 
                 employeeForm.fillTextBoxes();
                 employeeForm.hideUnnecessaryItems();
-                employeeForm.changeButtonName();
                 employeeForm.Tag = 1;
 
                 if (DialogResult.OK == employeeForm.ShowDialog())
                 {
                   try
                     {
+                        DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite sačuvati promjene?", "Izmjena zaposlenog");
+                        dialogForm.ShowDialog();
+                        if (dialogForm.DialogResult == DialogResult.Yes)
+                        {
                         using (MarkusDb context = new MarkusDb())
                         {
                             context.employees.Attach(empl);
@@ -169,9 +173,9 @@ namespace Autopraonica_Markus.forms.userControls
                             context.SaveChanges();
                             FillTable();
 
-                        }
-               
+                        }}
                     }
+
                     catch (DbEntityValidationException ex)
                     {
                         var errorMessages = ex.EntityValidationErrors
@@ -212,7 +216,7 @@ namespace Autopraonica_Markus.forms.userControls
         {
             if (dgvEmployees.SelectedRows.Count == 1)
             {
-                DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite obrisati označeni unos?", "Brisanje zaposlenog");
+                DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite obrisati označenog zaposlenog?", "Brisanje zaposlenog");
                 dialogForm.ShowDialog();
                 if (dialogForm.DialogResult == DialogResult.Yes)
                 {
@@ -230,19 +234,7 @@ namespace Autopraonica_Markus.forms.userControls
              }
             SearchEmployee();
         }
-
-
-       
-
-       
-           
-               
-      
-                 
-                    
-
-
-
+ 
         private void SearchEmployee()
         {
             string[] text = tbSearchEmployee.Text.Split(' ');
@@ -315,6 +307,7 @@ namespace Autopraonica_Markus.forms.userControls
         private void rbPerfect_CheckedChanged(object sender, EventArgs e)
         {
             tbSearchEmployee.Clear();
+            btnHireEmployee.Visible = true;
             FillTable();
             lblEmp.Visible = true;
             btnNewEmployee.Visible = false;
@@ -331,6 +324,86 @@ namespace Autopraonica_Markus.forms.userControls
             lblEmp.Width = 200;
             lblEmp.Font = font;
             this.Controls.Add(lblEmp);
+        }
+
+        private void btnHireEmployee_Click(object sender, EventArgs e)
+        {
+            if (dgvEmployees.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgvEmployees.SelectedRows[0];
+                employee emp = (employee)row.Tag;
+              
+
+
+                employee empl = null;
+                employment empnt = null;
+
+                int idEmployee = emp.Id;
+                using (MarkusDb context = new MarkusDb())
+                {
+                    empl = (from c in context.employees where c.Id == idEmployee select c).ToList().First();
+                }
+
+                using (MarkusDb context = new MarkusDb())
+                {
+                    empnt = (from c in context.employments where c.Employee_Id ==  empl.Id select c).ToList().First();
+                }
+
+                try
+                {
+                    DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite ponovo da zaposlite odabranog nezaposlenog?", "Zaposlenje");
+                    dialogForm.ShowDialog();
+                    if (dialogForm.DialogResult == DialogResult.Yes)
+                    {
+                        using (MarkusDb context = new MarkusDb())
+                        {
+                            context.employees.Attach(empl);
+
+
+                            var emplmnt = new employment()
+                            {
+                                DateFrom = DateTime.Now,
+                                UserName = empnt.UserName,
+                                Salt = UserService.GenerateSalt(),
+                                FirstLogin = 1,
+                                Employee_Id = idEmployee,
+                                DateTo = null
+                            };
+
+
+                            String password = UserService.GeneratePassword();
+                            emplmnt.HashPassword = UserService.GetPasswordHash(emplmnt.Salt, password);
+                            context.employments.Add(emplmnt);
+                            context.SaveChanges();
+
+                            NewEmployeeInfoForm newEmp = new NewEmployeeInfoForm(empl.FirstName, empl.LastName, emplmnt.UserName, password);
+                            newEmp.ShowDialog();
+                            FillTable();
+                          
+                        }
+                    }
+                }
+
+                catch (DbEntityValidationException ex)
+                {
+                    var errorMessages = ex.EntityValidationErrors
+                       .SelectMany(x => x.ValidationErrors)
+                       .Select(x => x.ErrorMessage);
+
+                    // Join the list to a single string.
+                    var fullErrorMessage = string.Join("; ", errorMessages);
+
+                    // Combine the original exception message with the new one.
+                    var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                    // Throw a new DbEntityValidationException with the improved exception message.
+                    throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Izaberite klijenta iz tabele");
+            }
         }
     }
 }

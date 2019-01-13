@@ -23,7 +23,6 @@ namespace Autopraonica_Markus.forms.employeeForms
         public String E_mail { get; set; }
         public String Address { get; set; }
         public String PhoneNumber { get; set; }
-        private int counter = 0;
 
         public NewEmployeeForm()
         {
@@ -44,11 +43,7 @@ namespace Autopraonica_Markus.forms.employeeForms
             lblEmail.Hide();
         }
 
-        public void changeButtonName()
-        {
-            btnAddEmployee.Text = "Izmjeni zaposlenog";
-        }
-   
+     
         private void btnAddEmployee_Click_1(object sender, EventArgs e)
         {
            
