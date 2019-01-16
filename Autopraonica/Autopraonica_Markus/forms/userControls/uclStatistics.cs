@@ -30,6 +30,7 @@ namespace Autopraonica_Markus.forms.userControls
         public uclStatistics()
         {
             InitializeComponent();
+            label3.Text = "";
         }
 
         private void cbStatistics_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,15 +41,19 @@ namespace Autopraonica_Markus.forms.userControls
             {
                 dataGridView1.Enabled = true;
                 lblSearch.Enabled = true;
+                label3.Enabled = true;
                 tbSearch.Enabled = true;
                 lblSearch.Text = "Pretraži po imenu";
+                label3.Text = "Odaberite radnika za pregled statistike";
                 fillEmployeeDataGrid();
             } else if("Statistika po klijentu".Equals(selectedItem.ToString()))
             {
                 dataGridView1.Enabled = true;
                 lblSearch.Enabled = true;
+                label3.Enabled = true;
                 tbSearch.Enabled = true;
                 lblSearch.Text = "Pretraži po nazivu";
+                label3.Text = "Odaberite klijenta za pregled statistike";
                 fillClientDataGrid();
             } else
             {
@@ -57,7 +62,9 @@ namespace Autopraonica_Markus.forms.userControls
                 dataGridView1.ColumnCount = 0;
                 dataGridView1.Enabled = false;
                 lblSearch.Enabled = false;
+                label3.Enabled = false;
                 tbSearch.Enabled = false;
+                label3.Text = "";
             }
         }
 
