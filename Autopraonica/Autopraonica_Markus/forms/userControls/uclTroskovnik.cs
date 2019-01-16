@@ -17,7 +17,7 @@ namespace Autopraonica_Markus.forms.userControls
     {
 
         private static uclTroskovnik instance;
-
+        public static  employee ActiveEmployee { get; set; }
         public static uclTroskovnik Instance
         {
             get
@@ -34,6 +34,8 @@ namespace Autopraonica_Markus.forms.userControls
             InitializeComponent();
             FillTable();
             cmbSearchType.SelectedIndex = 1;
+            dtpTo.MaxDate = DateTime.Now;
+            dtpTo.Value = DateTime.Now;
         }
 
         private void FillTable()
@@ -58,7 +60,7 @@ namespace Autopraonica_Markus.forms.userControls
                 decimal sumPurchase = 0;
                 foreach (var p in lista)
                 {
-                    if (p.PurchaseTime<dtpTo.Value && p.PurchaseTime>dtpFrom.Value) { 
+                    if (p.PurchaseTime<=dtpTo.Value.AddHours(1) && p.PurchaseTime>=dtpFrom.Value) { 
                     DataGridViewRow r = new DataGridViewRow() { Tag = p };
                     r.CreateCells(dgvPurchase);
                     Decimal dec = 0;
@@ -93,35 +95,92 @@ namespace Autopraonica_Markus.forms.userControls
         {
             tbSearchtext.Text = "";
             FillTable();
+            tbSearchtext.Focus();
         }
 
         private void newPurchase_Click(object sender, EventArgs e)
         {
-            Item item = new Item();
             NewPurchase newPurchase = new NewPurchase();
+            newPurchase.Tag = null;
             if (DialogResult.OK == newPurchase.ShowDialog())
             {
-
-
-
-
-
+                MessageBox.Show("Uspjesno dodavanje nabavke", "Info");
+                FillTable();
             }
             else
             {
                 Debug.WriteLine("Dialog result don't OK");
             }
-
-
-
-
         }
 
         private void dgvPurchase_SelectionChanged(object sender, EventArgs e)
         {
 
             if (dgvPurchase.SelectedRows.Count > 0)
-                tbSumPurchase.Text = ((decimal)dgvPurchase.SelectedRows[0].Cells[4].Value).ToString();
+            {
+                //Sta se desi kad se oznaci neka nabavka
+            }
+               
+        }
+
+        private void dtpTo_Enter(object sender, EventArgs e)
+        {
+            dtpTo.MaxDate = DateTime.Now;
+        }
+
+        private void ViewPurchase_Click(object sender, EventArgs e)
+        {
+            if (dgvPurchase.SelectedRows.Count > 0)
+            {
+                purchase temp = (purchase)dgvPurchase.SelectedRows[0].Tag;
+                NewPurchase newPurchase = new NewPurchase();
+                newPurchase.Tag = temp;
+                if (DialogResult.OK == newPurchase.ShowDialog())
+                {
+                    FillTable();
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Izaberite nabavku iz tabele", "Greškа");
+            }
+        }
+
+        private void stormPurchase_Click(object sender, EventArgs e)
+        {
+            if (dgvPurchase.SelectedRows.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da zelite poništiti nabavku?",
+                   "Markus", MessageBoxButtons.YesNo);
+                if (dialogResult==DialogResult.Yes)
+                {
+                   using(MarkusDb context=new MarkusDb())
+                    { 
+                       purchase p = (purchase)dgvPurchase.SelectedRows[0].Tag;
+                        if (p.Employee_Id == ActiveEmployee.Id)
+                        {
+                            //context.purchases.Attach(p);
+                            //Treba izvrsiti izmjenu nad p ali nema u bazi
+                            //context.SaveChanges();
+                            MessageBox.Show("Uspješno poništavanje nabavke", "Info");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Neuspješno poništavanje nabavke, niste kreator iste", "Greška");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Izaberite nabavku iz tabele", "Greška");
+            }
+
+
         }
     }
 }

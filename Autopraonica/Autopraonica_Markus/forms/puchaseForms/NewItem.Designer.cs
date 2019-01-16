@@ -90,6 +90,7 @@
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Odustani";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // cmbUnit
             // 
@@ -107,9 +108,11 @@
             this.tbNameItem.Name = "tbNameItem";
             this.tbNameItem.Size = new System.Drawing.Size(171, 22);
             this.tbNameItem.TabIndex = 6;
+            this.tbNameItem.Validating += new System.ComponentModel.CancelEventHandler(this.tbNameItem_Validating);
             // 
             // errorProvider1
             // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
             // NewItem
@@ -123,8 +126,12 @@
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewItem";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nova stavka";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

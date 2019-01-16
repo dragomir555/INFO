@@ -53,12 +53,12 @@
             // 
             this.dgvPurchase.AllowUserToAddRows = false;
             this.dgvPurchase.AllowUserToDeleteRows = false;
-            this.dgvPurchase.AllowUserToResizeColumns = false;
             this.dgvPurchase.AllowUserToResizeRows = false;
             this.dgvPurchase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPurchase.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPurchase.BackgroundColor = System.Drawing.Color.White;
             this.dgvPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPurchase.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.purchaseNumber,
@@ -67,6 +67,7 @@
             this.time,
             this.sumValue});
             this.dgvPurchase.Location = new System.Drawing.Point(20, 158);
+            this.dgvPurchase.MultiSelect = false;
             this.dgvPurchase.Name = "dgvPurchase";
             this.dgvPurchase.RowHeadersVisible = false;
             this.dgvPurchase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -134,6 +135,7 @@
             this.stormPurchase.TabIndex = 2;
             this.stormPurchase.Text = "Poništi nabavku";
             this.stormPurchase.UseVisualStyleBackColor = false;
+            this.stormPurchase.Click += new System.EventHandler(this.stormPurchase_Click);
             // 
             // ViewPurchase
             // 
@@ -149,6 +151,7 @@
             this.ViewPurchase.TabIndex = 4;
             this.ViewPurchase.Text = "Detalji nabavke";
             this.ViewPurchase.UseVisualStyleBackColor = false;
+            this.ViewPurchase.Click += new System.EventHandler(this.ViewPurchase_Click);
             // 
             // label1
             // 
@@ -201,6 +204,7 @@
             this.tbSumPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbSumPurchase.Location = new System.Drawing.Point(167, 350);
             this.tbSumPurchase.Name = "tbSumPurchase";
+            this.tbSumPurchase.ReadOnly = true;
             this.tbSumPurchase.Size = new System.Drawing.Size(134, 22);
             this.tbSumPurchase.TabIndex = 9;
             // 
@@ -248,6 +252,7 @@
             this.dtpTo.TabIndex = 13;
             this.dtpTo.Value = new System.DateTime(2018, 12, 25, 0, 0, 0, 0);
             this.dtpTo.ValueChanged += new System.EventHandler(this.dtpTo_ValueChanged);
+            this.dtpTo.Enter += new System.EventHandler(this.dtpTo_Enter);
             // 
             // uclTroskovnik
             // 

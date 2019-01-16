@@ -121,6 +121,8 @@
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.Size = new System.Drawing.Size(185, 22);
             this.tbQuantity.TabIndex = 5;
+            this.tbQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQuantity_KeyPress);
+            this.tbQuantity.Validating += new System.ComponentModel.CancelEventHandler(this.tbQuantity_Validating);
             // 
             // tbPrize
             // 
@@ -128,6 +130,8 @@
             this.tbPrize.Name = "tbPrize";
             this.tbPrize.Size = new System.Drawing.Size(91, 22);
             this.tbPrize.TabIndex = 6;
+            this.tbPrize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrize_KeyPress);
+            this.tbPrize.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrize_Validating);
             // 
             // label4
             // 
@@ -148,6 +152,7 @@
             this.nameItem,
             this.unitName});
             this.dgvItems.Location = new System.Drawing.Point(12, 54);
+            this.dgvItems.MultiSelect = false;
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.RowHeadersVisible = false;
             this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -171,6 +176,7 @@
             this.tbSearchText.Name = "tbSearchText";
             this.tbSearchText.Size = new System.Drawing.Size(207, 22);
             this.tbSearchText.TabIndex = 13;
+            this.tbSearchText.TextChanged += new System.EventHandler(this.tbSearchText_TextChanged);
             // 
             // label6
             // 
@@ -198,6 +204,7 @@
             // 
             // errorProvider1
             // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
             // tbStavka
@@ -246,9 +253,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Item";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nova stavka nabavke";
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

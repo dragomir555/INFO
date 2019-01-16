@@ -126,7 +126,9 @@ new { Client = cl, Contract = cop }).ToList();
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            tbSearchText.Text = "";
+            FillTable();
+            tbSearchText.Focus();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -136,27 +138,39 @@ new { Client = cl, Contract = cop }).ToList();
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (dgvKlijenti.SelectedRows.Count > 0)
+            if (cbContractOver.Checked==false)
             {
-                DataGridViewRow row = dgvKlijenti.SelectedRows[0];
-                contract con = (contract)row.Tag;
-                using (MarkusDb context = new MarkusDb())
+                if (dgvKlijenti.SelectedRows.Count > 0)
                 {
-                    try
+                    DataGridViewRow row = dgvKlijenti.SelectedRows[0];
+                    contract con = (contract)row.Tag;
+                    using (MarkusDb context = new MarkusDb())
                     {
-                        context.contracts.Attach(con);
-                        con.Current = 0;
-                        con.DateTo = DateTime.Now;
-                        context.SaveChanges();
-                        FillTable();
-                        MessageBox.Show("Ponisten ugovor sa ...", "Obavjest");
+                        try
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite poništiti ugovor?",
+                             "Markus", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
+                            {
+                                context.contracts.Attach(con);
+                                con.Current = 0;
+                                con.DateTo = DateTime.Now;
+                                context.SaveChanges();
+                                FillTable();
+                                MessageBox.Show("Ponisten ugovor klijenta " + con.client.Name + ".", "Markus");
+                            }
+                        }
+                        catch (Exception ex) { Debug.WriteLine(ex); }
                     }
-                    catch (Exception ex) { Debug.WriteLine(ex); }
+                }
+                else
+                {
+                    MessageBox.Show("Izaberite klijenta iz tabele","Markus");
                 }
             }
             else
             {
-                MessageBox.Show("Izaberite klijenta iz tabele");
+                MessageBox.Show("Izabrani ugovor je neaktivan","Markus");
             }
         }
 
@@ -184,13 +198,17 @@ new { Client = cl, Contract = cop }).ToList();
                     {
                         using (MarkusDb context = new MarkusDb())
                         {
-                            context.clients.Attach(cl);
-                            cl.Name = clientForm.NameClient;
-                            cl.Address = clientForm.Address;
-                            cl.City_Id = clientForm.IdCity;
-                            cl.UID = clientForm.UID;
-                            context.SaveChanges();
-                            FillTable();
+                            DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite sačuvati izmjene?",
+                             "Markus", MessageBoxButtons.YesNo);
+                            if (dialogResult==DialogResult.Yes) {
+                                context.clients.Attach(cl);
+                                cl.Name = clientForm.NameClient;
+                                cl.Address = clientForm.Address;
+                                cl.City_Id = clientForm.IdCity;
+                                cl.UID = clientForm.UID;
+                                context.SaveChanges();
+                                FillTable();
+                            }
                         }
                     }
                     catch (Exception ex) { Debug.WriteLine(ex); }
@@ -215,45 +233,56 @@ new { Client = cl, Contract = cop }).ToList();
                 {
                     client cl = null;
                     int idClient = con.Client_Id;
+                    Boolean imaUgovor=false;
                     using (MarkusDb context = new MarkusDb())
                     {
                         cl = (from c in context.clients where c.Id == idClient select c).ToList().First();
+                     var   co = (from c in context.contracts where c.Current == 1 && c.Client_Id==idClient select c).ToList();
+                        if (co.Count > 0)
+                        {
+                            imaUgovor = true;
+                        }
                     }
                     clientForm.IdCity = cl.City_Id;
                     clientForm.NameClient = cl.Name;
                     clientForm.UID = cl.UID;
                     clientForm.Address = cl.Address;
                     clientForm.Tag = 2;
-
-                    if (DialogResult.OK == clientForm.ShowDialog())
+                    if (!imaUgovor)
                     {
-                        try
+                        if (DialogResult.OK == clientForm.ShowDialog())
                         {
-                            using (MarkusDb context = new MarkusDb())
+                            try
                             {
-                                var co = new contract()
+                                using (MarkusDb context = new MarkusDb())
                                 {
-                                    Current = 1,
-                                    DateFrom = DateTime.Now
-                                };
-                                if (clientForm.ContractTo != null)
-                                {
-                                    co.DateTo = clientForm.ContractTo;
+                                    var co = new contract()
+                                    {
+                                        Current = 1,
+                                        DateFrom = DateTime.Now
+                                    };
+                                    if (clientForm.ContractTo != null)
+                                    {
+                                        co.DateTo = clientForm.ContractTo;
+                                    }
+                                    co.Client_Id = cl.Id;
+                                    context.contracts.Add(co);
+                                    context.SaveChanges();
+                                    FillTable();
                                 }
-                                co.Client_Id = cl.Id;
-                                context.contracts.Add(co);
-                                context.SaveChanges();
-                                FillTable();
                             }
+                            catch (Exception ex) { Debug.WriteLine(ex); }
                         }
-                        catch (Exception ex) { Debug.WriteLine(ex); }
                     }
-                    else { Debug.WriteLine("Dragoljub ne otvori Dialog"); }
-
+                    else
+                    {
+                        MessageBox.Show("Кlijent ima aktivan ugovor za novi ugovor poništiti prethodni", "Markus");
+                    }
+                    
                 }
                 else
                 {
-                    MessageBox.Show("Postojeci klijent ima aktivan ugovor za novi ugovor ponistiti prethodni", "Greska");
+                    MessageBox.Show("Кlijent ima aktivan ugovor za novi ugovor poništiti prethodni", "Markus");
                 }
             }
             else
@@ -265,7 +294,7 @@ new { Client = cl, Contract = cop }).ToList();
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             string text = (string)cmbSearchType.SelectedItem;
-            string searchText = textBox1.Text;
+            string searchText = tbSearchText.Text;
             dgvKlijenti.Rows.Clear();
             using (MarkusDb context=new MarkusDb())
                 {
@@ -302,7 +331,7 @@ new { Client = cl, Contract = cop }).ToList();
                                     join cop in context.contracts on cl.Id equals cop.Client_Id
                                     where cl.UID.StartsWith(searchText)
                                     select
-                     new { Client = cl, Contract = cop }).ToList();
+                    new { Client = cl, Contract = cop }).ToList();
                     int conOver = 1;
                     if (cbContractOver.Checked == true)
                     {

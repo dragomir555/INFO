@@ -86,6 +86,7 @@
             this.txtUID.Name = "txtUID";
             this.txtUID.Size = new System.Drawing.Size(271, 26);
             this.txtUID.TabIndex = 2;
+            this.txtUID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUID_KeyPress);
             this.txtUID.Validating += new System.ComponentModel.CancelEventHandler(this.txtUID_Validating);
             // 
             // txtName
@@ -108,6 +109,7 @@
             // 
             // cmbCityList
             // 
+            this.cmbCityList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCityList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbCityList.FormattingEnabled = true;
             this.cmbCityList.Location = new System.Drawing.Point(180, 156);
@@ -194,6 +196,7 @@
             // 
             // errorProviderClient
             // 
+            this.errorProviderClient.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProviderClient.ContainerControl = this;
             // 
             // NewClientForm
@@ -215,8 +218,11 @@
             this.Controls.Add(this.txtUID);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnCancel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(496, 355);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(496, 355);
             this.Name = "NewClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

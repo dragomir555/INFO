@@ -72,21 +72,30 @@ namespace Autopraonica_Markus.forms
                     string currentPasswordHash2 = UserService.GetPasswordHash(salt, currentPassword);
                     if (currentPasswordHash2.Equals(currentPasswordHash1))
                     {
-                        string newSalt = UserService.GenerateSalt();
-                        string newPasswordHash = UserService.GetPasswordHash(newSalt, newPassword);
-                        context.employments.Attach(employment);
-                        employment.Salt = newSalt;
-                        employment.HashPassword = newPasswordHash;
-                        employment.FirstLogin = 0;
-                        context.SaveChanges();
-                        if (caller == 0)
+                        if (!newPassword.Equals(newPasswordConfirm))
                         {
-                            mainForm.StartEmployeeLogoutUpdate();
-                            mainForm.SetEmployee(employment.employee);
-                            mainForm.ChangeAllowShowDisplay();
+                            tbNewPassword.Focus();
+                            errorProvider.SetError(tbNewPasswordConfirm, "Dva unosa nove lozinke se ne podudaraju.");
                         }
-                        this.DialogResult = DialogResult.OK;
-                        this.Close();
+                        else
+                        {
+                            string newSalt = UserService.GenerateSalt();
+                            string newPasswordHash = UserService.GetPasswordHash(newSalt, newPassword);
+                            context.employments.Attach(employment);
+                            employment.Salt = newSalt;
+                            employment.HashPassword = newPasswordHash;
+                            employment.FirstLogin = 0;
+                            context.SaveChanges();
+                            if (caller == 0)
+                            {
+                                mainForm.StartEmployeeLogoutUpdate();
+                                mainForm.SetEmployee(employment.employee);
+                                mainForm.ChangeAllowShowDisplay();
+                            }
+                            MessageBox.Show("Lozinka uspješno promjenjena.", "Markus");
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
+                        }
                     }
                     else
                     {
@@ -159,14 +168,6 @@ namespace Autopraonica_Markus.forms
                 e.Cancel = true;
                 tbNewPassword.Focus();
                 errorProvider.SetError(tbNewPasswordConfirm, "Niste potvrdili novu lozinku.");
-            }
-            else if (!newPassword.Equals(newPasswordConfirm))
-            {
-                e.Cancel = true;
-                //tbNewPassword.Clear();
-                //tbNewPasswordConfirm.Clear();
-                tbNewPassword.Focus();
-                errorProvider.SetError(tbNewPasswordConfirm, "Dva unosa nove lozinke se ne podudaraju.");
             }
             else if (newPasswordConfirm.Length < 8)
             {

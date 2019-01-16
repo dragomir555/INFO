@@ -78,6 +78,7 @@
             this.tbPostCode.Name = "tbPostCode";
             this.tbPostCode.Size = new System.Drawing.Size(215, 26);
             this.tbPostCode.TabIndex = 2;
+            this.tbPostCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPostCode_KeyPress);
             this.tbPostCode.Validating += new System.ComponentModel.CancelEventHandler(this.tbPostCode_Validating);
             // 
             // btnConfirm
@@ -114,6 +115,7 @@
             // 
             // errorProvider1
             // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
             // NewCityForm
@@ -127,11 +129,13 @@
             this.Controls.Add(this.tbCityName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblCityName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewCityForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj grad";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewCityForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

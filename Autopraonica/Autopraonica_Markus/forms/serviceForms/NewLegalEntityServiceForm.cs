@@ -32,12 +32,25 @@ namespace Autopraonica_Markus.forms.serviceForms
         {
             using (MarkusDb context = new MarkusDb())
             {
-                var clients = (from c in context.clients select c).ToList();
+                var clients = (from c1 in context.clients join c2 in context.contracts
+                               on c1.Id equals c2.Client_Id where c2.Current == 1
+                               select c1).ToList();
                 cmbClient.DataSource = clients;
                 cmbClient.DisplayMember = "Name";
                 cmbClient.ValueMember = "Id";
                 var serviceTypes = (from c in context.servicetypes select c).ToList();
-                cmbServiceType.DataSource = serviceTypes;
+                var newServiceTypes = new List<servicetype>();
+                foreach(var serviceType in serviceTypes)
+                {
+                    var pricelistItems = (from c in context.pricelistitems
+                                          where c.ServiceType_Id == serviceType.Id
+                                          select c).ToList();
+                    if(pricelistItems.Count != 0)
+                    {
+                        newServiceTypes.Add(serviceType);
+                    }
+                }
+                cmbServiceType.DataSource = newServiceTypes;
                 cmbServiceType.DisplayMember = "Name";
                 cmbServiceType.ValueMember = "Id";
             }

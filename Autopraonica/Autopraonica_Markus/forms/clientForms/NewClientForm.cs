@@ -108,7 +108,11 @@ namespace Autopraonica_Markus.forms.clientForms
                     }
 
 
-                }                
+                }
+            }
+            else
+            {
+                Debug.WriteLine("Nece");
             }
         }
 
@@ -197,6 +201,19 @@ namespace Autopraonica_Markus.forms.clientForms
                 cmbCityList.Enabled = false;
             }
             
+        }
+        private void AllowInteger(object sender, KeyPressEventArgs e)
+        {
+            // allows 0-9, backspace, and decimal
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+        private void txtUID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowInteger(sender, e);
         }
     }
 }

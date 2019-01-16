@@ -142,6 +142,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "PasswordChangeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Markus";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PasswordChangeForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

@@ -115,7 +115,9 @@ namespace Autopraonica_Markus.forms.userControls
 
             dtpYear.ShowUpDown = true;
             dtpYear.Height = 30;
-
+            
+            dtpDateFrom.MaxDate = DateTime.Now;
+            dtpYear.MaxDate = DateTime.Now;
         }
 
         public void updateComboBox()
@@ -395,9 +397,10 @@ namespace Autopraonica_Markus.forms.userControls
 
             try
             {
+                int days = DateTime.DaysInMonth(dtpDateFrom.Value.Year, dtpDateFrom.Value.Month);
                 String date = dtpDateFrom.Value.Date.ToString("MM/dd/yyyy");
                 String dateFrom = date.ToString().Substring(6, 4) + "-" + date.ToString().Substring(0, 2) + "-01";
-                String dateTo = date.ToString().Substring(6, 4) + "-" + date.ToString().Substring(0, 2) + "-31";
+                String dateTo = date.ToString().Substring(6, 4) + "-" + date.ToString().Substring(0, 2) + "-"+ days.ToString();
 
                 DateTime dtFrom = DateTime.Parse(dateFrom);
                 DateTime dtTo = DateTime.Parse(dateTo);
@@ -750,22 +753,18 @@ namespace Autopraonica_Markus.forms.userControls
             if (lvWidth > 1000)
             {
                 clmnWidth = lvWidth / 7;
-                //   int dgvWidth = dgvBills.Width;
-                //     dgvBills.Columns[0].Width = dgvWidth / 2;
-                //dgvBills.Columns[1].Width = dgvWidth / 2 - 3;
             }
 
             else if (lvWidth > 600)
-            {
-
-                clmnWidth = lvWidth / 8;
-            }
+           {
+            clmnWidth = lvWidth / 8;
+           }
             else
-            {
-                clmnWidth = lvWidth / 8 + 10;
-            }
+           {
+            clmnWidth = lvWidth / 8 + 10;
+           }
 
-
+            int sum = 0;
             foreach (ColumnHeader column in lv.Columns)
             {
                 if (!(column.Text.Equals("R.b.")))
@@ -773,12 +772,12 @@ namespace Autopraonica_Markus.forms.userControls
                 if (column.Text.Equals("Registarske tablice") || column.Text.Equals("Podvrsta usluge") || column.Text.Equals("Vrsta usluge"))
                     column.Width = clmnWidth + 25;
                 if (column.Text.Equals("Cijena"))
-                    column.Width = clmnWidth - 25;
-            }
-
-            if (lvWidth > 1000)
-            {
-                hdPrice.Width = clmnWidth - 110;
+                {
+                    column.Width = lvWidth - sum;
+                    if (column.Width == 50)
+                        column.Width += 7;
+                }
+                sum += column.Width;
             }
         }
 
@@ -792,6 +791,7 @@ namespace Autopraonica_Markus.forms.userControls
         {
             lvUpSer.Items.Clear();
             updateDgvBills();
+            lblPrice.Text = "0";
         }
 
         private void dtpYear_ValueChanged(object sender, EventArgs e)
@@ -878,6 +878,18 @@ namespace Autopraonica_Markus.forms.userControls
             String month = getNameOfMonth(dtpDateFrom.Value.Month).ToUpper();
             String year = dtpDateFrom.Value.Year.ToString().ToUpper();
             lblMtYr.Text = month  + " " + year;
+        }
+
+        private void lvUpSer_ColumnWidthChanging_1(object sender, ColumnWidthChangingEventArgs e)
+        {
+            e.NewWidth = this.lvUpSer.Columns[e.ColumnIndex].Width;
+            e.Cancel = true;
+        }
+
+        private void lblPrice_TextChanged(object sender, EventArgs e)
+        {
+            if ("0".Equals(lblPrice.Text))
+                btnGenBill.Enabled = false;
         }
     }
 }

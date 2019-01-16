@@ -116,9 +116,10 @@
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrice.Location = new System.Drawing.Point(259, 419);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(84, 38);
+            this.lblPrice.Size = new System.Drawing.Size(36, 38);
             this.lblPrice.TabIndex = 16;
-            this.lblPrice.Text = "00.0";
+            this.lblPrice.Text = "0";
+            this.lblPrice.TextChanged += new System.EventHandler(this.lblPrice_TextChanged);
             // 
             // label4
             // 
@@ -167,11 +168,13 @@
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem2});
             this.lvUpSer.Location = new System.Drawing.Point(21, 192);
+            this.lvUpSer.MultiSelect = false;
             this.lvUpSer.Name = "lvUpSer";
             this.lvUpSer.Size = new System.Drawing.Size(855, 210);
             this.lvUpSer.TabIndex = 13;
             this.lvUpSer.UseCompatibleStateImageBehavior = false;
             this.lvUpSer.View = System.Windows.Forms.View.Details;
+            this.lvUpSer.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvUpSer_ColumnWidthChanging_1);
             // 
             // hdSerNumSer
             // 
@@ -211,7 +214,7 @@
             // hdPrice
             // 
             this.hdPrice.Text = "Cijena";
-            this.hdPrice.Width = 73;
+            this.hdPrice.Width = 149;
             // 
             // btnGenBill
             // 
@@ -312,9 +315,10 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(798, 16);
+            this.label5.Location = new System.Drawing.Point(789, 15);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 29);
             this.label5.TabIndex = 26;

@@ -46,7 +46,7 @@ namespace Autopraonica_Markus.services
                     int i = 1;
                     while(true)
                     {
-                        if (!usernames.Contains(firstName + "." + lastName))
+                        if (!usernames.Contains(firstName + "." + lastName + i))
                         {
                             return firstName + "." + lastName + i;
                         }

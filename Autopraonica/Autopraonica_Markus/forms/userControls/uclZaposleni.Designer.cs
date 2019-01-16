@@ -40,6 +40,7 @@
             this.lblSrcEmp = new System.Windows.Forms.Label();
             this.rbPresent = new System.Windows.Forms.RadioButton();
             this.rbPerfect = new System.Windows.Forms.RadioButton();
+            this.btnHireEmployee = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +61,7 @@
             this.colAddress});
             this.dgvEmployees.Location = new System.Drawing.Point(13, 119);
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvEmployees.MultiSelect = false;
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.RowHeadersVisible = false;
             this.dgvEmployees.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -175,10 +177,26 @@
             this.rbPerfect.UseVisualStyleBackColor = true;
             this.rbPerfect.CheckedChanged += new System.EventHandler(this.rbPerfect_CheckedChanged);
             // 
+            // btnHireEmployee
+            // 
+            this.btnHireEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnHireEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHireEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHireEmployee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnHireEmployee.Location = new System.Drawing.Point(331, 27);
+            this.btnHireEmployee.Name = "btnHireEmployee";
+            this.btnHireEmployee.Size = new System.Drawing.Size(219, 49);
+            this.btnHireEmployee.TabIndex = 12;
+            this.btnHireEmployee.Text = "Ponovo zaposli";
+            this.btnHireEmployee.UseVisualStyleBackColor = false;
+            this.btnHireEmployee.Visible = false;
+            this.btnHireEmployee.Click += new System.EventHandler(this.btnHireEmployee_Click);
+            // 
             // uclZaposleni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnHireEmployee);
             this.Controls.Add(this.rbPerfect);
             this.Controls.Add(this.rbPresent);
             this.Controls.Add(this.lblSrcEmp);
@@ -210,5 +228,6 @@
         private System.Windows.Forms.Label lblSrcEmp;
         private System.Windows.Forms.RadioButton rbPresent;
         private System.Windows.Forms.RadioButton rbPerfect;
+        private System.Windows.Forms.Button btnHireEmployee;
     }
 }

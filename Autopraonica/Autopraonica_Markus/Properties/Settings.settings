@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Name" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Markus</Value>
+      <Value Profile="(Default)">Autopraonica Markus</Value>
     </Setting>
     <Setting Name="UID" Type="System.String" Scope="User">
       <Value Profile="(Default)">0123456789123</Value>
