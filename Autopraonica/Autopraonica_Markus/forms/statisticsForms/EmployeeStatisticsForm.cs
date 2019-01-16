@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Autopraonica_Markus.forms.statisticsForms
 {
@@ -55,10 +56,10 @@ namespace Autopraonica_Markus.forms.statisticsForms
                     hoursAsHelp += (int)(h.LogoutTime.Value - h.LoginTime).TotalHours;
                 }
 
-                if(numberOfWashings == 0)
+             /*   if(numberOfWashings == 0)
                 {
                     chart2.Visible = false;
-                }
+                }*/
             
                 numberOfWashings = (
                     from e in context.employees
@@ -74,16 +75,20 @@ namespace Autopraonica_Markus.forms.statisticsForms
                     select nes
                     ).Count();
             }
-            chart1.Titles.Add("Statistika  za  radnika  " + employeeName);
+            Title title = chart1.Titles.Add("Statistika  za  radnika  " + employeeName);
+            title.Font = new System.Drawing.Font("Arial", 11, FontStyle.Bold);
+            title.ForeColor = System.Drawing.Color.White;
             chart1.Series["Hours"].IsValueShownAsLabel = true;
             chart1.Series["Hours"].Points.AddXY("Ukupan broj sati", hours);
             chart1.Series["Hours"].Points.AddXY("Broj sati kao ispomoc", hoursAsHelp);
 
-            chart2.Titles.Add("Statistika  za  radnika  " + employeeName);
+            Title title2 = chart2.Titles.Add("Statistika  za  radnika  " + employeeName);
+            title2.Font = new System.Drawing.Font("Arial", 11, FontStyle.Bold);
+            title2.ForeColor = System.Drawing.Color.White;
             chart2.Series["Washings"].IsValueShownAsLabel = true;
             chart2.Series["Washings"].Points.AddXY("Ukupan broj pranja", numberOfWashings);
             chart2.Series["Washings"].Points.AddXY("Broj pranja kao ispomoc", numberOfWashingsAsHelp);
-            chart1.Series[0].Points[0].Color = Color.Red;
+            chart1.Series[0].Points[0].Color = Color.DarkGray;
             chart2.Series[0].Points[0].Color = Color.Purple;
             lblName.Text = "Statistika za radnika " + employeeName;
             label1.Text = "Ukupan broj sati: " + hours;
