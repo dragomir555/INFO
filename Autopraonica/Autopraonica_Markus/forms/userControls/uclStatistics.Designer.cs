@@ -46,10 +46,9 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(255, 30);
+            this.label1.Location = new System.Drawing.Point(27, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 16);
             this.label1.TabIndex = 0;
@@ -57,7 +56,6 @@
             // 
             // cbStatistics
             // 
-            this.cbStatistics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbStatistics.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbStatistics.FormattingEnabled = true;
@@ -65,7 +63,7 @@
             "Statistika po radniku",
             "Statistika po klijentu",
             "Ukupna statistika"});
-            this.cbStatistics.Location = new System.Drawing.Point(415, 22);
+            this.cbStatistics.Location = new System.Drawing.Point(187, 27);
             this.cbStatistics.Name = "cbStatistics";
             this.cbStatistics.Size = new System.Drawing.Size(161, 24);
             this.cbStatistics.TabIndex = 1;
@@ -190,7 +188,7 @@
             this.lblSearch.TabIndex = 16;
             this.lblSearch.Text = "Pretraži po imenu";
             // 
-            // uclStatistika
+            // uclStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -207,7 +205,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cbStatistics);
             this.Controls.Add(this.label1);
-            this.Name = "uclStatistika";
+            this.Name = "uclStatistics";
             this.Size = new System.Drawing.Size(601, 524);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
