@@ -47,6 +47,7 @@
             // dgvEmployees
             // 
             this.dgvEmployees.AllowUserToAddRows = false;
+            this.dgvEmployees.AllowUserToDeleteRows = false;
             this.dgvEmployees.AllowUserToResizeColumns = false;
             this.dgvEmployees.AllowUserToResizeRows = false;
             this.dgvEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -63,31 +64,37 @@
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEmployees.MultiSelect = false;
             this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.ReadOnly = true;
             this.dgvEmployees.RowHeadersVisible = false;
             this.dgvEmployees.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmployees.Size = new System.Drawing.Size(802, 295);
             this.dgvEmployees.TabIndex = 4;
+            this.dgvEmployees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmployees_CellContentClick);
             // 
             // colFirstName
             // 
             this.colFirstName.HeaderText = "Ime zaposlenog";
             this.colFirstName.Name = "colFirstName";
+            this.colFirstName.ReadOnly = true;
             // 
             // colLastName
             // 
             this.colLastName.HeaderText = "Prezime zaposlenog";
             this.colLastName.Name = "colLastName";
+            this.colLastName.ReadOnly = true;
             // 
             // colPhoneNumber
             // 
             this.colPhoneNumber.HeaderText = "Broj telefona";
             this.colPhoneNumber.Name = "colPhoneNumber";
+            this.colPhoneNumber.ReadOnly = true;
             // 
             // colAddress
             // 
             this.colAddress.HeaderText = "Adresa";
             this.colAddress.Name = "colAddress";
+            this.colAddress.ReadOnly = true;
             // 
             // btnNewEmployee
             // 

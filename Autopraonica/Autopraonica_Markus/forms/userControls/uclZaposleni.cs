@@ -258,7 +258,7 @@ namespace Autopraonica_Markus.forms.userControls
         {
             string[] text = tbSearchEmployee.Text.Split(' ');
             string firstName = text[0];
-            string lastName="*";
+            string lastName="";
 
             if (text.Count()>1)
             lastName = text[1];
@@ -271,10 +271,10 @@ namespace Autopraonica_Markus.forms.userControls
 
                 if (rbPresent.Checked)
                 {
-                    if (text.Count() == 3)
+                    if (!"".Equals(lastName))
                         empl = (from c in context.employees
                                 join emp in context.employments on c.Id equals emp.Employee_Id
-                                where (c.FirstName.StartsWith(firstName) || c.LastName.StartsWith(lastName)) && emp.DateTo == null
+                                where c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo == null
                                 orderby c.LastName
                                 select c).ToList();
                     else
@@ -285,10 +285,10 @@ namespace Autopraonica_Markus.forms.userControls
                                 select c).ToList();
                 }
                 else {
-                    if (text.Count() == 3)
+                    if (!"".Equals(lastName))
                         empl = (from c in context.employees
                                 join emp in context.employments on c.Id equals emp.Employee_Id
-                                where (c.FirstName.StartsWith(firstName) || c.LastName.StartsWith(lastName)) && emp.DateTo != null
+                                where c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo != null
                                 orderby c.LastName
                                 select c).ToList();
                     else
@@ -424,6 +424,11 @@ namespace Autopraonica_Markus.forms.userControls
             {
                 MessageBox.Show("Izaberite klijenta iz tabele");
             }
+        }
+
+        private void dgvEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
