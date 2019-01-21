@@ -39,7 +39,6 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void btnAddServiceType_Click(object sender, EventArgs e)
         {
-
             NewServiceTypeForm nstf = new NewServiceTypeForm();
             if (DialogResult.OK == nstf.ShowDialog())
             {
@@ -151,17 +150,24 @@ namespace Autopraonica_Markus.forms.userControls
                 }
                 Label lbl = this.Controls["label" + resultString] as Label;
                 Button btnAddPricelistItem = this.Controls["btnAddPricelistItem" + resultString] as Button;
-                Button btnDeletePricelistItem = this.Controls["btnDeletePricelistItem" + resultString] as Button;
                 Button btnUpdatePricelistItem = this.Controls["btnUpdatePricelistItem" + resultString] as Button;
+                Button btnDeletePricelistItem = this.Controls["btnDeletePricelistItem" + resultString] as Button;
+                btnAddPricelistItem.Dispose();
+                btnDeletePricelistItem.Dispose();
+                dgv.Dispose();
+                lbl.Dispose();
+                button.Dispose();
+                btnUpdatePricelistItem.Dispose();
                 this.Controls.Remove(dgv);
                 this.Controls.Remove(lbl);
                 this.Controls.Remove(btnAddPricelistItem);
-                this.Controls.Remove(btnDeletePricelistItem);
                 this.Controls.Remove(btnUpdatePricelistItem);
+                this.Controls.Remove(btnDeletePricelistItem);
                 this.Controls.Remove(button);
 
-                i = 1;
-                addTables();
+                i--;
+                btnAddService.Location = new Point(this.Width / 2 - btnAddService.Width / 2, 50 + (i - 1) * 220);
+                // addTables();
             }
         }
 
@@ -222,8 +228,8 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void addTables()
         {
-            this.Controls.Clear();
 
+            this.Controls.Clear();
             Label lblPriceList = new Label();
             this.Controls.Add(lblPriceList);
             lblPriceList.Text = "CJENOVNIK";
@@ -280,40 +286,50 @@ namespace Autopraonica_Markus.forms.userControls
                         btnDeleteTable.BringToFront();
 
                         btnDeletePricelistItem.Name = "btnDeletePricelistItem" + s.Id;
-                        btnDeletePricelistItem.Location = new Point(this.Width - 247, 285 + (i - 1) * 220);
-                        btnDeletePricelistItem.Text = "Obrisi";
+                        btnDeletePricelistItem.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
+                        btnDeletePricelistItem.Location = new Point(this.Width - 307, 285 + (i - 1) * 220);
+                        btnDeletePricelistItem.Text = "    Obriši";
                         btnDeletePricelistItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top)
                         | System.Windows.Forms.AnchorStyles.Right)));
-                        btnDeletePricelistItem.Size = new Size(70, 23);
+                        btnDeletePricelistItem.Size = new Size(90, 35);
                         btnDeletePricelistItem.Click += new EventHandler(btnDeletePricelistItem_Click);
                         btnDeletePricelistItem.AutoSize = false;
                         btnDeletePricelistItem.BackColor = Color.FromArgb(107, 65, 150);
                         btnDeletePricelistItem.FlatStyle = FlatStyle.Flat;
                         btnDeletePricelistItem.ForeColor = Color.White;
+                        btnDeletePricelistItem.Image = Image.FromFile(projectDirectory + "/resources/282471-24.png");
+                        btnDeletePricelistItem.ImageAlign = ContentAlignment.MiddleLeft;
 
                         btnUpdatePricelistItem.Name = "btnUpdatePricelistItem" + s.Id;
-                        btnUpdatePricelistItem.Location = new Point(this.Width - 167, 285 + (i - 1) * 220);
-                        btnUpdatePricelistItem.Text = "Izmijeni";
+                        btnUpdatePricelistItem.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
+                        btnUpdatePricelistItem.Location = new Point(this.Width - 207, 285 + (i - 1) * 220);
+                        btnUpdatePricelistItem.Text = "      Izmijeni";
                         btnUpdatePricelistItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top)
                         | System.Windows.Forms.AnchorStyles.Right)));
-                        btnUpdatePricelistItem.Size = new Size(70, 23);
+                        btnUpdatePricelistItem.Size = new Size(90, 35);
                         btnUpdatePricelistItem.Click += new EventHandler(btnUpdatePricelistItem_Click);
                         btnUpdatePricelistItem.AutoSize = false;
                         btnUpdatePricelistItem.BackColor = Color.FromArgb(107, 65, 150);
                         btnUpdatePricelistItem.FlatStyle = FlatStyle.Flat;
                         btnUpdatePricelistItem.ForeColor = Color.White;
+                        btnUpdatePricelistItem.Image = Image.FromFile(projectDirectory + "/resources/2571204-24.png");
+                        btnUpdatePricelistItem.ImageAlign = ContentAlignment.MiddleLeft;
 
+                        btnAddPricelistItem.Name = "btnUpdatePricelistItem" + s.Id;
+                        btnAddPricelistItem.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
                         btnAddPricelistItem.Name = "btnAddPricelistItem" + s.Id;
-                        btnAddPricelistItem.Location = new Point(this.Width - 87, 285 + (i - 1) * 220);
-                        btnAddPricelistItem.Text = "Dodaj";
+                        btnAddPricelistItem.Location = new Point(this.Width - 107, 285 + (i - 1) * 220);
+                        btnAddPricelistItem.Text = "    Dodaj";
                         btnAddPricelistItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top)
                         | System.Windows.Forms.AnchorStyles.Right)));
-                        btnAddPricelistItem.Size = new Size(70, 23);
+                        btnAddPricelistItem.Size = new Size(90, 35);
                         btnAddPricelistItem.Click += new EventHandler(btnAddPricelistItem_Click);
                         btnAddPricelistItem.AutoSize = false;
                         btnAddPricelistItem.BackColor = Color.FromArgb(107, 65, 150);
                         btnAddPricelistItem.FlatStyle = FlatStyle.Flat;
                         btnAddPricelistItem.ForeColor = Color.White;
+                        btnAddPricelistItem.Image = Image.FromFile(projectDirectory + "/resources/299068-24.png");
+                        btnAddPricelistItem.ImageAlign = ContentAlignment.MiddleLeft;
 
                         dgv.Name = "dataGridView" + s.Id;
                         dgv.ColumnCount = 3;
@@ -335,6 +351,7 @@ namespace Autopraonica_Markus.forms.userControls
                         dgv.AutoSize = false;
                         dgv.ReadOnly = true;
                         dgv.MultiSelect = false;
+                        dgv.BackgroundColor = Color.White;
                         fillTable(dgv, s.Id);
                         dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                         i++;
@@ -399,40 +416,50 @@ namespace Autopraonica_Markus.forms.userControls
             btnDeleteTable.BringToFront();
 
             btnDeletePricelistItem.Name = "btnDeletePricelistItem" + serviceType.Id;
-            btnDeletePricelistItem.Location = new Point(this.Width - 270, 155 + (i - 1) * 220);
-            btnDeletePricelistItem.Text = "Obrisi";
+            btnDeletePricelistItem.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
+            btnDeletePricelistItem.Location = new Point(this.Width - 327, 155 + (i - 1) * 220);
+            btnDeletePricelistItem.Text = "    Obriši";
             btnDeletePricelistItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top)
             | System.Windows.Forms.AnchorStyles.Right)));
-            btnDeletePricelistItem.Size = new Size(70, 23);
+            btnDeletePricelistItem.Size = new Size(90, 35);
             btnDeletePricelistItem.Click += new EventHandler(btnDeletePricelistItem_Click);
             btnDeletePricelistItem.AutoSize = false;
             btnDeletePricelistItem.BackColor = Color.FromArgb(107, 65, 150);
             btnDeletePricelistItem.FlatStyle = FlatStyle.Flat;
             btnDeletePricelistItem.ForeColor = Color.White;
+            btnDeletePricelistItem.Image = Image.FromFile(projectDirectory + "/resources/282471-24.png");
+            btnDeletePricelistItem.ImageAlign = ContentAlignment.MiddleLeft;
 
             btnUpdatePricelistItem.Name = "btnUpdatePricelistItem" + serviceType.Id;
-            btnUpdatePricelistItem.Location = new Point(this.Width - 190, 155 + (i - 1) * 220);
-            btnUpdatePricelistItem.Text = "Izmijeni";
+            btnUpdatePricelistItem.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
+            btnUpdatePricelistItem.Location = new Point(this.Width - 227, 155 + (i - 1) * 220);
+            btnUpdatePricelistItem.Text = "      Izmijeni";
             btnUpdatePricelistItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top)
             | System.Windows.Forms.AnchorStyles.Right)));
-            btnUpdatePricelistItem.Size = new Size(70, 23);
+            btnUpdatePricelistItem.Size = new Size(90, 35);
             btnUpdatePricelistItem.Click += new EventHandler(btnUpdatePricelistItem_Click);
             btnUpdatePricelistItem.AutoSize = false;
             btnUpdatePricelistItem.BackColor = Color.FromArgb(107, 65, 150);
             btnUpdatePricelistItem.FlatStyle = FlatStyle.Flat;
             btnUpdatePricelistItem.ForeColor = Color.White;
+            btnUpdatePricelistItem.Image = Image.FromFile(projectDirectory + "/resources/2571204-24.png");
+            btnUpdatePricelistItem.ImageAlign = ContentAlignment.MiddleLeft;
 
             btnAddPricelistItem.Name = "btnAddPricelistItem" + serviceType.Id;
-            btnAddPricelistItem.Location = new Point(this.Width - 107, 155 + (i - 1) * 220);
-            btnAddPricelistItem.Text = "Dodaj";
+            btnAddPricelistItem.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
+            btnAddPricelistItem.Location = new Point(this.Width - 127, 155 + (i - 1) * 220);
+            btnAddPricelistItem.Text = "    Dodaj";
             btnAddPricelistItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top)
             | System.Windows.Forms.AnchorStyles.Right)));
-            btnAddPricelistItem.Size = new Size(70, 23);
+            btnAddPricelistItem.Size = new Size(90, 35);
             btnAddPricelistItem.Click += new EventHandler(btnAddPricelistItem_Click);
             btnAddPricelistItem.AutoSize = false;
             btnAddPricelistItem.BackColor = Color.FromArgb(107, 65, 150);
             btnAddPricelistItem.FlatStyle = FlatStyle.Flat;
             btnAddPricelistItem.ForeColor = Color.White;
+            btnAddPricelistItem.Image = Image.FromFile(projectDirectory + "/resources/299068-24.png");
+            btnAddPricelistItem.ImageAlign = ContentAlignment.MiddleLeft;
+
 
             dgv.Name = "dataGridView" + serviceType.Id;
             dgv.ColumnCount = 3;
@@ -454,6 +481,7 @@ namespace Autopraonica_Markus.forms.userControls
             dgv.AutoSize = false;
             dgv.ReadOnly = true;
             dgv.MultiSelect = false;
+            dgv.BackgroundColor = Color.White;
             fillTable(dgv, serviceType.Id);
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             i++;
