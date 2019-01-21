@@ -53,7 +53,7 @@
             this.btnAddServiceType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddServiceType.ForeColor = System.Drawing.Color.White;
-            this.btnAddServiceType.Location = new System.Drawing.Point(212, 82);
+            this.btnAddServiceType.Location = new System.Drawing.Point(54, 89);
             this.btnAddServiceType.Name = "btnAddServiceType";
             this.btnAddServiceType.Size = new System.Drawing.Size(129, 27);
             this.btnAddServiceType.TabIndex = 1;
@@ -79,7 +79,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(35, 82);
+            this.button1.Location = new System.Drawing.Point(206, 89);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 27);
             this.button1.TabIndex = 3;
