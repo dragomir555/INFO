@@ -256,50 +256,13 @@ namespace Autopraonica_Markus.forms.userControls
  
         private void SearchEmployee()
         {
-            string[] text = tbSearchEmployee.Text.Split(' ');
-            string firstName = text[0];
-            string lastName="";
-
-            if (text.Count()>1)
-            lastName = text[1];
-
+          
             dgvEmployees.Rows.Clear();
+            var empl = new System.Collections.Generic.List<employee>();
+            empl = getEmployee(empl);
+            empl = empl.Distinct().ToList();
 
-            using (MarkusDb context = new MarkusDb())
-            {
-                var empl = new System.Collections.Generic.List<employee>();
-
-                if (rbPresent.Checked)
-                {
-                    if (!"".Equals(lastName))
-                        empl = (from c in context.employees
-                                join emp in context.employments on c.Id equals emp.Employee_Id
-                                where c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo == null
-                                orderby c.LastName
-                                select c).ToList();
-                    else
-                        empl = (from c in context.employees
-                                join emp in context.employments on c.Id equals emp.Employee_Id
-                                where c.FirstName.StartsWith(firstName) && emp.DateTo == null
-                                orderby c.LastName
-                                select c).ToList();
-                }
-                else {
-                    if (!"".Equals(lastName))
-                        empl = (from c in context.employees
-                                join emp in context.employments on c.Id equals emp.Employee_Id
-                                where c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo != null
-                                orderby c.LastName
-                                select c).ToList();
-                    else
-                        empl = (from c in context.employees
-                                join emp in context.employments on c.Id equals emp.Employee_Id
-                                where c.FirstName.StartsWith(firstName) && emp.DateTo != null
-                                orderby c.LastName
-                                select c).ToList();
-                }
-
-                foreach (var e in empl)
+            foreach (var e in empl)
                 {
                     DataGridViewRow r = new DataGridViewRow()
                     {
@@ -311,6 +274,96 @@ namespace Autopraonica_Markus.forms.userControls
                     dgvEmployees.Rows.Add(r);
                 }
             }
+
+            
+
+        private System.Collections.Generic.List<employee> getEmployee(List<employee> empl)
+        {
+            string[] text = tbSearchEmployee.Text.Split(' ');
+            string firstName = text[0];
+            string lastName = "";
+
+            if (text.Count() > 1)
+                lastName = text[1];
+            List<employee> employees;
+
+
+
+
+                if (rbPresent.Checked)
+                {
+                    empl = getCurrentEmpl();
+                }
+                else
+                {
+                employees = getCurrentEmpl();
+                empl = getUnemployees(employees);
+                }
+         
+            return empl;
+         }
+
+        private List<employee> getUnemployees(List<employee> empl)
+        {
+            string[] text = tbSearchEmployee.Text.Split(' ');
+            string firstName = text[0];
+            string lastName = "";
+            List<employee> currentUnemp = empl;
+            List<employee> realUnemployees = new List<employee>();
+            
+
+            if (text.Count() > 1)
+                lastName = text[1];
+
+            using (MarkusDb context = new MarkusDb()) { 
+            if (!"".Equals(lastName))
+                    currentUnemp = (from c in context.employees
+                        join emp in context.employments on c.Id equals emp.Employee_Id
+                        where c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo != null
+                        orderby c.LastName
+                        select c).ToList();
+            else
+                    currentUnemp = (from c in context.employees
+                        join emp in context.employments on c.Id equals emp.Employee_Id
+                        where c.FirstName.StartsWith(firstName) && emp.DateTo != null
+                        orderby c.LastName
+                        select c).ToList();
+            }
+
+            foreach(var e in currentUnemp)
+            {
+                if (!empl.Any(x => x.E_mail.Equals(e.E_mail)))
+                    realUnemployees.Add(e);
+            }
+            realUnemployees = realUnemployees.Distinct().ToList();
+            return realUnemployees;
+        }
+
+        private List<employee> getCurrentEmpl()
+        {
+        string[] text = tbSearchEmployee.Text.Split(' ');
+        string firstName = text[0];
+        string lastName = "";
+        List<employee> empl;
+        
+        if (text.Count() > 1)
+          lastName = text[1];
+        using (MarkusDb context = new MarkusDb())
+        {
+            if (!"".Equals(lastName))
+                empl = (from c in context.employees
+                        join emp in context.employments on c.Id equals emp.Employee_Id
+                        where c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo == null
+                        orderby c.LastName
+                        select c).ToList();
+            else
+                empl = (from c in context.employees
+                        join emp in context.employments on c.Id equals emp.Employee_Id
+                        where c.FirstName.StartsWith(firstName) && emp.DateTo == null
+                        orderby c.LastName
+                        select c).ToList();
+        }
+            return empl;
         }
 
         private void rbPresent_CheckedChanged(object sender, EventArgs e)
