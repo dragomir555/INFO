@@ -1,4 +1,5 @@
-﻿using Autopraonica_Markus.Model.Entities;
+﻿using Autopraonica_Markus.forms.dialogForm;
+using Autopraonica_Markus.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,10 +36,15 @@ namespace Autopraonica_Markus.forms.pricelistForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren(ValidationConstraints.Enabled))
+            DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite sačuvati izmjene?", "Izmjena stavke");
+            dialogForm.ShowDialog();
+            if (dialogForm.DialogResult == DialogResult.Yes)
             {
-                Price = decimal.Parse(tbPrice.Text);
-                this.DialogResult = DialogResult.OK;
+                if (ValidateChildren(ValidationConstraints.Enabled))
+                {
+                    Price = decimal.Parse(tbPrice.Text);
+                    this.DialogResult = DialogResult.OK;
+                }
             }
         }
 

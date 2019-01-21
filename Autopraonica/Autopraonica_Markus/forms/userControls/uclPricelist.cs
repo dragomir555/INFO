@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using Autopraonica_Markus.forms.pricelistForms;
 using System.Collections.Generic;
 using System.IO;
+using Autopraonica_Markus.forms.dialogForm;
 
 namespace Autopraonica_Markus.forms.userControls
 {
@@ -134,65 +135,75 @@ namespace Autopraonica_Markus.forms.userControls
         }
         private void btnDeleteTable_Click(object sender, EventArgs e)
         {
-            var button = (Button)sender;
-            var resultString = Regex.Match(button.Name, @"\d+").Value;
-            string dataGridViewName = "dataGridView" + resultString;
-            DataGridView dgv = this.Controls[dataGridViewName] as DataGridView;
-            using (MarkusDb context = new MarkusDb())
+            DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite obrisati tabelu?", "Brisanje tabele");
+            dialogForm.ShowDialog();
+            if (dialogForm.DialogResult == DialogResult.Yes)
             {
-                for (int i = 0; i < dgv.RowCount; i++)
+                var button = (Button)sender;
+                var resultString = Regex.Match(button.Name, @"\d+").Value;
+                string dataGridViewName = "dataGridView" + resultString;
+                DataGridView dgv = this.Controls[dataGridViewName] as DataGridView;
+                using (MarkusDb context = new MarkusDb())
                 {
-                    int pricelistItem_id = Int32.Parse(dgv.Rows[i].Cells[2].Value.ToString());
-                    var pricelistItem = context.pricelistitems.Find(pricelistItem_id);
-                    pricelistItem.DateTo = DateTime.Now;
-                    pricelistItem.Current = 0;
-                    context.SaveChanges();
-                }
-                Label lbl = this.Controls["label" + resultString] as Label;
-                Button btnAddPricelistItem = this.Controls["btnAddPricelistItem" + resultString] as Button;
-                Button btnUpdatePricelistItem = this.Controls["btnUpdatePricelistItem" + resultString] as Button;
-                Button btnDeletePricelistItem = this.Controls["btnDeletePricelistItem" + resultString] as Button;
-                btnAddPricelistItem.Dispose();
-                btnDeletePricelistItem.Dispose();
-                dgv.Dispose();
-                lbl.Dispose();
-                button.Dispose();
-                btnUpdatePricelistItem.Dispose();
-                this.Controls.Remove(dgv);
-                this.Controls.Remove(lbl);
-                this.Controls.Remove(btnAddPricelistItem);
-                this.Controls.Remove(btnUpdatePricelistItem);
-                this.Controls.Remove(btnDeletePricelistItem);
-                this.Controls.Remove(button);
+                    for (int i = 0; i < dgv.RowCount; i++)
+                    {
+                        int pricelistItem_id = Int32.Parse(dgv.Rows[i].Cells[2].Value.ToString());
+                        var pricelistItem = context.pricelistitems.Find(pricelistItem_id);
+                        pricelistItem.DateTo = DateTime.Now;
+                        pricelistItem.Current = 0;
+                        context.SaveChanges();
+                    }
+                    Label lbl = this.Controls["label" + resultString] as Label;
+                    Button btnAddPricelistItem = this.Controls["btnAddPricelistItem" + resultString] as Button;
+                    Button btnUpdatePricelistItem = this.Controls["btnUpdatePricelistItem" + resultString] as Button;
+                    Button btnDeletePricelistItem = this.Controls["btnDeletePricelistItem" + resultString] as Button;
+                    btnAddPricelistItem.Dispose();
+                    btnDeletePricelistItem.Dispose();
+                    dgv.Dispose();
+                    lbl.Dispose();
+                    button.Dispose();
+                    btnUpdatePricelistItem.Dispose();
+                    this.Controls.Remove(dgv);
+                    this.Controls.Remove(lbl);
+                    this.Controls.Remove(btnAddPricelistItem);
+                    this.Controls.Remove(btnUpdatePricelistItem);
+                    this.Controls.Remove(btnDeletePricelistItem);
+                    this.Controls.Remove(button);
 
-                i--;
-                btnAddService.Location = new Point(this.Width / 2 - btnAddService.Width / 2, 50 + (i - 1) * 220);
-                // addTables();
+                    i--;
+                    btnAddService.Location = new Point(this.Width / 2 - btnAddService.Width / 2, 50 + (i - 1) * 220);
+                    // addTables();
+                }
             }
         }
 
 
         private void btnDeletePricelistItem_Click(object sender, EventArgs e)
         {
-            var button = (Button)sender;
-            var resultString = Regex.Match(button.Name, @"\d+").Value;
-            string dataGridViewName = "dataGridView" + resultString;
-            DataGridView dgv = this.Controls[dataGridViewName] as DataGridView;
-            if (dgv.CurrentCell != null)
+            DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite obrisati stavku?", "Brisanje stavke");
+            dialogForm.ShowDialog();
+            if (dialogForm.DialogResult == DialogResult.Yes)
             {
-                using (MarkusDb context = new MarkusDb())
+                var button = (Button)sender;
+                var resultString = Regex.Match(button.Name, @"\d+").Value;
+                string dataGridViewName = "dataGridView" + resultString;
+                DataGridView dgv = this.Controls[dataGridViewName] as DataGridView;
+                if (dgv.CurrentCell != null)
                 {
-                    int pricelistItem_id = Int32.Parse(dgv.Rows[dgv.CurrentCell.RowIndex].Cells[2].Value.ToString());
-                    var pricelistItem = context.pricelistitems.Find(pricelistItem_id);
-                    pricelistItem.DateTo = DateTime.Now;
-                    pricelistItem.Current = 0;
-                    context.SaveChanges();
-                    fillTable(this.Controls[dataGridViewName] as DataGridView, pricelistItem.ServiceType_Id);
+                    using (MarkusDb context = new MarkusDb())
+                    {
+                        int pricelistItem_id = Int32.Parse(dgv.Rows[dgv.CurrentCell.RowIndex].Cells[2].Value.ToString());
+                        var pricelistItem = context.pricelistitems.Find(pricelistItem_id);
+                        pricelistItem.DateTo = DateTime.Now;
+                        pricelistItem.Current = 0;
+                        context.SaveChanges();
+                        fillTable(this.Controls[dataGridViewName] as DataGridView, pricelistItem.ServiceType_Id);
+                    }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Nemate stavki za brisanje", "Obavjestenje o brisanju", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                {
+                    MessageBox.Show("Nemate stavki za brisanje", "Obavjestenje o brisanju", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
