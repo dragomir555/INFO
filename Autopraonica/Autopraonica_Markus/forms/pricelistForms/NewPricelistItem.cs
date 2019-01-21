@@ -31,7 +31,7 @@ namespace Autopraonica_Markus.forms.pricelistForms
             // Id = ((pricelistitemname)cbPricelistItemNames.SelectedItem).Id;
             if (ValidateChildren(ValidationConstraints.Enabled))
             { 
-            Name = tbName.Text;
+            Name = tbName.Text.Trim();
             Price = decimal.Parse(tbPrice.Text);
             this.DialogResult = DialogResult.OK;
             }
@@ -65,6 +65,8 @@ namespace Autopraonica_Markus.forms.pricelistForms
             }
         }
 
+
+
         private void AllowDecimal(object sender, KeyPressEventArgs e)
         {
             // allows 0-9, backspace, and decimal
@@ -84,6 +86,21 @@ namespace Autopraonica_Markus.forms.pricelistForms
 
         private void CheckPressedKey(object sender, KeyPressEventArgs e)
         {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                button1_Click(sender, e);
+                e.Handled = true;
+            }
+            else if (e.KeyChar == (char)Keys.Escape)
+            {
+                button2_Click(sender, e);
+                e.Handled = true;
+            }
+        }
+
+        private void CheckPressedKey2(object sender, KeyPressEventArgs e)
+        {
             if (e.KeyChar == (char)Keys.Enter)
             {
                 button1_Click(sender, e);
@@ -99,7 +116,7 @@ namespace Autopraonica_Markus.forms.pricelistForms
         private void tbPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             AllowDecimal(sender, e);
-            CheckPressedKey(sender, e);
+            CheckPressedKey2(sender, e);
         }
 
         private void button2_Click(object sender, EventArgs e)
