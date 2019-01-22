@@ -65,11 +65,13 @@
             this.btnIzdRac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIzdRac.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnIzdRac.ForeColor = System.Drawing.Color.White;
-            this.btnIzdRac.Location = new System.Drawing.Point(3, 329);
+            this.btnIzdRac.Image = ((System.Drawing.Image)(resources.GetObject("btnIzdRac.Image")));
+            this.btnIzdRac.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIzdRac.Location = new System.Drawing.Point(3, 353);
             this.btnIzdRac.Name = "btnIzdRac";
-            this.btnIzdRac.Size = new System.Drawing.Size(194, 36);
+            this.btnIzdRac.Size = new System.Drawing.Size(194, 39);
             this.btnIzdRac.TabIndex = 0;
-            this.btnIzdRac.Text = "Izdavanje računa";
+            this.btnIzdRac.Text = "Računi";
             this.btnIzdRac.UseVisualStyleBackColor = true;
             this.btnIzdRac.Click += new System.EventHandler(this.btnIzdRac_Click);
             // 
@@ -82,9 +84,11 @@
             this.btnStatistika.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistika.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnStatistika.ForeColor = System.Drawing.Color.White;
-            this.btnStatistika.Location = new System.Drawing.Point(3, 371);
+            this.btnStatistika.Image = ((System.Drawing.Image)(resources.GetObject("btnStatistika.Image")));
+            this.btnStatistika.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistika.Location = new System.Drawing.Point(3, 398);
             this.btnStatistika.Name = "btnStatistika";
-            this.btnStatistika.Size = new System.Drawing.Size(194, 36);
+            this.btnStatistika.Size = new System.Drawing.Size(194, 39);
             this.btnStatistika.TabIndex = 3;
             this.btnStatistika.Text = "Statistika";
             this.btnStatistika.UseVisualStyleBackColor = true;
@@ -99,9 +103,11 @@
             this.btnZaposleni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZaposleni.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnZaposleni.ForeColor = System.Drawing.Color.White;
-            this.btnZaposleni.Location = new System.Drawing.Point(3, 287);
+            this.btnZaposleni.Image = ((System.Drawing.Image)(resources.GetObject("btnZaposleni.Image")));
+            this.btnZaposleni.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnZaposleni.Location = new System.Drawing.Point(3, 308);
             this.btnZaposleni.Name = "btnZaposleni";
-            this.btnZaposleni.Size = new System.Drawing.Size(194, 36);
+            this.btnZaposleni.Size = new System.Drawing.Size(194, 39);
             this.btnZaposleni.TabIndex = 2;
             this.btnZaposleni.Text = "Zaposleni";
             this.btnZaposleni.UseVisualStyleBackColor = true;
@@ -116,9 +122,11 @@
             this.btnKlijenti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKlijenti.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnKlijenti.ForeColor = System.Drawing.Color.White;
-            this.btnKlijenti.Location = new System.Drawing.Point(3, 245);
+            this.btnKlijenti.Image = ((System.Drawing.Image)(resources.GetObject("btnKlijenti.Image")));
+            this.btnKlijenti.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnKlijenti.Location = new System.Drawing.Point(3, 263);
             this.btnKlijenti.Name = "btnKlijenti";
-            this.btnKlijenti.Size = new System.Drawing.Size(194, 36);
+            this.btnKlijenti.Size = new System.Drawing.Size(194, 39);
             this.btnKlijenti.TabIndex = 0;
             this.btnKlijenti.Text = "Klijenti";
             this.btnKlijenti.UseVisualStyleBackColor = true;
@@ -133,9 +141,11 @@
             this.btnCjenovnik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCjenovnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCjenovnik.ForeColor = System.Drawing.Color.White;
-            this.btnCjenovnik.Location = new System.Drawing.Point(3, 203);
+            this.btnCjenovnik.Image = ((System.Drawing.Image)(resources.GetObject("btnCjenovnik.Image")));
+            this.btnCjenovnik.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCjenovnik.Location = new System.Drawing.Point(3, 218);
             this.btnCjenovnik.Name = "btnCjenovnik";
-            this.btnCjenovnik.Size = new System.Drawing.Size(194, 36);
+            this.btnCjenovnik.Size = new System.Drawing.Size(194, 39);
             this.btnCjenovnik.TabIndex = 0;
             this.btnCjenovnik.Text = "Cjenovnik";
             this.btnCjenovnik.UseVisualStyleBackColor = true;
@@ -151,9 +161,11 @@
             this.btnUsluge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsluge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnUsluge.ForeColor = System.Drawing.Color.White;
-            this.btnUsluge.Location = new System.Drawing.Point(3, 119);
+            this.btnUsluge.Image = ((System.Drawing.Image)(resources.GetObject("btnUsluge.Image")));
+            this.btnUsluge.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsluge.Location = new System.Drawing.Point(3, 128);
             this.btnUsluge.Name = "btnUsluge";
-            this.btnUsluge.Size = new System.Drawing.Size(194, 36);
+            this.btnUsluge.Size = new System.Drawing.Size(194, 39);
             this.btnUsluge.TabIndex = 0;
             this.btnUsluge.Text = "Usluge";
             this.btnUsluge.UseVisualStyleBackColor = true;
@@ -168,9 +180,11 @@
             this.btnTroskovnik.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTroskovnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnTroskovnik.ForeColor = System.Drawing.Color.White;
-            this.btnTroskovnik.Location = new System.Drawing.Point(3, 161);
+            this.btnTroskovnik.Image = ((System.Drawing.Image)(resources.GetObject("btnTroskovnik.Image")));
+            this.btnTroskovnik.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTroskovnik.Location = new System.Drawing.Point(3, 173);
             this.btnTroskovnik.Name = "btnTroskovnik";
-            this.btnTroskovnik.Size = new System.Drawing.Size(194, 36);
+            this.btnTroskovnik.Size = new System.Drawing.Size(194, 39);
             this.btnTroskovnik.TabIndex = 1;
             this.btnTroskovnik.Text = "Troškovnik";
             this.btnTroskovnik.UseVisualStyleBackColor = true;
@@ -339,7 +353,7 @@
             this.pnlContent.ForeColor = System.Drawing.Color.Black;
             this.pnlContent.Location = new System.Drawing.Point(200, 70);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(685, 391);
+            this.pnlContent.Size = new System.Drawing.Size(685, 428);
             this.pnlContent.TabIndex = 2;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
@@ -373,7 +387,7 @@
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9F));
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3F));
-            this.tlpMenu.Size = new System.Drawing.Size(200, 467);
+            this.tlpMenu.Size = new System.Drawing.Size(200, 504);
             this.tlpMenu.TabIndex = 4;
             this.tlpMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpContent_Paint);
             // 
@@ -385,7 +399,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 96);
+            this.pictureBox1.Size = new System.Drawing.Size(194, 104);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -399,11 +413,13 @@
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Location = new System.Drawing.Point(3, 413);
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.Location = new System.Drawing.Point(3, 443);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(194, 36);
+            this.btnSettings.Size = new System.Drawing.Size(194, 39);
             this.btnSettings.TabIndex = 5;
-            this.btnSettings.Text = "Podešavanja";
+            this.btnSettings.Text = "    Podešavanja";
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
@@ -411,7 +427,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 461);
+            this.ClientSize = new System.Drawing.Size(884, 498);
             this.Controls.Add(this.tlpMenu);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlStatus);
