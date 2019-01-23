@@ -133,6 +133,12 @@
     <Compile Include="forms\loginForms\PasswordChangeForm.Designer.cs">
       <DependentUpon>PasswordChangeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\settingsForms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\settingsForms\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\CustomControls\MyDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -326,6 +332,9 @@
     <EmbeddedResource Include="forms\serviceForms\NewNaturalEntityServiceForm.resx">
       <DependentUpon>NewNaturalEntityServiceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\settingsForms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\statisticsForms\ClientStatisticsForm.resx">
       <DependentUpon>ClientStatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -387,6 +396,12 @@
     <Content Include="icon.ico" />
     <Content Include="resources\add2.png" />
     <Content Include="resources\car-wash.png" />
+    <None Include="resources\lock.ico" />
+    <None Include="resources\cb61m-1d34t-001.ico" />
+    <None Include="resources\cb6vh-oe5lr-001.ico" />
+    <None Include="resources\cb85c-n4ve5-001.ico" />
+    <None Include="resources\cb8jl-5lnb1-001.ico" />
+    <None Include="resources\cb3t3-7i7rw-001.ico" />
     <Content Include="resources\icon.ico" />
     <None Include="resources\usr.ico" />
   </ItemGroup>

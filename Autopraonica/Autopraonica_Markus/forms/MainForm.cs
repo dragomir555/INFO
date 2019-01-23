@@ -13,6 +13,7 @@ using Autopraonica_Markus.Model.Entities;
 using Autopraonica_Markus.forms.loginForms;
 using System.Threading;
 using Autopraonica_Markus.forms.dialogForm;
+using Autopraonica_Markus.forms.settingsForms;
 
 namespace Autopraonica_Markus
 {
@@ -211,49 +212,6 @@ namespace Autopraonica_Markus
 
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            if (helpingEmployee != null)
-            {
-                //DialogResult dialogResult = MessageBox.Show("Ukoliko nastavite i ispomoć će biti odjavljena. Da li ste sigurni da želite da nastavite?",
-                //"Markus", MessageBoxButtons.YesNo);
-                DialogForm dialogForm = new DialogForm("Ukoliko nastavite i ispomoć će biti odjavljena. Da li ste sigurni da želite da nastavite?", "Markus");
-                DialogResult dialogResult = dialogForm.ShowDialog();
-                if (dialogResult == DialogResult.Yes)
-                {
-                    employeeFlag = false;
-                    helpingEmployeeFlag = false;
-                    SaveLogoutTime();
-                    SaveHelperLogoutTime();
-                    btnAddHelper.Visible = true;
-                    btnRemoveHelper.Visible = false;
-                    lblHelper.Text = "Ispomoć";
-                    employee = null;
-                    helpingEmployee = null;
-                    PressedButton.BackColor = Color.FromArgb(107, 65, 150);
-                    this.Hide();
-                    LoginForm loginForm = new LoginForm(this);
-                    loginForm.Show();
-                }
-            }
-            else
-            {
-                DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite da se odjavite?", "Markus");
-                DialogResult dialogResult = dialogForm.ShowDialog();
-                if (dialogResult == DialogResult.Yes)
-                {
-                    employeeFlag = false;
-                    SaveLogoutTime();
-                    cmbHelper.Visible = false;
-                    employee = null;
-                    PressedButton.BackColor = Color.FromArgb(107, 65, 150);
-                    this.Hide();
-                    LoginForm loginForm = new LoginForm(this);
-                    loginForm.Show();
-                }
-            }
-        }
-
         private void SaveLogoutTime()
         {
             using (MarkusDb context = new MarkusDb())
@@ -423,24 +381,10 @@ namespace Autopraonica_Markus
                 }
             }
         }
-
-        private void btnInactive_Click(object sender, EventArgs e)
-        {
-            StandByForm sbf = new StandByForm(employee);
-            sbf.ShowDialog();
-        }
-
+        
         private void btnPasswordChange_Click(object sender, EventArgs e)
         {
-            using (MarkusDb context = new MarkusDb())
-            {
-                var employment = (from c in context.employments
-                                  where c.Employee_Id == employee.Id &&
-                                  c.DateTo == null
-                                  select c).ToList();
-                PasswordChangeForm pcf = new PasswordChangeForm(employment[0], this, 1);
-                pcf.ShowDialog();
-            }
+            
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
@@ -522,5 +466,76 @@ namespace Autopraonica_Markus
             });
             helpingEmployeeLogoutThread.Start();
         }
+
+        private void pbLogOut_Click(object sender, EventArgs e)
+        {
+            if (helpingEmployee != null)
+            {
+                //DialogResult dialogResult = MessageBox.Show("Ukoliko nastavite i ispomoć će biti odjavljena. Da li ste sigurni da želite da nastavite?",
+                //"Markus", MessageBoxButtons.YesNo);
+                DialogForm dialogForm = new DialogForm("Ukoliko nastavite i ispomoć će biti odjavljena. Da li ste sigurni da želite da nastavite?", "Markus");
+                DialogResult dialogResult = dialogForm.ShowDialog();
+                if (dialogResult == DialogResult.Yes)
+                {
+                    employeeFlag = false;
+                    helpingEmployeeFlag = false;
+                    SaveLogoutTime();
+                    SaveHelperLogoutTime();
+                    btnAddHelper.Visible = true;
+                    btnRemoveHelper.Visible = false;
+                    lblHelper.Text = "Ispomoć";
+                    employee = null;
+                    helpingEmployee = null;
+                    PressedButton.BackColor = Color.FromArgb(107, 65, 150);
+                    this.Hide();
+                    LoginForm loginForm = new LoginForm(this);
+                    loginForm.Show();
+                }
+            }
+            else
+            {
+                DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite da se odjavite?", "Markus");
+                DialogResult dialogResult = dialogForm.ShowDialog();
+                if (dialogResult == DialogResult.Yes)
+                {
+                    employeeFlag = false;
+                    SaveLogoutTime();
+                    cmbHelper.Visible = false;
+                    employee = null;
+                    PressedButton.BackColor = Color.FromArgb(107, 65, 150);
+                    this.Hide();
+                    LoginForm loginForm = new LoginForm(this);
+                    loginForm.Show();
+                }
+            }
+        }
+
+        private void pbInactive_Click(object sender, EventArgs e)
+        {
+            StandByForm sbf = new StandByForm(employee);
+            sbf.ShowDialog();
+        }
+
+        private void pbChangePass_Click(object sender, EventArgs e)
+        {
+            using (MarkusDb context = new MarkusDb())
+            {
+                var employment = (from c in context.employments
+                                  where c.Employee_Id == employee.Id &&
+                                  c.DateTo == null
+                                  select c).ToList();
+                PasswordChangeForm pcf = new PasswordChangeForm(employment[0], this, 1);
+                pcf.ShowDialog();
+            }
+        }
+
+        private void pbSettings_Click(object sender, EventArgs e)
+        {
+            SettingsForm md = new SettingsForm();
+            md.SetValues();
+            md.Show();
+        }
+
+       
     }
 }
