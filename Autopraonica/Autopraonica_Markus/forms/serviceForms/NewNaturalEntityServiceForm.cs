@@ -53,8 +53,8 @@ namespace Autopraonica_Markus.forms.serviceForms
             {
                 var pricelistItemNames = (from c1 in context.pricelistitemnames join c2 in context.pricelistitems
                                           on c1.Id equals c2.PricelistItemName_Id
-                                          where c2.ServiceType_Id == ((servicetype)serviceType).Id
-                                          select c1).ToList();
+                                          where c2.ServiceType_Id == ((servicetype)serviceType).Id &&
+                                          c2.Current == 1 select c1).ToList();
                 cmbPricelistItem.DataSource = pricelistItemNames;
                 cmbPricelistItem.DisplayMember = "Name";
                 cmbPricelistItem.ValueMember = "Id";
