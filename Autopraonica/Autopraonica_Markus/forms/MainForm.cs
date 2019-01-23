@@ -536,6 +536,24 @@ namespace Autopraonica_Markus
             md.Show();
         }
 
-       
+        private void pbChangePass_MouseHover(object sender, EventArgs e)
+        {
+            tlTip.SetToolTip(pbChangePass, "Promjena lozinke");
+        }
+
+        private void pbSettings_MouseHover(object sender, EventArgs e)
+        {
+            tlTip.SetToolTip(pbSettings, "Podešavanja");
+        }
+
+        private void pbInactive_MouseHover(object sender, EventArgs e)
+        {
+            tlTip.SetToolTip(pbInactive, "Zaključavanje aplikacije"); 
+        }
+
+        private void pbLogOut_MouseHover(object sender, EventArgs e)
+        {
+            tlTip.SetToolTip(pbLogOut, "Odjavljivanje");
+        }
     }
 }

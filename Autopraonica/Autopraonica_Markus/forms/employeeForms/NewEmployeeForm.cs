@@ -73,7 +73,6 @@ namespace Autopraonica_Markus.forms.employeeForms
             if (string.IsNullOrWhiteSpace(tbFirstName.Text) || !match.Success)
             {
                 e.Cancel = true;
-                tbFirstName.Focus();
                 errorProvider.SetError(tbFirstName, "Molimo da unesete ispravno ime !");
             }
             else
@@ -91,7 +90,6 @@ namespace Autopraonica_Markus.forms.employeeForms
             if (string.IsNullOrWhiteSpace(tbLastName.Text) || !match.Success)
             {
                 e.Cancel = true;
-                tbLastName.Focus();
                 errorProvider.SetError(tbLastName, "Molimo da unesete ispravno prezime !");
             }
             else
@@ -107,7 +105,6 @@ namespace Autopraonica_Markus.forms.employeeForms
             if (string.IsNullOrWhiteSpace(tbAddress.Text))
             {
                 e.Cancel = true;
-                tbAddress.Focus();
                 errorProvider.SetError(tbAddress, "Molimo da unesete ispravno adresu !");
             }
             else
@@ -127,7 +124,6 @@ namespace Autopraonica_Markus.forms.employeeForms
             if (string.IsNullOrWhiteSpace(tbPhoneNumber.Text) || !match.Success)
             {
                 e.Cancel = true;
-                tbPhoneNumber.Focus();
                 errorProvider.SetError(tbPhoneNumber, "Molimo da unesete ispravno broj telefona !");
             }
             else
@@ -147,7 +143,6 @@ namespace Autopraonica_Markus.forms.employeeForms
             if (string.IsNullOrWhiteSpace(tbEMail.Text) || !match.Success)
             {
                 e.Cancel = true;
-                tbEMail.Focus();
                 errorProvider.SetError(tbEMail, "Molimo da unesete ispravno e-mail !");
             }
             else
@@ -165,7 +160,6 @@ namespace Autopraonica_Markus.forms.employeeForms
             if (string.IsNullOrWhiteSpace(tbPID.Text) || (tbPID.Text.Length!=13) || (!match.Success))
             {
                 e.Cancel = true;
-                tbPID.Focus();
                 errorProvider.SetError(tbPID, "Molimo da unesete ispravno JMB !");
             }
             else

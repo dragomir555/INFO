@@ -28,8 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlStatus = new System.Windows.Forms.Panel();
+            this.pbChangePass = new System.Windows.Forms.PictureBox();
+            this.pbInactive = new System.Windows.Forms.PictureBox();
+            this.pbSettings = new System.Windows.Forms.PictureBox();
+            this.pbLogOut = new System.Windows.Forms.PictureBox();
             this.cmbHelper = new System.Windows.Forms.ComboBox();
             this.btnRemoveHelper = new System.Windows.Forms.Button();
             this.btnAddHelper = new System.Windows.Forms.Button();
@@ -48,17 +53,14 @@
             this.btnTroskovnik = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSettings = new System.Windows.Forms.Button();
-            this.pbChangePass = new System.Windows.Forms.PictureBox();
-            this.pbInactive = new System.Windows.Forms.PictureBox();
-            this.pbSettings = new System.Windows.Forms.PictureBox();
-            this.pbLogOut = new System.Windows.Forms.PictureBox();
+            this.tlTip = new System.Windows.Forms.ToolTip(this.components);
             this.pnlStatus.SuspendLayout();
-            this.tlpMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbChangePass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInactive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogOut)).BeginInit();
+            this.tlpMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlStatus
@@ -78,11 +80,59 @@
             this.pnlStatus.Controls.Add(this.lblDate);
             this.pnlStatus.Controls.Add(this.lblTime);
             this.pnlStatus.Location = new System.Drawing.Point(267, 0);
-            this.pnlStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlStatus.Margin = new System.Windows.Forms.Padding(4);
             this.pnlStatus.Name = "pnlStatus";
             this.pnlStatus.Size = new System.Drawing.Size(912, 86);
             this.pnlStatus.TabIndex = 1;
             this.pnlStatus.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // pbChangePass
+            // 
+            this.pbChangePass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbChangePass.Image = global::Autopraonica_Markus.Properties.Resources.cb3t3_7i7rw_001;
+            this.pbChangePass.Location = new System.Drawing.Point(523, 12);
+            this.pbChangePass.Name = "pbChangePass";
+            this.pbChangePass.Size = new System.Drawing.Size(56, 45);
+            this.pbChangePass.TabIndex = 13;
+            this.pbChangePass.TabStop = false;
+            this.pbChangePass.Click += new System.EventHandler(this.pbChangePass_Click);
+            this.pbChangePass.MouseHover += new System.EventHandler(this.pbChangePass_MouseHover);
+            // 
+            // pbInactive
+            // 
+            this.pbInactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbInactive.Image = global::Autopraonica_Markus.Properties.Resources._lock;
+            this.pbInactive.Location = new System.Drawing.Point(647, 15);
+            this.pbInactive.Name = "pbInactive";
+            this.pbInactive.Size = new System.Drawing.Size(56, 45);
+            this.pbInactive.TabIndex = 12;
+            this.pbInactive.TabStop = false;
+            this.pbInactive.Click += new System.EventHandler(this.pbInactive_Click);
+            this.pbInactive.MouseHover += new System.EventHandler(this.pbInactive_MouseHover);
+            // 
+            // pbSettings
+            // 
+            this.pbSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbSettings.Image = global::Autopraonica_Markus.Properties.Resources.cb85c_n4ve5_001;
+            this.pbSettings.Location = new System.Drawing.Point(585, 12);
+            this.pbSettings.Name = "pbSettings";
+            this.pbSettings.Size = new System.Drawing.Size(56, 45);
+            this.pbSettings.TabIndex = 11;
+            this.pbSettings.TabStop = false;
+            this.pbSettings.Click += new System.EventHandler(this.pbSettings_Click);
+            this.pbSettings.MouseHover += new System.EventHandler(this.pbSettings_MouseHover);
+            // 
+            // pbLogOut
+            // 
+            this.pbLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbLogOut.Image = global::Autopraonica_Markus.Properties.Resources.cb61m_1d34t_001;
+            this.pbLogOut.Location = new System.Drawing.Point(709, 15);
+            this.pbLogOut.Name = "pbLogOut";
+            this.pbLogOut.Size = new System.Drawing.Size(56, 45);
+            this.pbLogOut.TabIndex = 10;
+            this.pbLogOut.TabStop = false;
+            this.pbLogOut.Click += new System.EventHandler(this.pbLogOut_Click);
+            this.pbLogOut.MouseHover += new System.EventHandler(this.pbLogOut_MouseHover);
             // 
             // cmbHelper
             // 
@@ -90,7 +140,7 @@
             this.cmbHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbHelper.FormattingEnabled = true;
             this.cmbHelper.Location = new System.Drawing.Point(323, 47);
-            this.cmbHelper.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbHelper.Margin = new System.Windows.Forms.Padding(4);
             this.cmbHelper.Name = "cmbHelper";
             this.cmbHelper.Size = new System.Drawing.Size(193, 32);
             this.cmbHelper.TabIndex = 7;
@@ -105,7 +155,7 @@
             this.btnRemoveHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveHelper.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnRemoveHelper.Location = new System.Drawing.Point(214, 47);
-            this.btnRemoveHelper.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemoveHelper.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveHelper.Name = "btnRemoveHelper";
             this.btnRemoveHelper.Size = new System.Drawing.Size(104, 33);
             this.btnRemoveHelper.TabIndex = 6;
@@ -121,7 +171,7 @@
             this.btnAddHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddHelper.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnAddHelper.Location = new System.Drawing.Point(214, 46);
-            this.btnAddHelper.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddHelper.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddHelper.Name = "btnAddHelper";
             this.btnAddHelper.Size = new System.Drawing.Size(104, 33);
             this.btnAddHelper.TabIndex = 5;
@@ -188,7 +238,7 @@
             this.pnlContent.BackColor = System.Drawing.Color.White;
             this.pnlContent.ForeColor = System.Drawing.Color.Black;
             this.pnlContent.Location = new System.Drawing.Point(267, 86);
-            this.pnlContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlContent.Margin = new System.Windows.Forms.Padding(4);
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(913, 527);
             this.pnlContent.TabIndex = 2;
@@ -211,7 +261,7 @@
             this.tlpMenu.Controls.Add(this.pictureBox1, 0, 0);
             this.tlpMenu.Controls.Add(this.btnSettings, 0, 9);
             this.tlpMenu.Location = new System.Drawing.Point(0, 0);
-            this.tlpMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tlpMenu.Margin = new System.Windows.Forms.Padding(4);
             this.tlpMenu.Name = "tlpMenu";
             this.tlpMenu.RowCount = 11;
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22F));
@@ -404,50 +454,6 @@
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
-            // pbChangePass
-            // 
-            this.pbChangePass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbChangePass.Image = global::Autopraonica_Markus.Properties.Resources.cb3t3_7i7rw_001;
-            this.pbChangePass.Location = new System.Drawing.Point(523, 12);
-            this.pbChangePass.Name = "pbChangePass";
-            this.pbChangePass.Size = new System.Drawing.Size(56, 45);
-            this.pbChangePass.TabIndex = 13;
-            this.pbChangePass.TabStop = false;
-            this.pbChangePass.Click += new System.EventHandler(this.pbChangePass_Click);
-            // 
-            // pbInactive
-            // 
-            this.pbInactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbInactive.Image = global::Autopraonica_Markus.Properties.Resources._lock;
-            this.pbInactive.Location = new System.Drawing.Point(647, 15);
-            this.pbInactive.Name = "pbInactive";
-            this.pbInactive.Size = new System.Drawing.Size(56, 45);
-            this.pbInactive.TabIndex = 12;
-            this.pbInactive.TabStop = false;
-            this.pbInactive.Click += new System.EventHandler(this.pbInactive_Click);
-            // 
-            // pbSettings
-            // 
-            this.pbSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbSettings.Image = global::Autopraonica_Markus.Properties.Resources.cb85c_n4ve5_001;
-            this.pbSettings.Location = new System.Drawing.Point(585, 12);
-            this.pbSettings.Name = "pbSettings";
-            this.pbSettings.Size = new System.Drawing.Size(56, 45);
-            this.pbSettings.TabIndex = 11;
-            this.pbSettings.TabStop = false;
-            this.pbSettings.Click += new System.EventHandler(this.pbSettings_Click);
-            // 
-            // pbLogOut
-            // 
-            this.pbLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbLogOut.Image = global::Autopraonica_Markus.Properties.Resources.cb61m_1d34t_001;
-            this.pbLogOut.Location = new System.Drawing.Point(709, 15);
-            this.pbLogOut.Name = "pbLogOut";
-            this.pbLogOut.Size = new System.Drawing.Size(56, 45);
-            this.pbLogOut.TabIndex = 10;
-            this.pbLogOut.TabStop = false;
-            this.pbLogOut.Click += new System.EventHandler(this.pbLogOut_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -457,7 +463,7 @@
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Markus";
@@ -466,12 +472,12 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.pnlStatus.ResumeLayout(false);
             this.pnlStatus.PerformLayout();
-            this.tlpMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbChangePass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInactive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogOut)).EndInit();
+            this.tlpMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -500,6 +506,7 @@
         private System.Windows.Forms.PictureBox pbInactive;
         private System.Windows.Forms.PictureBox pbSettings;
         private System.Windows.Forms.PictureBox pbLogOut;
+        private System.Windows.Forms.ToolTip tlTip;
     }
 }
 
