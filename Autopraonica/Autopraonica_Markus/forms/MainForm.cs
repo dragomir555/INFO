@@ -275,10 +275,8 @@ namespace Autopraonica_Markus
         {
             if (employee != null)
             {
-                /*DialogResult dialogResult = MessageBox.Show("Ukoliko nastavite bićete odjavljeni sa sistema. Da li ste sigurni da želite da zatvorite aplikaciju?",
-                    "Markus", MessageBoxButtons.YesNo);*/
-                DialogForm dialogForm = new DialogForm("Ukoliko nastavite bićete odjavljeni sa sistema. Da li ste sigurni da želite da zatvorite aplikaciju?", "Markus");
-                DialogResult dialogResult = dialogForm.ShowDialog();
+                DialogResult dialogResult = MessageBox.Show("Ukoliko nastavite bićete odjavljeni sa sistema. Da li ste sigurni da želite da zatvorite aplikaciju?",
+                    "Markus", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     employeeFlag = false;
@@ -298,10 +296,8 @@ namespace Autopraonica_Markus
 
         private void btnRemoveHelper_Click(object sender, EventArgs e)
         {
-            /*DialogResult dialogResult = MessageBox.Show("Da li se sigurni da zelite da uklonite ispomoć?",
-                "Markus", MessageBoxButtons.YesNo);*/
-            DialogForm dialogForm = new DialogForm("Da li se sigurni da zelite da uklonite ispomoć?", "Markus");
-            DialogResult dialogResult = dialogForm.ShowDialog();
+            DialogResult dialogResult = MessageBox.Show("Da li se sigurni da zelite da uklonite ispomoć?",
+                "Markus", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 uclUsluge.Instance.RemoveHelpingEmployee();
@@ -347,13 +343,9 @@ namespace Autopraonica_Markus
             if (cmbHelper.SelectedIndex != 0)
             {
                 helpingEmployee = (employee)cmbHelper.SelectedItem;
-                /*DialogResult dialogResult = MessageBox.Show("Da li se sigurni da zelite da dodate zaposlenog " +
+                DialogResult dialogResult = MessageBox.Show("Da li se sigurni da zelite da dodate zaposlenog " +
                     helpingEmployee.FirstName + " " + helpingEmployee.LastName +
-                    " kao ispomoć?", "Markus", MessageBoxButtons.YesNo);*/
-                DialogForm dialogForm = new DialogForm("Da li se sigurni da zelite da dodate zaposlenog " +
-                    helpingEmployee.FirstName + " " + helpingEmployee.LastName +
-                    " kao ispomoć?", "Markus");
-                DialogResult dialogResult = dialogForm.ShowDialog();
+                    " kao ispomoć?", "Markus", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     lblHelper.Text = "Ispomoć: " + helpingEmployee.FirstName + " " + helpingEmployee.LastName;
@@ -453,10 +445,8 @@ namespace Autopraonica_Markus
         {
             if (helpingEmployee != null)
             {
-                //DialogResult dialogResult = MessageBox.Show("Ukoliko nastavite i ispomoć će biti odjavljena. Da li ste sigurni da želite da nastavite?",
-                //"Markus", MessageBoxButtons.YesNo);
-                DialogForm dialogForm = new DialogForm("Ukoliko nastavite i ispomoć će biti odjavljena. Da li ste sigurni da želite da nastavite?", "Markus");
-                DialogResult dialogResult = dialogForm.ShowDialog();
+                DialogResult dialogResult = MessageBox.Show("Ukoliko nastavite i ispomoć će biti odjavljena. Da li ste sigurni da želite da nastavite?",
+                    "Markus", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     employeeFlag = false;
