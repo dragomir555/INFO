@@ -387,6 +387,7 @@
             // pbChangePass
             // 
             this.pbChangePass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbChangePass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbChangePass.Image = global::Autopraonica_Markus.Properties.Resources.key;
             this.pbChangePass.Location = new System.Drawing.Point(610, 15);
             this.pbChangePass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -400,6 +401,7 @@
             // pbInactive
             // 
             this.pbInactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbInactive.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbInactive.Image = global::Autopraonica_Markus.Properties.Resources.lock1;
             this.pbInactive.Location = new System.Drawing.Point(683, 16);
             this.pbInactive.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -413,6 +415,7 @@
             // pbSettings
             // 
             this.pbSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbSettings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbSettings.Image = global::Autopraonica_Markus.Properties.Resources.set;
             this.pbSettings.Location = new System.Drawing.Point(540, 16);
             this.pbSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -426,6 +429,7 @@
             // pbLogOut
             // 
             this.pbLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbLogOut.Image = global::Autopraonica_Markus.Properties.Resources.izlaz;
             this.pbLogOut.Location = new System.Drawing.Point(766, 15);
             this.pbLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
