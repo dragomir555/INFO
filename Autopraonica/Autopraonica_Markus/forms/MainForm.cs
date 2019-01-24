@@ -269,6 +269,7 @@ namespace Autopraonica_Markus
             btnKlijenti.Visible = b;
             btnStatistika.Visible = b;
             btnZaposleni.Visible = b;
+            pbSettings.Visible = b;
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -466,8 +467,8 @@ namespace Autopraonica_Markus
             }
             else
             {
-                DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite da se odjavite?", "Markus");
-                DialogResult dialogResult = dialogForm.ShowDialog();
+                DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                    "Markus", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     employeeFlag = false;
