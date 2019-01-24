@@ -120,9 +120,9 @@
             this.cmbCityList.Location = new System.Drawing.Point(240, 192);
             this.cmbCityList.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCityList.Name = "cmbCityList";
-            this.cmbCityList.Size = new System.Drawing.Size(267, 33);
+            this.cmbCityList.Size = new System.Drawing.Size(237, 33);
             this.cmbCityList.TabIndex = 4;
-            this.cmbCityList.SelectedIndexChanged += new System.EventHandler(this.cmbCityList_SelectedIndexChanged);
+            this.cmbCityList.Validating += new System.ComponentModel.CancelEventHandler(this.cmbCityList_Validating);
             // 
             // lblName
             // 
@@ -198,10 +198,10 @@
             // 
             // btnAddCity
             // 
-            this.btnAddCity.Location = new System.Drawing.Point(517, 192);
+            this.btnAddCity.Location = new System.Drawing.Point(519, 192);
             this.btnAddCity.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddCity.Name = "btnAddCity";
-            this.btnAddCity.Size = new System.Drawing.Size(84, 34);
+            this.btnAddCity.Size = new System.Drawing.Size(82, 34);
             this.btnAddCity.TabIndex = 11;
             this.btnAddCity.Text = "Add";
             this.btnAddCity.UseVisualStyleBackColor = true;

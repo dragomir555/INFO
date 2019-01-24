@@ -218,7 +218,7 @@ new { Client = cl, Contract = cop }).ToList();
             }
             else
             {
-                MessageBox.Show("Izaberite klijenta iz tabele");
+                MessageBox.Show("Izaberite klijenta iz tabele","Greška");
             }
         }
 
@@ -268,6 +268,7 @@ new { Client = cl, Contract = cop }).ToList();
                                     co.Client_Id = cl.Id;
                                     context.contracts.Add(co);
                                     context.SaveChanges();
+                                    MessageBox.Show("Za klijent "+cl.Name+" je dodan novi ugovor!", "Informacija");
                                     FillTable();
                                 }
                             }
@@ -276,18 +277,18 @@ new { Client = cl, Contract = cop }).ToList();
                     }
                     else
                     {
-                        MessageBox.Show("Кlijent ima aktivan ugovor za novi ugovor poništiti prethodni", "Markus");
+                        MessageBox.Show("Кlijent ima aktivan ugovor za novi ugovor poništiti postojeći!", "Informacija");
                     }
                     
                 }
                 else
                 {
-                    MessageBox.Show("Кlijent ima aktivan ugovor za novi ugovor poništiti prethodni", "Markus");
+                    MessageBox.Show("Кlijent ima aktivan ugovor za novi ugovor poništiti postojeći!", "Informacija");
                 }
             }
             else
             {
-                MessageBox.Show("Izaberite klijenta iz tabele");
+                MessageBox.Show("Izaberite klijenta iz tabele","Greška");
             }
         }
 

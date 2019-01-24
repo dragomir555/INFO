@@ -28,21 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnIzmjeniKlijenta = new System.Windows.Forms.Button();
             this.tbSearchText = new System.Windows.Forms.TextBox();
             this.dgvKlijenti = new System.Windows.Forms.DataGridView();
-            this.colNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colJIB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGrad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUgovorOd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUgovorDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNoviKlijent = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cmbSearchType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbContractOver = new System.Windows.Forms.CheckBox();
             this.cancelContract = new System.Windows.Forms.Button();
+            this.colUgovorDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUgovorOd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGrad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colJIB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +86,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvKlijenti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvKlijenti.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvKlijenti.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvKlijenti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKlijenti.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colNaziv,
@@ -92,51 +102,24 @@
             this.colAddress,
             this.colUgovorOd,
             this.colUgovorDo});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvKlijenti.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvKlijenti.Location = new System.Drawing.Point(27, 59);
             this.dgvKlijenti.Margin = new System.Windows.Forms.Padding(4);
             this.dgvKlijenti.MultiSelect = false;
             this.dgvKlijenti.Name = "dgvKlijenti";
             this.dgvKlijenti.ReadOnly = true;
             this.dgvKlijenti.RowHeadersVisible = false;
+            this.dgvKlijenti.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvKlijenti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKlijenti.Size = new System.Drawing.Size(865, 337);
             this.dgvKlijenti.TabIndex = 3;
-            // 
-            // colNaziv
-            // 
-            this.colNaziv.HeaderText = "Naziv klijenta";
-            this.colNaziv.Name = "colNaziv";
-            this.colNaziv.ReadOnly = true;
-            // 
-            // colJIB
-            // 
-            this.colJIB.HeaderText = "JIB";
-            this.colJIB.Name = "colJIB";
-            this.colJIB.ReadOnly = true;
-            // 
-            // colGrad
-            // 
-            this.colGrad.HeaderText = "Grad";
-            this.colGrad.Name = "colGrad";
-            this.colGrad.ReadOnly = true;
-            // 
-            // colAddress
-            // 
-            this.colAddress.HeaderText = "Adresa";
-            this.colAddress.Name = "colAddress";
-            this.colAddress.ReadOnly = true;
-            // 
-            // colUgovorOd
-            // 
-            this.colUgovorOd.HeaderText = "UgovorOd";
-            this.colUgovorOd.Name = "colUgovorOd";
-            this.colUgovorOd.ReadOnly = true;
-            // 
-            // colUgovorDo
-            // 
-            this.colUgovorDo.HeaderText = "UgovorDo";
-            this.colUgovorDo.Name = "colUgovorDo";
-            this.colUgovorDo.ReadOnly = true;
             // 
             // btnNoviKlijent
             // 
@@ -231,6 +214,42 @@
             this.cancelContract.UseVisualStyleBackColor = false;
             this.cancelContract.Click += new System.EventHandler(this.button2_Click);
             // 
+            // colUgovorDo
+            // 
+            this.colUgovorDo.HeaderText = "UgovorDo";
+            this.colUgovorDo.Name = "colUgovorDo";
+            this.colUgovorDo.ReadOnly = true;
+            // 
+            // colUgovorOd
+            // 
+            this.colUgovorOd.HeaderText = "UgovorOd";
+            this.colUgovorOd.Name = "colUgovorOd";
+            this.colUgovorOd.ReadOnly = true;
+            // 
+            // colAddress
+            // 
+            this.colAddress.HeaderText = "Adresa";
+            this.colAddress.Name = "colAddress";
+            this.colAddress.ReadOnly = true;
+            // 
+            // colGrad
+            // 
+            this.colGrad.HeaderText = "Grad";
+            this.colGrad.Name = "colGrad";
+            this.colGrad.ReadOnly = true;
+            // 
+            // colJIB
+            // 
+            this.colJIB.HeaderText = "JIB";
+            this.colJIB.Name = "colJIB";
+            this.colJIB.ReadOnly = true;
+            // 
+            // colNaziv
+            // 
+            this.colNaziv.HeaderText = "Naziv klijenta";
+            this.colNaziv.Name = "colNaziv";
+            this.colNaziv.ReadOnly = true;
+            // 
             // uclKlijenti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -260,16 +279,16 @@
         private System.Windows.Forms.TextBox tbSearchText;
         private System.Windows.Forms.DataGridView dgvKlijenti;
         private System.Windows.Forms.Button btnNoviKlijent;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cmbSearchType;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox cbContractOver;
+        private System.Windows.Forms.Button cancelContract;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNaziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn colJIB;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGrad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUgovorOd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUgovorDo;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox cmbSearchType;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox cbContractOver;
-        private System.Windows.Forms.Button cancelContract;
     }
 }

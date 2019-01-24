@@ -81,6 +81,18 @@ namespace Autopraonica_Markus.forms.puchaseForms
             this.DialogResult = DialogResult.Cancel;
         }
 
- 
+        private void cmbUnit_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbUnit.SelectedItem == null)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(cmbUnit, "Izaberite mjernu jedinicu!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(cmbUnit, null);
+            }
+        }
     }
 }

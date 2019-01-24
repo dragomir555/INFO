@@ -37,9 +37,7 @@ namespace Autopraonica_Markus.forms.clientForms
                 cmbCityList.DataSource = gradovi;
                 cmbCityList.DisplayMember = "Name";
                 cmbCityList.ValueMember = "Id";
-
-                city k = gradovi.First();
-                cmbCityList.SelectedItem = k;
+                
             }
             
 
@@ -50,7 +48,6 @@ namespace Autopraonica_Markus.forms.clientForms
 
             if (!ValidateChildren(ValidationConstraints.Enabled))
             {
-
                 //Debug.WriteLine("Dragomir");
             }
             else
@@ -71,11 +68,6 @@ namespace Autopraonica_Markus.forms.clientForms
                // this.Close();
             }
             
-        }
-
-        private void cmbCityList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void cbUgovorNa_CheckedChanged(object sender, EventArgs e)
@@ -190,10 +182,12 @@ namespace Autopraonica_Markus.forms.clientForms
             if ((int)this.Tag == 1) {
             cbUgovorNa.Hide();
             dtpUgovorDo.Hide();
+
+                FillComboCity();
+                cmbCityList.SelectedValue = IdCity;
             }
             
-            FillComboCity();
-            cmbCityList.SelectedValue = IdCity;
+          
             if ((int)this.Tag == 2)
             {
                 txtName.Enabled = false;
@@ -215,6 +209,20 @@ namespace Autopraonica_Markus.forms.clientForms
         private void txtUID_KeyPress(object sender, KeyPressEventArgs e)
         {
             AllowInteger(sender, e);
+        }
+
+        private void cmbCityList_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbCityList.SelectedItem == null)
+            {
+                e.Cancel = true;
+                errorProviderClient.SetError(cmbCityList, "Izaberite grad");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProviderClient.SetError(cmbCityList, null);
+            }
         }
     }
 }
