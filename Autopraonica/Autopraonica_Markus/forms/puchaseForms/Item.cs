@@ -139,21 +139,18 @@ namespace Autopraonica_Markus.forms.puchaseForms
         {
             FillTable();
         }
-        /*
+        
        private void AllowInteger(object sender, KeyPressEventArgs e)
         {
             // allows 0-9, backspace, and decimal
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8))
             {
                 e.Handled = true;
                 return;
             }
         }
 
-        private void tbQuantity_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            AllowInteger(sender, e);
-        }
+      
 
         private void AllowDecimal(object sender, KeyPressEventArgs e)
         {
@@ -172,9 +169,14 @@ namespace Autopraonica_Markus.forms.puchaseForms
             }
         }
 
+        private void tbQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowInteger(sender,e);
+        }
+
         private void tbPrize_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AllowDecimal(sender, e);
-        }*/
+         //   AllowDecimal(sender, e);
+        }
     }
 }

@@ -26,7 +26,6 @@ namespace Autopraonica_Markus.forms.clientForms
             InitializeComponent();
             dtpUgovorDo.Hide();
             FillComboCity();
-            cmbCityList.SelectedIndex = 1;
         }
 
 
@@ -38,7 +37,12 @@ namespace Autopraonica_Markus.forms.clientForms
                 cmbCityList.DataSource = gradovi;
                 cmbCityList.DisplayMember = "Name";
                 cmbCityList.ValueMember = "Id";
+
+                city k = gradovi.First();
+                cmbCityList.SelectedItem = k;
             }
+            
+
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)

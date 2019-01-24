@@ -56,7 +56,7 @@
             this.btnIzmjeniKlijenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnIzmjeniKlijenta.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnIzmjeniKlijenta.Location = new System.Drawing.Point(241, 404);
-            this.btnIzmjeniKlijenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnIzmjeniKlijenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnIzmjeniKlijenta.Name = "btnIzmjeniKlijenta";
             this.btnIzmjeniKlijenta.Size = new System.Drawing.Size(187, 55);
             this.btnIzmjeniKlijenta.TabIndex = 1;
@@ -68,7 +68,7 @@
             // 
             this.tbSearchText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbSearchText.Location = new System.Drawing.Point(536, 18);
-            this.tbSearchText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSearchText.Margin = new System.Windows.Forms.Padding(4);
             this.tbSearchText.Name = "tbSearchText";
             this.tbSearchText.Size = new System.Drawing.Size(316, 30);
             this.tbSearchText.TabIndex = 2;
@@ -93,9 +93,10 @@
             this.colUgovorOd,
             this.colUgovorDo});
             this.dgvKlijenti.Location = new System.Drawing.Point(27, 59);
-            this.dgvKlijenti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvKlijenti.Margin = new System.Windows.Forms.Padding(4);
             this.dgvKlijenti.MultiSelect = false;
             this.dgvKlijenti.Name = "dgvKlijenti";
+            this.dgvKlijenti.ReadOnly = true;
             this.dgvKlijenti.RowHeadersVisible = false;
             this.dgvKlijenti.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKlijenti.Size = new System.Drawing.Size(865, 337);
@@ -117,21 +118,25 @@
             // 
             this.colGrad.HeaderText = "Grad";
             this.colGrad.Name = "colGrad";
+            this.colGrad.ReadOnly = true;
             // 
             // colAddress
             // 
             this.colAddress.HeaderText = "Adresa";
             this.colAddress.Name = "colAddress";
+            this.colAddress.ReadOnly = true;
             // 
             // colUgovorOd
             // 
             this.colUgovorOd.HeaderText = "UgovorOd";
             this.colUgovorOd.Name = "colUgovorOd";
+            this.colUgovorOd.ReadOnly = true;
             // 
             // colUgovorDo
             // 
             this.colUgovorDo.HeaderText = "UgovorDo";
             this.colUgovorDo.Name = "colUgovorDo";
+            this.colUgovorDo.ReadOnly = true;
             // 
             // btnNoviKlijent
             // 
@@ -143,7 +148,7 @@
             this.btnNoviKlijent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNoviKlijent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNoviKlijent.Location = new System.Drawing.Point(27, 404);
-            this.btnNoviKlijent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNoviKlijent.Margin = new System.Windows.Forms.Padding(4);
             this.btnNoviKlijent.Name = "btnNoviKlijent";
             this.btnNoviKlijent.Size = new System.Drawing.Size(187, 55);
             this.btnNoviKlijent.TabIndex = 4;
@@ -161,7 +166,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Location = new System.Drawing.Point(476, 404);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(187, 55);
             this.button1.TabIndex = 5;
@@ -178,7 +183,7 @@
             "Naziv",
             "JIB"});
             this.cmbSearchType.Location = new System.Drawing.Point(367, 16);
-            this.cmbSearchType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbSearchType.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSearchType.Name = "cmbSearchType";
             this.cmbSearchType.Size = new System.Drawing.Size(160, 33);
             this.cmbSearchType.TabIndex = 6;
@@ -200,7 +205,7 @@
             this.cbContractOver.AutoSize = true;
             this.cbContractOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbContractOver.Location = new System.Drawing.Point(27, 18);
-            this.cbContractOver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbContractOver.Margin = new System.Windows.Forms.Padding(4);
             this.cbContractOver.Name = "cbContractOver";
             this.cbContractOver.Size = new System.Drawing.Size(178, 29);
             this.cbContractOver.TabIndex = 8;
@@ -218,7 +223,7 @@
             this.cancelContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cancelContract.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.cancelContract.Location = new System.Drawing.Point(705, 404);
-            this.cancelContract.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelContract.Margin = new System.Windows.Forms.Padding(4);
             this.cancelContract.Name = "cancelContract";
             this.cancelContract.Size = new System.Drawing.Size(187, 55);
             this.cancelContract.TabIndex = 9;
@@ -240,7 +245,7 @@
             this.Controls.Add(this.btnNoviKlijent);
             this.Controls.Add(this.dgvKlijenti);
             this.Controls.Add(this.btnIzmjeniKlijenta);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uclKlijenti";
             this.Size = new System.Drawing.Size(911, 470);
             this.Load += new System.EventHandler(this.uclKlijenti_Load);

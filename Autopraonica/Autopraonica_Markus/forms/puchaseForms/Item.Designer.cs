@@ -121,6 +121,7 @@
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.Size = new System.Drawing.Size(185, 26);
             this.tbQuantity.TabIndex = 5;
+            this.tbQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQuantity_KeyPress);
             this.tbQuantity.Validating += new System.ComponentModel.CancelEventHandler(this.tbQuantity_Validating);
             // 
             // tbPrize
@@ -129,6 +130,7 @@
             this.tbPrize.Name = "tbPrize";
             this.tbPrize.Size = new System.Drawing.Size(91, 26);
             this.tbPrize.TabIndex = 6;
+            this.tbPrize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrize_KeyPress);
             this.tbPrize.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrize_Validating);
             // 
             // label4
@@ -154,6 +156,7 @@
             this.dgvItems.Location = new System.Drawing.Point(12, 54);
             this.dgvItems.MultiSelect = false;
             this.dgvItems.Name = "dgvItems";
+            this.dgvItems.ReadOnly = true;
             this.dgvItems.RowHeadersVisible = false;
             this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItems.Size = new System.Drawing.Size(478, 116);
@@ -164,11 +167,13 @@
             // 
             this.nameItem.HeaderText = "Naziv kolone";
             this.nameItem.Name = "nameItem";
+            this.nameItem.ReadOnly = true;
             // 
             // unitName
             // 
             this.unitName.HeaderText = "Mjerna Jedinica";
             this.unitName.Name = "unitName";
+            this.unitName.ReadOnly = true;
             // 
             // tbSearchText
             // 

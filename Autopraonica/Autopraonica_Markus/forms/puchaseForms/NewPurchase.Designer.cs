@@ -54,7 +54,7 @@
             // 
             this.tbNumberPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbNumberPurchase.Location = new System.Drawing.Point(185, 18);
-            this.tbNumberPurchase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNumberPurchase.Margin = new System.Windows.Forms.Padding(4);
             this.tbNumberPurchase.Name = "tbNumberPurchase";
             this.tbNumberPurchase.Size = new System.Drawing.Size(321, 26);
             this.tbNumberPurchase.TabIndex = 0;
@@ -75,6 +75,8 @@
             // dgvItems
             // 
             this.dgvItems.AllowUserToAddRows = false;
+            this.dgvItems.AllowUserToDeleteRows = false;
+            this.dgvItems.AllowUserToResizeRows = false;
             this.dgvItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvItems.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -84,9 +86,10 @@
             this.clUnit,
             this.clPrice});
             this.dgvItems.Location = new System.Drawing.Point(4, 102);
-            this.dgvItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvItems.Margin = new System.Windows.Forms.Padding(4);
             this.dgvItems.MultiSelect = false;
             this.dgvItems.Name = "dgvItems";
+            this.dgvItems.ReadOnly = true;
             this.dgvItems.RowHeadersVisible = false;
             this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItems.Size = new System.Drawing.Size(713, 214);
@@ -96,21 +99,25 @@
             // 
             this.clNameItem.HeaderText = "Naziv stavke";
             this.clNameItem.Name = "clNameItem";
+            this.clNameItem.ReadOnly = true;
             // 
             // clQuantity
             // 
             this.clQuantity.HeaderText = "Kolicina";
             this.clQuantity.Name = "clQuantity";
+            this.clQuantity.ReadOnly = true;
             // 
             // clUnit
             // 
             this.clUnit.HeaderText = "Jedinica";
             this.clUnit.Name = "clUnit";
+            this.clUnit.ReadOnly = true;
             // 
             // clPrice
             // 
             this.clPrice.HeaderText = "Cijena";
             this.clPrice.Name = "clPrice";
+            this.clPrice.ReadOnly = true;
             // 
             // btnConfirm
             // 
@@ -121,7 +128,7 @@
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
             this.btnConfirm.Location = new System.Drawing.Point(125, 343);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(187, 43);
             this.btnConfirm.TabIndex = 3;
@@ -138,7 +145,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(393, 343);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(187, 43);
             this.btnCancel.TabIndex = 4;
@@ -176,7 +183,7 @@
             this.btnNewItemT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNewItemT.ForeColor = System.Drawing.Color.White;
             this.btnNewItemT.Location = new System.Drawing.Point(543, 14);
-            this.btnNewItemT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewItemT.Margin = new System.Windows.Forms.Padding(4);
             this.btnNewItemT.Name = "btnNewItemT";
             this.btnNewItemT.Size = new System.Drawing.Size(176, 37);
             this.btnNewItemT.TabIndex = 9;
@@ -193,7 +200,7 @@
             this.btnDeleteItemT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDeleteItemT.ForeColor = System.Drawing.Color.White;
             this.btnDeleteItemT.Location = new System.Drawing.Point(543, 58);
-            this.btnDeleteItemT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteItemT.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteItemT.Name = "btnDeleteItemT";
             this.btnDeleteItemT.Size = new System.Drawing.Size(175, 37);
             this.btnDeleteItemT.TabIndex = 10;
@@ -215,7 +222,7 @@
             // tbNameSuplier
             // 
             this.tbNameSuplier.Location = new System.Drawing.Point(185, 65);
-            this.tbNameSuplier.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNameSuplier.Margin = new System.Windows.Forms.Padding(4);
             this.tbNameSuplier.Name = "tbNameSuplier";
             this.tbNameSuplier.Size = new System.Drawing.Size(321, 22);
             this.tbNameSuplier.TabIndex = 12;
@@ -245,7 +252,7 @@
             this.Controls.Add(this.tbNumberPurchase);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewPurchase";

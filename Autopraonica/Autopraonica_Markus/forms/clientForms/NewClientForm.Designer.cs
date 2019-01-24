@@ -56,7 +56,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(391, 326);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(187, 43);
             this.btnCancel.TabIndex = 7;
@@ -73,7 +73,7 @@
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
             this.btnConfirm.Location = new System.Drawing.Point(44, 326);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(187, 43);
             this.btnConfirm.TabIndex = 6;
@@ -85,7 +85,7 @@
             // 
             this.txtUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtUID.Location = new System.Drawing.Point(240, 80);
-            this.txtUID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUID.Margin = new System.Windows.Forms.Padding(4);
             this.txtUID.Name = "txtUID";
             this.txtUID.Size = new System.Drawing.Size(360, 30);
             this.txtUID.TabIndex = 2;
@@ -96,7 +96,7 @@
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtName.Location = new System.Drawing.Point(240, 25);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(360, 30);
             this.txtName.TabIndex = 1;
@@ -106,7 +106,7 @@
             // 
             this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtAddress.Location = new System.Drawing.Point(240, 137);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(360, 30);
             this.txtAddress.TabIndex = 3;
@@ -118,7 +118,7 @@
             this.cmbCityList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbCityList.FormattingEnabled = true;
             this.cmbCityList.Location = new System.Drawing.Point(240, 192);
-            this.cmbCityList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCityList.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCityList.Name = "cmbCityList";
             this.cmbCityList.Size = new System.Drawing.Size(267, 33);
             this.cmbCityList.TabIndex = 4;
@@ -177,7 +177,7 @@
             this.dtpUgovorDo.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dtpUgovorDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dtpUgovorDo.Location = new System.Drawing.Point(309, 256);
-            this.dtpUgovorDo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpUgovorDo.Margin = new System.Windows.Forms.Padding(4);
             this.dtpUgovorDo.Name = "dtpUgovorDo";
             this.dtpUgovorDo.Size = new System.Drawing.Size(291, 26);
             this.dtpUgovorDo.TabIndex = 10;
@@ -188,7 +188,7 @@
             this.cbUgovorNa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbUgovorNa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.cbUgovorNa.Location = new System.Drawing.Point(40, 256);
-            this.cbUgovorNa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbUgovorNa.Margin = new System.Windows.Forms.Padding(4);
             this.cbUgovorNa.Name = "cbUgovorNa";
             this.cbUgovorNa.Size = new System.Drawing.Size(244, 24);
             this.cbUgovorNa.TabIndex = 5;
@@ -199,7 +199,7 @@
             // btnAddCity
             // 
             this.btnAddCity.Location = new System.Drawing.Point(517, 192);
-            this.btnAddCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddCity.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddCity.Name = "btnAddCity";
             this.btnAddCity.Size = new System.Drawing.Size(84, 34);
             this.btnAddCity.TabIndex = 11;
@@ -234,7 +234,7 @@
             this.Controls.Add(this.btnCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(655, 426);
             this.MinimizeBox = false;
