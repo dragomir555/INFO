@@ -113,6 +113,12 @@ namespace Autopraonica_Markus.forms.puchaseForms
                 errorProvider1.SetError(tbQuantity, "Unesite količinu !!!");
                 e.Cancel = true;
             }
+            else
+            {
+                errorProvider1.SetError(tbQuantity, null);
+                e.Cancel = false;
+
+            }
         }
 
         private void tbPrize_Validating(object sender, CancelEventArgs e)
@@ -121,6 +127,11 @@ namespace Autopraonica_Markus.forms.puchaseForms
             {
                 errorProvider1.SetError(tbPrize, "Unesite cijenu stavke");
                 e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(tbPrize,null);
+                e.Cancel = false;
             }
         }
 

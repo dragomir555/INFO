@@ -66,7 +66,13 @@ namespace Autopraonica_Markus.forms.puchaseForms
         {
             if (string.IsNullOrWhiteSpace(tbNameItem.Text))
             {
+                e.Cancel = true;
                 errorProvider1.SetError(tbNameItem, "Molimo vas unesite naziv stavke.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(tbNameItem, null);
             }
         }
 

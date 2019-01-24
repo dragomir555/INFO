@@ -175,7 +175,13 @@ namespace Autopraonica_Markus.forms.puchaseForms
         {
             if (string.IsNullOrWhiteSpace(tbNumberPurchase.Text))
             {
+                e.Cancel = true;
                 errorProvider1.SetError(tbNumberPurchase, "Molimo vas unesite broj računa.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(tbNumberPurchase, null);
             }
         }
 
@@ -183,7 +189,13 @@ namespace Autopraonica_Markus.forms.puchaseForms
         {
             if (string.IsNullOrWhiteSpace(tbNameSuplier.Text))
             {
+                e.Cancel = true;
                 errorProvider1.SetError(tbNameSuplier, "Molimo vas unesite naziv dobavljaca");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(tbNameSuplier,null);
             }
         }
 

@@ -57,7 +57,6 @@ namespace Autopraonica_Markus.forms.clientForms
             if (string.IsNullOrEmpty(tbCityName.Text))
             {
                 e.Cancel = true;
-                tbCityName.Focus();
                 errorProvider1.SetError(tbCityName, "Molimo vas da unesete ispravan naziv grada !");
             }
             else
@@ -72,7 +71,6 @@ namespace Autopraonica_Markus.forms.clientForms
             if (string.IsNullOrWhiteSpace(tbPostCode.Text))
             {             
                 e.Cancel = true;
-                tbPostCode.Focus();
                 errorProvider1.SetError(tbPostCode, "Molimo vas da unesete ispravan Postcode!");
             }
             else
