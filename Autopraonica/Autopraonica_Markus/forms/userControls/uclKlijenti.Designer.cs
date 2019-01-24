@@ -33,18 +33,18 @@
             this.btnIzmjeniKlijenta = new System.Windows.Forms.Button();
             this.tbSearchText = new System.Windows.Forms.TextBox();
             this.dgvKlijenti = new System.Windows.Forms.DataGridView();
+            this.colNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colJIB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGrad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUgovorOd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUgovorDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNoviKlijent = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cmbSearchType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbContractOver = new System.Windows.Forms.CheckBox();
             this.cancelContract = new System.Windows.Forms.Button();
-            this.colUgovorDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUgovorOd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGrad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colJIB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNaziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +55,7 @@
             this.btnIzmjeniKlijenta.FlatAppearance.BorderSize = 0;
             this.btnIzmjeniKlijenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnIzmjeniKlijenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIzmjeniKlijenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnIzmjeniKlijenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnIzmjeniKlijenta.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnIzmjeniKlijenta.Location = new System.Drawing.Point(241, 404);
             this.btnIzmjeniKlijenta.Margin = new System.Windows.Forms.Padding(4);
@@ -121,6 +121,42 @@
             this.dgvKlijenti.Size = new System.Drawing.Size(865, 337);
             this.dgvKlijenti.TabIndex = 3;
             // 
+            // colNaziv
+            // 
+            this.colNaziv.HeaderText = "Naziv klijenta";
+            this.colNaziv.Name = "colNaziv";
+            this.colNaziv.ReadOnly = true;
+            // 
+            // colJIB
+            // 
+            this.colJIB.HeaderText = "JIB";
+            this.colJIB.Name = "colJIB";
+            this.colJIB.ReadOnly = true;
+            // 
+            // colGrad
+            // 
+            this.colGrad.HeaderText = "Grad";
+            this.colGrad.Name = "colGrad";
+            this.colGrad.ReadOnly = true;
+            // 
+            // colAddress
+            // 
+            this.colAddress.HeaderText = "Adresa";
+            this.colAddress.Name = "colAddress";
+            this.colAddress.ReadOnly = true;
+            // 
+            // colUgovorOd
+            // 
+            this.colUgovorOd.HeaderText = "UgovorOd";
+            this.colUgovorOd.Name = "colUgovorOd";
+            this.colUgovorOd.ReadOnly = true;
+            // 
+            // colUgovorDo
+            // 
+            this.colUgovorDo.HeaderText = "UgovorDo";
+            this.colUgovorDo.Name = "colUgovorDo";
+            this.colUgovorDo.ReadOnly = true;
+            // 
             // btnNoviKlijent
             // 
             this.btnNoviKlijent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -128,7 +164,7 @@
             this.btnNoviKlijent.FlatAppearance.BorderSize = 0;
             this.btnNoviKlijent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnNoviKlijent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNoviKlijent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnNoviKlijent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNoviKlijent.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNoviKlijent.Location = new System.Drawing.Point(27, 404);
             this.btnNoviKlijent.Margin = new System.Windows.Forms.Padding(4);
@@ -146,7 +182,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Location = new System.Drawing.Point(476, 404);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
@@ -203,7 +239,7 @@
             this.cancelContract.FlatAppearance.BorderSize = 0;
             this.cancelContract.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.cancelContract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cancelContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cancelContract.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.cancelContract.Location = new System.Drawing.Point(705, 404);
             this.cancelContract.Margin = new System.Windows.Forms.Padding(4);
@@ -213,42 +249,6 @@
             this.cancelContract.Text = "Ponisti ugovor";
             this.cancelContract.UseVisualStyleBackColor = false;
             this.cancelContract.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // colUgovorDo
-            // 
-            this.colUgovorDo.HeaderText = "UgovorDo";
-            this.colUgovorDo.Name = "colUgovorDo";
-            this.colUgovorDo.ReadOnly = true;
-            // 
-            // colUgovorOd
-            // 
-            this.colUgovorOd.HeaderText = "UgovorOd";
-            this.colUgovorOd.Name = "colUgovorOd";
-            this.colUgovorOd.ReadOnly = true;
-            // 
-            // colAddress
-            // 
-            this.colAddress.HeaderText = "Adresa";
-            this.colAddress.Name = "colAddress";
-            this.colAddress.ReadOnly = true;
-            // 
-            // colGrad
-            // 
-            this.colGrad.HeaderText = "Grad";
-            this.colGrad.Name = "colGrad";
-            this.colGrad.ReadOnly = true;
-            // 
-            // colJIB
-            // 
-            this.colJIB.HeaderText = "JIB";
-            this.colJIB.Name = "colJIB";
-            this.colJIB.ReadOnly = true;
-            // 
-            // colNaziv
-            // 
-            this.colNaziv.HeaderText = "Naziv klijenta";
-            this.colNaziv.Name = "colNaziv";
-            this.colNaziv.ReadOnly = true;
             // 
             // uclKlijenti
             // 
