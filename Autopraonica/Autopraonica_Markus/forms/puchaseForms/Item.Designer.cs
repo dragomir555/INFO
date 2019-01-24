@@ -59,7 +59,7 @@
             this.label1.Location = new System.Drawing.Point(13, 190);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 16);
+            this.label1.Size = new System.Drawing.Size(64, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Stavka:";
             // 
@@ -70,7 +70,7 @@
             this.label2.Location = new System.Drawing.Point(13, 236);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 16);
+            this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Kolicina:";
             // 
@@ -81,7 +81,7 @@
             this.label3.Location = new System.Drawing.Point(294, 233);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 16);
+            this.label3.Size = new System.Drawing.Size(61, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Cijena:";
             // 
@@ -119,18 +119,16 @@
             // 
             this.tbQuantity.Location = new System.Drawing.Point(78, 230);
             this.tbQuantity.Name = "tbQuantity";
-            this.tbQuantity.Size = new System.Drawing.Size(185, 22);
+            this.tbQuantity.Size = new System.Drawing.Size(185, 26);
             this.tbQuantity.TabIndex = 5;
-            this.tbQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQuantity_KeyPress);
             this.tbQuantity.Validating += new System.ComponentModel.CancelEventHandler(this.tbQuantity_Validating);
             // 
             // tbPrize
             // 
             this.tbPrize.Location = new System.Drawing.Point(358, 230);
             this.tbPrize.Name = "tbPrize";
-            this.tbPrize.Size = new System.Drawing.Size(91, 22);
+            this.tbPrize.Size = new System.Drawing.Size(91, 26);
             this.tbPrize.TabIndex = 6;
-            this.tbPrize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrize_KeyPress);
             this.tbPrize.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrize_Validating);
             // 
             // label4
@@ -138,13 +136,15 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(455, 233);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 16);
+            this.label4.Size = new System.Drawing.Size(44, 20);
             this.label4.TabIndex = 8;
             this.label4.Text = "[KM]";
             // 
             // dgvItems
             // 
             this.dgvItems.AllowUserToAddRows = false;
+            this.dgvItems.AllowUserToDeleteRows = false;
+            this.dgvItems.AllowUserToResizeRows = false;
             this.dgvItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvItems.BackgroundColor = System.Drawing.Color.White;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -174,7 +174,7 @@
             // 
             this.tbSearchText.Location = new System.Drawing.Point(114, 24);
             this.tbSearchText.Name = "tbSearchText";
-            this.tbSearchText.Size = new System.Drawing.Size(207, 22);
+            this.tbSearchText.Size = new System.Drawing.Size(207, 26);
             this.tbSearchText.TabIndex = 13;
             this.tbSearchText.TextChanged += new System.EventHandler(this.tbSearchText_TextChanged);
             // 
@@ -183,7 +183,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(31, 27);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 16);
+            this.label6.Size = new System.Drawing.Size(73, 20);
             this.label6.TabIndex = 14;
             this.label6.Text = "Pretraga";
             // 
@@ -212,7 +212,7 @@
             this.tbStavka.Enabled = false;
             this.tbStavka.Location = new System.Drawing.Point(78, 190);
             this.tbStavka.Name = "tbStavka";
-            this.tbStavka.Size = new System.Drawing.Size(185, 22);
+            this.tbStavka.Size = new System.Drawing.Size(185, 26);
             this.tbStavka.TabIndex = 16;
             // 
             // label5
@@ -220,7 +220,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(284, 193);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 16);
+            this.label5.Size = new System.Drawing.Size(71, 20);
             this.label5.TabIndex = 17;
             this.label5.Text = "Jedinica";
             // 
@@ -229,13 +229,14 @@
             this.tbUnit.Enabled = false;
             this.tbUnit.Location = new System.Drawing.Point(358, 190);
             this.tbUnit.Name = "tbUnit";
-            this.tbUnit.Size = new System.Drawing.Size(91, 22);
+            this.tbUnit.Size = new System.Drawing.Size(91, 26);
             this.tbUnit.TabIndex = 18;
             // 
             // Item
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(506, 314);
             this.Controls.Add(this.tbUnit);
             this.Controls.Add(this.label5);

@@ -53,9 +53,10 @@
             // tbNumberPurchase
             // 
             this.tbNumberPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbNumberPurchase.Location = new System.Drawing.Point(139, 15);
+            this.tbNumberPurchase.Location = new System.Drawing.Point(185, 18);
+            this.tbNumberPurchase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNumberPurchase.Name = "tbNumberPurchase";
-            this.tbNumberPurchase.Size = new System.Drawing.Size(242, 22);
+            this.tbNumberPurchase.Size = new System.Drawing.Size(321, 26);
             this.tbNumberPurchase.TabIndex = 0;
             this.tbNumberPurchase.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNumberPurchase_KeyPress);
             this.tbNumberPurchase.Validating += new System.ComponentModel.CancelEventHandler(this.tbNumberPurchase_Validating);
@@ -64,9 +65,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(15, 18);
+            this.label1.Location = new System.Drawing.Point(20, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 16);
+            this.label1.Size = new System.Drawing.Size(96, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Broj racuna";
             // 
@@ -81,12 +83,13 @@
             this.clQuantity,
             this.clUnit,
             this.clPrice});
-            this.dgvItems.Location = new System.Drawing.Point(3, 83);
+            this.dgvItems.Location = new System.Drawing.Point(4, 102);
+            this.dgvItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvItems.MultiSelect = false;
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.RowHeadersVisible = false;
             this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvItems.Size = new System.Drawing.Size(535, 174);
+            this.dgvItems.Size = new System.Drawing.Size(713, 214);
             this.dgvItems.TabIndex = 2;
             // 
             // clNameItem
@@ -117,9 +120,10 @@
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(94, 279);
+            this.btnConfirm.Location = new System.Drawing.Point(125, 343);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(140, 35);
+            this.btnConfirm.Size = new System.Drawing.Size(187, 43);
             this.btnConfirm.TabIndex = 3;
             this.btnConfirm.Text = "Zavrsi";
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -133,9 +137,10 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(295, 279);
+            this.btnCancel.Location = new System.Drawing.Point(393, 343);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(140, 35);
+            this.btnCancel.Size = new System.Drawing.Size(187, 43);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Otkazi";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -145,9 +150,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(12, 260);
+            this.label2.Location = new System.Drawing.Point(16, 320);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 16);
+            this.label2.Size = new System.Drawing.Size(181, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Ukupan iznos nabavke:";
             // 
@@ -155,9 +161,10 @@
             // 
             this.lbSumPrize.AutoSize = true;
             this.lbSumPrize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbSumPrize.Location = new System.Drawing.Point(156, 260);
+            this.lbSumPrize.Location = new System.Drawing.Point(208, 320);
+            this.lbSumPrize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSumPrize.Name = "lbSumPrize";
-            this.lbSumPrize.Size = new System.Drawing.Size(0, 16);
+            this.lbSumPrize.Size = new System.Drawing.Size(0, 20);
             this.lbSumPrize.TabIndex = 8;
             // 
             // btnNewItemT
@@ -168,9 +175,10 @@
             this.btnNewItemT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewItemT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNewItemT.ForeColor = System.Drawing.Color.White;
-            this.btnNewItemT.Location = new System.Drawing.Point(407, 11);
+            this.btnNewItemT.Location = new System.Drawing.Point(543, 14);
+            this.btnNewItemT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNewItemT.Name = "btnNewItemT";
-            this.btnNewItemT.Size = new System.Drawing.Size(132, 30);
+            this.btnNewItemT.Size = new System.Drawing.Size(176, 37);
             this.btnNewItemT.TabIndex = 9;
             this.btnNewItemT.Text = "Nova stavka";
             this.btnNewItemT.UseVisualStyleBackColor = false;
@@ -184,9 +192,10 @@
             this.btnDeleteItemT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteItemT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnDeleteItemT.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteItemT.Location = new System.Drawing.Point(407, 47);
+            this.btnDeleteItemT.Location = new System.Drawing.Point(543, 58);
+            this.btnDeleteItemT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeleteItemT.Name = "btnDeleteItemT";
-            this.btnDeleteItemT.Size = new System.Drawing.Size(131, 30);
+            this.btnDeleteItemT.Size = new System.Drawing.Size(175, 37);
             this.btnDeleteItemT.TabIndex = 10;
             this.btnDeleteItemT.Text = "Ukloni stavku";
             this.btnDeleteItemT.UseVisualStyleBackColor = false;
@@ -196,17 +205,19 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(15, 54);
+            this.label4.Location = new System.Drawing.Point(20, 66);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 16);
+            this.label4.Size = new System.Drawing.Size(135, 20);
             this.label4.TabIndex = 11;
             this.label4.Text = "Naziv dobavljača";
             // 
             // tbNameSuplier
             // 
-            this.tbNameSuplier.Location = new System.Drawing.Point(139, 53);
+            this.tbNameSuplier.Location = new System.Drawing.Point(185, 65);
+            this.tbNameSuplier.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNameSuplier.Name = "tbNameSuplier";
-            this.tbNameSuplier.Size = new System.Drawing.Size(242, 20);
+            this.tbNameSuplier.Size = new System.Drawing.Size(321, 22);
             this.tbNameSuplier.TabIndex = 12;
             this.tbNameSuplier.Validating += new System.ComponentModel.CancelEventHandler(this.tbNameSuplier_Validating);
             // 
@@ -217,9 +228,10 @@
             // 
             // NewPurchase
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 326);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ClientSize = new System.Drawing.Size(733, 401);
             this.Controls.Add(this.tbNameSuplier);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnDeleteItemT);
@@ -233,6 +245,7 @@
             this.Controls.Add(this.tbNumberPurchase);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewPurchase";
