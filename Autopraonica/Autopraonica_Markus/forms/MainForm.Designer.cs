@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlStatus = new System.Windows.Forms.Panel();
-            this.pbChangePass = new System.Windows.Forms.PictureBox();
-            this.pbInactive = new System.Windows.Forms.PictureBox();
-            this.pbSettings = new System.Windows.Forms.PictureBox();
-            this.pbLogOut = new System.Windows.Forms.PictureBox();
             this.cmbHelper = new System.Windows.Forms.ComboBox();
             this.btnRemoveHelper = new System.Windows.Forms.Button();
             this.btnAddHelper = new System.Windows.Forms.Button();
@@ -44,6 +40,7 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.tlpMenu = new System.Windows.Forms.TableLayoutPanel();
+            this.tlTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnStatistika = new System.Windows.Forms.Button();
             this.btnUsluge = new System.Windows.Forms.Button();
             this.btnIzdRac = new System.Windows.Forms.Button();
@@ -52,14 +49,17 @@
             this.btnCjenovnik = new System.Windows.Forms.Button();
             this.btnTroskovnik = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tlTip = new System.Windows.Forms.ToolTip(this.components);
+            this.pbChangePass = new System.Windows.Forms.PictureBox();
+            this.pbInactive = new System.Windows.Forms.PictureBox();
+            this.pbSettings = new System.Windows.Forms.PictureBox();
+            this.pbLogOut = new System.Windows.Forms.PictureBox();
             this.pnlStatus.SuspendLayout();
+            this.tlpMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbChangePass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInactive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogOut)).BeginInit();
-            this.tlpMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlStatus
@@ -78,72 +78,22 @@
             this.pnlStatus.Controls.Add(this.lblUser);
             this.pnlStatus.Controls.Add(this.lblDate);
             this.pnlStatus.Controls.Add(this.lblTime);
-            this.pnlStatus.Location = new System.Drawing.Point(200, 0);
+            this.pnlStatus.Location = new System.Drawing.Point(267, 0);
+            this.pnlStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlStatus.Name = "pnlStatus";
-            this.pnlStatus.Size = new System.Drawing.Size(684, 70);
+            this.pnlStatus.Size = new System.Drawing.Size(977, 86);
             this.pnlStatus.TabIndex = 1;
             this.pnlStatus.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            // 
-            // pbChangePass
-            // 
-            this.pbChangePass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbChangePass.Image = global::Autopraonica_Markus.Properties.Resources.cb3t3_7i7rw_001;
-            this.pbChangePass.Location = new System.Drawing.Point(392, 10);
-            this.pbChangePass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbChangePass.Name = "pbChangePass";
-            this.pbChangePass.Size = new System.Drawing.Size(42, 37);
-            this.pbChangePass.TabIndex = 13;
-            this.pbChangePass.TabStop = false;
-            this.pbChangePass.Click += new System.EventHandler(this.pbChangePass_Click);
-            this.pbChangePass.MouseHover += new System.EventHandler(this.pbChangePass_MouseHover);
-            // 
-            // pbInactive
-            // 
-            this.pbInactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbInactive.Image = global::Autopraonica_Markus.Properties.Resources._lock;
-            this.pbInactive.Location = new System.Drawing.Point(485, 12);
-            this.pbInactive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbInactive.Name = "pbInactive";
-            this.pbInactive.Size = new System.Drawing.Size(42, 37);
-            this.pbInactive.TabIndex = 12;
-            this.pbInactive.TabStop = false;
-            this.pbInactive.Click += new System.EventHandler(this.pbInactive_Click);
-            this.pbInactive.MouseHover += new System.EventHandler(this.pbInactive_MouseHover);
-            // 
-            // pbSettings
-            // 
-            this.pbSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbSettings.Image = global::Autopraonica_Markus.Properties.Resources.cb85c_n4ve5_001;
-            this.pbSettings.Location = new System.Drawing.Point(439, 10);
-            this.pbSettings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbSettings.Name = "pbSettings";
-            this.pbSettings.Size = new System.Drawing.Size(42, 37);
-            this.pbSettings.TabIndex = 11;
-            this.pbSettings.TabStop = false;
-            this.pbSettings.Click += new System.EventHandler(this.pbSettings_Click);
-            this.pbSettings.MouseHover += new System.EventHandler(this.pbSettings_MouseHover);
-            // 
-            // pbLogOut
-            // 
-            this.pbLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbLogOut.Image = global::Autopraonica_Markus.Properties.Resources.cb61m_1d34t_001;
-            this.pbLogOut.Location = new System.Drawing.Point(532, 12);
-            this.pbLogOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbLogOut.Name = "pbLogOut";
-            this.pbLogOut.Size = new System.Drawing.Size(42, 37);
-            this.pbLogOut.TabIndex = 10;
-            this.pbLogOut.TabStop = false;
-            this.pbLogOut.Click += new System.EventHandler(this.pbLogOut_Click);
-            this.pbLogOut.MouseHover += new System.EventHandler(this.pbLogOut_MouseHover);
             // 
             // cmbHelper
             // 
             this.cmbHelper.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbHelper.FormattingEnabled = true;
-            this.cmbHelper.Location = new System.Drawing.Point(242, 38);
+            this.cmbHelper.Location = new System.Drawing.Point(323, 47);
+            this.cmbHelper.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbHelper.Name = "cmbHelper";
-            this.cmbHelper.Size = new System.Drawing.Size(146, 26);
+            this.cmbHelper.Size = new System.Drawing.Size(193, 32);
             this.cmbHelper.TabIndex = 7;
             this.cmbHelper.Visible = false;
             this.cmbHelper.SelectionChangeCommitted += new System.EventHandler(this.cmbHelper_SelectionChangeCommitted);
@@ -155,9 +105,10 @@
             this.btnRemoveHelper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveHelper.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnRemoveHelper.Location = new System.Drawing.Point(160, 38);
+            this.btnRemoveHelper.Location = new System.Drawing.Point(213, 47);
+            this.btnRemoveHelper.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRemoveHelper.Name = "btnRemoveHelper";
-            this.btnRemoveHelper.Size = new System.Drawing.Size(78, 27);
+            this.btnRemoveHelper.Size = new System.Drawing.Size(104, 33);
             this.btnRemoveHelper.TabIndex = 6;
             this.btnRemoveHelper.Text = "Ukloni";
             this.btnRemoveHelper.UseVisualStyleBackColor = false;
@@ -170,9 +121,10 @@
             this.btnAddHelper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddHelper.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnAddHelper.Location = new System.Drawing.Point(160, 37);
+            this.btnAddHelper.Location = new System.Drawing.Point(213, 46);
+            this.btnAddHelper.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddHelper.Name = "btnAddHelper";
-            this.btnAddHelper.Size = new System.Drawing.Size(78, 27);
+            this.btnAddHelper.Size = new System.Drawing.Size(104, 33);
             this.btnAddHelper.TabIndex = 5;
             this.btnAddHelper.Text = "Dodaj";
             this.btnAddHelper.UseVisualStyleBackColor = false;
@@ -183,9 +135,10 @@
             this.lblHelper.AutoSize = true;
             this.lblHelper.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHelper.ForeColor = System.Drawing.Color.White;
-            this.lblHelper.Location = new System.Drawing.Point(157, 10);
+            this.lblHelper.Location = new System.Drawing.Point(209, 12);
+            this.lblHelper.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHelper.Name = "lblHelper";
-            this.lblHelper.Size = new System.Drawing.Size(82, 24);
+            this.lblHelper.Size = new System.Drawing.Size(105, 29);
             this.lblHelper.TabIndex = 4;
             this.lblHelper.Text = "Ispomoć";
             // 
@@ -194,9 +147,10 @@
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.ForeColor = System.Drawing.Color.White;
-            this.lblUser.Location = new System.Drawing.Point(7, 10);
+            this.lblUser.Location = new System.Drawing.Point(9, 12);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(142, 24);
+            this.lblUser.Size = new System.Drawing.Size(182, 29);
             this.lblUser.TabIndex = 2;
             this.lblUser.Text = "Marko Markovic";
             // 
@@ -206,9 +160,10 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(580, 38);
+            this.lblDate.Location = new System.Drawing.Point(838, 47);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(100, 24);
+            this.lblDate.Size = new System.Drawing.Size(129, 29);
             this.lblDate.TabIndex = 1;
             this.lblDate.Text = "13.12.2018";
             // 
@@ -218,9 +173,10 @@
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(579, 10);
+            this.lblTime.Location = new System.Drawing.Point(837, 12);
+            this.lblTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(66, 25);
+            this.lblTime.Size = new System.Drawing.Size(82, 31);
             this.lblTime.TabIndex = 0;
             this.lblTime.Text = "14:47";
             this.lblTime.Click += new System.EventHandler(this.lblTime_Click);
@@ -232,9 +188,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContent.BackColor = System.Drawing.Color.White;
             this.pnlContent.ForeColor = System.Drawing.Color.Black;
-            this.pnlContent.Location = new System.Drawing.Point(200, 70);
+            this.pnlContent.Location = new System.Drawing.Point(267, 86);
+            this.pnlContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(685, 428);
+            this.pnlContent.Size = new System.Drawing.Size(977, 527);
             this.pnlContent.TabIndex = 2;
             this.pnlContent.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContent_Paint);
             // 
@@ -254,6 +211,7 @@
             this.tlpMenu.Controls.Add(this.btnTroskovnik, 0, 3);
             this.tlpMenu.Controls.Add(this.pictureBox1, 0, 0);
             this.tlpMenu.Location = new System.Drawing.Point(0, 0);
+            this.tlpMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlpMenu.Name = "tlpMenu";
             this.tlpMenu.RowCount = 10;
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22F));
@@ -266,8 +224,8 @@
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
-            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpMenu.Size = new System.Drawing.Size(200, 504);
+            this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tlpMenu.Size = new System.Drawing.Size(267, 620);
             this.tlpMenu.TabIndex = 4;
             this.tlpMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpContent_Paint);
             // 
@@ -282,9 +240,10 @@
             this.btnStatistika.ForeColor = System.Drawing.Color.White;
             this.btnStatistika.Image = ((System.Drawing.Image)(resources.GetObject("btnStatistika.Image")));
             this.btnStatistika.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStatistika.Location = new System.Drawing.Point(3, 433);
+            this.btnStatistika.Location = new System.Drawing.Point(4, 536);
+            this.btnStatistika.Margin = new System.Windows.Forms.Padding(4);
             this.btnStatistika.Name = "btnStatistika";
-            this.btnStatistika.Size = new System.Drawing.Size(194, 44);
+            this.btnStatistika.Size = new System.Drawing.Size(259, 54);
             this.btnStatistika.TabIndex = 3;
             this.btnStatistika.Text = "Statistika";
             this.btnStatistika.UseVisualStyleBackColor = true;
@@ -302,9 +261,10 @@
             this.btnUsluge.ForeColor = System.Drawing.Color.White;
             this.btnUsluge.Image = ((System.Drawing.Image)(resources.GetObject("btnUsluge.Image")));
             this.btnUsluge.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsluge.Location = new System.Drawing.Point(3, 133);
+            this.btnUsluge.Location = new System.Drawing.Point(4, 164);
+            this.btnUsluge.Margin = new System.Windows.Forms.Padding(4);
             this.btnUsluge.Name = "btnUsluge";
-            this.btnUsluge.Size = new System.Drawing.Size(194, 44);
+            this.btnUsluge.Size = new System.Drawing.Size(259, 54);
             this.btnUsluge.TabIndex = 0;
             this.btnUsluge.Text = "Usluge";
             this.btnUsluge.UseVisualStyleBackColor = true;
@@ -321,9 +281,10 @@
             this.btnIzdRac.ForeColor = System.Drawing.Color.White;
             this.btnIzdRac.Image = ((System.Drawing.Image)(resources.GetObject("btnIzdRac.Image")));
             this.btnIzdRac.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIzdRac.Location = new System.Drawing.Point(3, 383);
+            this.btnIzdRac.Location = new System.Drawing.Point(4, 474);
+            this.btnIzdRac.Margin = new System.Windows.Forms.Padding(4);
             this.btnIzdRac.Name = "btnIzdRac";
-            this.btnIzdRac.Size = new System.Drawing.Size(194, 44);
+            this.btnIzdRac.Size = new System.Drawing.Size(259, 54);
             this.btnIzdRac.TabIndex = 0;
             this.btnIzdRac.Text = "Računi";
             this.btnIzdRac.UseVisualStyleBackColor = true;
@@ -340,9 +301,10 @@
             this.btnZaposleni.ForeColor = System.Drawing.Color.White;
             this.btnZaposleni.Image = ((System.Drawing.Image)(resources.GetObject("btnZaposleni.Image")));
             this.btnZaposleni.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnZaposleni.Location = new System.Drawing.Point(3, 333);
+            this.btnZaposleni.Location = new System.Drawing.Point(4, 412);
+            this.btnZaposleni.Margin = new System.Windows.Forms.Padding(4);
             this.btnZaposleni.Name = "btnZaposleni";
-            this.btnZaposleni.Size = new System.Drawing.Size(194, 44);
+            this.btnZaposleni.Size = new System.Drawing.Size(259, 54);
             this.btnZaposleni.TabIndex = 2;
             this.btnZaposleni.Text = "Zaposleni";
             this.btnZaposleni.UseVisualStyleBackColor = true;
@@ -359,9 +321,10 @@
             this.btnKlijenti.ForeColor = System.Drawing.Color.White;
             this.btnKlijenti.Image = ((System.Drawing.Image)(resources.GetObject("btnKlijenti.Image")));
             this.btnKlijenti.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKlijenti.Location = new System.Drawing.Point(3, 283);
+            this.btnKlijenti.Location = new System.Drawing.Point(4, 350);
+            this.btnKlijenti.Margin = new System.Windows.Forms.Padding(4);
             this.btnKlijenti.Name = "btnKlijenti";
-            this.btnKlijenti.Size = new System.Drawing.Size(194, 44);
+            this.btnKlijenti.Size = new System.Drawing.Size(259, 54);
             this.btnKlijenti.TabIndex = 0;
             this.btnKlijenti.Text = "Klijenti";
             this.btnKlijenti.UseVisualStyleBackColor = true;
@@ -378,9 +341,10 @@
             this.btnCjenovnik.ForeColor = System.Drawing.Color.White;
             this.btnCjenovnik.Image = ((System.Drawing.Image)(resources.GetObject("btnCjenovnik.Image")));
             this.btnCjenovnik.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCjenovnik.Location = new System.Drawing.Point(3, 233);
+            this.btnCjenovnik.Location = new System.Drawing.Point(4, 288);
+            this.btnCjenovnik.Margin = new System.Windows.Forms.Padding(4);
             this.btnCjenovnik.Name = "btnCjenovnik";
-            this.btnCjenovnik.Size = new System.Drawing.Size(194, 44);
+            this.btnCjenovnik.Size = new System.Drawing.Size(259, 54);
             this.btnCjenovnik.TabIndex = 0;
             this.btnCjenovnik.Text = "Cjenovnik";
             this.btnCjenovnik.UseVisualStyleBackColor = true;
@@ -397,9 +361,10 @@
             this.btnTroskovnik.ForeColor = System.Drawing.Color.White;
             this.btnTroskovnik.Image = ((System.Drawing.Image)(resources.GetObject("btnTroskovnik.Image")));
             this.btnTroskovnik.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTroskovnik.Location = new System.Drawing.Point(3, 183);
+            this.btnTroskovnik.Location = new System.Drawing.Point(4, 226);
+            this.btnTroskovnik.Margin = new System.Windows.Forms.Padding(4);
             this.btnTroskovnik.Name = "btnTroskovnik";
-            this.btnTroskovnik.Size = new System.Drawing.Size(194, 44);
+            this.btnTroskovnik.Size = new System.Drawing.Size(259, 54);
             this.btnTroskovnik.TabIndex = 1;
             this.btnTroskovnik.Text = "Troškovnik";
             this.btnTroskovnik.UseVisualStyleBackColor = true;
@@ -411,22 +376,76 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 104);
+            this.pictureBox1.Size = new System.Drawing.Size(259, 128);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // pbChangePass
+            // 
+            this.pbChangePass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbChangePass.Image = global::Autopraonica_Markus.Properties.Resources.key;
+            this.pbChangePass.Location = new System.Drawing.Point(610, 15);
+            this.pbChangePass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbChangePass.Name = "pbChangePass";
+            this.pbChangePass.Size = new System.Drawing.Size(64, 64);
+            this.pbChangePass.TabIndex = 13;
+            this.pbChangePass.TabStop = false;
+            this.pbChangePass.Click += new System.EventHandler(this.pbChangePass_Click);
+            this.pbChangePass.MouseHover += new System.EventHandler(this.pbChangePass_MouseHover);
+            // 
+            // pbInactive
+            // 
+            this.pbInactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbInactive.Image = global::Autopraonica_Markus.Properties.Resources.lock1;
+            this.pbInactive.Location = new System.Drawing.Point(683, 16);
+            this.pbInactive.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbInactive.Name = "pbInactive";
+            this.pbInactive.Size = new System.Drawing.Size(64, 64);
+            this.pbInactive.TabIndex = 12;
+            this.pbInactive.TabStop = false;
+            this.pbInactive.Click += new System.EventHandler(this.pbInactive_Click);
+            this.pbInactive.MouseHover += new System.EventHandler(this.pbInactive_MouseHover);
+            // 
+            // pbSettings
+            // 
+            this.pbSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbSettings.Image = global::Autopraonica_Markus.Properties.Resources.set;
+            this.pbSettings.Location = new System.Drawing.Point(540, 16);
+            this.pbSettings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbSettings.Name = "pbSettings";
+            this.pbSettings.Size = new System.Drawing.Size(64, 64);
+            this.pbSettings.TabIndex = 11;
+            this.pbSettings.TabStop = false;
+            this.pbSettings.Click += new System.EventHandler(this.pbSettings_Click);
+            this.pbSettings.MouseHover += new System.EventHandler(this.pbSettings_MouseHover);
+            // 
+            // pbLogOut
+            // 
+            this.pbLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbLogOut.Image = global::Autopraonica_Markus.Properties.Resources.izlaz;
+            this.pbLogOut.Location = new System.Drawing.Point(766, 15);
+            this.pbLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbLogOut.Name = "pbLogOut";
+            this.pbLogOut.Size = new System.Drawing.Size(64, 64);
+            this.pbLogOut.TabIndex = 10;
+            this.pbLogOut.TabStop = false;
+            this.pbLogOut.Click += new System.EventHandler(this.pbLogOut_Click);
+            this.pbLogOut.MouseHover += new System.EventHandler(this.pbLogOut_MouseHover);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 498);
+            this.ClientSize = new System.Drawing.Size(1244, 613);
             this.Controls.Add(this.tlpMenu);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Markus";
@@ -435,12 +454,12 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.pnlStatus.ResumeLayout(false);
             this.pnlStatus.PerformLayout();
+            this.tlpMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbChangePass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbInactive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogOut)).EndInit();
-            this.tlpMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

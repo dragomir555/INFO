@@ -396,6 +396,10 @@
     <Content Include="icon.ico" />
     <Content Include="resources\add2.png" />
     <Content Include="resources\car-wash.png" />
+    <None Include="resources\key.png" />
+    <None Include="resources\lock.png" />
+    <None Include="resources\set.png" />
+    <None Include="resources\izlaz.png" />
     <None Include="resources\lock.ico" />
     <None Include="resources\cb61m-1d34t-001.ico" />
     <None Include="resources\cb6vh-oe5lr-001.ico" />
