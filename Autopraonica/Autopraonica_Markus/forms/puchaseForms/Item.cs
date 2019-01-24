@@ -178,5 +178,10 @@ namespace Autopraonica_Markus.forms.puchaseForms
         {
          //   AllowDecimal(sender, e);
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

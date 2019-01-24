@@ -205,7 +205,7 @@
             this.btnNewItemT.Name = "btnNewItemT";
             this.btnNewItemT.Size = new System.Drawing.Size(176, 37);
             this.btnNewItemT.TabIndex = 9;
-            this.btnNewItemT.Text = "Nova stavka";
+            this.btnNewItemT.Text = "Dodaj stavku";
             this.btnNewItemT.UseVisualStyleBackColor = false;
             this.btnNewItemT.Click += new System.EventHandler(this.newItemT_Click);
             // 

@@ -79,12 +79,13 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(294, 233);
+            this.label3.Location = new System.Drawing.Point(284, 233);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 20);
+            this.label3.Size = new System.Drawing.Size(49, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Cijena:";
+            this.label3.Text = "Iznos";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btnConfirm
             // 
@@ -93,9 +94,9 @@
             this.btnConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(94, 272);
+            this.btnConfirm.Location = new System.Drawing.Point(92, 267);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(120, 30);
+            this.btnConfirm.Size = new System.Drawing.Size(120, 39);
             this.btnConfirm.TabIndex = 3;
             this.btnConfirm.Text = "Potvrdi";
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -108,9 +109,9 @@
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(287, 272);
+            this.btnCancel.Location = new System.Drawing.Point(287, 267);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(133, 30);
+            this.btnCancel.Size = new System.Drawing.Size(133, 39);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Otkazi";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -120,7 +121,7 @@
             // 
             this.tbQuantity.Location = new System.Drawing.Point(78, 230);
             this.tbQuantity.Name = "tbQuantity";
-            this.tbQuantity.Size = new System.Drawing.Size(185, 26);
+            this.tbQuantity.Size = new System.Drawing.Size(199, 26);
             this.tbQuantity.TabIndex = 5;
             this.tbQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQuantity_KeyPress);
             this.tbQuantity.Validating += new System.ComponentModel.CancelEventHandler(this.tbQuantity_Validating);
@@ -186,16 +187,16 @@
             // 
             // tbSearchText
             // 
-            this.tbSearchText.Location = new System.Drawing.Point(114, 24);
+            this.tbSearchText.Location = new System.Drawing.Point(92, 17);
             this.tbSearchText.Name = "tbSearchText";
-            this.tbSearchText.Size = new System.Drawing.Size(207, 26);
+            this.tbSearchText.Size = new System.Drawing.Size(216, 26);
             this.tbSearchText.TabIndex = 13;
             this.tbSearchText.TextChanged += new System.EventHandler(this.tbSearchText_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 27);
+            this.label6.Location = new System.Drawing.Point(13, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 20);
             this.label6.TabIndex = 14;
@@ -208,9 +209,9 @@
             this.btnAddNewItem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnAddNewItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddNewItem.ForeColor = System.Drawing.Color.White;
-            this.btnAddNewItem.Location = new System.Drawing.Point(327, 23);
+            this.btnAddNewItem.Location = new System.Drawing.Point(327, 12);
             this.btnAddNewItem.Name = "btnAddNewItem";
-            this.btnAddNewItem.Size = new System.Drawing.Size(163, 25);
+            this.btnAddNewItem.Size = new System.Drawing.Size(163, 36);
             this.btnAddNewItem.TabIndex = 15;
             this.btnAddNewItem.Text = "Nova stavka";
             this.btnAddNewItem.UseVisualStyleBackColor = false;
@@ -226,7 +227,7 @@
             this.tbStavka.Enabled = false;
             this.tbStavka.Location = new System.Drawing.Point(78, 190);
             this.tbStavka.Name = "tbStavka";
-            this.tbStavka.Size = new System.Drawing.Size(185, 26);
+            this.tbStavka.Size = new System.Drawing.Size(200, 26);
             this.tbStavka.TabIndex = 16;
             // 
             // label5
