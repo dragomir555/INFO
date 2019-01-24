@@ -54,7 +54,7 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbName.Text))
             {
                 e.Cancel = true;
-                tbName.Focus();
+                //tbName.Focus();
                 errorProvider.SetError(tbName, "Niste unijeli naziv autopraonice.");
             }
             else
@@ -74,7 +74,7 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbUID.Text))
             {
                 e.Cancel = true;
-                tbUID.Focus();
+                //tbUID.Focus();
                 errorProvider.SetError(tbUID, "Niste unijeli JIB.");
             }
             else
@@ -94,7 +94,7 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbAddress.Text))
             {
                 e.Cancel = true;
-                tbAddress.Focus();
+                //tbAddress.Focus();
                 errorProvider.SetError(tbAddress, "Niste unijeli adresu.");
             }
             else
@@ -114,7 +114,7 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbPhoneNumber.Text))
             {
                 e.Cancel = true;
-                tbPhoneNumber.Focus();
+                //tbPhoneNumber.Focus();
                 errorProvider.SetError(tbPhoneNumber, "Niste unijeli broj telefona.");
             }
             else
@@ -134,7 +134,7 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbAccountNumber.Text))
             {
                 e.Cancel = true;
-                tbAccountNumber.Focus();
+                //tbAccountNumber.Focus();
                 errorProvider.SetError(tbAccountNumber, "Niste unijeli broj računa.");
             }
             else
@@ -154,7 +154,7 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbEmail.Text))
             {
                 e.Cancel = true;
-                tbEmail.Focus();
+                //tbEmail.Focus();
                 errorProvider.SetError(tbEmail, "Niste unijeli e-mail adresu.");
             }
             else
@@ -174,7 +174,7 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbPassword.Text))
             {
                 e.Cancel = true;
-                tbPassword.Focus();
+                //tbPassword.Focus();
                 errorProvider.SetError(tbPassword, "Niste unijeli lozinku.");
             }
             else
@@ -182,6 +182,47 @@ namespace Autopraonica_Markus.forms.settingsForms
                 e.Cancel = false;
                 errorProvider.SetError(tbPassword, null);
             }
+        }
+
+        private void AllowAlphaNumerical(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void AllowDigits(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowAlphaNumerical(sender, e);
+        }
+
+        private void tbUID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowDigits(sender, e);
+        }
+
+        private void tbAddress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowAlphaNumerical(sender, e);
+        }
+
+        private void tbPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowDigits(sender, e);
+        }
+
+        private void tbAccountNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowDigits(sender, e);
         }
     }
 }

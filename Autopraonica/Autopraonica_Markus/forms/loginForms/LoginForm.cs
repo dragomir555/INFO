@@ -45,7 +45,7 @@ namespace Autopraonica_Markus.forms
                     {
                         tbUsername.Clear();
                         tbPassword.Clear();
-                        tbUsername.Focus();
+                        //tbUsername.Focus();
                         errorProvider.SetError(tbUsername, "Ne postoji uneseno korisničko ime.");
                     }
                     else
@@ -126,7 +126,7 @@ namespace Autopraonica_Markus.forms
                                 else
                                 {
                                     tbPassword.Clear();
-                                    tbPassword.Focus();
+                                    //tbPassword.Focus();
                                     errorProvider.SetError(tbPassword, "Niste unijeli odgovarajuću lozinku.");
                                 }
                             }
@@ -151,7 +151,7 @@ namespace Autopraonica_Markus.forms
             if (string.IsNullOrWhiteSpace(tbUsername.Text))
             {
                 e.Cancel = true;
-                tbUsername.Focus();
+                //tbUsername.Focus();
                 errorProvider.SetError(tbUsername, "Niste unijeli korisničko ime.");
             }
             else
@@ -166,7 +166,7 @@ namespace Autopraonica_Markus.forms
             if (string.IsNullOrWhiteSpace(tbPassword.Text))
             {
                 e.Cancel = true;
-                tbPassword.Focus();
+                //tbPassword.Focus();
                 errorProvider.SetError(tbPassword, "Niste unijeli lozinku.");
             }
             else

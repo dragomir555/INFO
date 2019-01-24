@@ -59,7 +59,7 @@ namespace Autopraonica_Markus.forms.loginForms
             if(string.IsNullOrWhiteSpace(tbPassword.Text))
             {
                 e.Cancel = true;
-                tbPassword.Focus();
+                //tbPassword.Focus();
                 errorProvider.SetError(tbPassword, "Niste unijeli lozinku.");
             }
             else
@@ -75,7 +75,7 @@ namespace Autopraonica_Markus.forms.loginForms
                     if(!hash.Equals(newHash))
                     {
                         e.Cancel = true;
-                        tbPassword.Focus();
+                        //tbPassword.Focus();
                         errorProvider.SetError(tbPassword, "Niste ispravno unijeli lozinku.");
                     }
                     else

@@ -248,7 +248,7 @@ namespace Autopraonica_Markus.forms.serviceForms
                 string.IsNullOrWhiteSpace(tbCarpetSize.Text))
             {
                 e.Cancel = true;
-                tbCarpetSize.Focus();
+                //tbCarpetSize.Focus();
                 errorProvider.SetError(tbCarpetSize, "Niste unijeli kvadraturu opranog tepiha.");
             }
             else
@@ -263,7 +263,7 @@ namespace Autopraonica_Markus.forms.serviceForms
             if (string.IsNullOrWhiteSpace(tbPrice.Text))
             {
                 e.Cancel = true;
-                tbPrice.Focus();
+                //tbPrice.Focus();
                 errorProvider.SetError(tbPrice, "Niste unijeli cijenu usluge.");
             }
             else
