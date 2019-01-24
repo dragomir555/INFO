@@ -515,7 +515,7 @@ namespace Autopraonica_Markus
         {
             SettingsForm md = new SettingsForm();
             md.SetValues();
-            md.Show();
+            md.ShowDialog();
         }
 
         private void pbChangePass_MouseHover(object sender, EventArgs e)
