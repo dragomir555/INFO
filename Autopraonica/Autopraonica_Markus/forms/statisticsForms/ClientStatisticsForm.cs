@@ -33,7 +33,7 @@ namespace Autopraonica_Markus.forms.statisticsForms
                     where c.Id == id && DateTime.Compare(nes.ServiceTime, dt1) >= 0 && DateTime.Compare(nes.ServiceTime, dt2) <= 0
                     select nes
                     ).ToList();
-                foreach(var e in entityservices)
+                foreach (var e in entityservices)
                 {
                     incomesFromClient += e.Price;
                     numberOfServices++;
@@ -58,36 +58,36 @@ namespace Autopraonica_Markus.forms.statisticsForms
 
                 lblName.Text = "Statistika za klijenta " + name;
 
-            
-                foreach(var s in serviceswithservicetype)
+
+                foreach (var s in serviceswithservicetype)
                 {
-                    listView1.Items.Add("Broj usluga za " + s.Name + ":" + s.Count + ". Ukupan prihod:" + s.Price + "KM.");
+                    listView1.Items.Add(s.Name + " je obavljeno " + s.Count + " puta. Prihod:" + s.Price + "KM.");
                 }
-                foreach(ListViewItem lvi in listView1.Items)
+                foreach (ListViewItem lvi in listView1.Items)
                 {
                     lvi.Font = new Font("Consolas", 12f);
                 }
-                
-                Label lbl2 = new Label();
-                lbl2.Text = "Ukupan prihod: " + incomesFromClient;
-                lbl2.Location = new Point(0, 340);
-                lbl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom)
-                    | System.Windows.Forms.AnchorStyles.Left)
-                    ));
-                lbl2.Size = new Size(200, 20);
-                lbl2.TextAlign = ContentAlignment.MiddleLeft;
-                lbl2.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold);
-                this.Controls.Add(lbl2);
 
-                Label lbl3 = new Label();
-                lbl3.Text = "Ukupan broj usluga: " + numberOfServices;
-                lbl3.Location = new Point(0, 370);
-                lbl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom)
-                    | System.Windows.Forms.AnchorStyles.Left)));
-                lbl3.Size = new Size(200, 20);
-                lbl3.TextAlign = ContentAlignment.MiddleLeft;
-                lbl3.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold);
-                this.Controls.Add(lbl3);
+                /*  Label lbl2 = new Label();
+                  lbl2.Text = "Ukupan prihod: " + incomesFromClient;
+                  lbl2.Location = new Point(0, 340);
+                  lbl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Left)
+                      ));
+                  lbl2.Size = new Size(200, 20);
+                  lbl2.TextAlign = ContentAlignment.MiddleLeft;
+                  lbl2.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold);
+                  this.Controls.Add(lbl2);
+
+                  Label lbl3 = new Label();
+                  lbl3.Text = "Ukupan broj usluga: " + numberOfServices;
+                  lbl3.Location = new Point(0, 370);
+                  lbl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom)
+                      | System.Windows.Forms.AnchorStyles.Left)));
+                  lbl3.Size = new Size(200, 20);
+                  lbl3.TextAlign = ContentAlignment.MiddleLeft;
+                  lbl3.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold);
+                  this.Controls.Add(lbl3);*/
             }
         }
 
