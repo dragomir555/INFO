@@ -54,6 +54,7 @@ namespace Autopraonica_Markus.forms
                         {
                             PasswordChangeForm pcf = new PasswordChangeForm(employment[0], mainForm, 0);
                             pcf.Show();
+                            this.DialogResult = DialogResult.OK;
                             this.Close();
                         }
                         else

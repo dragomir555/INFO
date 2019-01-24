@@ -28,8 +28,20 @@ namespace Autopraonica_Markus.services
             return GetString();
         }
 
-        public static string GenerateUsername(string firstName, string lastName)
+        public static string GenerateUsername(string fname, string lname)
         {
+            string firstName = fname.ToLower();
+            firstName = firstName.Replace("ć", "c");
+            firstName = firstName.Replace("č", "c");
+            firstName = firstName.Replace("š", "s");
+            firstName = firstName.Replace("ž", "z");
+            firstName = firstName.Replace("đ", "dj");
+            string lastName = lname.ToLower();
+            lastName = lastName.Replace("ć", "c");
+            lastName = lastName.Replace("č", "c");
+            lastName = lastName.Replace("š", "s");
+            lastName = lastName.Replace("ž", "z");
+            lastName = lastName.Replace("đ", "dj");
             using (MarkusDb context = new MarkusDb()) {
                 var employments = (from c in context.employments select c).ToList();
                 var usernames = new List<string>();
