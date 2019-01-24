@@ -42,9 +42,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Autopraonica_Markus.Properties.Resources.usr;
-            this.pictureBox1.Location = new System.Drawing.Point(44, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(96, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(333, 256);
+            this.pictureBox1.Size = new System.Drawing.Size(361, 256);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -97,34 +97,34 @@
             // 
             this.tbName.Enabled = false;
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbName.Location = new System.Drawing.Point(228, 284);
+            this.tbName.Location = new System.Drawing.Point(203, 284);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(149, 30);
+            this.tbName.Size = new System.Drawing.Size(295, 30);
             this.tbName.TabIndex = 5;
             // 
             // tbUsername
             // 
             this.tbUsername.Enabled = false;
             this.tbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUsername.Location = new System.Drawing.Point(228, 326);
+            this.tbUsername.Location = new System.Drawing.Point(203, 326);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(149, 30);
+            this.tbUsername.Size = new System.Drawing.Size(295, 30);
             this.tbUsername.TabIndex = 6;
             // 
             // tbPassword
             // 
             this.tbPassword.Enabled = false;
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword.Location = new System.Drawing.Point(228, 368);
+            this.tbPassword.Location = new System.Drawing.Point(203, 368);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(149, 30);
+            this.tbPassword.Size = new System.Drawing.Size(295, 30);
             this.tbPassword.TabIndex = 7;
             // 
             // NewEmployeeInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 474);
+            this.ClientSize = new System.Drawing.Size(510, 477);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.tbName);
@@ -133,6 +133,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
             this.Name = "NewEmployeeInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Informacije o novom zaposlenom";

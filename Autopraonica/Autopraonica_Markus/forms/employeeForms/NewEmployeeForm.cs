@@ -173,5 +173,10 @@ namespace Autopraonica_Markus.forms.employeeForms
         {
             this.DialogResult = DialogResult.Cancel;
         }
+
+        private void tbFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

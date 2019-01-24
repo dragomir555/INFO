@@ -120,7 +120,7 @@
             this.btnAddEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(187, 43);
-            this.btnAddEmployee.TabIndex = 21;
+            this.btnAddEmployee.TabIndex = 27;
             this.btnAddEmployee.Text = "Potvrdi";
             this.btnAddEmployee.UseVisualStyleBackColor = false;
             this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click_1);
@@ -137,7 +137,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(187, 43);
-            this.btnCancel.TabIndex = 22;
+            this.btnCancel.TabIndex = 28;
             this.btnCancel.Text = "Otkazi";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -149,7 +149,8 @@
             this.tbFirstName.Margin = new System.Windows.Forms.Padding(4);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(360, 30);
-            this.tbFirstName.TabIndex = 23;
+            this.tbFirstName.TabIndex = 21;
+            this.tbFirstName.TextChanged += new System.EventHandler(this.tbFirstName_TextChanged);
             this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.tbFirstName_Validating);
             // 
             // tbEMail
@@ -159,7 +160,7 @@
             this.tbEMail.Margin = new System.Windows.Forms.Padding(4);
             this.tbEMail.Name = "tbEMail";
             this.tbEMail.Size = new System.Drawing.Size(360, 30);
-            this.tbEMail.TabIndex = 25;
+            this.tbEMail.TabIndex = 26;
             this.tbEMail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEMail_Validating);
             // 
             // tbPhoneNumber
@@ -169,7 +170,7 @@
             this.tbPhoneNumber.Margin = new System.Windows.Forms.Padding(4);
             this.tbPhoneNumber.Name = "tbPhoneNumber";
             this.tbPhoneNumber.Size = new System.Drawing.Size(360, 30);
-            this.tbPhoneNumber.TabIndex = 26;
+            this.tbPhoneNumber.TabIndex = 24;
             this.tbPhoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.tbPhoneNumber_Validating);
             // 
             // tbAddress
@@ -179,7 +180,7 @@
             this.tbAddress.Margin = new System.Windows.Forms.Padding(4);
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(360, 30);
-            this.tbAddress.TabIndex = 27;
+            this.tbAddress.TabIndex = 23;
             this.tbAddress.Validating += new System.ComponentModel.CancelEventHandler(this.tbAddress_Validating);
             // 
             // tbLastName
@@ -189,7 +190,7 @@
             this.tbLastName.Margin = new System.Windows.Forms.Padding(4);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(360, 30);
-            this.tbLastName.TabIndex = 28;
+            this.tbLastName.TabIndex = 22;
             this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.tbLastName_Validating);
             // 
             // errorProvider
@@ -216,7 +217,7 @@
             this.tbPID.Margin = new System.Windows.Forms.Padding(4);
             this.tbPID.Name = "tbPID";
             this.tbPID.Size = new System.Drawing.Size(360, 30);
-            this.tbPID.TabIndex = 31;
+            this.tbPID.TabIndex = 25;
             this.tbPID.Validating += new System.ComponentModel.CancelEventHandler(this.tbPID_Validating);
             // 
             // NewEmployeeForm
@@ -239,6 +240,7 @@
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblFirstName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "NewEmployeeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodavanje zaposlenog";
