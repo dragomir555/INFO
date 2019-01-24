@@ -216,7 +216,7 @@
             this.MaximizeBox = false;
             this.Name = "NewNaturalEntityServiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Markus";
+            this.Text = "Nova usluga za fizičko lice";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

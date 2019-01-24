@@ -312,7 +312,7 @@
             this.MaximizeBox = false;
             this.Name = "NewLegalEntityServiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Markus";
+            this.Text = "Nova usluga za pravno lice";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

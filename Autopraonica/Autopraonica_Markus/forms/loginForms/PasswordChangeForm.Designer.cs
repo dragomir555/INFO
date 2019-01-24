@@ -144,7 +144,7 @@
             this.MaximizeBox = false;
             this.Name = "PasswordChangeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Markus";
+            this.Text = "Promjena lozinke";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PasswordChangeForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
