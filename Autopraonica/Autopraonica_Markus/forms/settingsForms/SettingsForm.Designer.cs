@@ -100,6 +100,7 @@
             this.tbAccountNumber.Size = new System.Drawing.Size(241, 26);
             this.tbAccountNumber.TabIndex = 5;
             this.tbAccountNumber.TextChanged += new System.EventHandler(this.tbAccountNumber_TextChanged);
+            this.tbAccountNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAccountNumber_KeyPress);
             this.tbAccountNumber.Validating += new System.ComponentModel.CancelEventHandler(this.tbAccountNumber_Validating);
             // 
             // tbPhoneNumber
@@ -111,6 +112,7 @@
             this.tbPhoneNumber.Size = new System.Drawing.Size(241, 26);
             this.tbPhoneNumber.TabIndex = 4;
             this.tbPhoneNumber.TextChanged += new System.EventHandler(this.tbPhoneNumber_TextChanged);
+            this.tbPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhoneNumber_KeyPress);
             this.tbPhoneNumber.Validating += new System.ComponentModel.CancelEventHandler(this.tbPhoneNumber_Validating);
             // 
             // tbAddress
@@ -122,6 +124,7 @@
             this.tbAddress.Size = new System.Drawing.Size(241, 26);
             this.tbAddress.TabIndex = 3;
             this.tbAddress.TextChanged += new System.EventHandler(this.tbAddress_TextChanged);
+            this.tbAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAddress_KeyPress);
             this.tbAddress.Validating += new System.ComponentModel.CancelEventHandler(this.tbAddress_Validating);
             // 
             // tbUID
@@ -133,6 +136,7 @@
             this.tbUID.Size = new System.Drawing.Size(241, 26);
             this.tbUID.TabIndex = 2;
             this.tbUID.TextChanged += new System.EventHandler(this.tbUID_TextChanged);
+            this.tbUID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUID_KeyPress);
             this.tbUID.Validating += new System.ComponentModel.CancelEventHandler(this.tbUID_Validating);
             // 
             // tbName
@@ -144,6 +148,7 @@
             this.tbName.Size = new System.Drawing.Size(241, 26);
             this.tbName.TabIndex = 1;
             this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             this.tbName.Validating += new System.ComponentModel.CancelEventHandler(this.tbName_Validating);
             // 
             // lblPassword

@@ -163,7 +163,7 @@ namespace Autopraonica_Markus.forms.serviceForms
             if (string.IsNullOrWhiteSpace(tbFirstName.Text))
             {
                 e.Cancel = true;
-                tbFirstName.Focus();
+                //tbFirstName.Focus();
                 errorProvider.SetError(tbFirstName, "Niste unijeli ime.");
             }
             else
@@ -178,7 +178,7 @@ namespace Autopraonica_Markus.forms.serviceForms
             if (string.IsNullOrWhiteSpace(tbLastName.Text))
             {
                 e.Cancel = true;
-                tbLastName.Focus();
+                //tbLastName.Focus();
                 errorProvider.SetError(tbLastName, "Niste unijeli prezime.");
             }
             else
@@ -194,7 +194,7 @@ namespace Autopraonica_Markus.forms.serviceForms
                 string.IsNullOrWhiteSpace(tbCarpetSize.Text))
             {
                 e.Cancel = true;
-                tbCarpetSize.Focus();
+                //tbCarpetSize.Focus();
                 errorProvider.SetError(tbCarpetSize, "Niste unijeli kvadraturu opranog tepiha.");
             }
             else
@@ -209,7 +209,7 @@ namespace Autopraonica_Markus.forms.serviceForms
             if (string.IsNullOrWhiteSpace(tbPrice.Text))
             {
                 e.Cancel = true;
-                tbPrice.Focus();
+                //tbPrice.Focus();
                 errorProvider.SetError(tbPrice, "Niste unijeli cijenu usluge.");
             }
             else
@@ -233,6 +233,14 @@ namespace Autopraonica_Markus.forms.serviceForms
             {
                 if ((sender as TextBox).Text.IndexOf(e.KeyChar) != -1 || (sender as TextBox).Text.Length == 0)
                     e.Handled = true;
+            }
+        }
+
+        private void AllowLetters(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsLetter(e.KeyChar) && e.KeyChar != 8)
+            {
+                e.Handled = true;
             }
         }
 
@@ -292,7 +300,7 @@ namespace Autopraonica_Markus.forms.serviceForms
             if (!mtbLicencePlate.MaskCompleted)
             {
                 e.Cancel = true;
-                mtbLicencePlate.Focus();
+                //mtbLicencePlate.Focus();
                 errorProvider.SetError(mtbLicencePlate, "Niste unijeli registarske tablice.");
             }
             else
@@ -300,6 +308,16 @@ namespace Autopraonica_Markus.forms.serviceForms
                 e.Cancel = false;
                 errorProvider.SetError(mtbLicencePlate, null);
             }
+        }
+
+        private void tbFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowLetters(sender, e);
+        }
+
+        private void tbLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowLetters(sender, e);
         }
     }
 }

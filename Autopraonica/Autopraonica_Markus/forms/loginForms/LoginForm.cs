@@ -11,6 +11,7 @@ using Autopraonica_Markus.Model.Entities;
 using Autopraonica_Markus.services;
 using System.Net.Mail;
 using System.Net;
+using System.Threading;
 
 namespace Autopraonica_Markus.forms
 {
@@ -45,7 +46,7 @@ namespace Autopraonica_Markus.forms
                     {
                         tbUsername.Clear();
                         tbPassword.Clear();
-                        tbUsername.Focus();
+                        //tbUsername.Focus();
                         errorProvider.SetError(tbUsername, "Ne postoji uneseno korisničko ime.");
                     }
                     else
@@ -93,29 +94,7 @@ namespace Autopraonica_Markus.forms
                                 numberOfFailedLogin++;
                                 if (numberOfFailedLogin == 3)
                                 {
-                                    string mail = ((employment)employment[0]).employee.E_mail;
-                                    string newSalt = UserService.GenerateSalt();
-                                    string newPassword = UserService.GeneratePassword();
-                                    string newHash = UserService.GetPasswordHash(newSalt, newPassword);
-                                    context.employments.Attach(employment[0]);
-                                    employment[0].Salt = newSalt;
-                                    employment[0].HashPassword = newHash;
-                                    employment[0].FirstLogin = 1;
-                                    context.SaveChanges();
-
-                                    NetworkCredential login = new NetworkCredential(Properties.Settings.Default.Email,
-                                        Properties.Settings.Default.Password);
-                                    MailMessage mailMessage = new MailMessage(Properties.Settings.Default.Email, mail);
-                                    SmtpClient client = new SmtpClient();
-                                    client.Port = 587;
-                                    client.EnableSsl = true;
-                                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                                    client.UseDefaultCredentials = false;
-                                    client.Credentials = login;
-                                    client.Host = "smtp.gmail.com";
-                                    mailMessage.Subject = "Nova lozinka";
-                                    mailMessage.Body = "Vaša nova lozinka je: " + newPassword;
-                                    client.Send(mailMessage);
+                                    StartMailDelivery(employment[0]);
 
                                     MessageBox.Show("Na vaš e-mail je poslata poruka sa vašom novom lozinkom.", "Obavještenje");
                                     PasswordChangeForm pcf = new PasswordChangeForm(employment[0], mainForm, 0);
@@ -126,7 +105,7 @@ namespace Autopraonica_Markus.forms
                                 else
                                 {
                                     tbPassword.Clear();
-                                    tbPassword.Focus();
+                                    //tbPassword.Focus();
                                     errorProvider.SetError(tbPassword, "Niste unijeli odgovarajuću lozinku.");
                                 }
                             }
@@ -151,7 +130,7 @@ namespace Autopraonica_Markus.forms
             if (string.IsNullOrWhiteSpace(tbUsername.Text))
             {
                 e.Cancel = true;
-                tbUsername.Focus();
+                //tbUsername.Focus();
                 errorProvider.SetError(tbUsername, "Niste unijeli korisničko ime.");
             }
             else
@@ -166,7 +145,7 @@ namespace Autopraonica_Markus.forms
             if (string.IsNullOrWhiteSpace(tbPassword.Text))
             {
                 e.Cancel = true;
-                tbPassword.Focus();
+                //tbPassword.Focus();
                 errorProvider.SetError(tbPassword, "Niste unijeli lozinku.");
             }
             else
@@ -174,6 +153,40 @@ namespace Autopraonica_Markus.forms
                 e.Cancel = false;
                 errorProvider.SetError(tbPassword, null);
             }
+        }
+
+        private void StartMailDelivery(employment employment)
+        {
+            Thread mailDeliveryThread = new Thread(() =>
+            {
+                using(MarkusDb context = new MarkusDb())
+                {
+                    string mail = employment.employee.E_mail;
+                    string newSalt = UserService.GenerateSalt();
+                    string newPassword = UserService.GeneratePassword();
+                    string newHash = UserService.GetPasswordHash(newSalt, newPassword);
+                    context.employments.Attach(employment);
+                    employment.Salt = newSalt;
+                    employment.HashPassword = newHash;
+                    employment.FirstLogin = 1;
+                    context.SaveChanges();
+
+                    NetworkCredential login = new NetworkCredential(Properties.Settings.Default.Email,
+                        Properties.Settings.Default.Password);
+                    MailMessage mailMessage = new MailMessage(Properties.Settings.Default.Email, mail);
+                    SmtpClient client = new SmtpClient();
+                    client.Port = 587;
+                    client.EnableSsl = true;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    client.UseDefaultCredentials = false;
+                    client.Credentials = login;
+                    client.Host = "smtp.gmail.com";
+                    mailMessage.Subject = "Nova lozinka";
+                    mailMessage.Body = "Vaša nova lozinka je: " + newPassword;
+                    client.Send(mailMessage);
+                }
+            });
+            mailDeliveryThread.Start();
         }
     }
 }

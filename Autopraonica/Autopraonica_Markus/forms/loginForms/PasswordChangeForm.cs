@@ -74,7 +74,7 @@ namespace Autopraonica_Markus.forms
                     {
                         if (!newPassword.Equals(newPasswordConfirm))
                         {
-                            tbNewPassword.Focus();
+                            //tbNewPassword.Focus();
                             errorProvider.SetError(tbNewPasswordConfirm, "Dva unosa nove lozinke se ne podudaraju.");
                         }
                         else
@@ -111,7 +111,7 @@ namespace Autopraonica_Markus.forms
                         tbCurrentPassword.Clear();
                         tbNewPassword.Clear();
                         tbNewPasswordConfirm.Clear();
-                        tbCurrentPassword.Focus();
+                        //tbCurrentPassword.Focus();
                         errorProvider.SetError(tbCurrentPassword, "Pogrešno ste unijeli trenutnu lozinku.");
                     }
                 }
@@ -133,7 +133,7 @@ namespace Autopraonica_Markus.forms
             if (string.IsNullOrWhiteSpace(tbCurrentPassword.Text))
             {
                 e.Cancel = true;
-                tbCurrentPassword.Focus();
+                //tbCurrentPassword.Focus();
                 errorProvider.SetError(tbCurrentPassword, "Niste unijeli trenutnu lozinku.");
             }
             else
@@ -148,7 +148,7 @@ namespace Autopraonica_Markus.forms
             if (string.IsNullOrWhiteSpace(tbNewPassword.Text))
             {
                 e.Cancel = true;
-                tbNewPassword.Focus();
+                //tbNewPassword.Focus();
                 errorProvider.SetError(tbNewPassword, "Niste unijeli novu lozinku.");
             }
             else if (tbNewPassword.Text.Length < 8)
@@ -157,7 +157,7 @@ namespace Autopraonica_Markus.forms
                 e.Cancel = true;
                 //tbNewPassword.Clear();
                 //tbNewPasswordConfirm.Clear();
-                tbNewPassword.Focus();
+                //tbNewPassword.Focus();
                 errorProvider.SetError(tbNewPassword, "Unesena lozinka mora imati minimum 8 karaktera.");
             }
             else
@@ -175,7 +175,7 @@ namespace Autopraonica_Markus.forms
             if (string.IsNullOrWhiteSpace(tbNewPasswordConfirm.Text))
             {
                 e.Cancel = true;
-                tbNewPassword.Focus();
+                //tbNewPassword.Focus();
                 errorProvider.SetError(tbNewPasswordConfirm, "Niste potvrdili novu lozinku.");
             }
             else if (newPasswordConfirm.Length < 8)
@@ -184,7 +184,7 @@ namespace Autopraonica_Markus.forms
                 e.Cancel = true;
                 //tbNewPassword.Clear();
                 //tbNewPasswordConfirm.Clear();
-                tbNewPassword.Focus();
+                //tbNewPassword.Focus();
                 errorProvider.SetError(tbNewPasswordConfirm, "Unesena lozinka mora imati minimum 8 karaktera.");
             }
             else

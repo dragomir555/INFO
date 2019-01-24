@@ -254,6 +254,7 @@
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(270, 26);
             this.tbFirstName.TabIndex = 2;
+            this.tbFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFirstName_KeyPress);
             this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.tbFirstName_Validating);
             // 
             // tbLastName
@@ -263,6 +264,7 @@
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(270, 26);
             this.tbLastName.TabIndex = 3;
+            this.tbLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLastName_KeyPress);
             this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.tbLastName_Validating);
             // 
             // errorProvider
