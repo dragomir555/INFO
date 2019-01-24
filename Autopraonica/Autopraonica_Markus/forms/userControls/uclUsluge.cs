@@ -34,6 +34,7 @@ namespace Autopraonica_Markus.forms.userControls
         {
             InitializeComponent();
             helpingEmployee = null;
+            cmbEntities.SelectedIndex = 0;
         }
 
         public void SetEmployee(employee employee)
@@ -117,21 +118,6 @@ namespace Autopraonica_Markus.forms.userControls
             dgvNaturalEntity.BringToFront();
         }
 
-        private void dgvLegalEntity_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void rbPravnaLica_CheckedChanged(object sender, EventArgs e)
-        {
-            dgvLegalEntity.BringToFront();
-        }
-
-        private void rbFizickaLica_CheckedChanged(object sender, EventArgs e)
-        {
-            dgvNaturalEntity.BringToFront();
-        }
-
         private void btnNewNaturalEntityService_Click(object sender, EventArgs e)
         {
             NewNaturalEntityServiceForm nnesf = new NewNaturalEntityServiceForm();
@@ -153,7 +139,7 @@ namespace Autopraonica_Markus.forms.userControls
                         context.naturalentityservices.Add(naturalEntityService);
                         context.SaveChanges();
                         FillTableNaturalEntityServices();
-                        rbFizickaLica.Checked = true;
+                        cmbEntities.SelectedIndex = 1;
                     }
                 }
                 catch(Exception ex)
@@ -194,7 +180,7 @@ namespace Autopraonica_Markus.forms.userControls
                         context.legalentityservices.Add(legalEntityService);
                         context.SaveChanges();
                         FillTableLegalEntityServices();
-                        rbPravnaLica.Checked = true;
+                        cmbEntities.SelectedIndex = 0;
                     }
                 }
                 catch (Exception ex)
@@ -202,6 +188,18 @@ namespace Autopraonica_Markus.forms.userControls
                     Console.WriteLine(ex.ToString());
                     MessageBox.Show(ex.StackTrace);
                 }
+            }
+        }
+
+        private void cmbEntities_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbEntities.SelectedIndex == 0)
+            {
+                dgvLegalEntity.BringToFront();
+            }
+            else
+            {
+                dgvNaturalEntity.BringToFront();
             }
         }
     }

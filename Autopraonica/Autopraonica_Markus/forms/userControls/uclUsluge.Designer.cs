@@ -34,8 +34,6 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rbPravnaLica = new System.Windows.Forms.RadioButton();
-            this.rbFizickaLica = new System.Windows.Forms.RadioButton();
             this.btnNewLegalEntityService = new System.Windows.Forms.Button();
             this.btnNewNaturalEntityService = new System.Windows.Forms.Button();
             this.dgvNaturalEntity = new System.Windows.Forms.DataGridView();
@@ -43,6 +41,8 @@
             this.KategorijaUsluge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usluga = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblView = new System.Windows.Forms.Label();
+            this.cmbEntities = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLegalEntity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNaturalEntity)).BeginInit();
             this.SuspendLayout();
@@ -65,15 +65,14 @@
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dgvLegalEntity.Location = new System.Drawing.Point(17, 135);
+            this.dgvLegalEntity.Location = new System.Drawing.Point(17, 46);
             this.dgvLegalEntity.MultiSelect = false;
             this.dgvLegalEntity.Name = "dgvLegalEntity";
             this.dgvLegalEntity.ReadOnly = true;
             this.dgvLegalEntity.RowHeadersVisible = false;
             this.dgvLegalEntity.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLegalEntity.Size = new System.Drawing.Size(649, 230);
+            this.dgvLegalEntity.Size = new System.Drawing.Size(649, 271);
             this.dgvLegalEntity.TabIndex = 0;
-            this.dgvLegalEntity.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLegalEntity_CellContentClick);
             // 
             // Naziv
             // 
@@ -105,59 +104,35 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
-            // rbPravnaLica
-            // 
-            this.rbPravnaLica.AutoSize = true;
-            this.rbPravnaLica.Checked = true;
-            this.rbPravnaLica.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbPravnaLica.Location = new System.Drawing.Point(17, 100);
-            this.rbPravnaLica.Name = "rbPravnaLica";
-            this.rbPravnaLica.Size = new System.Drawing.Size(137, 29);
-            this.rbPravnaLica.TabIndex = 1;
-            this.rbPravnaLica.TabStop = true;
-            this.rbPravnaLica.Text = "Pravna lica";
-            this.rbPravnaLica.UseVisualStyleBackColor = true;
-            this.rbPravnaLica.CheckedChanged += new System.EventHandler(this.rbPravnaLica_CheckedChanged);
-            // 
-            // rbFizickaLica
-            // 
-            this.rbFizickaLica.AutoSize = true;
-            this.rbFizickaLica.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFizickaLica.Location = new System.Drawing.Point(180, 100);
-            this.rbFizickaLica.Name = "rbFizickaLica";
-            this.rbFizickaLica.Size = new System.Drawing.Size(137, 29);
-            this.rbFizickaLica.TabIndex = 2;
-            this.rbFizickaLica.Text = "Fizička lica";
-            this.rbFizickaLica.UseVisualStyleBackColor = true;
-            this.rbFizickaLica.CheckedChanged += new System.EventHandler(this.rbFizickaLica_CheckedChanged);
-            // 
             // btnNewLegalEntityService
             // 
+            this.btnNewLegalEntityService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnNewLegalEntityService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnNewLegalEntityService.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnNewLegalEntityService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewLegalEntityService.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewLegalEntityService.ForeColor = System.Drawing.Color.White;
-            this.btnNewLegalEntityService.Location = new System.Drawing.Point(17, 20);
+            this.btnNewLegalEntityService.Location = new System.Drawing.Point(17, 323);
             this.btnNewLegalEntityService.Name = "btnNewLegalEntityService";
             this.btnNewLegalEntityService.Size = new System.Drawing.Size(300, 45);
             this.btnNewLegalEntityService.TabIndex = 3;
-            this.btnNewLegalEntityService.Text = "Dodavanje usluge za pravna lica";
+            this.btnNewLegalEntityService.Text = "Dodavanje usluge za pravno lice";
             this.btnNewLegalEntityService.UseVisualStyleBackColor = false;
             this.btnNewLegalEntityService.Click += new System.EventHandler(this.btnNewLegalEntityService_Click);
             // 
             // btnNewNaturalEntityService
             // 
+            this.btnNewNaturalEntityService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnNewNaturalEntityService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnNewNaturalEntityService.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnNewNaturalEntityService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewNaturalEntityService.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewNaturalEntityService.ForeColor = System.Drawing.Color.White;
-            this.btnNewNaturalEntityService.Location = new System.Drawing.Point(366, 20);
+            this.btnNewNaturalEntityService.Location = new System.Drawing.Point(366, 323);
             this.btnNewNaturalEntityService.Name = "btnNewNaturalEntityService";
             this.btnNewNaturalEntityService.Size = new System.Drawing.Size(300, 45);
             this.btnNewNaturalEntityService.TabIndex = 4;
-            this.btnNewNaturalEntityService.Text = "Dodavanje usluge za fizička lica";
+            this.btnNewNaturalEntityService.Text = "Dodavanje usluge za fizičko lice";
             this.btnNewNaturalEntityService.UseVisualStyleBackColor = false;
             this.btnNewNaturalEntityService.Click += new System.EventHandler(this.btnNewNaturalEntityService_Click);
             // 
@@ -178,12 +153,12 @@
             this.KategorijaUsluge,
             this.Usluga,
             this.Cijena});
-            this.dgvNaturalEntity.Location = new System.Drawing.Point(17, 135);
+            this.dgvNaturalEntity.Location = new System.Drawing.Point(17, 46);
             this.dgvNaturalEntity.MultiSelect = false;
             this.dgvNaturalEntity.Name = "dgvNaturalEntity";
             this.dgvNaturalEntity.ReadOnly = true;
             this.dgvNaturalEntity.RowHeadersVisible = false;
-            this.dgvNaturalEntity.Size = new System.Drawing.Size(649, 230);
+            this.dgvNaturalEntity.Size = new System.Drawing.Size(649, 271);
             this.dgvNaturalEntity.TabIndex = 5;
             // 
             // Vrijeme
@@ -210,16 +185,40 @@
             this.Cijena.Name = "Cijena";
             this.Cijena.ReadOnly = true;
             // 
+            // lblView
+            // 
+            this.lblView.AutoSize = true;
+            this.lblView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblView.Location = new System.Drawing.Point(13, 20);
+            this.lblView.Name = "lblView";
+            this.lblView.Size = new System.Drawing.Size(209, 20);
+            this.lblView.TabIndex = 6;
+            this.lblView.Text = "Pregled dnevih usluga za";
+            // 
+            // cmbEntities
+            // 
+            this.cmbEntities.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEntities.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEntities.FormattingEnabled = true;
+            this.cmbEntities.Items.AddRange(new object[] {
+            "Pravna lica",
+            "Fizička lica"});
+            this.cmbEntities.Location = new System.Drawing.Point(228, 12);
+            this.cmbEntities.Name = "cmbEntities";
+            this.cmbEntities.Size = new System.Drawing.Size(179, 28);
+            this.cmbEntities.TabIndex = 7;
+            this.cmbEntities.SelectedIndexChanged += new System.EventHandler(this.cmbEntities_SelectedIndexChanged);
+            // 
             // uclUsluge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.cmbEntities);
+            this.Controls.Add(this.lblView);
             this.Controls.Add(this.dgvNaturalEntity);
             this.Controls.Add(this.btnNewNaturalEntityService);
             this.Controls.Add(this.btnNewLegalEntityService);
-            this.Controls.Add(this.rbFizickaLica);
-            this.Controls.Add(this.rbPravnaLica);
             this.Controls.Add(this.dgvLegalEntity);
             this.Name = "uclUsluge";
             this.Size = new System.Drawing.Size(683, 382);
@@ -233,8 +232,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvLegalEntity;
-        private System.Windows.Forms.RadioButton rbPravnaLica;
-        private System.Windows.Forms.RadioButton rbFizickaLica;
         private System.Windows.Forms.Button btnNewLegalEntityService;
         private System.Windows.Forms.Button btnNewNaturalEntityService;
         private System.Windows.Forms.DataGridView dgvNaturalEntity;
@@ -247,5 +244,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Label lblView;
+        private System.Windows.Forms.ComboBox cmbEntities;
     }
 }

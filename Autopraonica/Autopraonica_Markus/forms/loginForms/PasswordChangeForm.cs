@@ -88,6 +88,15 @@ namespace Autopraonica_Markus.forms
                             context.SaveChanges();
                             if (caller == 0)
                             {
+                                employee employee = employment.employee;
+                                var emp = new employeerecord()
+                                {
+                                    Employee_Id = employee.Id,
+                                    LoginTime = DateTime.Now,
+                                    LogoutTime = null
+                                };
+                                employee.employeerecords.Add(emp);
+                                context.SaveChanges();
                                 mainForm.StartEmployeeLogoutUpdate();
                                 mainForm.SetEmployee(employment.employee);
                                 mainForm.ChangeAllowShowDisplay();
