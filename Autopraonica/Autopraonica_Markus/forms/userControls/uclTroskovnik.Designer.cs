@@ -70,6 +70,7 @@
             this.dgvPurchase.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPurchase.MultiSelect = false;
             this.dgvPurchase.Name = "dgvPurchase";
+            this.dgvPurchase.ReadOnly = true;
             this.dgvPurchase.RowHeadersVisible = false;
             this.dgvPurchase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPurchase.Size = new System.Drawing.Size(880, 286);

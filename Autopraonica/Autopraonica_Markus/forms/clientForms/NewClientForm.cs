@@ -37,7 +37,12 @@ namespace Autopraonica_Markus.forms.clientForms
                 cmbCityList.DataSource = gradovi;
                 cmbCityList.DisplayMember = "Name";
                 cmbCityList.ValueMember = "Id";
+
+                city k = gradovi.First();
+                cmbCityList.SelectedItem = k;
             }
+            
+
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -121,7 +126,6 @@ namespace Autopraonica_Markus.forms.clientForms
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 e.Cancel = true;
-                txtName.Focus();
                 errorProviderClient.SetError(txtName, "Molimo vas da unesete ispravan naziv klijenta!");
             }
             else
@@ -135,7 +139,6 @@ namespace Autopraonica_Markus.forms.clientForms
         {
             if (string.IsNullOrWhiteSpace(txtUID.Text)) {
                 e.Cancel = true;
-                txtUID.Focus();
                 errorProviderClient.SetError(txtUID, "Molimo vas da unesete JIB!");
             }
             else
@@ -144,7 +147,6 @@ namespace Autopraonica_Markus.forms.clientForms
                 if (!pattern.IsMatch(txtUID.Text))
                 {
                     e.Cancel = true;
-                    txtUID.Focus();
                     errorProviderClient.SetError(txtUID, "Molimo vas da unesete ispravan JIB!");
                 }
                 else
@@ -161,7 +163,6 @@ namespace Autopraonica_Markus.forms.clientForms
             if (string.IsNullOrWhiteSpace(txtAddress.Text))
             {
                 e.Cancel = true;
-                txtAddress.Focus();
                 errorProviderClient.SetError(txtAddress, "Molimo vas da unesete adresu klijenta !");
             }
             else

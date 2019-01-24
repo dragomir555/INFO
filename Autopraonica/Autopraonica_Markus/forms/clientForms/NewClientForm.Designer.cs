@@ -55,9 +55,10 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(293, 265);
+            this.btnCancel.Location = new System.Drawing.Point(391, 326);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(140, 35);
+            this.btnCancel.Size = new System.Drawing.Size(187, 43);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Otkazi";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -71,9 +72,10 @@
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(33, 265);
+            this.btnConfirm.Location = new System.Drawing.Point(44, 326);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(140, 35);
+            this.btnConfirm.Size = new System.Drawing.Size(187, 43);
             this.btnConfirm.TabIndex = 6;
             this.btnConfirm.Text = "Potvrdi";
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -82,9 +84,10 @@
             // txtUID
             // 
             this.txtUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtUID.Location = new System.Drawing.Point(180, 65);
+            this.txtUID.Location = new System.Drawing.Point(240, 80);
+            this.txtUID.Margin = new System.Windows.Forms.Padding(4);
             this.txtUID.Name = "txtUID";
-            this.txtUID.Size = new System.Drawing.Size(271, 26);
+            this.txtUID.Size = new System.Drawing.Size(360, 30);
             this.txtUID.TabIndex = 2;
             this.txtUID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUID_KeyPress);
             this.txtUID.Validating += new System.ComponentModel.CancelEventHandler(this.txtUID_Validating);
@@ -92,18 +95,20 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtName.Location = new System.Drawing.Point(180, 20);
+            this.txtName.Location = new System.Drawing.Point(240, 25);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(271, 26);
+            this.txtName.Size = new System.Drawing.Size(360, 30);
             this.txtName.TabIndex = 1;
             this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // txtAddress
             // 
             this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtAddress.Location = new System.Drawing.Point(180, 111);
+            this.txtAddress.Location = new System.Drawing.Point(240, 137);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(271, 26);
+            this.txtAddress.Size = new System.Drawing.Size(360, 30);
             this.txtAddress.TabIndex = 3;
             this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddress_Validating);
             // 
@@ -112,9 +117,10 @@
             this.cmbCityList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCityList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbCityList.FormattingEnabled = true;
-            this.cmbCityList.Location = new System.Drawing.Point(180, 156);
+            this.cmbCityList.Location = new System.Drawing.Point(240, 192);
+            this.cmbCityList.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCityList.Name = "cmbCityList";
-            this.cmbCityList.Size = new System.Drawing.Size(201, 28);
+            this.cmbCityList.Size = new System.Drawing.Size(267, 33);
             this.cmbCityList.TabIndex = 4;
             this.cmbCityList.SelectedIndexChanged += new System.EventHandler(this.cmbCityList_SelectedIndexChanged);
             // 
@@ -123,9 +129,10 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.lblName.Location = new System.Drawing.Point(30, 30);
+            this.lblName.Location = new System.Drawing.Point(40, 37);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(47, 16);
+            this.lblName.Size = new System.Drawing.Size(56, 20);
             this.lblName.TabIndex = 6;
             this.lblName.Text = "Naziv";
             // 
@@ -134,9 +141,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.label2.Location = new System.Drawing.Point(30, 71);
+            this.label2.Location = new System.Drawing.Point(40, 87);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 16);
+            this.label2.Size = new System.Drawing.Size(37, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "JIB";
             // 
@@ -145,9 +153,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.label3.Location = new System.Drawing.Point(30, 117);
+            this.label3.Location = new System.Drawing.Point(40, 144);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 16);
+            this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "Address";
             // 
@@ -156,9 +165,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.label1.Location = new System.Drawing.Point(30, 162);
+            this.label1.Location = new System.Drawing.Point(40, 199);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 16);
+            this.label1.Size = new System.Drawing.Size(50, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "Grad";
             // 
@@ -166,9 +176,10 @@
             // 
             this.dtpUgovorDo.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dtpUgovorDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dtpUgovorDo.Location = new System.Drawing.Point(232, 208);
+            this.dtpUgovorDo.Location = new System.Drawing.Point(309, 256);
+            this.dtpUgovorDo.Margin = new System.Windows.Forms.Padding(4);
             this.dtpUgovorDo.Name = "dtpUgovorDo";
-            this.dtpUgovorDo.Size = new System.Drawing.Size(219, 22);
+            this.dtpUgovorDo.Size = new System.Drawing.Size(291, 26);
             this.dtpUgovorDo.TabIndex = 10;
             // 
             // cbUgovorNa
@@ -176,9 +187,10 @@
             this.cbUgovorNa.AutoSize = true;
             this.cbUgovorNa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbUgovorNa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.cbUgovorNa.Location = new System.Drawing.Point(30, 208);
+            this.cbUgovorNa.Location = new System.Drawing.Point(40, 256);
+            this.cbUgovorNa.Margin = new System.Windows.Forms.Padding(4);
             this.cbUgovorNa.Name = "cbUgovorNa";
-            this.cbUgovorNa.Size = new System.Drawing.Size(202, 20);
+            this.cbUgovorNa.Size = new System.Drawing.Size(244, 24);
             this.cbUgovorNa.TabIndex = 5;
             this.cbUgovorNa.Text = "Ugovor na odredjeno vrijeme";
             this.cbUgovorNa.UseVisualStyleBackColor = true;
@@ -186,9 +198,10 @@
             // 
             // btnAddCity
             // 
-            this.btnAddCity.Location = new System.Drawing.Point(388, 156);
+            this.btnAddCity.Location = new System.Drawing.Point(517, 192);
+            this.btnAddCity.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddCity.Name = "btnAddCity";
-            this.btnAddCity.Size = new System.Drawing.Size(63, 28);
+            this.btnAddCity.Size = new System.Drawing.Size(84, 34);
             this.btnAddCity.TabIndex = 11;
             this.btnAddCity.Text = "Add";
             this.btnAddCity.UseVisualStyleBackColor = true;
@@ -201,10 +214,11 @@
             // 
             // NewClientForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(480, 316);
+            this.ClientSize = new System.Drawing.Size(637, 379);
             this.Controls.Add(this.btnAddCity);
             this.Controls.Add(this.cbUgovorNa);
             this.Controls.Add(this.dtpUgovorDo);
@@ -220,10 +234,11 @@
             this.Controls.Add(this.btnCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(496, 355);
+            this.MaximumSize = new System.Drawing.Size(655, 426);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(496, 355);
+            this.MinimumSize = new System.Drawing.Size(655, 426);
             this.Name = "NewClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novi klijent";

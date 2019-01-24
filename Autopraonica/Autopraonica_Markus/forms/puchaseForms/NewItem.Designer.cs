@@ -44,9 +44,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(27, 19);
+            this.label2.Location = new System.Drawing.Point(36, 23);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 16);
+            this.label2.Size = new System.Drawing.Size(104, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Naziv stavke";
             // 
@@ -54,9 +55,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(27, 64);
+            this.label1.Location = new System.Drawing.Point(36, 79);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 16);
+            this.label1.Size = new System.Drawing.Size(122, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Mjerna jedinica";
             // 
@@ -68,9 +70,10 @@
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(30, 116);
+            this.btnConfirm.Location = new System.Drawing.Point(40, 143);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(120, 30);
+            this.btnConfirm.Size = new System.Drawing.Size(160, 37);
             this.btnConfirm.TabIndex = 3;
             this.btnConfirm.Text = "Potvrda";
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -84,9 +87,10 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(216, 116);
+            this.btnCancel.Location = new System.Drawing.Point(288, 143);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(129, 30);
+            this.btnCancel.Size = new System.Drawing.Size(172, 37);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Odustani";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -96,17 +100,19 @@
             // 
             this.cmbUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cmbUnit.FormattingEnabled = true;
-            this.cmbUnit.Location = new System.Drawing.Point(174, 61);
+            this.cmbUnit.Location = new System.Drawing.Point(232, 75);
+            this.cmbUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbUnit.Name = "cmbUnit";
-            this.cmbUnit.Size = new System.Drawing.Size(171, 24);
+            this.cmbUnit.Size = new System.Drawing.Size(227, 28);
             this.cmbUnit.TabIndex = 5;
             // 
             // tbNameItem
             // 
             this.tbNameItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbNameItem.Location = new System.Drawing.Point(174, 19);
+            this.tbNameItem.Location = new System.Drawing.Point(232, 23);
+            this.tbNameItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbNameItem.Name = "tbNameItem";
-            this.tbNameItem.Size = new System.Drawing.Size(171, 22);
+            this.tbNameItem.Size = new System.Drawing.Size(227, 26);
             this.tbNameItem.TabIndex = 6;
             this.tbNameItem.Validating += new System.ComponentModel.CancelEventHandler(this.tbNameItem_Validating);
             // 
@@ -117,9 +123,10 @@
             // 
             // NewItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 160);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ClientSize = new System.Drawing.Size(499, 197);
             this.Controls.Add(this.tbNameItem);
             this.Controls.Add(this.cmbUnit);
             this.Controls.Add(this.btnCancel);
@@ -128,6 +135,7 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewItem";

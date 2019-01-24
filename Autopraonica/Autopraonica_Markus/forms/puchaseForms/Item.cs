@@ -113,6 +113,12 @@ namespace Autopraonica_Markus.forms.puchaseForms
                 errorProvider1.SetError(tbQuantity, "Unesite količinu !!!");
                 e.Cancel = true;
             }
+            else
+            {
+                errorProvider1.SetError(tbQuantity, null);
+                e.Cancel = false;
+
+            }
         }
 
         private void tbPrize_Validating(object sender, CancelEventArgs e)
@@ -122,27 +128,30 @@ namespace Autopraonica_Markus.forms.puchaseForms
                 errorProvider1.SetError(tbPrize, "Unesite cijenu stavke");
                 e.Cancel = true;
             }
+            else
+            {
+                errorProvider1.SetError(tbPrize,null);
+                e.Cancel = false;
+            }
         }
 
         private void tbSearchText_TextChanged(object sender, EventArgs e)
         {
             FillTable();
         }
-
-        private void AllowInteger(object sender, KeyPressEventArgs e)
+        
+       private void AllowInteger(object sender, KeyPressEventArgs e)
         {
             // allows 0-9, backspace, and decimal
-            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8 && e.KeyChar != 46))
+            if (((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8))
             {
                 e.Handled = true;
                 return;
             }
         }
 
-        private void tbQuantity_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            AllowInteger(sender, e);
-        }
+      
+
         private void AllowDecimal(object sender, KeyPressEventArgs e)
         {
             // allows 0-9, backspace, and decimal
@@ -159,9 +168,15 @@ namespace Autopraonica_Markus.forms.puchaseForms
                     e.Handled = true;
             }
         }
+
+        private void tbQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AllowInteger(sender,e);
+        }
+
         private void tbPrize_KeyPress(object sender, KeyPressEventArgs e)
         {
-            AllowDecimal(sender, e);
+         //   AllowDecimal(sender, e);
         }
     }
 }
