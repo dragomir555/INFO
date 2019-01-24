@@ -36,7 +36,15 @@ namespace Autopraonica_Markus.forms.userControls
         public uclZaposleni()
         {
             InitializeComponent();
+            fillComboBox();
             FillTable();
+        }
+
+        private void fillComboBox()
+        {
+            cmbEmployees.Items.Add("Trenutni");
+            cmbEmployees.Items.Add("Bivsi");
+            cmbEmployees.Text = "Trenutni";
         }
 
         private void btnNewEmployee_Click(object sender, EventArgs e)
@@ -107,29 +115,29 @@ namespace Autopraonica_Markus.forms.userControls
                 var nezaposleni = new System.Collections.Generic.List<employee>();
 
                 praviZaposleni = (from c in context.employees
-                                 join ents in context.employments on c.Id equals ents.Employee_Id
-                                 where ents.DateTo == null 
-                                 select c).ToList();
-               
-                nezaposleni = (from c in context.employees
-                                 join ents in context.employments on c.Id equals ents.Employee_Id
-                                 where ents.DateTo != null 
-                                 select c).ToList();
+                                  join ents in context.employments on c.Id equals ents.Employee_Id
+                                  where ents.DateTo == null
+                                  select c).ToList();
 
-                if (rbPresent.Checked)
+                nezaposleni = (from c in context.employees
+                               join ents in context.employments on c.Id equals ents.Employee_Id
+                               where ents.DateTo != null
+                               select c).ToList();
+
+                if ("Trenutni".Equals(cmbEmployees.Text))
                     employeed = praviZaposleni;
                 else
                 {
                     foreach (var z in nezaposleni)
                     {
-                        if (!praviZaposleni.Contains(z) )
+                        if (!praviZaposleni.Contains(z))
                             employeed.Add(z);
-                    }    
+                    }
                 }
 
                 employeed = employeed.Distinct().ToList();
                 foreach (var c in employeed)
-                {              
+                {
                     DataGridViewRow r = new DataGridViewRow() { Tag = c };
                     r.CreateCells(dgvEmployees);
                     r.SetValues(c.FirstName, c.LastName, c.PhoneNumber, c.Address);
@@ -137,7 +145,7 @@ namespace Autopraonica_Markus.forms.userControls
                 }
             }
         }
-        
+
 
         private void btnUpdateEmployee_Click(object sender, EventArgs e)
         {
@@ -155,7 +163,7 @@ namespace Autopraonica_Markus.forms.userControls
                     E_mail = emp.E_mail,
                     PID = emp.PID
                 };
-
+                employeeForm.Text = "Izmjena zaposlenog";
                 
                 employee empl = null;
                 int idEmployee = emp.Id;
@@ -172,11 +180,10 @@ namespace Autopraonica_Markus.forms.userControls
                 {
                   try
                     {
-                        DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite sačuvati promjene?", "Izmjena zaposlenog");
-                        dialogForm.ShowDialog();
-                        if (dialogForm.DialogResult == DialogResult.Yes)
+                        DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite sačuvati promjene?",  "Izmjena zaposlenog", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
                         {
-                        using (MarkusDb context = new MarkusDb())
+                            using (MarkusDb context = new MarkusDb())
                         {
                             context.employees.Attach(empl);
                             empl.FirstName = employeeForm.FirstName;
@@ -234,10 +241,9 @@ namespace Autopraonica_Markus.forms.userControls
         private void btnDeleteEmployee_Click(object sender, EventArgs e)
         {
             if (dgvEmployees.SelectedRows.Count == 1)
-            {
-                DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite obrisati označenog zaposlenog?", "Brisanje zaposlenog");
-                dialogForm.ShowDialog();
-                if (dialogForm.DialogResult == DialogResult.Yes)
+            { 
+                DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite obrisati označenog zaposlenog?", "Brisanje zaposlenog", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
                     deleteSelectedEmployee();
                 }
@@ -290,7 +296,7 @@ namespace Autopraonica_Markus.forms.userControls
 
 
 
-                if (rbPresent.Checked)
+                if ("Trenutni".Equals(cmbEmployees.Text))
                 {
                     empl = getCurrentEmpl();
                 }
@@ -424,11 +430,10 @@ namespace Autopraonica_Markus.forms.userControls
 
                 try
                 {
-                    DialogForm dialogForm = new DialogForm("Da li ste sigurni da želite ponovo da zaposlite odabranog nezaposlenog?", "Zaposlenje");
-                    dialogForm.ShowDialog();
-                    if (dialogForm.DialogResult == DialogResult.Yes)
-                    {
-                        using (MarkusDb context = new MarkusDb())
+                    DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite ponovo da zaposlite odabranog nezaposlenog?", "Ponovno zaposlenje", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    { 
+                    using (MarkusDb context = new MarkusDb())
                         {
                             context.employees.Attach(empl);
 
@@ -482,6 +487,35 @@ namespace Autopraonica_Markus.forms.userControls
         private void dgvEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cmbEmployees_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            hideButtons();
+        }
+
+        public void hideButtons()
+        {
+            if ("Trenutni".Equals(cmbEmployees.Text))
+            {
+                tbSearchEmployee.Clear();
+                lblEmp.Visible = false;
+                btnNewEmployee.Visible = true;
+                btnHireEmployee.Visible = false;
+                btnUpdateEmployee.Visible = true;
+                btnDeleteEmployee.Visible = true;
+            }
+            else
+            {
+                tbSearchEmployee.Clear();
+                btnHireEmployee.Visible = true;
+                FillTable();
+                lblEmp.Visible = true;
+                btnNewEmployee.Visible = false;
+                btnUpdateEmployee.Visible = false;
+                btnDeleteEmployee.Visible = false;
+            }
+            FillTable();
         }
     }
 }

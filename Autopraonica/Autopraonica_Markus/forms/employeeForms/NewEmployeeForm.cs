@@ -23,10 +23,12 @@ namespace Autopraonica_Markus.forms.employeeForms
         public String E_mail { get; set; }
         public String Address { get; set; }
         public String PhoneNumber { get; set; }
+        public Boolean specificCondition { get; set; }
 
         public NewEmployeeForm()
         {
             InitializeComponent();
+            specificCondition = false;
         }
 
         public void fillTextBoxes() {
@@ -36,6 +38,7 @@ namespace Autopraonica_Markus.forms.employeeForms
             tbPhoneNumber.Text = PhoneNumber;
             tbEMail.Text = E_mail;
             tbPID.Text = PID;
+            specificCondition = true;
         }
 
         public void hideUnnecessaryItems() {
@@ -156,11 +159,31 @@ namespace Autopraonica_Markus.forms.employeeForms
         {
             var regex = @"[0-9]+";
             var match = Regex.Match(tbPID.Text, regex, RegexOptions.IgnoreCase);
+            var employees = new System.Collections.Generic.List<String>();
+            bool condition = true;
+
+            using (MarkusDb context = new MarkusDb())
+            {
+            employees = (from c in context.employees
+                             select c.PID).ToList();
+            }
+
+            foreach (String s in employees)
+            {
+                if (s.Equals(tbPID.Text))
+                    condition = false;
+            }
+
 
             if (string.IsNullOrWhiteSpace(tbPID.Text) || (tbPID.Text.Length!=13) || (!match.Success))
             {
                 e.Cancel = true;
                 errorProvider.SetError(tbPID, "Molimo da unesete ispravno JMB !");
+            }
+            else if (!condition && !specificCondition)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(tbPID, "Uneseni JMB već postoji.Molimo da unesete ispravno JMB !");
             }
             else
             {

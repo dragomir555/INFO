@@ -322,10 +322,9 @@ namespace Autopraonica_Markus.forms.userControls
 
 
                 if (rec != null)
-                {
-                    DialogForm dialogForm = new DialogForm("Racun je vec generisan.Da li zelite ponovo da sacuvate PDF?", "Generisanje racuna");
-                    dialogForm.ShowDialog();
-                    if(dialogForm.DialogResult == DialogResult.Yes)
+                { 
+                    DialogResult dialogResult = MessageBox.Show("Račun je već generisan.Da li zelite ponovo da sačuvate PDF?", "Generisanje računa", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
                     {
                         path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                         SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -359,10 +358,10 @@ namespace Autopraonica_Markus.forms.userControls
                         ExportDataTableOfUnpaidServicesToPdf(dtus, @"" + filePath, compName.ToUpper());
                         ExportDataTableForBillToPdf(dtbl, @"" + filePath, compName.ToUpper());
                         databaseFilePut(filePath);
-                        MessageBox.Show("Uspjesno generisan PDF", "PDF");
+                        MessageBox.Show("Uspješno generisan PDF", "PDF");
                     }
                     else
-                        MessageBox.Show("Neuspjesno generisan PDF", "PDF");
+                        MessageBox.Show("Neuspješno generisan PDF", "PDF");
                 }
             }
             catch (Exception ex)
@@ -815,12 +814,10 @@ namespace Autopraonica_Markus.forms.userControls
 
             if (dgvBills.Rows.Count != 0)
             {
-
-                DialogForm dialogForm = new DialogForm("Da li zelite promijeniti stanje racuna?", "Racun");
-                dialogForm.ShowDialog();
-                if (dialogForm.DialogResult == DialogResult.Yes)
-                {
-                   String cellValue = dgvBills.Rows[e.RowIndex].Cells[0].Value.ToString();
+                DialogResult dialogResult = MessageBox.Show("Da li želite promijeniti stanje racuna?", "Izdanje računa", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                { 
+                String cellValue = dgvBills.Rows[e.RowIndex].Cells[0].Value.ToString();
                    String month = cellValue.Substring(0, 2);
                    String year = cellValue.Substring(3, 4);
                    String clientName = cmbClients.Text;
