@@ -97,8 +97,18 @@ namespace Autopraonica_Markus.forms
                                 };
                                 employee.employeerecords.Add(emp);
                                 context.SaveChanges();
+                                var managers = (from c in context.managers select c).ToList();
+                                mainForm.SetButtonsVisibility(false);
+                                foreach (manager m in managers)
+                                {
+                                    if (employee.Id == m.Employee_Id)
+                                    {
+                                        mainForm.SetButtonsVisibility(true);
+                                    }
+                                }
                                 mainForm.StartEmployeeLogoutUpdate();
                                 mainForm.SetEmployee(employment.employee);
+                                mainForm.SetUclUslugeFirst();
                                 mainForm.ChangeAllowShowDisplay();
                             }
                             MessageBox.Show("Lozinka uspješno promjenjena.", "Markus");
