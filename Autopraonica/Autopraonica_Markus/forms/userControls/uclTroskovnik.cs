@@ -35,6 +35,7 @@ namespace Autopraonica_Markus.forms.userControls
             FillTable();
             cmbSearchType.SelectedIndex = 1;
             dtpTo.MaxDate = DateTime.Now;
+            dtpFrom.MaxDate = DateTime.Now;
             dtpTo.Value = DateTime.Now;
         }
 
