@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,12 +55,29 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEmployees.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmployees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colFirstName,
             this.colLastName,
             this.colPhoneNumber,
             this.colAddress});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEmployees.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvEmployees.Location = new System.Drawing.Point(23, 57);
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEmployees.MultiSelect = false;
@@ -100,7 +119,7 @@
             this.btnNewEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnNewEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnNewEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.btnNewEmployee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNewEmployee.Location = new System.Drawing.Point(23, 398);
             this.btnNewEmployee.Name = "btnNewEmployee";
@@ -115,7 +134,7 @@
             this.btnUpdateEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnUpdateEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnUpdateEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.btnUpdateEmployee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnUpdateEmployee.Location = new System.Drawing.Point(248, 398);
             this.btnUpdateEmployee.Name = "btnUpdateEmployee";
@@ -130,7 +149,7 @@
             this.btnDeleteEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDeleteEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnDeleteEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.btnDeleteEmployee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDeleteEmployee.Location = new System.Drawing.Point(473, 398);
             this.btnDeleteEmployee.Name = "btnDeleteEmployee";
@@ -163,7 +182,7 @@
             this.btnHireEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnHireEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnHireEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHireEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHireEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.btnHireEmployee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnHireEmployee.Location = new System.Drawing.Point(473, 398);
             this.btnHireEmployee.Name = "btnHireEmployee";

@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbClients = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpDateFrom = new System.Windows.Forms.DateTimePicker();
             this.lblPrice = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnDspUnpSer = new System.Windows.Forms.Button();
             this.lvUpSer = new System.Windows.Forms.ListView();
             this.hdSerNumSer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.hdTypeSer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -84,6 +83,7 @@
             this.cmbClients.Size = new System.Drawing.Size(246, 26);
             this.cmbClients.TabIndex = 11;
             this.cmbClients.Text = "  Odabir klijenta";
+            this.cmbClients.SelectedIndexChanged += new System.EventHandler(this.cmbClients_SelectedIndexChanged);
             this.cmbClients.SelectedValueChanged += new System.EventHandler(this.cmbClients_SelectedValueChanged);
             // 
             // label1
@@ -132,21 +132,6 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "Ukupna suma:";
             // 
-            // btnDspUnpSer
-            // 
-            this.btnDspUnpSer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDspUnpSer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
-            this.btnDspUnpSer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDspUnpSer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btnDspUnpSer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDspUnpSer.Location = new System.Drawing.Point(370, 408);
-            this.btnDspUnpSer.Name = "btnDspUnpSer";
-            this.btnDspUnpSer.Size = new System.Drawing.Size(235, 49);
-            this.btnDspUnpSer.TabIndex = 14;
-            this.btnDspUnpSer.Text = "Prikaži izvrsene usluge";
-            this.btnDspUnpSer.UseVisualStyleBackColor = false;
-            this.btnDspUnpSer.Click += new System.EventHandler(this.btnDspUnpSer_Click);
-            // 
             // lvUpSer
             // 
             this.lvUpSer.Activation = System.Windows.Forms.ItemActivation.OneClick;
@@ -166,7 +151,7 @@
             this.hdLicPl,
             this.hdPrice});
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem4});
             this.lvUpSer.Location = new System.Drawing.Point(21, 192);
             this.lvUpSer.MultiSelect = false;
             this.lvUpSer.Name = "lvUpSer";
@@ -218,15 +203,15 @@
             // 
             // btnGenBill
             // 
-            this.btnGenBill.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGenBill.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGenBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
             this.btnGenBill.Enabled = false;
             this.btnGenBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnGenBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.btnGenBill.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGenBill.Location = new System.Drawing.Point(611, 408);
+            this.btnGenBill.Location = new System.Drawing.Point(657, 408);
             this.btnGenBill.Name = "btnGenBill";
-            this.btnGenBill.Size = new System.Drawing.Size(235, 49);
+            this.btnGenBill.Size = new System.Drawing.Size(219, 55);
             this.btnGenBill.TabIndex = 17;
             this.btnGenBill.Text = "Generiši račun";
             this.btnGenBill.UseVisualStyleBackColor = false;
@@ -269,16 +254,16 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column1.HeaderText = "Broj racuna";
             this.Column1.Name = "Column1";
             // 
             // hdState
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.NullValue = false;
-            this.hdState.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle8.NullValue = false;
+            this.hdState.DefaultCellStyle = dataGridViewCellStyle8;
             this.hdState.HeaderText = "Placen";
             this.hdState.Name = "hdState";
             this.hdState.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -337,7 +322,6 @@
             this.Controls.Add(this.btnGenBill);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnDspUnpSer);
             this.Controls.Add(this.lvUpSer);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbClients);
@@ -361,7 +345,6 @@
         private System.Windows.Forms.DateTimePicker dtpDateFrom;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnDspUnpSer;
         private System.Windows.Forms.ListView lvUpSer;
         private System.Windows.Forms.ColumnHeader hdTypeSer;
         private System.Windows.Forms.ColumnHeader hdFirstName;

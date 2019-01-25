@@ -244,21 +244,7 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void btnDspUnpSer_Click(object sender, EventArgs e)
         {
-            lvUpSer.Items.Clear();
-            DateTimePicker dateFrom = new DateTimePicker();
-            dateFrom.Value = dtpDateFrom.Value;
-
-            fillListOfClients();
-            decimal suma = searchUnpaidServices(dateFrom);
-
-            lblPrice.Text = suma.ToString();
-
-            if (cmbClients.Text.Equals("  Odabir klijenta"))
-                MessageBox.Show("Molimo Vas odaberite klijenta.");
-            else if (lblPrice.Text == "0")
-                btnGenBill.Enabled = false;
-            else
-                btnGenBill.Enabled = true;
+          
         }
 
         private void fillListOfClients()
@@ -875,6 +861,20 @@ namespace Autopraonica_Markus.forms.userControls
             String month = getNameOfMonth(dtpDateFrom.Value.Month).ToUpper();
             String year = dtpDateFrom.Value.Year.ToString().ToUpper();
             lblMtYr.Text = month  + " " + year;
+
+            lvUpSer.Items.Clear();
+            DateTimePicker dateFrom = new DateTimePicker();
+            dateFrom.Value = dtpDateFrom.Value;
+
+            fillListOfClients();
+            decimal suma = searchUnpaidServices(dateFrom);
+
+            lblPrice.Text = suma.ToString();
+
+            if (lblPrice.Text == "0")
+                btnGenBill.Enabled = false;
+            else
+                btnGenBill.Enabled = true;
         }
 
         private void lvUpSer_ColumnWidthChanging_1(object sender, ColumnWidthChangingEventArgs e)
@@ -887,6 +887,23 @@ namespace Autopraonica_Markus.forms.userControls
         {
             if ("0".Equals(lblPrice.Text))
                 btnGenBill.Enabled = false;
+        }
+
+        private void cmbClients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lvUpSer.Items.Clear();
+            DateTimePicker dateFrom = new DateTimePicker();
+            dateFrom.Value = dtpDateFrom.Value;
+
+            fillListOfClients();
+            decimal suma = searchUnpaidServices(dateFrom);
+
+            lblPrice.Text = suma.ToString();
+
+             if (lblPrice.Text == "0")
+                btnGenBill.Enabled = false;
+            else
+                btnGenBill.Enabled = true;
         }
     }
 }
