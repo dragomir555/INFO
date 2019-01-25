@@ -43,7 +43,7 @@ namespace Autopraonica_Markus.forms.userControls
         private void fillComboBox()
         {
             cmbEmployees.Items.Add("Trenutni");
-            cmbEmployees.Items.Add("Bivsi");
+            cmbEmployees.Items.Add("Bivši");
             cmbEmployees.Text = "Trenutni";
         }
 
