@@ -20,16 +20,19 @@ namespace Autopraonica_Markus.forms.settingsForms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Name = tbName.Text;
-            Properties.Settings.Default.UID = tbUID.Text;
-            Properties.Settings.Default.Address = tbAddress.Text;
-            Properties.Settings.Default.PhoneNumber = tbPhoneNumber.Text;
-            Properties.Settings.Default.AccountNumber = tbAccountNumber.Text;
-            Properties.Settings.Default.Email = tbEmail.Text;
-            Properties.Settings.Default.Password = tbPassword.Text;
-            Properties.Settings.Default.Save();
-            btnSave.Enabled = false;
-            this.Close();
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                Properties.Settings.Default.Name = tbName.Text;
+                Properties.Settings.Default.UID = tbUID.Text;
+                Properties.Settings.Default.Address = tbAddress.Text;
+                Properties.Settings.Default.PhoneNumber = tbPhoneNumber.Text;
+                Properties.Settings.Default.AccountNumber = tbAccountNumber.Text;
+                Properties.Settings.Default.Email = tbEmail.Text;
+                Properties.Settings.Default.Password = tbPassword.Text;
+                Properties.Settings.Default.Save();
+                btnSave.Enabled = false;
+                this.Close();
+            }
         }
 
         public void SetValues()
