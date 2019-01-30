@@ -101,10 +101,12 @@ namespace Autopraonica_Markus
                 pnlContent.Controls.Add(uclIzdavanjeRacuna.Instance);
                 uclIzdavanjeRacuna.Instance.Dock = DockStyle.Fill;
                 uclIzdavanjeRacuna.Instance.BringToFront();
+                uclIzdavanjeRacuna.Instance.resizeListView();
             }
             else
             {
                 uclIzdavanjeRacuna.Instance.BringToFront();
+                uclIzdavanjeRacuna.Instance.resizeListView();
             }
             uclIzdavanjeRacuna.Instance.updateComboBox();
             PressedButton.BackColor = Color.FromArgb(107, 65, 150);
