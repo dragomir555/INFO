@@ -730,6 +730,11 @@ namespace Autopraonica_Markus.forms.userControls
             resizeColumns(lvUpSer);
         }
 
+        public void resizeListView()
+        {
+            resizeColumns(lvUpSer);
+        }
+
         private void resizeColumns(ListView lv)
         {
             int lvWidth = lv.Width;
