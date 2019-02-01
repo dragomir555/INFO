@@ -31,6 +31,7 @@ namespace Autopraonica_Markus.forms.userControls
         public uclKlijenti()
         {
             InitializeComponent();
+            changeOverContract();
             FillTable();
             cmbSearchType.SelectedIndex=0;
         }
@@ -292,6 +293,21 @@ new { Client = cl, Contract = cop }).ToList();
             }
         }
 
+        private void changeOverContract()
+        {
+            using(MarkusDb context=new MarkusDb())
+            {
+                var co = (from c in context.contracts where c.DateTo < DateTime.Now && c.Current == 1 select c).ToList();
+                foreach (var con in co)
+                {
+                    context.contracts.Attach(con);
+                    con.Current = 1;
+                    context.SaveChanges();
+                }
+            }
+
+
+        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             string text = (string)cmbSearchType.SelectedItem;

@@ -35,10 +35,6 @@
             this.tbNumberPurchase = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.clNameItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +44,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbNameSuplier = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.clNameItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +72,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Broj racuna";
+            this.label1.Text = "Broj računa";
             // 
             // dgvItems
             // 
@@ -113,30 +113,6 @@
             this.dgvItems.Size = new System.Drawing.Size(713, 214);
             this.dgvItems.TabIndex = 2;
             // 
-            // clNameItem
-            // 
-            this.clNameItem.HeaderText = "Naziv stavke";
-            this.clNameItem.Name = "clNameItem";
-            this.clNameItem.ReadOnly = true;
-            // 
-            // clQuantity
-            // 
-            this.clQuantity.HeaderText = "Kolicina";
-            this.clQuantity.Name = "clQuantity";
-            this.clQuantity.ReadOnly = true;
-            // 
-            // clUnit
-            // 
-            this.clUnit.HeaderText = "Jedinica";
-            this.clUnit.Name = "clUnit";
-            this.clUnit.ReadOnly = true;
-            // 
-            // clPrice
-            // 
-            this.clPrice.HeaderText = "Cijena";
-            this.clPrice.Name = "clPrice";
-            this.clPrice.ReadOnly = true;
-            // 
             // btnConfirm
             // 
             this.btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
@@ -150,7 +126,7 @@
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(187, 43);
             this.btnConfirm.TabIndex = 3;
-            this.btnConfirm.Text = "Zavrsi";
+            this.btnConfirm.Text = "Završi";
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
@@ -167,7 +143,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(187, 43);
             this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Otkazi";
+            this.btnCancel.Text = "Otkaži";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -251,6 +227,30 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // clNameItem
+            // 
+            this.clNameItem.HeaderText = "Naziv stavke";
+            this.clNameItem.Name = "clNameItem";
+            this.clNameItem.ReadOnly = true;
+            // 
+            // clQuantity
+            // 
+            this.clQuantity.HeaderText = "Količina";
+            this.clQuantity.Name = "clQuantity";
+            this.clQuantity.ReadOnly = true;
+            // 
+            // clUnit
+            // 
+            this.clUnit.HeaderText = "Jedinica";
+            this.clUnit.Name = "clUnit";
+            this.clUnit.ReadOnly = true;
+            // 
+            // clPrice
+            // 
+            this.clPrice.HeaderText = "Cijena";
+            this.clPrice.Name = "clPrice";
+            this.clPrice.ReadOnly = true;
+            // 
             // NewPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -289,10 +289,6 @@
         private System.Windows.Forms.TextBox tbNumberPurchase;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvItems;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clNameItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clUnit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clPrice;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label2;
@@ -302,5 +298,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbNameSuplier;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clNameItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clPrice;
     }
 }

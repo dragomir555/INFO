@@ -31,11 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPurchase = new System.Windows.Forms.DataGridView();
-            this.purchaseNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameEmployee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.newPurchase = new System.Windows.Forms.Button();
             this.stormPurchase = new System.Windows.Forms.Button();
             this.ViewPurchase = new System.Windows.Forms.Button();
@@ -48,6 +43,11 @@
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.purchaseNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameEmployee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,36 +94,6 @@
             this.dgvPurchase.Size = new System.Drawing.Size(880, 286);
             this.dgvPurchase.TabIndex = 0;
             this.dgvPurchase.SelectionChanged += new System.EventHandler(this.dgvPurchase_SelectionChanged);
-            // 
-            // purchaseNumber
-            // 
-            this.purchaseNumber.HeaderText = "Broj računa";
-            this.purchaseNumber.Name = "purchaseNumber";
-            this.purchaseNumber.ReadOnly = true;
-            // 
-            // suplierName
-            // 
-            this.suplierName.HeaderText = "Ime dobavljaca";
-            this.suplierName.Name = "suplierName";
-            this.suplierName.ReadOnly = true;
-            // 
-            // usernameEmployee
-            // 
-            this.usernameEmployee.HeaderText = "Radnik";
-            this.usernameEmployee.Name = "usernameEmployee";
-            this.usernameEmployee.ReadOnly = true;
-            // 
-            // time
-            // 
-            this.time.HeaderText = "Vrijeme preuzimanja";
-            this.time.Name = "time";
-            this.time.ReadOnly = true;
-            // 
-            // sumValue
-            // 
-            this.sumValue.HeaderText = "Ukupan iznos[KM]";
-            this.sumValue.Name = "sumValue";
-            this.sumValue.ReadOnly = true;
             // 
             // newPurchase
             // 
@@ -226,7 +196,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(178, 20);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Ukupan Iznos troskova";
+            this.label2.Text = "Ukupan Iznos troškova";
             // 
             // tbSumPurchase
             // 
@@ -248,7 +218,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(195, 20);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Troskovnik za period  Od";
+            this.label3.Text = "Troškovnik za period  Od";
             // 
             // dtpFrom
             // 
@@ -289,6 +259,36 @@
             this.dtpTo.ValueChanged += new System.EventHandler(this.dtpTo_ValueChanged);
             this.dtpTo.Enter += new System.EventHandler(this.dtpTo_Enter);
             // 
+            // purchaseNumber
+            // 
+            this.purchaseNumber.HeaderText = "Broj računa";
+            this.purchaseNumber.Name = "purchaseNumber";
+            this.purchaseNumber.ReadOnly = true;
+            // 
+            // suplierName
+            // 
+            this.suplierName.HeaderText = "Ime dobavljača";
+            this.suplierName.Name = "suplierName";
+            this.suplierName.ReadOnly = true;
+            // 
+            // usernameEmployee
+            // 
+            this.usernameEmployee.HeaderText = "Radnik";
+            this.usernameEmployee.Name = "usernameEmployee";
+            this.usernameEmployee.ReadOnly = true;
+            // 
+            // time
+            // 
+            this.time.HeaderText = "Vrijeme preuzimanja";
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            // 
+            // sumValue
+            // 
+            this.sumValue.HeaderText = "Ukupan iznos[KM]";
+            this.sumValue.Name = "sumValue";
+            this.sumValue.ReadOnly = true;
+            // 
             // uclTroskovnik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -319,11 +319,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvPurchase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn purchaseNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn suplierName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usernameEmployee;
-        private System.Windows.Forms.DataGridViewTextBoxColumn time;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sumValue;
         private System.Windows.Forms.Button newPurchase;
         private System.Windows.Forms.Button stormPurchase;
         private System.Windows.Forms.Button ViewPurchase;
@@ -336,5 +331,10 @@
         private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpTo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn purchaseNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn suplierName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usernameEmployee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sumValue;
     }
 }

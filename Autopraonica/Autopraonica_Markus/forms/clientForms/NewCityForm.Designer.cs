@@ -68,7 +68,7 @@
             // 
             this.tbCityName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbCityName.Location = new System.Drawing.Point(239, 53);
-            this.tbCityName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCityName.Margin = new System.Windows.Forms.Padding(4);
             this.tbCityName.Name = "tbCityName";
             this.tbCityName.Size = new System.Drawing.Size(285, 30);
             this.tbCityName.TabIndex = 1;
@@ -78,7 +78,7 @@
             // 
             this.tbPostCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbPostCode.Location = new System.Drawing.Point(239, 103);
-            this.tbPostCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPostCode.Margin = new System.Windows.Forms.Padding(4);
             this.tbPostCode.Name = "tbPostCode";
             this.tbPostCode.Size = new System.Drawing.Size(285, 30);
             this.tbPostCode.TabIndex = 2;
@@ -94,7 +94,7 @@
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
             this.btnConfirm.Location = new System.Drawing.Point(60, 196);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(160, 43);
             this.btnConfirm.TabIndex = 4;
@@ -111,11 +111,11 @@
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(365, 196);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(160, 43);
             this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Otkazi";
+            this.btnCancel.Text = "Otkaži";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -138,7 +138,7 @@
             this.Controls.Add(this.lblCityName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewCityForm";

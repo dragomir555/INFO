@@ -39,8 +39,6 @@
             this.tbPrize = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.nameItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbSearchText = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnAddNewItem = new System.Windows.Forms.Button();
@@ -48,6 +46,8 @@
             this.tbStavka = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbUnit = new System.Windows.Forms.TextBox();
+            this.nameItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +72,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Kolicina:";
+            this.label2.Text = "Količina:";
             // 
             // label3
             // 
@@ -114,15 +114,15 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(140, 40);
             this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Otkazi";
+            this.btnCancel.Text = "Otkaži";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.button2_Click);
             // 
             // tbQuantity
             // 
-            this.tbQuantity.Location = new System.Drawing.Point(78, 230);
+            this.tbQuantity.Location = new System.Drawing.Point(93, 230);
             this.tbQuantity.Name = "tbQuantity";
-            this.tbQuantity.Size = new System.Drawing.Size(199, 26);
+            this.tbQuantity.Size = new System.Drawing.Size(184, 26);
             this.tbQuantity.TabIndex = 5;
             this.tbQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQuantity_KeyPress);
             this.tbQuantity.Validating += new System.ComponentModel.CancelEventHandler(this.tbQuantity_Validating);
@@ -166,18 +166,6 @@
             this.dgvItems.TabIndex = 11;
             this.dgvItems.SelectionChanged += new System.EventHandler(this.dgvItems_SelectionChanged);
             // 
-            // nameItem
-            // 
-            this.nameItem.HeaderText = "Naziv kolone";
-            this.nameItem.Name = "nameItem";
-            this.nameItem.ReadOnly = true;
-            // 
-            // unitName
-            // 
-            this.unitName.HeaderText = "Mjerna Jedinica";
-            this.unitName.Name = "unitName";
-            this.unitName.ReadOnly = true;
-            // 
             // tbSearchText
             // 
             this.tbSearchText.Location = new System.Drawing.Point(92, 17);
@@ -219,9 +207,9 @@
             // tbStavka
             // 
             this.tbStavka.Enabled = false;
-            this.tbStavka.Location = new System.Drawing.Point(78, 190);
+            this.tbStavka.Location = new System.Drawing.Point(92, 190);
             this.tbStavka.Name = "tbStavka";
-            this.tbStavka.Size = new System.Drawing.Size(200, 26);
+            this.tbStavka.Size = new System.Drawing.Size(186, 26);
             this.tbStavka.TabIndex = 16;
             // 
             // label5
@@ -240,6 +228,18 @@
             this.tbUnit.Name = "tbUnit";
             this.tbUnit.Size = new System.Drawing.Size(91, 26);
             this.tbUnit.TabIndex = 18;
+            // 
+            // nameItem
+            // 
+            this.nameItem.HeaderText = "Naziv stavke";
+            this.nameItem.Name = "nameItem";
+            this.nameItem.ReadOnly = true;
+            // 
+            // unitName
+            // 
+            this.unitName.HeaderText = "Mjerna Jedinica";
+            this.unitName.Name = "unitName";
+            this.unitName.ReadOnly = true;
             // 
             // Item
             // 
@@ -289,8 +289,6 @@
         private System.Windows.Forms.TextBox tbPrize;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvItems;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitName;
         private System.Windows.Forms.TextBox tbSearchText;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAddNewItem;
@@ -298,5 +296,7 @@
         private System.Windows.Forms.TextBox tbStavka;
         private System.Windows.Forms.TextBox tbUnit;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitName;
     }
 }
