@@ -28,9 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPurchase = new System.Windows.Forms.DataGridView();
+            this.purchaseNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameEmployee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.newPurchase = new System.Windows.Forms.Button();
             this.stormPurchase = new System.Windows.Forms.Button();
             this.ViewPurchase = new System.Windows.Forms.Button();
@@ -43,11 +48,6 @@
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
-            this.purchaseNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameEmployee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,14 +61,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPurchase.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPurchase.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPurchase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPurchase.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPurchase.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.purchaseNumber,
@@ -76,14 +76,14 @@
             this.usernameEmployee,
             this.time,
             this.sumValue});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPurchase.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPurchase.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPurchase.Location = new System.Drawing.Point(21, 112);
             this.dgvPurchase.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPurchase.MultiSelect = false;
@@ -94,6 +94,36 @@
             this.dgvPurchase.Size = new System.Drawing.Size(880, 286);
             this.dgvPurchase.TabIndex = 0;
             this.dgvPurchase.SelectionChanged += new System.EventHandler(this.dgvPurchase_SelectionChanged);
+            // 
+            // purchaseNumber
+            // 
+            this.purchaseNumber.HeaderText = "Broj računa";
+            this.purchaseNumber.Name = "purchaseNumber";
+            this.purchaseNumber.ReadOnly = true;
+            // 
+            // suplierName
+            // 
+            this.suplierName.HeaderText = "Ime dobavljača";
+            this.suplierName.Name = "suplierName";
+            this.suplierName.ReadOnly = true;
+            // 
+            // usernameEmployee
+            // 
+            this.usernameEmployee.HeaderText = "Radnik";
+            this.usernameEmployee.Name = "usernameEmployee";
+            this.usernameEmployee.ReadOnly = true;
+            // 
+            // time
+            // 
+            this.time.HeaderText = "Vrijeme preuzimanja";
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            // 
+            // sumValue
+            // 
+            this.sumValue.HeaderText = "Ukupan iznos[KM]";
+            this.sumValue.Name = "sumValue";
+            this.sumValue.ReadOnly = true;
             // 
             // newPurchase
             // 
@@ -196,7 +226,8 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(178, 20);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Ukupan Iznos troškova";
+            this.label2.Text = "Ukupan iznos troškova";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tbSumPurchase
             // 
@@ -258,36 +289,6 @@
             this.dtpTo.Value = new System.DateTime(2018, 12, 25, 0, 0, 0, 0);
             this.dtpTo.ValueChanged += new System.EventHandler(this.dtpTo_ValueChanged);
             this.dtpTo.Enter += new System.EventHandler(this.dtpTo_Enter);
-            // 
-            // purchaseNumber
-            // 
-            this.purchaseNumber.HeaderText = "Broj računa";
-            this.purchaseNumber.Name = "purchaseNumber";
-            this.purchaseNumber.ReadOnly = true;
-            // 
-            // suplierName
-            // 
-            this.suplierName.HeaderText = "Ime dobavljača";
-            this.suplierName.Name = "suplierName";
-            this.suplierName.ReadOnly = true;
-            // 
-            // usernameEmployee
-            // 
-            this.usernameEmployee.HeaderText = "Radnik";
-            this.usernameEmployee.Name = "usernameEmployee";
-            this.usernameEmployee.ReadOnly = true;
-            // 
-            // time
-            // 
-            this.time.HeaderText = "Vrijeme preuzimanja";
-            this.time.Name = "time";
-            this.time.ReadOnly = true;
-            // 
-            // sumValue
-            // 
-            this.sumValue.HeaderText = "Ukupan iznos[KM]";
-            this.sumValue.Name = "sumValue";
-            this.sumValue.ReadOnly = true;
             // 
             // uclTroskovnik
             // 

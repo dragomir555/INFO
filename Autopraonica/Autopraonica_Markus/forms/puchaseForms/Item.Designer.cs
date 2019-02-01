@@ -59,9 +59,9 @@
             this.label1.Location = new System.Drawing.Point(13, 190);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 20);
+            this.label1.Size = new System.Drawing.Size(59, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Stavka:";
+            this.label1.Text = "Stavka";
             // 
             // label2
             // 
@@ -70,9 +70,9 @@
             this.label2.Location = new System.Drawing.Point(13, 236);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.Size = new System.Drawing.Size(68, 20);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Količina:";
+            this.label2.Text = "Količina";
             // 
             // label3
             // 
@@ -237,7 +237,7 @@
             // 
             // unitName
             // 
-            this.unitName.HeaderText = "Mjerna Jedinica";
+            this.unitName.HeaderText = "Mjerna jedinica";
             this.unitName.Name = "unitName";
             this.unitName.ReadOnly = true;
             // 
