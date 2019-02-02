@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbClients = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,12 +49,12 @@
             this.btnGenBill = new System.Windows.Forms.Button();
             this.lblRacuni = new System.Windows.Forms.Label();
             this.dgvBills = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hdState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dtpYear = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.lblMtYr = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hdState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,7 +151,7 @@
             this.hdLicPl,
             this.hdPrice});
             this.lvUpSer.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
+            listViewItem1});
             this.lvUpSer.Location = new System.Drawing.Point(21, 192);
             this.lvUpSer.MultiSelect = false;
             this.lvUpSer.Name = "lvUpSer";
@@ -227,7 +227,7 @@
             this.lblRacuni.Name = "lblRacuni";
             this.lblRacuni.Size = new System.Drawing.Size(123, 29);
             this.lblRacuni.TabIndex = 20;
-            this.lblRacuni.Text = "Racuni za ";
+            this.lblRacuni.Text = "Računi za ";
             // 
             // dgvBills
             // 
@@ -252,22 +252,6 @@
             this.dgvBills.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellContentClick);
             this.dgvBills.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBills_CellValueChanged);
             // 
-            // Column1
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Column1.HeaderText = "Broj racuna";
-            this.Column1.Name = "Column1";
-            // 
-            // hdState
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle8.NullValue = false;
-            this.hdState.DefaultCellStyle = dataGridViewCellStyle8;
-            this.hdState.HeaderText = "Placen";
-            this.hdState.Name = "hdState";
-            this.hdState.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
             // dtpYear
             // 
             this.dtpYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -287,7 +271,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(315, 25);
             this.label2.TabIndex = 24;
-            this.label2.Text = "PRIKAZ IZVRSENIH USLUGA ZA ";
+            this.label2.Text = "PRIKAZ IZVRŠENIH USLUGA ZA ";
             // 
             // lblMtYr
             // 
@@ -308,6 +292,22 @@
             this.label5.Size = new System.Drawing.Size(87, 29);
             this.label5.TabIndex = 26;
             this.label5.Text = "godinu";
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column1.HeaderText = "Broj računa";
+            this.Column1.Name = "Column1";
+            // 
+            // hdState
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.NullValue = false;
+            this.hdState.DefaultCellStyle = dataGridViewCellStyle2;
+            this.hdState.HeaderText = "Plaćen";
+            this.hdState.Name = "hdState";
+            this.hdState.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // uclIzdavanjeRacuna
             // 
@@ -358,10 +358,10 @@
         private System.Windows.Forms.Label lblRacuni;
         private System.Windows.Forms.DataGridView dgvBills;
         private System.Windows.Forms.DateTimePicker dtpYear;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn hdState;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblMtYr;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn hdState;
     }
 }
