@@ -57,12 +57,12 @@
             this.btnIzmjeniKlijenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIzmjeniKlijenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnIzmjeniKlijenta.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnIzmjeniKlijenta.Location = new System.Drawing.Point(241, 404);
+            this.btnIzmjeniKlijenta.Location = new System.Drawing.Point(253, 404);
             this.btnIzmjeniKlijenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnIzmjeniKlijenta.Name = "btnIzmjeniKlijenta";
-            this.btnIzmjeniKlijenta.Size = new System.Drawing.Size(187, 55);
+            this.btnIzmjeniKlijenta.Size = new System.Drawing.Size(190, 55);
             this.btnIzmjeniKlijenta.TabIndex = 1;
-            this.btnIzmjeniKlijenta.Text = "Izmjeni klijenta";
+            this.btnIzmjeniKlijenta.Text = "Izmijena klijenta";
             this.btnIzmjeniKlijenta.UseVisualStyleBackColor = false;
             this.btnIzmjeniKlijenta.Click += new System.EventHandler(this.btnIzmjeniKlijenta_Click);
             // 
@@ -147,13 +147,13 @@
             // 
             // colUgovorOd
             // 
-            this.colUgovorOd.HeaderText = "UgovorOd";
+            this.colUgovorOd.HeaderText = "Ugovor od";
             this.colUgovorOd.Name = "colUgovorOd";
             this.colUgovorOd.ReadOnly = true;
             // 
             // colUgovorDo
             // 
-            this.colUgovorDo.HeaderText = "UgovorDo";
+            this.colUgovorDo.HeaderText = "Ugovor do";
             this.colUgovorDo.Name = "colUgovorDo";
             this.colUgovorDo.ReadOnly = true;
             // 
@@ -169,7 +169,7 @@
             this.btnNoviKlijent.Location = new System.Drawing.Point(27, 404);
             this.btnNoviKlijent.Margin = new System.Windows.Forms.Padding(4);
             this.btnNoviKlijent.Name = "btnNoviKlijent";
-            this.btnNoviKlijent.Size = new System.Drawing.Size(187, 55);
+            this.btnNoviKlijent.Size = new System.Drawing.Size(190, 55);
             this.btnNoviKlijent.TabIndex = 4;
             this.btnNoviKlijent.Text = "Novi klijent";
             this.btnNoviKlijent.UseVisualStyleBackColor = false;
@@ -187,7 +187,7 @@
             this.button1.Location = new System.Drawing.Point(476, 404);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(187, 55);
+            this.button1.Size = new System.Drawing.Size(190, 55);
             this.button1.TabIndex = 5;
             this.button1.Text = "Novi ugovor";
             this.button1.UseVisualStyleBackColor = false;
@@ -244,9 +244,9 @@
             this.cancelContract.Location = new System.Drawing.Point(705, 404);
             this.cancelContract.Margin = new System.Windows.Forms.Padding(4);
             this.cancelContract.Name = "cancelContract";
-            this.cancelContract.Size = new System.Drawing.Size(187, 55);
+            this.cancelContract.Size = new System.Drawing.Size(190, 55);
             this.cancelContract.TabIndex = 9;
-            this.cancelContract.Text = "Ponisti ugovor";
+            this.cancelContract.Text = "Poništi ugovor";
             this.cancelContract.UseVisualStyleBackColor = false;
             this.cancelContract.Click += new System.EventHandler(this.button2_Click);
             // 

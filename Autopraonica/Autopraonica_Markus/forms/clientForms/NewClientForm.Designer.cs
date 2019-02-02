@@ -55,12 +55,12 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(391, 326);
+            this.btnCancel.Location = new System.Drawing.Point(400, 321);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(187, 43);
+            this.btnCancel.Size = new System.Drawing.Size(200, 45);
             this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "Otkazi";
+            this.btnCancel.Text = "Otkaži";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -72,10 +72,10 @@
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(44, 326);
+            this.btnConfirm.Location = new System.Drawing.Point(44, 321);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(187, 43);
+            this.btnConfirm.Size = new System.Drawing.Size(200, 45);
             this.btnConfirm.TabIndex = 6;
             this.btnConfirm.Text = "Potvrdi";
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -156,9 +156,9 @@
             this.label3.Location = new System.Drawing.Point(40, 144);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 20);
+            this.label3.Size = new System.Drawing.Size(68, 20);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Address";
+            this.label3.Text = "Adresa";
             // 
             // label1
             // 
@@ -198,13 +198,19 @@
             // 
             // btnAddCity
             // 
+            this.btnAddCity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.btnAddCity.FlatAppearance.BorderSize = 0;
+            this.btnAddCity.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnAddCity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCity.ForeColor = System.Drawing.Color.White;
             this.btnAddCity.Location = new System.Drawing.Point(519, 192);
             this.btnAddCity.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddCity.Name = "btnAddCity";
             this.btnAddCity.Size = new System.Drawing.Size(82, 34);
             this.btnAddCity.TabIndex = 11;
-            this.btnAddCity.Text = "Add";
-            this.btnAddCity.UseVisualStyleBackColor = true;
+            this.btnAddCity.Text = "Dodaj";
+            this.btnAddCity.UseVisualStyleBackColor = false;
             this.btnAddCity.Click += new System.EventHandler(this.btnAddCity_Click);
             // 
             // errorProviderClient
@@ -241,7 +247,7 @@
             this.MinimumSize = new System.Drawing.Size(655, 426);
             this.Name = "NewClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Novi klijent";
+            this.Text = "Klijenti";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewClientForm_FormClosing);
             this.Load += new System.EventHandler(this.NewClientForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderClient)).EndInit();

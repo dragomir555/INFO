@@ -136,7 +136,7 @@ namespace Autopraonica_Markus.forms.clientForms
             else
             {
                 Regex pattern = new Regex("[0-9]{13}");
-                if (!pattern.IsMatch(txtUID.Text))
+                if (!pattern.IsMatch(txtUID.Text) || txtUID.Text.Length>13)
                 {
                     e.Cancel = true;
                     errorProviderClient.SetError(txtUID, "Molimo vas da unesete ispravan JIB!");

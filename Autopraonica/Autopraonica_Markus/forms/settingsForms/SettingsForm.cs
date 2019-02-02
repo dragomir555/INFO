@@ -80,6 +80,11 @@ namespace Autopraonica_Markus.forms.settingsForms
                 //tbUID.Focus();
                 errorProvider.SetError(tbUID, "Niste unijeli JIB.");
             }
+            else if(tbUID.Text.Length != 13)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(tbUID, "JIB mora imati 13 karaktera.");
+            }
             else
             {
                 e.Cancel = false;
