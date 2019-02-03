@@ -142,11 +142,12 @@ namespace Autopraonica_Markus.forms.userControls
                        select er
                        ).ToList();
 
-
+                    int seconds = 0;
                     foreach (var er in employeerecords)
                     {
-                        hours += (int)(er.LogoutTime.Value - er.LoginTime).TotalHours;
+                        seconds += (int)(er.LogoutTime.Value - er.LoginTime).TotalSeconds;
                     }
+                    hours = seconds / 3600;
 
                     var helpingemployeerecords = (
                         from her in context.helpingemployeerecords
@@ -155,11 +156,13 @@ namespace Autopraonica_Markus.forms.userControls
                         select her
                         ).ToList();
 
+                    int seconds2 = 0;
                     foreach (var h in helpingemployeerecords)
                     {
-                        hoursAsHelp += (int)(h.LogoutTime.Value - h.LoginTime).TotalHours;
+                        seconds2 += (int)(h.LogoutTime.Value - h.LoginTime).TotalSeconds;
                     }
 
+                    hoursAsHelp = seconds2 / 3600;
 
                     numberOfWashings = (
                         from es in context.employees
