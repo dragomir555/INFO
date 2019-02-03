@@ -84,14 +84,14 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPurchase.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvPurchase.Location = new System.Drawing.Point(21, 112);
+            this.dgvPurchase.Location = new System.Drawing.Point(21, 59);
             this.dgvPurchase.Margin = new System.Windows.Forms.Padding(4);
             this.dgvPurchase.MultiSelect = false;
             this.dgvPurchase.Name = "dgvPurchase";
             this.dgvPurchase.ReadOnly = true;
             this.dgvPurchase.RowHeadersVisible = false;
             this.dgvPurchase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPurchase.Size = new System.Drawing.Size(880, 286);
+            this.dgvPurchase.Size = new System.Drawing.Size(872, 339);
             this.dgvPurchase.TabIndex = 0;
             this.dgvPurchase.SelectionChanged += new System.EventHandler(this.dgvPurchase_SelectionChanged);
             // 
@@ -183,7 +183,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(20, 73);
+            this.label1.Location = new System.Drawing.Point(388, 15);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 24);
@@ -199,20 +199,20 @@
             "Broj Računa",
             "Radnik",
             "Dobavljač"});
-            this.cmbSearchType.Location = new System.Drawing.Point(162, 66);
+            this.cmbSearchType.Location = new System.Drawing.Point(498, 13);
             this.cmbSearchType.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSearchType.Name = "cmbSearchType";
-            this.cmbSearchType.Size = new System.Drawing.Size(181, 28);
+            this.cmbSearchType.Size = new System.Drawing.Size(139, 28);
             this.cmbSearchType.TabIndex = 6;
             this.cmbSearchType.SelectedIndexChanged += new System.EventHandler(this.cmbSearchType_SelectedIndexChanged);
             // 
             // tbSearchtext
             // 
             this.tbSearchtext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbSearchtext.Location = new System.Drawing.Point(373, 66);
+            this.tbSearchtext.Location = new System.Drawing.Point(645, 15);
             this.tbSearchtext.Margin = new System.Windows.Forms.Padding(4);
             this.tbSearchtext.Name = "tbSearchtext";
-            this.tbSearchtext.Size = new System.Drawing.Size(528, 26);
+            this.tbSearchtext.Size = new System.Drawing.Size(248, 26);
             this.tbSearchtext.TabIndex = 7;
             this.tbSearchtext.TextChanged += new System.EventHandler(this.tbSearchtext_TextChanged);
             // 
@@ -221,7 +221,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(714, 405);
+            this.label2.Location = new System.Drawing.Point(698, 405);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(178, 20);
@@ -233,7 +233,7 @@
             // 
             this.tbSumPurchase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSumPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbSumPurchase.Location = new System.Drawing.Point(708, 429);
+            this.tbSumPurchase.Location = new System.Drawing.Point(692, 429);
             this.tbSumPurchase.Margin = new System.Windows.Forms.Padding(4);
             this.tbSumPurchase.Name = "tbSumPurchase";
             this.tbSumPurchase.ReadOnly = true;
@@ -243,24 +243,25 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(20, 18);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(24, 18);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(195, 20);
+            this.label3.Size = new System.Drawing.Size(33, 20);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Troškovnik za period  Od";
+            this.label3.Text = "Od";
             // 
             // dtpFrom
             // 
             this.dtpFrom.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dtpFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dtpFrom.Location = new System.Drawing.Point(238, 18);
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFrom.Location = new System.Drawing.Point(65, 12);
             this.dtpFrom.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFrom.MaxDate = new System.DateTime(2018, 12, 25, 0, 0, 0, 0);
             this.dtpFrom.MinDate = new System.DateTime(2018, 1, 25, 0, 0, 0, 0);
             this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(295, 26);
+            this.dtpFrom.Size = new System.Drawing.Size(135, 26);
             this.dtpFrom.TabIndex = 11;
             this.dtpFrom.Value = new System.DateTime(2018, 1, 25, 0, 0, 0, 0);
             this.dtpFrom.ValueChanged += new System.EventHandler(this.dtpFrom_ValueChanged);
@@ -268,23 +269,24 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(541, 18);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(208, 18);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 20);
+            this.label4.Size = new System.Drawing.Size(33, 20);
             this.label4.TabIndex = 12;
             this.label4.Text = "Do";
             // 
             // dtpTo
             // 
             this.dtpTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dtpTo.Location = new System.Drawing.Point(584, 18);
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTo.Location = new System.Drawing.Point(247, 13);
             this.dtpTo.Margin = new System.Windows.Forms.Padding(4);
             this.dtpTo.MaxDate = new System.DateTime(2018, 12, 25, 21, 39, 27, 0);
             this.dtpTo.MinDate = new System.DateTime(2018, 1, 25, 0, 0, 0, 0);
             this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(317, 26);
+            this.dtpTo.Size = new System.Drawing.Size(139, 26);
             this.dtpTo.TabIndex = 13;
             this.dtpTo.Value = new System.DateTime(2018, 12, 25, 0, 0, 0, 0);
             this.dtpTo.ValueChanged += new System.EventHandler(this.dtpTo_ValueChanged);
@@ -310,7 +312,7 @@
             this.Controls.Add(this.dgvPurchase);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uclTroskovnik";
-            this.Size = new System.Drawing.Size(927, 470);
+            this.Size = new System.Drawing.Size(911, 470);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchase)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
