@@ -25,8 +25,8 @@ namespace Autopraonica_Markus.forms
             InitializeComponent();
             numberOfFailedLogin = 0;
             this.mainForm = mainForm;
-            tbPassword.Text = "admin123";
-            tbUsername.Text = "nikola.nikolic";
+            //tbPassword.Text = "admin123";
+            //tbUsername.Text = "nikola.nikolic";
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
