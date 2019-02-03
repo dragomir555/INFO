@@ -194,7 +194,7 @@ namespace Autopraonica_Markus.forms.settingsForms
 
         private void AllowAlphaNumerical(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != 8)
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != 32)
             {
                 e.Handled = true;
             }
@@ -215,6 +215,10 @@ namespace Autopraonica_Markus.forms.settingsForms
 
         private void tbUID_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if(tbUID.Text.Length == 13 && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
             AllowDigits(sender, e);
         }
 

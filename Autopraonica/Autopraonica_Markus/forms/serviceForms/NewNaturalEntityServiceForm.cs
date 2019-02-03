@@ -119,7 +119,7 @@ namespace Autopraonica_Markus.forms.serviceForms
         {
             using(MarkusDb context = new MarkusDb())
             {
-                var carBrands = (from c in context.carbrands select c).ToList();
+                var carBrands = (from c in context.carbrands orderby c.Name ascending select c).ToList();
                 cmbCarBrand.DataSource = carBrands;
                 cmbCarBrand.DisplayMember = "Name";
                 cmbCarBrand.ValueMember = "Id";
