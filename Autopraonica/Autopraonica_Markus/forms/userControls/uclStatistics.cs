@@ -302,7 +302,7 @@ namespace Autopraonica_Markus.forms.userControls
             }
 
             label6.Text = "Ukupni troškovi iznose: " + costs;
-            label7.Text = "Ukupan prihod iznosi: " + prices;
+            label7.Text = "Prihod od usluga: " + prices;
         }
 
         private void cbFormat(object sender, ListControlConvertEventArgs e)
