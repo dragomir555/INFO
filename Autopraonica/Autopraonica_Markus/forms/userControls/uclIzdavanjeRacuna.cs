@@ -121,7 +121,8 @@ namespace Autopraonica_Markus.forms.userControls
         }
 
         public void updateComboBox()
-        {
+        { 
+            lvUpSer.Columns[0].ListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.0f, FontStyle.Bold);
             cmbClients.Items.Clear();
             using (MarkusDb context = new MarkusDb())
             {
@@ -226,15 +227,14 @@ namespace Autopraonica_Markus.forms.userControls
                     {
                         ListViewItem item = new ListViewItem(i++.ToString());
                         item.SubItems.Add(v.Name);
-                        item.SubItems.Add(v.priceName);
-                        item.SubItems.Add(v.FirstName);
-                        item.SubItems.Add(v.LastName);
+                        item.SubItems.Add(v.priceName); 
                         item.SubItems.Add(formattedDate);
                         item.SubItems.Add(v.LicencePlate);
                         item.SubItems.Add(v.Price.ToString());
                         suma += v.Price;
-                        lvUpSer.Items.Add(item);
 
+                        item.Font = new System.Drawing.Font(lvUpSer.Font, FontStyle.Regular);
+                        lvUpSer.Items.Add(item);
                     }
                 }
 
@@ -742,16 +742,16 @@ namespace Autopraonica_Markus.forms.userControls
 
             if (lvWidth > 1000)
             {
-                clmnWidth = lvWidth / 7;
+                clmnWidth = lvWidth / 5;
             }
 
             else if (lvWidth > 600)
            {
-            clmnWidth = lvWidth / 8;
+            clmnWidth = lvWidth / 5;
            }
             else
            {
-            clmnWidth = lvWidth / 8 + 10;
+            clmnWidth = lvWidth / 5 + 10;
            }
 
             int sum = 0;
@@ -761,12 +761,23 @@ namespace Autopraonica_Markus.forms.userControls
                     column.Width = clmnWidth;
                 if (column.Text.Equals("Registarske tablice") || column.Text.Equals("Podvrsta usluge") || column.Text.Equals("Vrsta usluge"))
                     column.Width = clmnWidth + 25;
+
+                if ((column.Text.Equals("Registarske tablice")) && (lvWidth < 1000))
+                    column.Width += 5;
+
+                if (lvWidth < 1000 && column.Text.Equals("Vrsta usluge"))
+                    column.Width -= 40;
+                if (lvWidth < 1000 && column.Text.Equals("Podvrsta usluge"))
+                    column.Width -= 20;
+
                 if (column.Text.Equals("Cijena"))
                 {
-                    column.Width = lvWidth - sum;
-                    if (column.Width == 50)
-                        column.Width += 7;
+                    column.Width = lvWidth - sum - 5;
                 }
+                if(column.Text.Equals("R.b.") && (lvWidth >1000))
+                    column.Width += 8;
+                else if(column.Text.Equals("R.b."))
+                    column.Width += 1;
                 sum += column.Width;
             }
         }
@@ -910,6 +921,7 @@ namespace Autopraonica_Markus.forms.userControls
             else
                 btnGenBill.Enabled = true;
         }
+ 
     }
 }
 

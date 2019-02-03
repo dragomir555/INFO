@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +42,7 @@
             this.lblSrcEmp = new System.Windows.Forms.Label();
             this.btnHireEmployee = new System.Windows.Forms.Button();
             this.cmbEmployees = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,28 +57,28 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmployees.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmployees.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEmployees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmployees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployees.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colFirstName,
             this.colLastName,
             this.colPhoneNumber,
             this.colAddress});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEmployees.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEmployees.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvEmployees.Location = new System.Drawing.Point(23, 57);
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEmployees.MultiSelect = false;
@@ -136,7 +137,7 @@
             this.btnUpdateEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.btnUpdateEmployee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnUpdateEmployee.Location = new System.Drawing.Point(248, 398);
+            this.btnUpdateEmployee.Location = new System.Drawing.Point(258, 398);
             this.btnUpdateEmployee.Name = "btnUpdateEmployee";
             this.btnUpdateEmployee.Size = new System.Drawing.Size(219, 55);
             this.btnUpdateEmployee.TabIndex = 6;
@@ -151,7 +152,7 @@
             this.btnDeleteEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.btnDeleteEmployee.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(473, 398);
+            this.btnDeleteEmployee.Location = new System.Drawing.Point(495, 398);
             this.btnDeleteEmployee.Name = "btnDeleteEmployee";
             this.btnDeleteEmployee.Size = new System.Drawing.Size(219, 55);
             this.btnDeleteEmployee.TabIndex = 7;
@@ -161,19 +162,20 @@
             // 
             // tbSearchEmployee
             // 
-            this.tbSearchEmployee.Location = new System.Drawing.Point(576, 18);
+            this.tbSearchEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbSearchEmployee.Location = new System.Drawing.Point(590, 20);
             this.tbSearchEmployee.Name = "tbSearchEmployee";
-            this.tbSearchEmployee.Size = new System.Drawing.Size(312, 22);
+            this.tbSearchEmployee.Size = new System.Drawing.Size(298, 30);
             this.tbSearchEmployee.TabIndex = 8;
             this.tbSearchEmployee.TextChanged += new System.EventHandler(this.tbSearchEmployee_TextChanged);
             // 
             // lblSrcEmp
             // 
             this.lblSrcEmp.AutoSize = true;
-            this.lblSrcEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSrcEmp.Location = new System.Drawing.Point(194, 14);
+            this.lblSrcEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSrcEmp.Location = new System.Drawing.Point(277, 25);
             this.lblSrcEmp.Name = "lblSrcEmp";
-            this.lblSrcEmp.Size = new System.Drawing.Size(354, 29);
+            this.lblSrcEmp.Size = new System.Drawing.Size(287, 25);
             this.lblSrcEmp.TabIndex = 9;
             this.lblSrcEmp.Text = "Pretraga po imenu i prezimenu :";
             // 
@@ -196,18 +198,29 @@
             // cmbEmployees
             // 
             this.cmbEmployees.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.cmbEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cmbEmployees.FormattingEnabled = true;
-            this.cmbEmployees.Location = new System.Drawing.Point(23, 14);
+            this.cmbEmployees.Location = new System.Drawing.Point(89, 17);
             this.cmbEmployees.Name = "cmbEmployees";
-            this.cmbEmployees.Size = new System.Drawing.Size(165, 26);
+            this.cmbEmployees.Size = new System.Drawing.Size(165, 33);
             this.cmbEmployees.TabIndex = 14;
             this.cmbEmployees.SelectedIndexChanged += new System.EventHandler(this.cmbEmployees_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 25);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Prikaz";
             // 
             // uclZaposleni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbEmployees);
             this.Controls.Add(this.btnHireEmployee);
             this.Controls.Add(this.lblSrcEmp);
@@ -239,5 +252,6 @@
         private System.Windows.Forms.Label lblSrcEmp;
         private System.Windows.Forms.Button btnHireEmployee;
         private System.Windows.Forms.ComboBox cmbEmployees;
+        private System.Windows.Forms.Label label1;
     }
 }

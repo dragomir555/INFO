@@ -42,9 +42,9 @@ namespace Autopraonica_Markus.forms.userControls
 
         private void fillComboBox()
         {
-            cmbEmployees.Items.Add("Trenutni");
-            cmbEmployees.Items.Add("Bivši");
-            cmbEmployees.Text = "Trenutni";
+            cmbEmployees.Items.Add("Trenutnih");
+            cmbEmployees.Items.Add("Bivših");
+            cmbEmployees.Text = "Trenutnih";
         }
 
         private void btnNewEmployee_Click(object sender, EventArgs e)
@@ -124,7 +124,7 @@ namespace Autopraonica_Markus.forms.userControls
                                where ents.DateTo != null
                                select c).ToList();
 
-                if ("Trenutni".Equals(cmbEmployees.Text))
+                if ("Trenutnih".Equals(cmbEmployees.Text))
                     employeed = praviZaposleni;
                 else
                 {
@@ -218,7 +218,7 @@ namespace Autopraonica_Markus.forms.userControls
             }
             else
             {
-                MessageBox.Show("Izaberite klijenta iz tabele");
+                MessageBox.Show("Izaberite zaposlenog iz tabele");
             }
 }
               
@@ -296,7 +296,7 @@ namespace Autopraonica_Markus.forms.userControls
 
 
 
-                if ("Trenutni".Equals(cmbEmployees.Text))
+                if ("Trenutnih".Equals(cmbEmployees.Text))
                 {
                     empl = getCurrentEmpl();
                 }
@@ -480,7 +480,7 @@ namespace Autopraonica_Markus.forms.userControls
             }
             else
             {
-                MessageBox.Show("Izaberite klijenta iz tabele");
+                MessageBox.Show("Izaberite zaposlenog iz tabele");
             }
         }
 
@@ -496,7 +496,7 @@ namespace Autopraonica_Markus.forms.userControls
 
         public void hideButtons()
         {
-            if ("Trenutni".Equals(cmbEmployees.Text))
+            if ("Trenutnih".Equals(cmbEmployees.Text))
             {
                 tbSearchEmployee.Clear();
                 lblEmp.Visible = false;
