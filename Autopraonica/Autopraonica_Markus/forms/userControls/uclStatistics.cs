@@ -132,7 +132,7 @@ namespace Autopraonica_Markus.forms.userControls
                         Tag = employeeIds[i]
                     };
                     DateTime dt1 = this.dateTimePicker1.Value.Date;
-                    DateTime dt2 = this.dateTimePicker2.Value.Date;
+                    DateTime dt2 = this.dateTimePicker2.Value.Date.AddDays(1);
 
                     int id = (int)employeeIds[i];
                     var employeerecords = (
@@ -172,9 +172,9 @@ namespace Autopraonica_Markus.forms.userControls
                         ).Count();
 
                     numberOfWashingsAsHelp = (
-                        from her in context.helpingemployeerecords
-                        join nes in context.naturalentityservices on her.HelpingEmployee_Id equals nes.HelpingEmployee_Id
-                        where her.HelpingEmployee_Id == id && DateTime.Compare(nes.ServiceTime, dt1) >= 0 && DateTime.Compare(nes.ServiceTime, dt2) <= 0
+                        from es in context.employees
+                        join nes in context.naturalentityservices on es.Id equals nes.HelpingEmployee_Id
+                        where nes.HelpingEmployee_Id == id && DateTime.Compare(nes.ServiceTime, dt1) >= 0 && DateTime.Compare(nes.ServiceTime, dt2) <= 0
                         select nes
                         ).Count();
 
