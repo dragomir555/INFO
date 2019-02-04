@@ -392,6 +392,7 @@ namespace Autopraonica_Markus.forms.userControls
                         dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
                         dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
                         dgv.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
+                        dgv.AllowUserToResizeRows = false;
                         i++;
                         rb++;
                     }
@@ -528,6 +529,7 @@ namespace Autopraonica_Markus.forms.userControls
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
+            dgv.AllowUserToResizeRows = false;
             i++;
             rb++;
 
