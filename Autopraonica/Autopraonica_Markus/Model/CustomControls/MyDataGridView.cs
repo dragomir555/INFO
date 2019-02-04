@@ -6,9 +6,9 @@ public class MyDataGridView : DataGridView
 {
     public MyDataGridView()
     {
-        EmptyText = "Tabela je prazna.";
+        EmptyText = "Ne postoje stavke cjenovnika.";
     }
-    [DefaultValue("Tabela je prazna.")]
+    [DefaultValue("Ne postoje stavke cjenovnika.")]
     public string EmptyText { get; set; }
     protected override void WndProc(ref Message m)
     {
