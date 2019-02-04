@@ -164,7 +164,7 @@ namespace Autopraonica_Markus.forms.userControls
                     PID = emp.PID
                 };
                 employeeForm.Text = "Izmjena zaposlenog";
-                
+
                 employee empl = null;
                 int idEmployee = emp.Id;
                 using (MarkusDb context = new MarkusDb())
@@ -178,23 +178,23 @@ namespace Autopraonica_Markus.forms.userControls
 
                 if (DialogResult.OK == employeeForm.ShowDialog())
                 {
-                  try
+                    try
                     {
-                        DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite sačuvati promjene?",  "Izmjena zaposlenog", MessageBoxButtons.YesNo);
+                        DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite sačuvati promjene?", "Izmjena zaposlenog", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
                         {
                             using (MarkusDb context = new MarkusDb())
-                        {
-                            context.employees.Attach(empl);
-                            empl.FirstName = employeeForm.FirstName;
-                            empl.LastName = employeeForm.LastName;
-                            empl.Address = employeeForm.Address;
-                            empl.PhoneNumber = employeeForm.PhoneNumber;
-                            empl.PID = employeeForm.PID;
-                            context.SaveChanges();
-                            FillTable();
+                            {
+                                context.employees.Attach(empl);
+                                empl.FirstName = employeeForm.FirstName;
+                                empl.LastName = employeeForm.LastName;
+                                empl.Address = employeeForm.Address;
+                                empl.PhoneNumber = employeeForm.PhoneNumber;
+                                empl.PID = employeeForm.PID;
+                                context.SaveChanges();
+                                FillTable();
 
-                        }}
+                            } }
                     }
 
                     catch (DbEntityValidationException ex)
@@ -220,9 +220,9 @@ namespace Autopraonica_Markus.forms.userControls
             {
                 MessageBox.Show("Izaberite zaposlenog iz tabele");
             }
-}
-              
-        private void deleteSelectedEmployee(){
+        }
+
+        private void deleteSelectedEmployee() {
             using (MarkusDb context = new MarkusDb())
             {
                 employee emp = (employee)dgvEmployees.SelectedRows[0].Tag;
@@ -241,7 +241,7 @@ namespace Autopraonica_Markus.forms.userControls
         private void btnDeleteEmployee_Click(object sender, EventArgs e)
         {
             if (dgvEmployees.SelectedRows.Count == 1)
-            { 
+            {
                 DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite obrisati označenog zaposlenog?", "Brisanje zaposlenog", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -256,32 +256,32 @@ namespace Autopraonica_Markus.forms.userControls
             if (text.Count() == 3) {
                 MessageBox.Show("Ne mozete unijeti vise od dva parametra za pretragu");
                 tbSearchEmployee.Text = text[0] + " " + text[1];
-             }
+            }
             SearchEmployee();
         }
- 
+
         private void SearchEmployee()
         {
-          
+
             dgvEmployees.Rows.Clear();
             var empl = new System.Collections.Generic.List<employee>();
             empl = getEmployee(empl);
             empl = empl.Distinct().ToList();
 
             foreach (var e in empl)
+            {
+                DataGridViewRow r = new DataGridViewRow()
                 {
-                    DataGridViewRow r = new DataGridViewRow()
-                    {
-                        Tag = e
-                    };
+                    Tag = e
+                };
 
-                    r.CreateCells(dgvEmployees);
-                    r.SetValues(e.FirstName, e.LastName, e.PhoneNumber, e.Address);
-                    dgvEmployees.Rows.Add(r);
-                }
+                r.CreateCells(dgvEmployees);
+                r.SetValues(e.FirstName, e.LastName, e.PhoneNumber, e.Address);
+                dgvEmployees.Rows.Add(r);
             }
+        }
 
-            
+
 
         private System.Collections.Generic.List<employee> getEmployee(List<employee> empl)
         {
@@ -296,18 +296,18 @@ namespace Autopraonica_Markus.forms.userControls
 
 
 
-                if ("Trenutnih".Equals(cmbEmployees.Text))
-                {
-                    empl = getCurrentEmpl();
-                }
-                else
-                {
+            if ("Trenutnih".Equals(cmbEmployees.Text))
+            {
+                empl = getCurrentEmpl();
+            }
+            else
+            {
                 employees = getCurrentEmpl();
                 empl = getUnemployees(employees);
-                }
-         
+            }
+
             return empl;
-         }
+        }
 
         private List<employee> getUnemployees(List<employee> empl)
         {
@@ -316,27 +316,27 @@ namespace Autopraonica_Markus.forms.userControls
             string lastName = "";
             List<employee> currentUnemp = empl;
             List<employee> realUnemployees = new List<employee>();
-            
+
 
             if (text.Count() > 1)
                 lastName = text[1];
 
-            using (MarkusDb context = new MarkusDb()) { 
-            if (!"".Equals(lastName))
+            using (MarkusDb context = new MarkusDb()) {
+                if (!"".Equals(lastName))
                     currentUnemp = (from c in context.employees
-                        join emp in context.employments on c.Id equals emp.Employee_Id
-                        where c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo != null
-                        orderby c.LastName
-                        select c).ToList();
-            else
+                                    join emp in context.employments on c.Id equals emp.Employee_Id
+                                    where c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo != null
+                                    orderby c.LastName
+                                    select c).ToList();
+                else
                     currentUnemp = (from c in context.employees
-                        join emp in context.employments on c.Id equals emp.Employee_Id
-                        where c.FirstName.StartsWith(firstName) && emp.DateTo != null
-                        orderby c.LastName
-                        select c).ToList();
+                                    join emp in context.employments on c.Id equals emp.Employee_Id
+                                    where c.FirstName.StartsWith(firstName) && emp.DateTo != null
+                                    orderby c.LastName
+                                    select c).ToList();
             }
 
-            foreach(var e in currentUnemp)
+            foreach (var e in currentUnemp)
             {
                 if (!empl.Any(x => x.E_mail.Equals(e.E_mail)))
                     realUnemployees.Add(e);
@@ -347,28 +347,28 @@ namespace Autopraonica_Markus.forms.userControls
 
         private List<employee> getCurrentEmpl()
         {
-        string[] text = tbSearchEmployee.Text.Split(' ');
-        string firstName = text[0];
-        string lastName = "";
-        List<employee> empl;
-        
-        if (text.Count() > 1)
-          lastName = text[1];
-        using (MarkusDb context = new MarkusDb())
-        {
-            if (!"".Equals(lastName))
-                empl = (from c in context.employees
-                        join emp in context.employments on c.Id equals emp.Employee_Id
-                        where c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo == null
-                        orderby c.LastName
-                        select c).ToList();
-            else
-                empl = (from c in context.employees
-                        join emp in context.employments on c.Id equals emp.Employee_Id
-                        where c.FirstName.StartsWith(firstName) && emp.DateTo == null
-                        orderby c.LastName
-                        select c).ToList();
-        }
+            string[] text = tbSearchEmployee.Text.Split(' ');
+            string firstName = text[0];
+            string lastName = "";
+            List<employee> empl;
+
+            if (text.Count() > 1)
+                lastName = text[1];
+            using (MarkusDb context = new MarkusDb())
+            {
+                if (!"".Equals(lastName))
+                    empl = (from c in context.employees
+                            join emp in context.employments on c.Id equals emp.Employee_Id
+                            where c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo == null
+                            orderby c.LastName
+                            select c).ToList();
+                else
+                    empl = (from c in context.employees
+                            join emp in context.employments on c.Id equals emp.Employee_Id
+                            where c.FirstName.StartsWith(firstName) && emp.DateTo == null
+                            orderby c.LastName
+                            select c).ToList();
+            }
             return empl;
         }
 
@@ -391,18 +391,18 @@ namespace Autopraonica_Markus.forms.userControls
             lblEmp.Visible = true;
             btnNewEmployee.Visible = false;
             btnUpdateEmployee.Visible = false;
-            btnDeleteEmployee.Visible = false;          
-      //    lblEmp.Text = "Arhivirani zaposleni";
-       //     lblEmp.Location = new Point(218, 19);
-        //    FontFamily fontFamily = new FontFamily("Microsoft Sans Serif");
-          //  Font font = new Font(
+            btnDeleteEmployee.Visible = false;
+            //    lblEmp.Text = "Arhivirani zaposleni";
+            //     lblEmp.Location = new Point(218, 19);
+            //    FontFamily fontFamily = new FontFamily("Microsoft Sans Serif");
+            //  Font font = new Font(
             //   fontFamily,
-              // 20,
-              // FontStyle.Regular,
-              // GraphicsUnit.Pixel);
-     //       lblEmp.Width = 200;
-      //      lblEmp.Font = font;
-       //     this.Controls.Add(lblEmp);
+            // 20,
+            // FontStyle.Regular,
+            // GraphicsUnit.Pixel);
+            //       lblEmp.Width = 200;
+            //      lblEmp.Font = font;
+            //     this.Controls.Add(lblEmp);
         }
 
         private void btnHireEmployee_Click(object sender, EventArgs e)
@@ -411,7 +411,7 @@ namespace Autopraonica_Markus.forms.userControls
             {
                 DataGridViewRow row = dgvEmployees.SelectedRows[0];
                 employee emp = (employee)row.Tag;
-              
+
 
 
                 employee empl = null;
@@ -422,18 +422,18 @@ namespace Autopraonica_Markus.forms.userControls
                 {
                     empl = (from c in context.employees where c.Id == idEmployee select c).ToList().First();
                 }
-                 
+
                 using (MarkusDb context = new MarkusDb())
                 {
-                    empnt = (from c in context.employments where c.Employee_Id ==  empl.Id select c).ToList().First();
+                    empnt = (from c in context.employments where c.Employee_Id == empl.Id select c).ToList().First();
                 }
 
                 try
                 {
                     DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite ponovo da zaposlite odabranog nezaposlenog?", "Ponovno zaposlenje", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
-                    { 
-                    using (MarkusDb context = new MarkusDb())
+                    {
+                        using (MarkusDb context = new MarkusDb())
                         {
                             context.employees.Attach(empl);
 
@@ -457,7 +457,7 @@ namespace Autopraonica_Markus.forms.userControls
                             NewEmployeeInfoForm newEmp = new NewEmployeeInfoForm(empl.FirstName, empl.LastName, emplmnt.UserName, password);
                             newEmp.ShowDialog();
                             FillTable();
-                          
+
                         }
                     }
                 }
@@ -516,6 +516,34 @@ namespace Autopraonica_Markus.forms.userControls
                 btnDeleteEmployee.Visible = false;
             }
             FillTable();
+        }
+
+        private void dgvEmployees_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvEmployees.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgvEmployees.SelectedRows[0];
+                employee emp = (employee)row.Tag;
+                employee empl = null;
+                employment empnt = null;
+                List<manager> managers = null;
+
+                int idEmployee = emp.Id;
+                
+                using (MarkusDb context = new MarkusDb())
+                {
+                    empl = (from c in context.employees where c.Id == idEmployee select c).ToList().First();
+                    managers = (from c in context.managers select c).ToList();
+                }
+                
+                foreach(manager m in managers)
+                {
+                    if (m.Employee_Id == empl.Id)
+                        btnDeleteEmployee.Enabled = false;
+                    else
+                        btnDeleteEmployee.Enabled = true;
+                }
+            }
         }
     }
 }
