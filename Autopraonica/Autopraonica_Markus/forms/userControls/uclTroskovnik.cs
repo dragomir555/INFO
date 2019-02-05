@@ -61,7 +61,7 @@ namespace Autopraonica_Markus.forms.userControls
                 decimal sumPurchase = 0;
                 foreach (var p in lista)
                 {
-                    if (p.PurchaseTime<=dtpTo.Value.AddHours(1) && p.PurchaseTime>=dtpFrom.Value) { 
+                    if (p.PurchaseTime<=dtpTo.Value.AddHours(1) && p.PurchaseTime>=dtpFrom.Value && p.Canceled==false) { 
                     DataGridViewRow r = new DataGridViewRow() { Tag = p };
                     r.CreateCells(dgvPurchase);
                     Decimal dec = 0;
@@ -164,10 +164,11 @@ namespace Autopraonica_Markus.forms.userControls
                        purchase p = (purchase)dgvPurchase.SelectedRows[0].Tag;
                         if (p.Employee_Id == ActiveEmployee.Id)
                         {
-                            //context.purchases.Attach(p);
-                            //Treba izvrsiti izmjenu nad p ali nema u bazi
-                            //context.SaveChanges();
+                            context.purchases.Attach(p);
+                            p.Canceled = true;
+                            context.SaveChanges();
                             MessageBox.Show("Uspješno poništavanje nabavke", "Info");
+                            FillTable();
                         }
                         else
                         {

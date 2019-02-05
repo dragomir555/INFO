@@ -134,6 +134,7 @@ new { Client = cl, Contract = cop }).ToList();
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            tbSearchText.Text = "";
             FillTable();
         }
 
