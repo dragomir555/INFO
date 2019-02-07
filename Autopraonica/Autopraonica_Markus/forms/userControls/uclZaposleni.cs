@@ -325,13 +325,15 @@ namespace Autopraonica_Markus.forms.userControls
                 if (!"".Equals(lastName))
                     currentUnemp = (from c in context.employees
                                     join emp in context.employments on c.Id equals emp.Employee_Id
-                                    where c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo != null
+                                    where ((c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo != null)
+                                    || (c.LastName.StartsWith(firstName) && c.FirstName.StartsWith(lastName) && emp.DateTo != null))
                                     orderby c.LastName
                                     select c).ToList();
                 else
                     currentUnemp = (from c in context.employees
                                     join emp in context.employments on c.Id equals emp.Employee_Id
-                                    where c.FirstName.StartsWith(firstName) && emp.DateTo != null
+                                    where ((c.FirstName.StartsWith(firstName) && emp.DateTo != null) ||
+                                    (c.LastName.StartsWith(firstName) && emp.DateTo != null))
                                     orderby c.LastName
                                     select c).ToList();
             }
@@ -359,13 +361,15 @@ namespace Autopraonica_Markus.forms.userControls
                 if (!"".Equals(lastName))
                     empl = (from c in context.employees
                             join emp in context.employments on c.Id equals emp.Employee_Id
-                            where c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo == null
+                            where ((c.FirstName.StartsWith(firstName) && c.LastName.StartsWith(lastName) && emp.DateTo == null)
+                                    || (c.LastName.StartsWith(firstName) && c.FirstName.StartsWith(lastName) && emp.DateTo == null))
                             orderby c.LastName
                             select c).ToList();
                 else
                     empl = (from c in context.employees
                             join emp in context.employments on c.Id equals emp.Employee_Id
-                            where c.FirstName.StartsWith(firstName) && emp.DateTo == null
+                            where ((c.FirstName.StartsWith(firstName) && emp.DateTo == null) ||
+                                    (c.LastName.StartsWith(firstName) && emp.DateTo == null))
                             orderby c.LastName
                             select c).ToList();
             }

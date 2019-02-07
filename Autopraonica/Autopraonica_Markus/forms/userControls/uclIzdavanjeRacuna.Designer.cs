@@ -196,7 +196,7 @@
             this.btnGenBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.btnGenBill.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGenBill.Location = new System.Drawing.Point(657, 408);
+            this.btnGenBill.Location = new System.Drawing.Point(658, 408);
             this.btnGenBill.Name = "btnGenBill";
             this.btnGenBill.Size = new System.Drawing.Size(219, 55);
             this.btnGenBill.TabIndex = 17;
