@@ -122,7 +122,7 @@ namespace Autopraonica_Markus.forms.userControls
 
         public void updateComboBox()
         { 
-            lvUpSer.Columns[0].ListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.0f, FontStyle.Bold);
+            lvUpSer.Columns[0].ListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.0f, FontStyle.Bold);
             cmbClients.Items.Clear();
             using (MarkusDb context = new MarkusDb())
             {
