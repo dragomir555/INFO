@@ -102,7 +102,7 @@ namespace Autopraonica_Markus.forms.puchaseForms
                     {
                         using (MarkusDb context = new MarkusDb())
                         {
-                            ////var purchase = new purchase()
+                            var purchase = new purchase()
                             {
                                 PurchaseTime = DateTime.Now,
                                 SupplierName = tbNameSuplier.Text,
