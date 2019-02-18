@@ -26,6 +26,7 @@ namespace Autopraonica_Markus.forms.clientForms
             InitializeComponent();
             dtpUgovorDo.Hide();
             FillComboCity();
+            dtpUgovorDo.MinDate = DateTime.Now.AddMonths(1);
         }
 
 

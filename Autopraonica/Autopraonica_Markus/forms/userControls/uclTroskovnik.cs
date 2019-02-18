@@ -37,6 +37,7 @@ namespace Autopraonica_Markus.forms.userControls
             dtpTo.MaxDate = DateTime.Now;
             dtpFrom.MaxDate = DateTime.Now;
             dtpTo.Value = DateTime.Now;
+            dtpFrom.Value = DateTime.Now.AddMonths(-1);
         }
 
         private void FillTable()
