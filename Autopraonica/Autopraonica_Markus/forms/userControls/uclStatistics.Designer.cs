@@ -189,13 +189,12 @@
             this.btnGenerateStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerateStatistics.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerateStatistics.ForeColor = System.Drawing.Color.White;
-            this.btnGenerateStatistics.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerateStatistics.Image")));
             this.btnGenerateStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGenerateStatistics.Location = new System.Drawing.Point(52, 175);
             this.btnGenerateStatistics.Name = "btnGenerateStatistics";
             this.btnGenerateStatistics.Size = new System.Drawing.Size(214, 37);
             this.btnGenerateStatistics.TabIndex = 10;
-            this.btnGenerateStatistics.Text = "    Generiši statistiku";
+            this.btnGenerateStatistics.Text = "Generiši statistiku";
             this.btnGenerateStatistics.UseVisualStyleBackColor = false;
             this.btnGenerateStatistics.Click += new System.EventHandler(this.btnGenerateStatistics_Click);
             // 
