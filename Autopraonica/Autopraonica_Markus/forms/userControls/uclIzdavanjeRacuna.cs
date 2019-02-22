@@ -285,6 +285,7 @@ namespace Autopraonica_Markus.forms.userControls
                                where r.PDF != null
                                where r.DateFrom.Month == monthIndex
                                where r.DateFrom.Year == yearIndex
+                               where r.Client_Id == cl.Id
                                select r).FirstOrDefault();
                     }
                 }
@@ -921,7 +922,11 @@ namespace Autopraonica_Markus.forms.userControls
             else
                 btnGenBill.Enabled = true;
         }
- 
+
+        private void uclIzdavanjeRacuna_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

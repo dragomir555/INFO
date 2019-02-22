@@ -157,7 +157,7 @@
             this.btnDeleteEmployee.Name = "btnDeleteEmployee";
             this.btnDeleteEmployee.Size = new System.Drawing.Size(219, 55);
             this.btnDeleteEmployee.TabIndex = 7;
-            this.btnDeleteEmployee.Text = "Obriši zaposlenog";
+            this.btnDeleteEmployee.Text = "Otpusti zaposlenog";
             this.btnDeleteEmployee.UseVisualStyleBackColor = false;
             this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
             // 
