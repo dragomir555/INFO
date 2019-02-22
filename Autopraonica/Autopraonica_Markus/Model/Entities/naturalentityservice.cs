@@ -23,6 +23,8 @@ namespace Autopraonica_Markus.Model.Entities
 
         public int? HelpingEmployee_Id { get; set; }
 
+        public bool? Canceled { get; set; }
+
         public virtual carbrand carbrand { get; set; }
 
         public virtual employee employee { get; set; }
