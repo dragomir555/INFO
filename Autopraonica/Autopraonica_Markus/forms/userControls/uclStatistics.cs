@@ -271,6 +271,7 @@ namespace Autopraonica_Markus.forms.userControls
             DateTime dt1 = this.dateTimePicker1.Value.Date;
             DateTime dt2 = this.dateTimePicker2.Value.Date;
 
+            label3.Text =  dt1.Day + "." + dt1.Month + "."  + dt1.Year + " - "  + dt2.Day + "." + dt2.Month + "." + dt2.Year;
             decimal costs = 0;
             decimal prices = 0;
             using (MarkusDb context = new MarkusDb())
