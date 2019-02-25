@@ -167,14 +167,14 @@ namespace Autopraonica_Markus.forms.userControls
                     numberOfWashings = (
                         from es in context.employees
                         join nes in context.naturalentityservices on es.Id equals nes.Employee_Id
-                        where es.Id == id && DateTime.Compare(nes.ServiceTime, dt1) >= 0 && DateTime.Compare(nes.ServiceTime, dt2) <= 0
+                        where es.Id == id && DateTime.Compare(nes.ServiceTime, dt1) >= 0 && DateTime.Compare(nes.ServiceTime, dt2) <= 0 && nes.Canceled == false
                         select nes
                         ).Count();
 
                     numberOfWashingsAsHelp = (
                         from es in context.employees
                         join nes in context.naturalentityservices on es.Id equals nes.HelpingEmployee_Id
-                        where nes.HelpingEmployee_Id == id && DateTime.Compare(nes.ServiceTime, dt1) >= 0 && DateTime.Compare(nes.ServiceTime, dt2) <= 0
+                        where nes.HelpingEmployee_Id == id && DateTime.Compare(nes.ServiceTime, dt1) >= 0 && DateTime.Compare(nes.ServiceTime, dt2) <= 0 && nes.Canceled == false
                         select nes
                         ).Count();
 
