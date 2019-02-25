@@ -115,9 +115,12 @@ namespace Autopraonica_Markus.forms.userControls
 
             dtpYear.ShowUpDown = true;
             dtpYear.Height = 30;
-            
-            dtpDateFrom.MaxDate = DateTime.Now;
+
+            DateTime maxDt = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, DateTime.Now.Day);
+            dtpDateFrom.MaxDate = maxDt;
             dtpYear.MaxDate = DateTime.Now;
+            
+
         }
 
         public void updateComboBox()
