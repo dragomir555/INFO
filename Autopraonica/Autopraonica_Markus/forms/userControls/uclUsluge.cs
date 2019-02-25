@@ -61,6 +61,7 @@ namespace Autopraonica_Markus.forms.userControls
             {
                 var services = (from c in context.legalentityservices
                                 where c.naturalentityservice.Employee_Id == employee.Id &&
+                                c.naturalentityservice.Canceled == false &&
                                 c.naturalentityservice.ServiceTime.Day == DateTime.Now.Day &&
                                 c.naturalentityservice.ServiceTime.Month == DateTime.Now.Month &&
                                 c.naturalentityservice.ServiceTime.Year == DateTime.Now.Year
@@ -91,6 +92,7 @@ namespace Autopraonica_Markus.forms.userControls
                                      select c).ToList();
                 var services = (from c in context.naturalentityservices
                                 where c.Employee_Id == employee.Id &&
+                                c.Canceled == false &&
                                 c.ServiceTime.Day == DateTime.Now.Day &&
                                 c.ServiceTime.Month == DateTime.Now.Month &&
                                 c.ServiceTime.Year == DateTime.Now.Year
@@ -134,7 +136,8 @@ namespace Autopraonica_Markus.forms.userControls
                             PricelistItem_Id = nnesf.PricelistItem_Id,
                             ServiceTime = DateTime.Now,
                             Employee_Id = employee.Id,
-                            HelpingEmployee_Id = (helpingEmployee == null) ? new int?() : helpingEmployee.Id
+                            HelpingEmployee_Id = (helpingEmployee == null) ? new int?() : helpingEmployee.Id,
+                            Canceled = false
                         };
                         context.naturalentityservices.Add(naturalEntityService);
                         context.SaveChanges();
@@ -165,7 +168,8 @@ namespace Autopraonica_Markus.forms.userControls
                             PricelistItem_Id = nlesf.PricelistItem_Id,
                             ServiceTime = DateTime.Now,
                             Employee_Id = employee.Id,
-                            HelpingEmployee_Id = (helpingEmployee == null) ? new int?() : helpingEmployee.Id
+                            HelpingEmployee_Id = (helpingEmployee == null) ? new int?() : helpingEmployee.Id,
+                            Canceled = false
                         };
                         context.naturalentityservices.Add(naturalEntityService);
                         context.SaveChanges();
@@ -200,6 +204,58 @@ namespace Autopraonica_Markus.forms.userControls
             else
             {
                 dgvNaturalEntity.BringToFront();
+            }
+        }
+
+        private void btnCancelService_Click(object sender, EventArgs e)
+        {
+            if (cmbEntities.SelectedIndex == 0)
+            {
+                if (dgvLegalEntity.SelectedRows.Count > 0)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite da poništite odabranu uslugu?",
+                    "Markus", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        DataGridViewRow row = dgvLegalEntity.CurrentRow;
+                        naturalentityservice service = ((legalentityservice)row.Tag).naturalentityservice;
+                        using (MarkusDb context = new MarkusDb())
+                        {
+                            context.naturalentityservices.Attach(service);
+                            service.Canceled = true;
+                            context.SaveChanges();
+                        }
+                        FillTableLegalEntityServices();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Niste odabrali uslugu za poništavanje.", "Markus");
+                }
+            }
+            else
+            {
+                if (dgvNaturalEntity.SelectedRows.Count > 0)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Da li ste sigurni da želite da poništite odabranu uslugu?",
+                        "Markus", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        DataGridViewRow row = dgvNaturalEntity.CurrentRow;
+                        naturalentityservice service = (naturalentityservice)row.Tag;
+                        using (MarkusDb context = new MarkusDb())
+                        {
+                            context.naturalentityservices.Attach(service);
+                            service.Canceled = true;
+                            context.SaveChanges();
+                        }
+                        FillTableNaturalEntityServices();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Niste odabrali uslugu za poništavanje.", "Markus");
+                }
             }
         }
     }
