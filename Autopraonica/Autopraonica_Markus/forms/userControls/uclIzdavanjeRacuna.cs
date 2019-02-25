@@ -149,7 +149,7 @@ namespace Autopraonica_Markus.forms.userControls
              join plit in context.pricelistitems on nes.PricelistItem_Id equals plit.Id
              join plin in context.pricelistitemnames on plit.PricelistItemName_Id equals plin.Id
              join serTp in context.servicetypes on plit.ServiceType_Id equals serTp.Id
-             where cl.Name == cmbClients.Text
+             where cl.Name == cmbClients.Text && nes.Canceled == false
              select new
              {
                  serTp.Name,
@@ -203,7 +203,7 @@ namespace Autopraonica_Markus.forms.userControls
                 join plit in context.pricelistitems on nes.PricelistItem_Id equals plit.Id
                 join plin in context.pricelistitemnames on plit.PricelistItemName_Id equals plin.Id
                 join serTp in context.servicetypes on plit.ServiceType_Id equals serTp.Id
-                where cl.Name == cmbClients.Text
+                where cl.Name == cmbClients.Text && nes.Canceled == false
                 select new
                 {
                     serTp.Name,
@@ -489,7 +489,7 @@ namespace Autopraonica_Markus.forms.userControls
                  join plit in context.pricelistitems on nes.PricelistItem_Id equals plit.Id
                  join plin in context.pricelistitemnames on plit.PricelistItemName_Id equals plin.Id
                  join serTp in context.servicetypes on plit.ServiceType_Id equals serTp.Id
-                 where cl.Name == clientName
+                 where cl.Name == clientName && nes.Canceled == false
                  select new
                  {
                      lesFsName = nes.legalentityservice.FirstName,
