@@ -31,36 +31,6 @@ namespace Autopraonica_Markus.forms
             string currentPassword = tbCurrentPassword.Text;
             string newPassword = tbNewPassword.Text;
             string newPasswordConfirm = tbNewPasswordConfirm.Text;
-
-            /*if (string.IsNullOrWhiteSpace(currentPassword))
-            {
-                MessageBox.Show("Niste unijeli trenutnu lozinku.", "Upozorenje");
-                tbCurrentPassword.Focus();
-            }
-            else if (string.IsNullOrWhiteSpace(newPassword))
-            {
-                MessageBox.Show("Niste unijeli novu lozinku.", "Upozorenje");
-                tbNewPassword.Focus();
-            }
-            else if (string.IsNullOrWhiteSpace(newPasswordConfirm))
-            {
-                MessageBox.Show("Niste potvrdili novu lozinku.", "Upozorenje");
-                tbNewPasswordConfirm.Focus();
-            }
-            else if (!newPassword.Equals(newPasswordConfirm))
-            {
-                MessageBox.Show("Dva unosa nove lozinke se ne podudaraju", "Upozorenje");
-                tbNewPassword.Clear();
-                tbNewPasswordConfirm.Clear();
-                tbNewPassword.Focus();
-            }
-            else if (newPassword.Length < 8)
-            {
-                MessageBox.Show("Unesena lozinka mora imati minimum 8 karaktera.", "Upozorenje");
-                tbNewPassword.Clear();
-                tbNewPasswordConfirm.Clear();
-                tbNewPassword.Focus();
-            }*/
             if(ValidateChildren(ValidationConstraints.Enabled))
             {
                 using (MarkusDb context = new MarkusDb())
@@ -74,7 +44,6 @@ namespace Autopraonica_Markus.forms
                     {
                         if (!newPassword.Equals(newPasswordConfirm))
                         {
-                            //tbNewPassword.Focus();
                             errorProvider.SetError(tbNewPasswordConfirm, "Dva unosa nove lozinke se ne podudaraju.");
                         }
                         else
@@ -121,7 +90,6 @@ namespace Autopraonica_Markus.forms
                         tbCurrentPassword.Clear();
                         tbNewPassword.Clear();
                         tbNewPasswordConfirm.Clear();
-                        //tbCurrentPassword.Focus();
                         errorProvider.SetError(tbCurrentPassword, "Pogrešno ste unijeli trenutnu lozinku.");
                     }
                 }
@@ -143,7 +111,6 @@ namespace Autopraonica_Markus.forms
             if (string.IsNullOrWhiteSpace(tbCurrentPassword.Text))
             {
                 e.Cancel = true;
-                //tbCurrentPassword.Focus();
                 errorProvider.SetError(tbCurrentPassword, "Niste unijeli trenutnu lozinku.");
             }
             else
@@ -163,11 +130,7 @@ namespace Autopraonica_Markus.forms
             }
             else if (tbNewPassword.Text.Length < 8)
             {
-                //MessageBox.Show("Unesena lozinka mora imati minimum 8 karaktera.", "Upozorenje");
                 e.Cancel = true;
-                //tbNewPassword.Clear();
-                //tbNewPasswordConfirm.Clear();
-                //tbNewPassword.Focus();
                 errorProvider.SetError(tbNewPassword, "Unesena lozinka mora imati minimum 8 karaktera.");
             }
             else
@@ -185,16 +148,11 @@ namespace Autopraonica_Markus.forms
             if (string.IsNullOrWhiteSpace(tbNewPasswordConfirm.Text))
             {
                 e.Cancel = true;
-                //tbNewPassword.Focus();
                 errorProvider.SetError(tbNewPasswordConfirm, "Niste potvrdili novu lozinku.");
             }
             else if (newPasswordConfirm.Length < 8)
             {
-                //MessageBox.Show("Unesena lozinka mora imati minimum 8 karaktera.", "Upozorenje");
                 e.Cancel = true;
-                //tbNewPassword.Clear();
-                //tbNewPasswordConfirm.Clear();
-                //tbNewPassword.Focus();
                 errorProvider.SetError(tbNewPasswordConfirm, "Unesena lozinka mora imati minimum 8 karaktera.");
             }
             else

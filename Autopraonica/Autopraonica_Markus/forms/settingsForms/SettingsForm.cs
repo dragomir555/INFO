@@ -57,7 +57,6 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbName.Text))
             {
                 e.Cancel = true;
-                //tbName.Focus();
                 errorProvider.SetError(tbName, "Niste unijeli naziv autopraonice.");
             }
             else
@@ -77,7 +76,6 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbUID.Text))
             {
                 e.Cancel = true;
-                //tbUID.Focus();
                 errorProvider.SetError(tbUID, "Niste unijeli JIB.");
             }
             else if(tbUID.Text.Length != 13)
@@ -102,7 +100,6 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbAddress.Text))
             {
                 e.Cancel = true;
-                //tbAddress.Focus();
                 errorProvider.SetError(tbAddress, "Niste unijeli adresu.");
             }
             else
@@ -122,7 +119,6 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbPhoneNumber.Text))
             {
                 e.Cancel = true;
-                //tbPhoneNumber.Focus();
                 errorProvider.SetError(tbPhoneNumber, "Niste unijeli broj telefona.");
             }
             else
@@ -142,7 +138,6 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbAccountNumber.Text))
             {
                 e.Cancel = true;
-                //tbAccountNumber.Focus();
                 errorProvider.SetError(tbAccountNumber, "Niste unijeli broj računa.");
             }
             else
@@ -162,7 +157,6 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbEmail.Text))
             {
                 e.Cancel = true;
-                //tbEmail.Focus();
                 errorProvider.SetError(tbEmail, "Niste unijeli e-mail adresu.");
             }
             else
@@ -182,7 +176,6 @@ namespace Autopraonica_Markus.forms.settingsForms
             if (string.IsNullOrWhiteSpace(tbPassword.Text))
             {
                 e.Cancel = true;
-                //tbPassword.Focus();
                 errorProvider.SetError(tbPassword, "Niste unijeli lozinku.");
             }
             else

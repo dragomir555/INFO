@@ -91,7 +91,6 @@ namespace Autopraonica_Markus.forms.serviceForms
                 tbCarpetSize.Visible = true;
                 lblCarBrand.Visible = false;
                 cmbCarBrand.Visible = false;
-                //btnAddCarBrand.Visible = false;
                 lblLicencePlates.Visible = false;
                 mtbLicencePlate.Visible = false;
                 lblServiceType.Location = new Point(30, 180);
@@ -113,7 +112,6 @@ namespace Autopraonica_Markus.forms.serviceForms
                 tbCarpetSize.Clear();
                 lblCarBrand.Visible = true;
                 cmbCarBrand.Visible = true;
-                //btnAddCarBrand.Visible = true;
                 lblLicencePlates.Visible = true;
                 mtbLicencePlate.Visible = true;
                 lblServiceType.Location = new Point(30, 230);
@@ -129,7 +127,6 @@ namespace Autopraonica_Markus.forms.serviceForms
                 {
                     lblCarBrand.Visible = false;
                     cmbCarBrand.Visible = false;
-                    //btnAddCarBrand.Visible = false;
                     lblLicencePlates.Visible = false;
                     mtbLicencePlate.Visible = false;
                     lblServiceType.Location = new Point(30, 180);
@@ -163,7 +160,6 @@ namespace Autopraonica_Markus.forms.serviceForms
             if (string.IsNullOrWhiteSpace(tbFirstName.Text))
             {
                 e.Cancel = true;
-                //tbFirstName.Focus();
                 errorProvider.SetError(tbFirstName, "Niste unijeli ime.");
             }
             else
@@ -178,7 +174,6 @@ namespace Autopraonica_Markus.forms.serviceForms
             if (string.IsNullOrWhiteSpace(tbLastName.Text))
             {
                 e.Cancel = true;
-                //tbLastName.Focus();
                 errorProvider.SetError(tbLastName, "Niste unijeli prezime.");
             }
             else
@@ -194,7 +189,6 @@ namespace Autopraonica_Markus.forms.serviceForms
                 string.IsNullOrWhiteSpace(tbCarpetSize.Text))
             {
                 e.Cancel = true;
-                //tbCarpetSize.Focus();
                 errorProvider.SetError(tbCarpetSize, "Niste unijeli kvadraturu opranog tepiha.");
             }
             else
@@ -209,7 +203,6 @@ namespace Autopraonica_Markus.forms.serviceForms
             if (string.IsNullOrWhiteSpace(tbPrice.Text))
             {
                 e.Cancel = true;
-                //tbPrice.Focus();
                 errorProvider.SetError(tbPrice, "Niste unijeli cijenu usluge.");
             }
             else
@@ -266,16 +259,10 @@ namespace Autopraonica_Markus.forms.serviceForms
                                                           && c.PricelistItemName_Id == ((pricelistitemname)cmbPricelistItem.SelectedItem).Id
                                                           && c.Current == 1
                                                           select c).ToList();
-                    //Console.WriteLine();
-                    //Console.WriteLine("ServiceType_Id " + ((servicetype)cmbServiceType.SelectedItem).Id);
-                    //Console.WriteLine("PricelistItemName_Id " + ((pricelistitemname)cmbPricelistItem.SelectedItem).Id);
-                    //Console.WriteLine("Count " + pricelistItems.Count);
                     if (pricelistItems.Count == 1)
                     {
                         PricelistItem_Id = pricelistItems[0].Id;
                     }
-                    //Console.WriteLine("PriceListItem_Id " + PricelistItem_Id);
-                    //Console.WriteLine();
                 }
                 if ("Pranje tepiha".Equals(((servicetype)cmbServiceType.SelectedItem).Name))
                 {
@@ -300,7 +287,6 @@ namespace Autopraonica_Markus.forms.serviceForms
             if (!mtbLicencePlate.MaskCompleted)
             {
                 e.Cancel = true;
-                //mtbLicencePlate.Focus();
                 errorProvider.SetError(mtbLicencePlate, "Niste unijeli registarske tablice.");
             }
             else
