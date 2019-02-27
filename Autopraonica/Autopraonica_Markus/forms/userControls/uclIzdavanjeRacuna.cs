@@ -330,7 +330,10 @@ namespace Autopraonica_Markus.forms.userControls
                             filePath1 = filePath.Replace("Usluge", "Racun");
                             System.IO.File.WriteAllBytes(filePath, rec.PDF);
                             System.IO.File.WriteAllBytes(filePath1, rec.PDF_TABLE);
+                            MessageBox.Show("Uspješno generisan PDF", "PDF");
                         }
+                        else
+                            MessageBox.Show("Neuspješno generisan PDF", "PDF");
                     }
                 }
                 else
