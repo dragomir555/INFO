@@ -178,7 +178,15 @@ namespace Autopraonica_Markus.forms
                     client.Host = "smtp.gmail.com";
                     mailMessage.Subject = "Nova lozinka";
                     mailMessage.Body = "Vaša nova lozinka je: " + newPassword;
-                    client.Send(mailMessage);
+                    try
+                    {
+                        client.Send(mailMessage);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Slanje lozinke na vaš e-mail nije moguće u ovom trenutku jer nema internet konekcije. Pokušajte ponovo kasnije.", "Markus");
+
+                    }
                 }
             });
             mailDeliveryThread.Start();
