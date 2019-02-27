@@ -42,6 +42,7 @@ namespace Autopraonica_Markus.forms.userControls
             this.employee = employee;
             FillTableNaturalEntityServices();
             FillTableLegalEntityServices();
+            cmbEntities.SelectedIndex = 0;
         }
 
         public void SetHelpingEmployee(employee employee)

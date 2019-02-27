@@ -70,7 +70,6 @@ namespace Autopraonica_Markus.forms
                                 };
                                 employee.employeerecords.Add(emp);
                                 context.SaveChanges();
-                                mainForm.SetEmployee(employee);
                                 var managers = (from c in context.managers select c).ToList();
                                 mainForm.SetButtonsVisibility(false);
                                 foreach (manager m in managers)
@@ -83,6 +82,7 @@ namespace Autopraonica_Markus.forms
 
                                 mainForm.StartEmployeeLogoutUpdate();
                                 mainForm.SetUclUslugeFirst();
+                                mainForm.SetEmployee(employee);
                                 mainForm.ChangeAllowShowDisplay();
                                 this.DialogResult = DialogResult.OK;
                                 this.Close();
