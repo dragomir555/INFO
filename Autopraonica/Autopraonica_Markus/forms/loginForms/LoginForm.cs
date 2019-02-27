@@ -95,7 +95,7 @@ namespace Autopraonica_Markus.forms
                             {
                                 StartMailDelivery(employment[0], context);
 
-                                MessageBox.Show("Na vaš e-mail je poslata poruka sa vašom novom lozinkom.", "Obavještenje");
+                                MessageBox.Show("Na vaš e-mail će biti poslata poruka sa vašom novom lozinkom.", "Obavještenje");
                                 PasswordChangeForm pcf = new PasswordChangeForm(employment[0], mainForm, 0);
                                 pcf.Show();
                                 this.DialogResult = DialogResult.OK;
