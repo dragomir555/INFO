@@ -35,10 +35,6 @@
             this.tbNumberPurchase = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.clNameItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +44,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbNameSuplier = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.clNameItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -112,30 +112,7 @@
             this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItems.Size = new System.Drawing.Size(713, 214);
             this.dgvItems.TabIndex = 2;
-            // 
-            // clNameItem
-            // 
-            this.clNameItem.HeaderText = "Naziv stavke";
-            this.clNameItem.Name = "clNameItem";
-            this.clNameItem.ReadOnly = true;
-            // 
-            // clQuantity
-            // 
-            this.clQuantity.HeaderText = "Količina";
-            this.clQuantity.Name = "clQuantity";
-            this.clQuantity.ReadOnly = true;
-            // 
-            // clUnit
-            // 
-            this.clUnit.HeaderText = "Jedinica";
-            this.clUnit.Name = "clUnit";
-            this.clUnit.ReadOnly = true;
-            // 
-            // clPrice
-            // 
-            this.clPrice.HeaderText = "Cijena";
-            this.clPrice.Name = "clPrice";
-            this.clPrice.ReadOnly = true;
+            this.dgvItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItems_CellContentClick);
             // 
             // btnConfirm
             // 
@@ -251,11 +228,36 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // clNameItem
+            // 
+            this.clNameItem.HeaderText = "Naziv stavke";
+            this.clNameItem.Name = "clNameItem";
+            this.clNameItem.ReadOnly = true;
+            // 
+            // clQuantity
+            // 
+            this.clQuantity.HeaderText = "Količina";
+            this.clQuantity.Name = "clQuantity";
+            this.clQuantity.ReadOnly = true;
+            // 
+            // clUnit
+            // 
+            this.clUnit.HeaderText = "Jedinica";
+            this.clUnit.Name = "clUnit";
+            this.clUnit.ReadOnly = true;
+            // 
+            // clPrice
+            // 
+            this.clPrice.HeaderText = "Iznos [KM]";
+            this.clPrice.Name = "clPrice";
+            this.clPrice.ReadOnly = true;
+            // 
             // NewPurchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(733, 401);
             this.Controls.Add(this.tbNameSuplier);
             this.Controls.Add(this.label4);

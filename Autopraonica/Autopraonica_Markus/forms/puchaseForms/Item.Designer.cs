@@ -39,6 +39,8 @@
             this.tbPrize = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.nameItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbSearchText = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnAddNewItem = new System.Windows.Forms.Button();
@@ -46,8 +48,6 @@
             this.tbStavka = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbUnit = new System.Windows.Forms.TextBox();
-            this.nameItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -166,6 +166,18 @@
             this.dgvItems.TabIndex = 11;
             this.dgvItems.SelectionChanged += new System.EventHandler(this.dgvItems_SelectionChanged);
             // 
+            // nameItem
+            // 
+            this.nameItem.HeaderText = "Naziv stavke";
+            this.nameItem.Name = "nameItem";
+            this.nameItem.ReadOnly = true;
+            // 
+            // unitName
+            // 
+            this.unitName.HeaderText = "Mjerna jedinica";
+            this.unitName.Name = "unitName";
+            this.unitName.ReadOnly = true;
+            // 
             // tbSearchText
             // 
             this.tbSearchText.Location = new System.Drawing.Point(92, 17);
@@ -229,23 +241,12 @@
             this.tbUnit.Size = new System.Drawing.Size(91, 26);
             this.tbUnit.TabIndex = 18;
             // 
-            // nameItem
-            // 
-            this.nameItem.HeaderText = "Naziv stavke";
-            this.nameItem.Name = "nameItem";
-            this.nameItem.ReadOnly = true;
-            // 
-            // unitName
-            // 
-            this.unitName.HeaderText = "Mjerna jedinica";
-            this.unitName.Name = "unitName";
-            this.unitName.ReadOnly = true;
-            // 
             // Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(506, 314);
             this.Controls.Add(this.tbUnit);
             this.Controls.Add(this.label5);

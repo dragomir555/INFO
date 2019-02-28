@@ -204,5 +204,10 @@ namespace Autopraonica_Markus.forms.puchaseForms
         {
             AllowInteger(sender,e);
         }
+
+        private void dgvItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
