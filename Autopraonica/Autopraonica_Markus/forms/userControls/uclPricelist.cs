@@ -369,7 +369,7 @@ namespace Autopraonica_Markus.forms.userControls
                         dgv.Name = "dataGridView" + rb;
                         dgv.ColumnCount = 3;
                         dgv.Columns[0].Name = "Naziv usluge";
-                        dgv.Columns[1].Name = "Cijena";
+                        dgv.Columns[1].Name = "Cijena [KM]";
                         dgv.Columns[2].Name = "Id";
                         dgv.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         dgv.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -506,7 +506,7 @@ namespace Autopraonica_Markus.forms.userControls
             dgv.Name = "dataGridView" + rb;
             dgv.ColumnCount = 3;
             dgv.Columns[0].Name = "Naziv usluge";
-            dgv.Columns[1].Name = "Cijena";
+            dgv.Columns[1].Name = "Cijena [KM]";
             dgv.Columns[2].Name = "Id";
             dgv.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgv.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
