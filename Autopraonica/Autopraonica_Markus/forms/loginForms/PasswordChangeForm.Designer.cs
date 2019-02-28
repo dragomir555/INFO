@@ -38,6 +38,7 @@
             this.tbNewPasswordConfirm = new System.Windows.Forms.TextBox();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.linkLblBackToLogin = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,6 +125,21 @@
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
+            // linkLblBackToLogin
+            // 
+            this.linkLblBackToLogin.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(93)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.linkLblBackToLogin.AutoSize = true;
+            this.linkLblBackToLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLblBackToLogin.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.linkLblBackToLogin.Location = new System.Drawing.Point(202, 280);
+            this.linkLblBackToLogin.Name = "linkLblBackToLogin";
+            this.linkLblBackToLogin.Size = new System.Drawing.Size(96, 16);
+            this.linkLblBackToLogin.TabIndex = 5;
+            this.linkLblBackToLogin.TabStop = true;
+            this.linkLblBackToLogin.Text = "Vrati na prijavu";
+            this.linkLblBackToLogin.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(65)))), ((int)(((byte)(150)))));
+            this.linkLblBackToLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblBackToLogin_LinkClicked);
+            // 
             // PasswordChangeForm
             // 
             this.AcceptButton = this.btnConfirm;
@@ -131,7 +147,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(484, 317);
+            this.ClientSize = new System.Drawing.Size(484, 338);
+            this.Controls.Add(this.linkLblBackToLogin);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.tbNewPasswordConfirm);
             this.Controls.Add(this.lblNewPasswordConfirm);
@@ -162,5 +179,6 @@
         private System.Windows.Forms.TextBox tbNewPasswordConfirm;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.LinkLabel linkLblBackToLogin;
     }
 }

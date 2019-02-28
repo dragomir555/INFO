@@ -24,6 +24,11 @@ namespace Autopraonica_Markus.forms
             this.firstEmployment = firstEmployment;
             this.mainForm = mainForm;
             this.caller = caller;
+            if(caller == 1)
+            {
+                linkLblBackToLogin.Visible = false;
+                this.Size = new Size(500, 355);
+            }
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -125,7 +130,6 @@ namespace Autopraonica_Markus.forms
             if (string.IsNullOrWhiteSpace(tbNewPassword.Text))
             {
                 e.Cancel = true;
-                //tbNewPassword.Focus();
                 errorProvider.SetError(tbNewPassword, "Niste unijeli novu lozinku.");
             }
             else if (tbNewPassword.Text.Length < 8)
@@ -160,6 +164,14 @@ namespace Autopraonica_Markus.forms
                 e.Cancel = false;
                 errorProvider.SetError(tbNewPasswordConfirm, null);
             }
+        }
+
+        private void linkLblBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LoginForm loginForm = new LoginForm(mainForm);
+            loginForm.Show();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

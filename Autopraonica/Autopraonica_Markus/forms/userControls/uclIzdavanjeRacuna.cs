@@ -115,9 +115,12 @@ namespace Autopraonica_Markus.forms.userControls
 
             dtpYear.ShowUpDown = true;
             dtpYear.Height = 30;
-            
-            dtpDateFrom.MaxDate = DateTime.Now;
+
+            DateTime maxDt = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, DateTime.Now.Day);
+            dtpDateFrom.MaxDate = maxDt;
             dtpYear.MaxDate = DateTime.Now;
+            
+
         }
 
         public void updateComboBox()
@@ -327,7 +330,10 @@ namespace Autopraonica_Markus.forms.userControls
                             filePath1 = filePath.Replace("Usluge", "Racun");
                             System.IO.File.WriteAllBytes(filePath, rec.PDF);
                             System.IO.File.WriteAllBytes(filePath1, rec.PDF_TABLE);
+                            MessageBox.Show("Uspješno generisan PDF", "PDF");
                         }
+                        else
+                            MessageBox.Show("Neuspješno generisan PDF", "PDF");
                     }
                 }
                 else

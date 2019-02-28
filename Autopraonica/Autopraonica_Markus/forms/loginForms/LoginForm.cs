@@ -40,7 +40,7 @@ namespace Autopraonica_Markus.forms
                                       where username.Equals(c.UserName) &&
                                       c.DateTo == null
                                       select c).ToList();
-                    if(employment.Count == 0)
+                    if (employment.Count == 0)
                     {
                         tbUsername.Clear();
                         tbPassword.Clear();
@@ -48,62 +48,63 @@ namespace Autopraonica_Markus.forms
                     }
                     else
                     {
-                        if (((employment)employment[0]).FirstLogin == 1)
+                        string salt = ((employment)employment[0]).Salt;
+                        string passwordHash = UserService.GetPasswordHash(salt, password);
+                        if (passwordHash.Equals(((employment)employment[0]).HashPassword))
                         {
-                            PasswordChangeForm pcf = new PasswordChangeForm(employment[0], mainForm, 0);
-                            pcf.Show();
-                            this.DialogResult = DialogResult.OK;
-                            this.Close();
-                        }
-                        else
-                        {
-                            employee employee = ((employment)employment[0]).employee;
-                            var emp = new employeerecord()
+                            if (((employment)employment[0]).FirstLogin == 1)
                             {
-                                Employee_Id = employee.Id,
-                                LoginTime = DateTime.Now,
-                                LogoutTime = null
-                            };
-                            employee.employeerecords.Add(emp);
-                            context.SaveChanges();
-                            mainForm.SetEmployee(employee);
-                            var managers = (from c in context.managers select c).ToList();
-                            mainForm.SetButtonsVisibility(false);
-                            foreach (manager m in managers)
-                            {
-                                if (employee.Id == m.Employee_Id)
-                                {
-                                    mainForm.SetButtonsVisibility(true);
-                                }
-                            }
-                            string salt = ((employment)employment[0]).Salt;
-                            string passwordHash = UserService.GetPasswordHash(salt, password);
-                            if (passwordHash.Equals(((employment)employment[0]).HashPassword))
-                            {
-                                mainForm.StartEmployeeLogoutUpdate();
-                                mainForm.SetUclUslugeFirst();
-                                mainForm.ChangeAllowShowDisplay();
+                                PasswordChangeForm pcf = new PasswordChangeForm(employment[0], mainForm, 0);
+                                pcf.Show();
                                 this.DialogResult = DialogResult.OK;
                                 this.Close();
                             }
                             else
                             {
-                                numberOfFailedLogin++;
-                                if (numberOfFailedLogin == 3)
+                                employee employee = ((employment)employment[0]).employee;
+                                var emp = new employeerecord()
                                 {
-                                    StartMailDelivery(employment[0]);
+                                    Employee_Id = employee.Id,
+                                    LoginTime = DateTime.Now,
+                                    LogoutTime = null
+                                };
+                                employee.employeerecords.Add(emp);
+                                context.SaveChanges();
+                                var managers = (from c in context.managers select c).ToList();
+                                mainForm.SetButtonsVisibility(false);
+                                foreach (manager m in managers)
+                                {
+                                    if (employee.Id == m.Employee_Id)
+                                    {
+                                        mainForm.SetButtonsVisibility(true);
+                                    }
+                                }
 
-                                    MessageBox.Show("Na vaš e-mail je poslata poruka sa vašom novom lozinkom.", "Obavještenje");
-                                    PasswordChangeForm pcf = new PasswordChangeForm(employment[0], mainForm, 0);
-                                    pcf.Show();
-                                    this.DialogResult = DialogResult.OK;
-                                    this.Close();
-                                }
-                                else
-                                {
-                                    tbPassword.Clear();
-                                    errorProvider.SetError(tbPassword, "Niste unijeli odgovarajuću lozinku.");
-                                }
+                                mainForm.StartEmployeeLogoutUpdate();
+                                mainForm.SetUclUslugeFirst();
+                                mainForm.SetEmployee(employee);
+                                mainForm.ChangeAllowShowDisplay();
+                                this.DialogResult = DialogResult.OK;
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            numberOfFailedLogin++;
+                            if (numberOfFailedLogin == 3)
+                            {
+                                StartMailDelivery(employment[0], context);
+
+                                MessageBox.Show("Na vaš e-mail će biti poslata poruka sa vašom novom lozinkom.", "Obavještenje");
+                                PasswordChangeForm pcf = new PasswordChangeForm(employment[0], mainForm, 0);
+                                pcf.Show();
+                                this.DialogResult = DialogResult.OK;
+                                this.Close();
+                            }
+                            else
+                            {
+                                tbPassword.Clear();
+                                errorProvider.SetError(tbPassword, "Niste unijeli odgovarajuću lozinku.");
                             }
                         }
                     }
@@ -149,11 +150,11 @@ namespace Autopraonica_Markus.forms
             }
         }
 
-        private void StartMailDelivery(employment employment)
+        private void StartMailDelivery(employment employment, MarkusDb context)
         {
             Thread mailDeliveryThread = new Thread(() =>
             {
-                using(MarkusDb context = new MarkusDb())
+                using(context)
                 {
                     string mail = employment.employee.E_mail;
                     string newSalt = UserService.GenerateSalt();
@@ -177,7 +178,15 @@ namespace Autopraonica_Markus.forms
                     client.Host = "smtp.gmail.com";
                     mailMessage.Subject = "Nova lozinka";
                     mailMessage.Body = "Vaša nova lozinka je: " + newPassword;
-                    client.Send(mailMessage);
+                    try
+                    {
+                        client.Send(mailMessage);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Slanje lozinke na vaš e-mail nije moguće u ovom trenutku jer nema internet konekcije. Pokušajte ponovo kasnije.", "Markus");
+
+                    }
                 }
             });
             mailDeliveryThread.Start();
